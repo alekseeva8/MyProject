@@ -10,9 +10,12 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
 
+    @IBOutlet weak var signUpButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BackgroundColor")
+        signUpButton.layer.cornerRadius = 20
 
         // Do any additional setup after loading the view.
     }
