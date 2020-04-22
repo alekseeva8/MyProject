@@ -10,11 +10,9 @@ AudioVideo Player for Kids.
 
 
 * Песни, сказки загружаются с Google Cloud  Storage.
-
 * Радио загружется с сервера через tuneIn api.
 Источник детского радио: https://tunein.com/radio/Childrens-Music-c530749/  
 Тестить API https://rapidapi.com/community/api/tunein 
-
 * Видео загружается с YouTube.
 Источник видео: Лум Планет
 https://www.youtube.com/channel/UCy1D4WGprdBxv0FaC6IH-wg
