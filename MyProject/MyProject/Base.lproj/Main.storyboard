@@ -236,6 +236,10 @@
                                                         <rect key="frame" x="5" y="5" width="40" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button" image="reverse"/>
+                                                        <connections>
+                                                            <action selector="touchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="oh6-b7-m6S"/>
+                                                            <action selector="touchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="3Sp-JU-QbU"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -253,6 +257,11 @@
                                                             <constraint firstAttribute="width" constant="35" id="4dh-ln-qvH"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="play"/>
+                                                        <connections>
+                                                            <action selector="playPauseButtonTapped:" destination="I9R-3G-UfO" eventType="touchUpInside" id="J0D-yq-123"/>
+                                                            <action selector="touchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="hMm-zg-XLR"/>
+                                                            <action selector="touchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="Lio-yo-4zB"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -270,6 +279,10 @@
                                                         <rect key="frame" x="5" y="5" width="40" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button" image="forward"/>
+                                                        <connections>
+                                                            <action selector="touchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="1o3-pZ-SXV"/>
+                                                            <action selector="touchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="tU9-jx-SgL"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -300,6 +313,15 @@
                         <viewLayoutGuide key="safeArea" id="v5o-CG-tid"/>
                     </view>
                     <navigationItem key="navigationItem" id="ehx-hF-ywX"/>
+                    <connections>
+                        <outlet property="forwardButton" destination="wAs-A7-xXd" id="5BL-OY-hd0"/>
+                        <outlet property="forwardView" destination="2Jg-Ut-mdb" id="B1O-vl-4T8"/>
+                        <outlet property="imageView" destination="OaA-Ef-tdz" id="EjW-j5-tLi"/>
+                        <outlet property="playPauseButton" destination="4o8-fA-KN2" id="1FZ-yM-ohr"/>
+                        <outlet property="playView" destination="j60-Vu-WVK" id="Bxh-T1-RBB"/>
+                        <outlet property="reverseButton" destination="rYU-IF-gcZ" id="7JJ-6C-VIS"/>
+                        <outlet property="reverseView" destination="cOz-uT-DSS" id="FZi-3b-sTx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BID-7R-dYI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
