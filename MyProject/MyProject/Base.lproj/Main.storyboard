@@ -183,7 +183,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="UvT-D5-tUl"/>
                     <connections>
-                        <segue destination="I9R-3G-UfO" kind="show" id="2fo-9K-mhP"/>
+                        <segue destination="I9R-3G-UfO" kind="presentation" modalPresentationStyle="fullScreen" id="2fo-9K-mhP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bk8-i7-4xl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -195,16 +195,100 @@
             <objects>
                 <viewController id="I9R-3G-UfO" customClass="AVPlayerViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BtX-Wl-7Gl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="S50-cD-zZX">
+                                <rect key="frame" x="47.5" y="79.5" width="280" height="508"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OaA-Ef-tdz">
+                                        <rect key="frame" x="32" y="0.0" width="216" height="189.5"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tTA-NN-68w">
+                                        <rect key="frame" x="0.0" y="239.5" width="280" height="2"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="fWr-ui-y3V"/>
+                                        </constraints>
+                                    </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2S-q1-IcZ">
+                                        <rect key="frame" x="83.5" y="291.5" width="113" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="OD9-XA-abj">
+                                        <rect key="frame" x="24" y="368" width="232" height="60"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOz-uT-DSS" userLabel="reverseView">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYU-IF-gcZ" userLabel="reverseButton">
+                                                        <rect key="frame" x="5" y="5" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Button" image="reverse"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="TQd-De-ddt"/>
+                                                    <constraint firstAttribute="height" constant="60" id="mcj-t0-WV3"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j60-Vu-WVK" userLabel="playView">
+                                                <rect key="frame" x="86" y="0.0" width="60" height="60"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4o8-fA-KN2" userLabel="playButton">
+                                                        <rect key="frame" x="7" y="7" width="45" height="45"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Button" image="play"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Jg-Ut-mdb" userLabel="forwardView">
+                                                <rect key="frame" x="172" y="0.0" width="60" height="60"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAs-A7-xXd" userLabel="forwardButton">
+                                                        <rect key="frame" x="5" y="5" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Button" image="forward"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="j60-Vu-WVK" firstAttribute="centerX" secondItem="OD9-XA-abj" secondAttribute="centerX" id="DI5-MT-qxA"/>
+                                            <constraint firstItem="j60-Vu-WVK" firstAttribute="leading" secondItem="cOz-uT-DSS" secondAttribute="trailing" constant="26" id="JRy-cG-fRZ"/>
+                                            <constraint firstItem="j60-Vu-WVK" firstAttribute="leading" secondItem="OD9-XA-abj" secondAttribute="leading" constant="86" id="QuE-4z-h5x"/>
+                                            <constraint firstItem="2Jg-Ut-mdb" firstAttribute="leading" secondItem="OD9-XA-abj" secondAttribute="leading" constant="172" id="wR0-uq-4nc"/>
+                                        </constraints>
+                                    </stackView>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="speaker.fill" catalog="system" maximumValueImage="speaker.3.fill" translatesAutoresizingMaskIntoConstraints="NO" id="2Od-ST-wQb">
+                                        <rect key="frame" x="-2" y="478" width="284" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="ydY-77-CiM"/>
+                                        </constraints>
+                                    </slider>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="OaA-Ef-tdz" firstAttribute="width" secondItem="v5o-CG-tid" secondAttribute="width" multiplier="0.577295" id="5PM-bz-Zhn"/>
+                            <constraint firstItem="S50-cD-zZX" firstAttribute="centerX" secondItem="BtX-Wl-7Gl" secondAttribute="centerX" id="9p2-uE-lkG"/>
+                            <constraint firstItem="S50-cD-zZX" firstAttribute="centerY" secondItem="BtX-Wl-7Gl" secondAttribute="centerY" id="Qnz-II-uav"/>
+                            <constraint firstItem="S50-cD-zZX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="v5o-CG-tid" secondAttribute="top" constant="10" id="sJM-FP-EDP"/>
+                            <constraint firstItem="OaA-Ef-tdz" firstAttribute="height" secondItem="v5o-CG-tid" secondAttribute="height" multiplier="0.283619" id="u5H-vE-j0b"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="v5o-CG-tid"/>
                     </view>
                     <navigationItem key="navigationItem" id="ehx-hF-ywX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BID-7R-dYI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3423" y="467"/>
+            <point key="canvasLocation" x="3421.5999999999999" y="466.41679160419795"/>
         </scene>
         <!--Registration View Controller-->
         <scene sceneID="NS8-Sh-l2d">
@@ -378,7 +462,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jf9-ep-Ugo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1612" y="1166"/>
+            <point key="canvasLocation" x="1612" y="1211"/>
         </scene>
         <!--Stories Table View Controller-->
         <scene sceneID="c3y-se-ytZ">
@@ -392,7 +476,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kIA-xR-6ge"/>
                     <connections>
-                        <segue destination="I9R-3G-UfO" kind="show" id="FD8-Di-rGL"/>
+                        <segue destination="I9R-3G-UfO" kind="presentation" modalPresentationStyle="fullScreen" id="FD8-Di-rGL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVH-Hw-gEW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -400,6 +484,13 @@
             <point key="canvasLocation" x="2409" y="838"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="forward" width="60" height="60"/>
+        <image name="play" width="60" height="60"/>
+        <image name="reverse" width="60" height="60"/>
+        <image name="speaker.3.fill" catalog="system" width="64" height="44"/>
+        <image name="speaker.fill" catalog="system" width="64" height="60"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FD8-Di-rGL"/>
         <segue reference="WBx-cV-Ya8"/>
