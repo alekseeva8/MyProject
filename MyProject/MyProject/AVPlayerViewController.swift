@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import  AVFoundation
 
 class AVPlayerViewController: UIViewController {
+
+    //var audioPlayer = AVPlayer()
+    var audioPlayer = AVAudioPlayer()
+    let path = Bundle.main.path(forResource: "Rio", ofType: "mp3")
 
     @IBOutlet weak var reverseView: UIView!
     @IBOutlet weak var playView: UIView!
@@ -23,9 +28,11 @@ class AVPlayerViewController: UIViewController {
         didSet {
             if isPlaying {
                 playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+                audioPlayer.play()
             }
             else {
                 playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+                audioPlayer.pause()
             }
         }
     }
@@ -35,9 +42,26 @@ class AVPlayerViewController: UIViewController {
         setBackgroundView(reverseView)
         setBackgroundView(playView)
         setBackgroundView(forwardView)
+
+        //AVAudioPlayer
+        let url = URL(fileURLWithPath: path ?? "")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+        } catch let error {
+            print(error)
+        }
+        //audioPlayer = AVPlayer(url: url)
+        audioPlayer.prepareToPlay()
+    }
+
+    //setting up background views of buttons
+    func setBackgroundView(_ backgroundView: UIView) {
+        backgroundView.layer.cornerRadius = backgroundView.bounds.width/2
+        backgroundView.clipsToBounds = true
     }
 
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
+    //переключает (toggle a Boolean value from true to false and adverse)
         isPlaying.toggle()
     }
 
@@ -49,11 +73,5 @@ class AVPlayerViewController: UIViewController {
 
     @IBAction func touchedUpInside(_ sender: UIButton) {
         sender.transform = CGAffineTransform.identity
-    }
-
-    //setting up background views of buttons
-    func setBackgroundView(_ backgroundView: UIView) {
-        backgroundView.layer.cornerRadius = backgroundView.bounds.width/2
-        backgroundView.clipsToBounds = true
     }
 }

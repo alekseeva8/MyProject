@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BackgroundColor")
         
-
         loginButton.layer.cornerRadius = 20
 
     }

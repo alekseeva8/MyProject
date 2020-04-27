@@ -20,6 +20,7 @@
 		F388CDD324508E740046B2DD /* StoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD224508E740046B2DD /* StoriesTableViewController.swift */; };
 		F388CDD524508F610046B2DD /* AVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD424508F610046B2DD /* AVPlayerViewController.swift */; };
 		F388CDD72450945E0046B2DD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD62450945E0046B2DD /* SettingsViewController.swift */; };
+		F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39D10B4245769690093CCF9 /* Rio.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		F388CDD224508E740046B2DD /* StoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesTableViewController.swift; sourceTree = "<group>"; };
 		F388CDD424508F610046B2DD /* AVPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerViewController.swift; sourceTree = "<group>"; };
 		F388CDD62450945E0046B2DD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F39D10B4245769690093CCF9 /* Rio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rio.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				F388CDD424508F610046B2DD /* AVPlayerViewController.swift */,
 				F388CDD62450945E0046B2DD /* SettingsViewController.swift */,
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
+				F39D10B4245769690093CCF9 /* Rio.mp3 */,
 				F3726D7C2431ECFF00C37F00 /* Info.plist */,
 			);
 			path = MyProject;
@@ -148,6 +151,7 @@
 			files = (
 				F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */,
 				F3726D782431ECFF00C37F00 /* Assets.xcassets in Resources */,
+				F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */,
 				F3726D762431ECFD00C37F00 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
