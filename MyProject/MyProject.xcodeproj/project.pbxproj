@@ -21,6 +21,8 @@
 		F388CDD524508F610046B2DD /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */; };
 		F388CDD72450945E0046B2DD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD62450945E0046B2DD /* SettingsViewController.swift */; };
 		F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39D10B4245769690093CCF9 /* Rio.mp3 */; };
+		F3E2991A2458605300EBB3E7 /* DataSourceForSongsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E299192458605300EBB3E7 /* DataSourceForSongsTable.swift */; };
+		F3E2991C24586B8700EBB3E7 /* Masha i Medved.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3E2991B24586B8700EBB3E7 /* Masha i Medved.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
 		F388CDD62450945E0046B2DD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F39D10B4245769690093CCF9 /* Rio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rio.mp3; sourceTree = "<group>"; };
+		F3E299192458605300EBB3E7 /* DataSourceForSongsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceForSongsTable.swift; sourceTree = "<group>"; };
+		F3E2991B24586B8700EBB3E7 /* Masha i Medved.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Masha i Medved.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +85,24 @@
 				F3344FBA24409C2E00E411B4 /* LoginViewController.swift */,
 				F3726D722431ECFD00C37F00 /* MainViewController.swift */,
 				F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */,
+				F3E299192458605300EBB3E7 /* DataSourceForSongsTable.swift */,
 				F388CDD224508E740046B2DD /* StoriesTableViewController.swift */,
 				F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */,
 				F388CDD62450945E0046B2DD /* SettingsViewController.swift */,
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
-				F39D10B4245769690093CCF9 /* Rio.mp3 */,
+				F3E2991D245876EF00EBB3E7 /* Songs */,
 				F3726D7C2431ECFF00C37F00 /* Info.plist */,
 			);
 			path = MyProject;
+			sourceTree = "<group>";
+		};
+		F3E2991D245876EF00EBB3E7 /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				F39D10B4245769690093CCF9 /* Rio.mp3 */,
+				F3E2991B24586B8700EBB3E7 /* Masha i Medved.mp3 */,
+			);
+			path = Songs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +165,7 @@
 			files = (
 				F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */,
 				F3726D782431ECFF00C37F00 /* Assets.xcassets in Resources */,
+				F3E2991C24586B8700EBB3E7 /* Masha i Medved.mp3 in Resources */,
 				F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */,
 				F3726D762431ECFD00C37F00 /* Main.storyboard in Resources */,
 			);
@@ -163,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E2991A2458605300EBB3E7 /* DataSourceForSongsTable.swift in Sources */,
 				F3344FBF2440AF3200E411B4 /* RegistrationViewController.swift in Sources */,
 				F3344FBD2440AF0D00E411B4 /* FirstViewController.swift in Sources */,
 				F388CDD124508E2F0046B2DD /* SongsTableViewController.swift in Sources */,

@@ -13,7 +13,6 @@ class AudioPlayerViewController: UIViewController {
 
     //var audioPlayer2 = AVPlayer()
     var audioPlayer = AVAudioPlayer()
-    let path = Bundle.main.path(forResource: "Rio", ofType: "mp3")
 
     @IBOutlet weak var reverseView: UIView!
     @IBOutlet weak var playView: UIView!
@@ -40,7 +39,11 @@ class AudioPlayerViewController: UIViewController {
         volumeSlider.maximumValue = 1.0
 
         //AVAudioPlayer
-        let url = URL(fileURLWithPath: path ?? "")
+        //ищем путь к файлу
+        guard let path = Bundle.main.path(forResource: "Rio", ofType: "mp3") else {return}
+        //получаем url файла
+        let url = URL(fileURLWithPath: path)
+        //воспроизводим содержимое файла
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             timeSlider.maximumValue = Float(audioPlayer.duration)
