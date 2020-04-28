@@ -38,9 +38,21 @@ class AudioPlayerViewController: UIViewController {
         volumeSlider.minimumValue = 0.0
         volumeSlider.maximumValue = 1.0
 
-        //AVAudioPlayer
+        playing(song: SongsManager.shared.songName)
+
+    }
+
+    //MARK: Functions
+    //setting up background views of buttons
+    func setBackgroundView(_ backgroundView: UIView) {
+        backgroundView.layer.cornerRadius = backgroundView.bounds.width/2
+        backgroundView.clipsToBounds = true
+    }
+
+    //AVAudioPlayer
+    func playing(song: String) {
         //ищем путь к файлу
-        guard let path = Bundle.main.path(forResource: "Rio", ofType: "mp3") else {return}
+        guard let path = Bundle.main.path(forResource: song, ofType: "mp3") else {return}
         //получаем url файла
         let url = URL(fileURLWithPath: path)
         //воспроизводим содержимое файла
@@ -52,14 +64,6 @@ class AudioPlayerViewController: UIViewController {
         }
         //audioPlayer = AVPlayer(url: url)
         audioPlayer.prepareToPlay()
-
-    }
-
-    //MARK: Functions
-    //setting up background views of buttons
-    func setBackgroundView(_ backgroundView: UIView) {
-        backgroundView.layer.cornerRadius = backgroundView.bounds.width/2
-        backgroundView.clipsToBounds = true
     }
 
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {

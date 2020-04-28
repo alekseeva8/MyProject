@@ -224,7 +224,7 @@
                     <navigationItem key="navigationItem" id="UvT-D5-tUl"/>
                     <connections>
                         <outlet property="tableView" destination="cbt-lI-J7a" id="ccZ-c1-rQY"/>
-                        <segue destination="I9R-3G-UfO" kind="presentation" modalPresentationStyle="fullScreen" id="2fo-9K-mhP"/>
+                        <segue destination="I9R-3G-UfO" kind="show" identifier="fromSongsTableToPlayerVC" id="2fo-9K-mhP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bk8-i7-4xl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -240,14 +240,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="S50-cD-zZX">
-                                <rect key="frame" x="67" y="69.333333333333314" width="280" height="597.33333333333348"/>
+                                <rect key="frame" x="67" y="75.666666666666686" width="280" height="584.66666666666652"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OaA-Ef-tdz">
-                                        <rect key="frame" x="20.666666666666686" y="0.0" width="239" height="209"/>
+                                        <rect key="frame" x="20.666666666666686" y="0.0" width="239" height="196.33333333333334"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sd5-SN-cD9">
-                                        <rect key="frame" x="-2" y="259" width="284" height="31"/>
+                                        <rect key="frame" x="-2" y="246.33333333333331" width="284" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="Hyn-oD-akX"/>
                                         </constraints>
@@ -256,19 +256,19 @@
                                         </connections>
                                     </slider>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tTA-NN-68w">
-                                        <rect key="frame" x="0.0" y="339" width="280" height="2"/>
+                                        <rect key="frame" x="0.0" y="326.33333333333331" width="280" height="2"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="fWr-ui-y3V"/>
                                         </constraints>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2S-q1-IcZ">
-                                        <rect key="frame" x="83.666666666666657" y="391" width="112.66666666666666" height="26.333333333333314"/>
+                                        <rect key="frame" x="83.666666666666657" y="378.33333333333331" width="112.66666666666666" height="26.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="OD9-XA-abj">
-                                        <rect key="frame" x="29" y="467.33333333333331" width="222" height="49.999999999999943"/>
+                                        <rect key="frame" x="29" y="454.66666666666669" width="222" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOz-uT-DSS" userLabel="reverseView">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -335,7 +335,7 @@
                                         </constraints>
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="speaker.fill" catalog="system" maximumValueImage="speaker.3.fill" translatesAutoresizingMaskIntoConstraints="NO" id="2Od-ST-wQb">
-                                        <rect key="frame" x="-2" y="567.33333333333326" width="284" height="31"/>
+                                        <rect key="frame" x="-2" y="554.66666666666674" width="284" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="ydY-77-CiM"/>
                                         </constraints>
@@ -593,7 +593,7 @@
         <image name="speaker.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FD8-Di-rGL"/>
+        <segue reference="2fo-9K-mhP"/>
         <segue reference="WBx-cV-Ya8"/>
     </inferredMetricsTieBreakers>
 </document>
