@@ -13,6 +13,7 @@ class SongsManager {
     static let shared = SongsManager()
     var songName = ""
     var songNumber = 0
+    //var image:
     
     private init() {
     }

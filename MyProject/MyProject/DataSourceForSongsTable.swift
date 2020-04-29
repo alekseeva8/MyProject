@@ -11,7 +11,7 @@ import UIKit
 
 class DataSourceForSongsTable: NSObject, UITableViewDataSource {
 
-    var songsArray: [String] = []
+    var songsArray: [Song] = []
 
     override init() {
         super.init()
@@ -26,18 +26,21 @@ class DataSourceForSongsTable: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var songsTableViewCell: UITableViewCell
         songsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "songsTableViewCell", for: indexPath)
-        songsTableViewCell.textLabel?.text = songsArray[indexPath.row]
+        songsTableViewCell.textLabel?.text = songsArray[indexPath.row].name
         return songsTableViewCell
     }
 
     //MARK: - Func gettingSongsArray
-    func gettingSongsArray() -> [String] {
-        var array: [String] = []
+    func gettingSongsArray() -> [Song] {
+        var arrayOfSongNames: [String] = []
+        var arrayOfSongs: [Song] = []
+
         //getting url to all of the files (to directory)
         let folderURL = URL(fileURLWithPath: Bundle.main.resourcePath ?? "")
         //getting access to all of the files. All files will be stored in urlsArray
         do {
             let urlsArray = try FileManager.default.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+            //print(urlsArray)
             urlsArray.forEach { (url) in
                 let urlString = url.absoluteString
                 if urlString.contains(".mp3") {
@@ -46,15 +49,14 @@ class DataSourceForSongsTable: NSObject, UITableViewDataSource {
                     var songName = String(urlStringSplitted.last ?? "")
                     songName = songName.replacingOccurrences(of: ".mp3", with: "")
                     songName = songName.replacingOccurrences(of: "%20", with: " ")
-                    //print(songName)
-                    array.append(songName)
+                    arrayOfSongNames.append(songName)
+                    arrayOfSongs.append(Song(name: songName, image: UIImage(named: songName) ?? UIImage()))
                 }
             }
-            
         } catch {
             print(error)
         }
-        return array
+        return arrayOfSongs
     }
 }
 

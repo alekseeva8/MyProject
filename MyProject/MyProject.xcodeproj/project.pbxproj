@@ -12,6 +12,10 @@
 		F3344FBF2440AF3200E411B4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */; };
 		F3718DC32458945F00EC7054 /* SongsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3718DC22458945F00EC7054 /* SongsManager.swift */; };
 		F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */; };
+		F3718DC72459BBAA00EC7054 /* The Secret Life of Pets 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3718DC62459BBAA00EC7054 /* The Secret Life of Pets 2.jpg */; };
+		F3718DC92459C14F00EC7054 /* Masha i Medved.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3718DC82459C14F00EC7054 /* Masha i Medved.jpg */; };
+		F3718DCB2459C16C00EC7054 /* Rio.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F3718DCA2459C16C00EC7054 /* Rio.jpg */; };
+		F3718DCD2459C87C00EC7054 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3718DCC2459C87C00EC7054 /* Audio.swift */; };
 		F3726D6F2431ECFD00C37F00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3726D6E2431ECFD00C37F00 /* AppDelegate.swift */; };
 		F3726D712431ECFD00C37F00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3726D702431ECFD00C37F00 /* SceneDelegate.swift */; };
 		F3726D732431ECFD00C37F00 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3726D722431ECFD00C37F00 /* MainViewController.swift */; };
@@ -33,6 +37,10 @@
 		F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F3718DC22458945F00EC7054 /* SongsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsManager.swift; sourceTree = "<group>"; };
 		F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Secret Life of Pets 2.mp3"; sourceTree = "<group>"; };
+		F3718DC62459BBAA00EC7054 /* The Secret Life of Pets 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The Secret Life of Pets 2.jpg"; sourceTree = "<group>"; };
+		F3718DC82459C14F00EC7054 /* Masha i Medved.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Masha i Medved.jpg"; sourceTree = "<group>"; };
+		F3718DCA2459C16C00EC7054 /* Rio.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Rio.jpg; sourceTree = "<group>"; };
+		F3718DCC2459C87C00EC7054 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		F3726D6B2431ECFD00C37F00 /* MyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3726D6E2431ECFD00C37F00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3726D702431ECFD00C37F00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,10 +99,14 @@
 				F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */,
 				F3718DC22458945F00EC7054 /* SongsManager.swift */,
 				F3E299192458605300EBB3E7 /* DataSourceForSongsTable.swift */,
+				F3718DCC2459C87C00EC7054 /* Audio.swift */,
 				F388CDD224508E740046B2DD /* StoriesTableViewController.swift */,
 				F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */,
 				F388CDD62450945E0046B2DD /* SettingsViewController.swift */,
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
+				F3718DC82459C14F00EC7054 /* Masha i Medved.jpg */,
+				F3718DC62459BBAA00EC7054 /* The Secret Life of Pets 2.jpg */,
+				F3718DCA2459C16C00EC7054 /* Rio.jpg */,
 				F3E2991D245876EF00EBB3E7 /* Songs */,
 				F3726D7C2431ECFF00C37F00 /* Info.plist */,
 			);
@@ -170,9 +182,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */,
+				F3718DC72459BBAA00EC7054 /* The Secret Life of Pets 2.jpg in Resources */,
 				F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */,
+				F3718DC92459C14F00EC7054 /* Masha i Medved.jpg in Resources */,
 				F3726D782431ECFF00C37F00 /* Assets.xcassets in Resources */,
 				F3E2991C24586B8700EBB3E7 /* Masha i Medved.mp3 in Resources */,
+				F3718DCB2459C16C00EC7054 /* Rio.jpg in Resources */,
 				F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */,
 				F3726D762431ECFD00C37F00 /* Main.storyboard in Resources */,
 			);
@@ -192,6 +207,7 @@
 				F388CDD72450945E0046B2DD /* SettingsViewController.swift in Sources */,
 				F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */,
 				F388CDD524508F610046B2DD /* AudioPlayerViewController.swift in Sources */,
+				F3718DCD2459C87C00EC7054 /* Audio.swift in Sources */,
 				F3726D732431ECFD00C37F00 /* MainViewController.swift in Sources */,
 				F3726D6F2431ECFD00C37F00 /* AppDelegate.swift in Sources */,
 				F388CDD324508E740046B2DD /* StoriesTableViewController.swift in Sources */,

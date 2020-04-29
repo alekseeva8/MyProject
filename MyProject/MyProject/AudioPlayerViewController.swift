@@ -44,9 +44,10 @@ class AudioPlayerViewController: UIViewController {
         volumeSlider.minimumValue = 0.0
         volumeSlider.maximumValue = 1.0
 
-        let songName = songsArray[songNumber]
-        audioNameLabel.text = songName
-        prepareToPlay(song: songName)
+        let song = songsArray[songNumber]
+        audioNameLabel.text = song.name
+        imageView.image = song.image
+        prepareToPlay(song: song.name)
     }
 
     //MARK: - Functions
@@ -94,15 +95,17 @@ class AudioPlayerViewController: UIViewController {
             if sender == self.prevButton {
                 if self.audioPlayer.isPlaying {
                     if self.songNumber == 0 {
-                        self.audioNameLabel.text = self.songsArray[0]
-                        self.prepareToPlay(song: self.songsArray[0])
+                        self.audioNameLabel.text = self.songsArray[0].name
+                        self.imageView.image = self.songsArray[0].image
+                        self.prepareToPlay(song: self.songsArray[0].name)
                         self.audioPlayer.play()
                     }
                 else {
                         let previousSongNumber = self.songNumber - 1
-                        self.audioNameLabel.text = self.songsArray[previousSongNumber]
-                        let previouxSongName = self.songsArray[previousSongNumber]
-                        self.prepareToPlay(song: previouxSongName)
+                        self.audioNameLabel.text = self.songsArray[previousSongNumber].name
+                        self.imageView.image = self.songsArray[previousSongNumber].image
+                        let previousSong = self.songsArray[previousSongNumber]
+                        self.prepareToPlay(song: previousSong.name)
                         self.audioPlayer.play()
                         self.songNumber -= 1
                 }
@@ -114,16 +117,18 @@ class AudioPlayerViewController: UIViewController {
                 if self.audioPlayer.isPlaying {
                     if self.songNumber < self.songsArray.count-1 {
                         let nextSongNumber = self.songNumber + 1
-                        self.audioNameLabel.text = self.songsArray[nextSongNumber]
-                        let nextSongName = self.songsArray[nextSongNumber]
-                        self.prepareToPlay(song: nextSongName)
+                        self.audioNameLabel.text = self.songsArray[nextSongNumber].name
+                        self.imageView.image = self.songsArray[nextSongNumber].image
+                        let nextSong = self.songsArray[nextSongNumber]
+                        self.prepareToPlay(song: nextSong.name)
                         self.audioPlayer.play()
                         self.songNumber += 1
                     }
                     else {
                         self.songNumber = 0
-                        self.audioNameLabel.text = self.songsArray[0]
-                        self.prepareToPlay(song: self.songsArray[0])
+                        self.audioNameLabel.text = self.songsArray[0].name
+                        self.imageView.image = self.songsArray[0].image
+                        self.prepareToPlay(song: self.songsArray[0].name)
                         self.audioPlayer.play()
                     }
                 }

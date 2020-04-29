@@ -20,8 +20,6 @@ class SongsTableViewController: UIViewController {
         title = "Songs"
         tableView.delegate = self
         tableView.dataSource = dataSourceForSongsTable
-
-        //print(songsArray)
     }
 }
 
@@ -31,7 +29,7 @@ extension SongsTableViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //достаем название аудио из ячейки (сохраняем в синглтон и передаем в AudioPlayerVC)
-        SongsManager.shared.songName = songsArray[indexPath.row]
+        SongsManager.shared.songName = songsArray[indexPath.row].name
         SongsManager.shared.songNumber = indexPath.row
         performSegue(withIdentifier: "fromSongsTableToPlayerVC", sender: nil)
     }
