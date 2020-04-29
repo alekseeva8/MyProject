@@ -18,7 +18,7 @@ class DataSourceForSongsTable: NSObject, UITableViewDataSource {
         songsArray = gettingSongsArray()
     }
 
-//MARK: - DataSource functions
+    //MARK: - DataSource functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songsArray.count
     }
@@ -30,7 +30,7 @@ class DataSourceForSongsTable: NSObject, UITableViewDataSource {
         return songsTableViewCell
     }
 
-//MARK: - Func gettingSongsArray
+    //MARK: - Func gettingSongsArray
     func gettingSongsArray() -> [String] {
         var array: [String] = []
         //getting url to all of the files (to directory)
@@ -41,12 +41,12 @@ class DataSourceForSongsTable: NSObject, UITableViewDataSource {
             urlsArray.forEach { (url) in
                 let urlString = url.absoluteString
                 if urlString.contains(".mp3") {
-//                    print(urlString)
+                    //print(urlString)
                     let urlStringSplitted = urlString.split(separator: "/")
                     var songName = String(urlStringSplitted.last ?? "")
                     songName = songName.replacingOccurrences(of: ".mp3", with: "")
                     songName = songName.replacingOccurrences(of: "%20", with: " ")
- //                   print(songName)
+                    //print(songName)
                     array.append(songName)
                 }
             }

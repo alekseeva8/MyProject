@@ -261,7 +261,7 @@
                                             <constraint firstAttribute="width" constant="280" id="fWr-ui-y3V"/>
                                         </constraints>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2S-q1-IcZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2S-q1-IcZ">
                                         <rect key="frame" x="83.666666666666657" y="378.33333333333331" width="112.66666666666666" height="26.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
@@ -273,7 +273,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOz-uT-DSS" userLabel="reverseView">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYU-IF-gcZ" userLabel="reverseButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYU-IF-gcZ" userLabel="prevButton">
                                                         <rect key="frame" x="5" y="5" width="40" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button" image="reverse"/>
@@ -316,7 +316,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Jg-Ut-mdb" userLabel="forwardView">
                                                 <rect key="frame" x="172" y="0.0" width="50" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAs-A7-xXd" userLabel="forwardButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAs-A7-xXd" userLabel="nextButton">
                                                         <rect key="frame" x="5" y="5" width="40" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button" image="forward"/>
@@ -358,12 +358,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="ehx-hF-ywX"/>
                     <connections>
-                        <outlet property="forwardButton" destination="wAs-A7-xXd" id="5BL-OY-hd0"/>
+                        <outlet property="audioNameLabel" destination="B2S-q1-IcZ" id="01q-ba-jNN"/>
                         <outlet property="forwardView" destination="2Jg-Ut-mdb" id="B1O-vl-4T8"/>
                         <outlet property="imageView" destination="OaA-Ef-tdz" id="EjW-j5-tLi"/>
+                        <outlet property="nextButton" destination="wAs-A7-xXd" id="bMr-Xz-e2c"/>
                         <outlet property="playPauseButton" destination="4o8-fA-KN2" id="1FZ-yM-ohr"/>
                         <outlet property="playView" destination="j60-Vu-WVK" id="Bxh-T1-RBB"/>
-                        <outlet property="reverseButton" destination="rYU-IF-gcZ" id="7JJ-6C-VIS"/>
+                        <outlet property="prevButton" destination="rYU-IF-gcZ" id="kbX-rZ-5GN"/>
                         <outlet property="reverseView" destination="cOz-uT-DSS" id="FZi-3b-sTx"/>
                         <outlet property="timeSlider" destination="sd5-SN-cD9" id="HAl-Sn-n5c"/>
                         <outlet property="volumeSlider" destination="2Od-ST-wQb" id="LZd-vm-IM1"/>

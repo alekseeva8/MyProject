@@ -11,6 +11,7 @@
 		F3344FBD2440AF0D00E411B4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBC2440AF0D00E411B4 /* FirstViewController.swift */; };
 		F3344FBF2440AF3200E411B4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */; };
 		F3718DC32458945F00EC7054 /* SongsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3718DC22458945F00EC7054 /* SongsManager.swift */; };
+		F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */; };
 		F3726D6F2431ECFD00C37F00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3726D6E2431ECFD00C37F00 /* AppDelegate.swift */; };
 		F3726D712431ECFD00C37F00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3726D702431ECFD00C37F00 /* SceneDelegate.swift */; };
 		F3726D732431ECFD00C37F00 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3726D722431ECFD00C37F00 /* MainViewController.swift */; };
@@ -31,6 +32,7 @@
 		F3344FBC2440AF0D00E411B4 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F3718DC22458945F00EC7054 /* SongsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsManager.swift; sourceTree = "<group>"; };
+		F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Secret Life of Pets 2.mp3"; sourceTree = "<group>"; };
 		F3726D6B2431ECFD00C37F00 /* MyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3726D6E2431ECFD00C37F00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3726D702431ECFD00C37F00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				F39D10B4245769690093CCF9 /* Rio.mp3 */,
 				F3E2991B24586B8700EBB3E7 /* Masha i Medved.mp3 */,
+				F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */,
 			);
 			path = Songs;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */,
 				F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */,
 				F3726D782431ECFF00C37F00 /* Assets.xcassets in Resources */,
 				F3E2991C24586B8700EBB3E7 /* Masha i Medved.mp3 in Resources */,
