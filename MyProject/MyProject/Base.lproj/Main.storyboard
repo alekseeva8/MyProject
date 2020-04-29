@@ -160,12 +160,21 @@
                                     <segue destination="v0u-0b-kfw" kind="show" id="mYn-9b-UgJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJn-gT-sC4">
+                                <rect key="frame" x="158.66666666666666" y="407" width="97" height="30"/>
+                                <state key="normal" title="To Stories List"/>
+                                <connections>
+                                    <segue destination="Cf7-0a-QIe" kind="show" id="4jP-eV-sHk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="WVX-yp-8WQ" firstAttribute="centerX" secondItem="0sS-8u-EjC" secondAttribute="centerX" id="GGM-gH-4PJ"/>
                             <constraint firstItem="WVX-yp-8WQ" firstAttribute="centerY" secondItem="0sS-8u-EjC" secondAttribute="centerY" id="Hef-it-NVZ"/>
                             <constraint firstItem="WVX-yp-8WQ" firstAttribute="top" secondItem="168-yR-pGP" secondAttribute="bottom" constant="25" id="Inc-uK-nUk"/>
+                            <constraint firstItem="tJn-gT-sC4" firstAttribute="centerX" secondItem="0sS-8u-EjC" secondAttribute="centerX" id="Nv8-cK-l0G"/>
+                            <constraint firstItem="tJn-gT-sC4" firstAttribute="top" secondItem="WVX-yp-8WQ" secondAttribute="bottom" constant="24" id="Vqb-VM-kTO"/>
                             <constraint firstItem="168-yR-pGP" firstAttribute="centerX" secondItem="0sS-8u-EjC" secondAttribute="centerX" id="etx-Gt-Ggn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DgI-U1-ete"/>
@@ -551,10 +560,10 @@
             </objects>
             <point key="canvasLocation" x="2519" y="1228"/>
         </scene>
-        <!--Stories Table View Controller-->
+        <!--Stories Collect View Controller-->
         <scene sceneID="c3y-se-ytZ">
             <objects>
-                <viewController id="Cf7-0a-QIe" customClass="StoriesTableViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Cf7-0a-QIe" customClass="StoriesCollectViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yk5-iO-OBh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -563,7 +572,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kIA-xR-6ge"/>
                     <connections>
-                        <segue destination="I9R-3G-UfO" kind="show" id="FD8-Di-rGL"/>
+                        <segue destination="I9R-3G-UfO" kind="show" identifier="fromStoriesToPlayerVC" id="FD8-Di-rGL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVH-Hw-gEW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -598,7 +607,8 @@
         <image name="speaker.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2fo-9K-mhP"/>
+        <segue reference="4jP-eV-sHk"/>
+        <segue reference="FD8-Di-rGL"/>
         <segue reference="hmf-g3-Y82"/>
     </inferredMetricsTieBreakers>
 </document>
