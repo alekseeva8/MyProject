@@ -93,14 +93,22 @@ class AudioPlayerViewController: UIViewController {
             //действия для PREV
             if sender == self.prevButton {
                 if self.audioPlayer.isPlaying {
-                    self.audioPlayer.currentTime = 0
-                    self.audioPlayer.play()
-                }
+                    if self.songNumber == 0 {
+                        self.audioNameLabel.text = self.songsArray[0]
+                        self.prepareToPlay(song: self.songsArray[0])
+                        self.audioPlayer.play()
+                    }
                 else {
-                    //НУЖНО ЛИ ЧТОБЫ ПРОИГРЫВАЛ ПРИ РЕСТАРТЕ?
-                    self.audioPlayer.play()
+                        let previousSongNumber = self.songNumber - 1
+                        self.audioNameLabel.text = self.songsArray[previousSongNumber]
+                        let previouxSongName = self.songsArray[previousSongNumber]
+                        self.prepareToPlay(song: previouxSongName)
+                        self.audioPlayer.play()
+                        self.songNumber -= 1
                 }
             }
+            }
+
             //действия для NEXT
             if sender == self.nextButton {
                 if self.audioPlayer.isPlaying {
