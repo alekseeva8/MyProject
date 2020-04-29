@@ -27,6 +27,7 @@ class DataSourceForSongsTable: NSObject, UITableViewDataSource {
         var songsTableViewCell: UITableViewCell
         songsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "songsTableViewCell", for: indexPath)
         songsTableViewCell.textLabel?.text = songsArray[indexPath.row].name
+        songsTableViewCell.imageView?.image = songsArray[indexPath.row].image
         return songsTableViewCell
     }
 
