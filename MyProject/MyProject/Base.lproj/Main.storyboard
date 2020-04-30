@@ -139,58 +139,21 @@
             </objects>
             <point key="canvasLocation" x="1018.840579710145" y="127.98913043478262"/>
         </scene>
-        <!--Main View Controller-->
+        <!--View Controller-->
         <scene sceneID="Huj-p8-3Ef">
             <objects>
-                <viewController id="Ubk-NW-xlz" customClass="MainViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ubk-NW-xlz" customClass="MAIN2ViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0sS-8u-EjC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Screen (Collection View)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVX-yp-8WQ">
-                                <rect key="frame" x="45.666666666666657" y="353" width="323" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="168-yR-pGP">
-                                <rect key="frame" x="163" y="298" width="88" height="30"/>
-                                <state key="normal" title="To SongsList"/>
-                                <connections>
-                                    <segue destination="v0u-0b-kfw" kind="show" id="mYn-9b-UgJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJn-gT-sC4">
-                                <rect key="frame" x="158.66666666666666" y="407" width="97" height="30"/>
-                                <state key="normal" title="To Stories List"/>
-                                <connections>
-                                    <segue destination="Cf7-0a-QIe" kind="show" id="4jP-eV-sHk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejp-Nx-WBq">
-                                <rect key="frame" x="167.66666666666666" y="467" width="79" height="30"/>
-                                <state key="normal" title="To VideoVC"/>
-                                <connections>
-                                    <segue destination="VIs-BP-7QY" kind="show" id="npG-zL-qhI"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="WVX-yp-8WQ" firstAttribute="centerX" secondItem="0sS-8u-EjC" secondAttribute="centerX" id="GGM-gH-4PJ"/>
-                            <constraint firstItem="WVX-yp-8WQ" firstAttribute="centerY" secondItem="0sS-8u-EjC" secondAttribute="centerY" id="Hef-it-NVZ"/>
-                            <constraint firstItem="WVX-yp-8WQ" firstAttribute="top" secondItem="168-yR-pGP" secondAttribute="bottom" constant="25" id="Inc-uK-nUk"/>
-                            <constraint firstItem="tJn-gT-sC4" firstAttribute="centerX" secondItem="0sS-8u-EjC" secondAttribute="centerX" id="Nv8-cK-l0G"/>
-                            <constraint firstItem="ejp-Nx-WBq" firstAttribute="centerX" secondItem="0sS-8u-EjC" secondAttribute="centerX" id="Vmj-j8-YXy"/>
-                            <constraint firstItem="tJn-gT-sC4" firstAttribute="top" secondItem="WVX-yp-8WQ" secondAttribute="bottom" constant="24" id="Vqb-VM-kTO"/>
-                            <constraint firstItem="168-yR-pGP" firstAttribute="centerX" secondItem="0sS-8u-EjC" secondAttribute="centerX" id="etx-Gt-Ggn"/>
-                            <constraint firstItem="ejp-Nx-WBq" firstAttribute="top" secondItem="tJn-gT-sC4" secondAttribute="bottom" constant="30" id="fU5-Jc-RYm"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DgI-U1-ete"/>
                     </view>
                     <navigationItem key="navigationItem" id="BnF-Kq-xfM"/>
                     <connections>
-                        <segue destination="v8Z-RY-ZoA" kind="show" id="eFq-31-WJf"/>
+                        <segue destination="v0u-0b-kfw" kind="show" identifier="fromMainToSongsVC" id="d5C-ah-l4B"/>
+                        <segue destination="Cf7-0a-QIe" kind="show" identifier="fromMainToStoriesVC" id="BMl-A4-34A"/>
+                        <segue destination="VIs-BP-7QY" kind="show" identifier="fromMainToVideoVC" id="Fc4-Ar-Ryf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PhD-av-3Vz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

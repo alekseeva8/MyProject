@@ -11,10 +11,10 @@ import UIKit
 class SongsTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
+    
     let dataSourceForSongsTable = DataSourceForSongsTable()
     var songsArray = DataSourceForSongsTable().songsArray
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Songs"
@@ -27,7 +27,7 @@ class SongsTableViewController: UIViewController {
 
 //MARK: - Delegate
 extension SongsTableViewController: UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //достаем название аудио из ячейки (сохраняем в синглтон и передаем в AudioPlayerVC)
         SongsManager.shared.songName = songsArray[indexPath.row].name

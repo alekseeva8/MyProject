@@ -10,55 +10,55 @@ import UIKit
 import  AVFoundation
 
 class AudioPlayerViewController: UIViewController {
-
+    
     //var audioPlayer2 = AVPlayer()
     var audioPlayer = AVAudioPlayer()
-
+    
     //let songName = SongsManager.shared.songName
     var songNumber = SongsManager.shared.songNumber
     let songsArray = DataSourceForSongsTable().songsArray
-
+    
     @IBOutlet weak var reverseView: UIView!
     @IBOutlet weak var playView: UIView!
     @IBOutlet weak var forwardView: UIView!
     @IBOutlet weak var imageView: UIImageView!
-
+    
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
-
+    
     @IBOutlet weak var timeProgressView: UIProgressView!
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var volumeSlider: UISlider!
     @IBOutlet weak var audioNameLabel: UILabel!
-
+    
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setBackgroundView(reverseView)
         setBackgroundView(playView)
         setBackgroundView(forwardView)
-
+        
         //setting timeSlider
         timeSlider.minimumValue = 0.0
         //setting volumeSlider
         volumeSlider.minimumValue = 0.0
         volumeSlider.maximumValue = 1.0
-
+        
         let song = songsArray[songNumber]
         audioNameLabel.text = song.name
         imageView.image = song.image
         preparingAudioToPlay(song: song.name)
     }
-
+    
     //MARK: - Functions
     //setting up background views of buttons
     func setBackgroundView(_ backgroundView: UIView) {
         backgroundView.layer.cornerRadius = backgroundView.bounds.width/2
         backgroundView.clipsToBounds = true
     }
-
+    
     //MARK: - AVAudioPlayer prepareToPlay()
     func preparingAudioToPlay(song: String) {
         //ищем путь к файлу
@@ -76,7 +76,7 @@ class AudioPlayerViewController: UIViewController {
         audioPlayer.delegate = self
         audioPlayer.prepareToPlay()
     }
-
+    
     //MARK: - playPauseButton
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
         if audioPlayer.isPlaying == false {
@@ -88,12 +88,12 @@ class AudioPlayerViewController: UIViewController {
             playPauseButton.setImage(UIImage(named: "play"), for: .normal)
         }
     }
-
+    
     //MARK: - PrevButton; NextButton
     @IBAction func touchedDown(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-
+            
             //действия для PREV
             if sender == self.prevButton {
                 if self.audioPlayer.isPlaying {
@@ -103,7 +103,7 @@ class AudioPlayerViewController: UIViewController {
                         self.preparingAudioToPlay(song: self.songsArray[0].name)
                         self.audioPlayer.play()
                     }
-                else {
+                    else {
                         let previousSongNumber = self.songNumber - 1
                         self.audioNameLabel.text = self.songsArray[previousSongNumber].name
                         self.imageView.image = self.songsArray[previousSongNumber].image
@@ -111,10 +111,10 @@ class AudioPlayerViewController: UIViewController {
                         self.preparingAudioToPlay(song: previousSong.name)
                         self.audioPlayer.play()
                         self.songNumber -= 1
+                    }
                 }
             }
-            }
-
+            
             //действия для NEXT
             if sender == self.nextButton {
                 if self.audioPlayer.isPlaying {
@@ -138,11 +138,11 @@ class AudioPlayerViewController: UIViewController {
             }
         }
     }
-
+    
     @IBAction func touchedUpInside(_ sender: UIButton) {
         sender.transform = CGAffineTransform.identity
     }
-
+    
     //НЕУДАЧНЫЙ ЖЕСТ - ПРОБОВАТЬ ЗАМЕНИТЬ
     //ДОРОЖКУ ОТОБРАЖАТЬ
     //MARK: - timeSlider
@@ -152,7 +152,7 @@ class AudioPlayerViewController: UIViewController {
             audioPlayer.play()
         }
     }
-
+    
     //MARK: - volumeSlider
     @IBAction func volumeSliderScrolled(_ sender: UISlider) {
         if sender == volumeSlider {

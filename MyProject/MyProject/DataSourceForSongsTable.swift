@@ -12,17 +12,17 @@ import UIKit
 class DataSourceForSongsTable: NSObject, UITableViewDataSource {
 
     var songsArray: [Song] = []
-
+    
     override init() {
         super.init()
         songsArray = gettingSongsArray()
     }
-
+    
     //MARK: - DataSource functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songsArray.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var songsTableViewCell: UITableViewCell
         songsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "songsTableViewCell", for: indexPath)
@@ -30,12 +30,12 @@ class DataSourceForSongsTable: NSObject, UITableViewDataSource {
         songsTableViewCell.imageView?.image = songsArray[indexPath.row].image
         return songsTableViewCell
     }
-
+    
     //MARK: - Func gettingSongsArray
     func gettingSongsArray() -> [Song] {
         var arrayOfSongNames: [String] = []
         var arrayOfSongs: [Song] = []
-
+        
         //getting url to all of the files (to directory)
         let folderURL = URL(fileURLWithPath: Bundle.main.resourcePath ?? "")
         //getting access to all of the files. All files will be stored in urlsArray
