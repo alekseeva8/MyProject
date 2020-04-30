@@ -82,22 +82,11 @@ class AudioPlayerViewController: UIViewController {
         if audioPlayer.isPlaying == false {
             audioPlayer.play()
             playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
-            // progressView
-            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
-            timeProgressView.setProgress(Float(audioPlayer.currentTime/audioPlayer.duration), animated: false)
         }
         else {
             audioPlayer.pause()
             playPauseButton.setImage(UIImage(named: "play"), for: .normal)
         }
-    }
-
-    @objc func updateProgressView()
-    {
-       if audioPlayer.isPlaying
-          {
-           timeProgressView.setProgress(Float(audioPlayer.currentTime/audioPlayer.duration), animated: true)
-          }
     }
 
     //MARK: - PrevButton; NextButton
@@ -174,8 +163,6 @@ class AudioPlayerViewController: UIViewController {
 
 extension AudioPlayerViewController: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        //print("audioPlayerDidFinishPlaying")
         playPauseButton.setImage(UIImage(named: "play"), for: .normal)
-        timeProgressView.progress = 0.0
     }
 }
