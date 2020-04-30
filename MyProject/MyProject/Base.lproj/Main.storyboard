@@ -110,7 +110,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7X-Im-hVV" userLabel="loginLabel">
-                                <rect key="frame" x="88.333333333333314" y="144" width="237.66666666666669" height="57"/>
+                                <rect key="frame" x="88.333333333333329" y="144" width="237.66666666666669" height="57"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -267,7 +267,7 @@
                                             <action selector="timeSliderScrolled:" destination="I9R-3G-UfO" eventType="valueChanged" id="RSC-cA-byh"/>
                                         </connections>
                                     </slider>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tTA-NN-68w">
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tTA-NN-68w">
                                         <rect key="frame" x="0.0" y="326.33333333333331" width="280" height="2"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="fWr-ui-y3V"/>
@@ -378,6 +378,7 @@
                         <outlet property="playView" destination="j60-Vu-WVK" id="Bxh-T1-RBB"/>
                         <outlet property="prevButton" destination="rYU-IF-gcZ" id="kbX-rZ-5GN"/>
                         <outlet property="reverseView" destination="cOz-uT-DSS" id="FZi-3b-sTx"/>
+                        <outlet property="timeProgressView" destination="tTA-NN-68w" id="UJK-An-PeY"/>
                         <outlet property="timeSlider" destination="sd5-SN-cD9" id="HAl-Sn-n5c"/>
                         <outlet property="volumeSlider" destination="2Od-ST-wQb" id="LZd-vm-IM1"/>
                     </connections>

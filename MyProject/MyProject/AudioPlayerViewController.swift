@@ -27,6 +27,7 @@ class AudioPlayerViewController: UIViewController {
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
 
+    @IBOutlet weak var timeProgressView: UIProgressView!
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var volumeSlider: UISlider!
     @IBOutlet weak var audioNameLabel: UILabel!
@@ -48,7 +49,7 @@ class AudioPlayerViewController: UIViewController {
         let song = songsArray[songNumber]
         audioNameLabel.text = song.name
         imageView.image = song.image
-        prepareToPlay(song: song.name)
+        preparingAudioToPlay(song: song.name)
     }
 
     //MARK: - Functions
@@ -59,7 +60,7 @@ class AudioPlayerViewController: UIViewController {
     }
 
     //MARK: - AVAudioPlayer prepareToPlay()
-    func prepareToPlay(song: String) {
+    func preparingAudioToPlay(song: String) {
         //ищем путь к файлу
         guard let path = Bundle.main.path(forResource: song, ofType: "mp3") else {return}
         //получаем url файла
@@ -81,11 +82,22 @@ class AudioPlayerViewController: UIViewController {
         if audioPlayer.isPlaying == false {
             audioPlayer.play()
             playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+            // progressView
+            Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
+            timeProgressView.setProgress(Float(audioPlayer.currentTime/audioPlayer.duration), animated: false)
         }
         else {
             audioPlayer.pause()
             playPauseButton.setImage(UIImage(named: "play"), for: .normal)
         }
+    }
+
+    @objc func updateProgressView()
+    {
+       if audioPlayer.isPlaying
+          {
+           timeProgressView.setProgress(Float(audioPlayer.currentTime/audioPlayer.duration), animated: true)
+          }
     }
 
     //MARK: - PrevButton; NextButton
@@ -99,7 +111,7 @@ class AudioPlayerViewController: UIViewController {
                     if self.songNumber == 0 {
                         self.audioNameLabel.text = self.songsArray[0].name
                         self.imageView.image = self.songsArray[0].image
-                        self.prepareToPlay(song: self.songsArray[0].name)
+                        self.preparingAudioToPlay(song: self.songsArray[0].name)
                         self.audioPlayer.play()
                     }
                 else {
@@ -107,7 +119,7 @@ class AudioPlayerViewController: UIViewController {
                         self.audioNameLabel.text = self.songsArray[previousSongNumber].name
                         self.imageView.image = self.songsArray[previousSongNumber].image
                         let previousSong = self.songsArray[previousSongNumber]
-                        self.prepareToPlay(song: previousSong.name)
+                        self.preparingAudioToPlay(song: previousSong.name)
                         self.audioPlayer.play()
                         self.songNumber -= 1
                 }
@@ -122,7 +134,7 @@ class AudioPlayerViewController: UIViewController {
                         self.audioNameLabel.text = self.songsArray[nextSongNumber].name
                         self.imageView.image = self.songsArray[nextSongNumber].image
                         let nextSong = self.songsArray[nextSongNumber]
-                        self.prepareToPlay(song: nextSong.name)
+                        self.preparingAudioToPlay(song: nextSong.name)
                         self.audioPlayer.play()
                         self.songNumber += 1
                     }
@@ -130,7 +142,7 @@ class AudioPlayerViewController: UIViewController {
                         self.songNumber = 0
                         self.audioNameLabel.text = self.songsArray[0].name
                         self.imageView.image = self.songsArray[0].image
-                        self.prepareToPlay(song: self.songsArray[0].name)
+                        self.preparingAudioToPlay(song: self.songsArray[0].name)
                         self.audioPlayer.play()
                     }
                 }
@@ -164,5 +176,6 @@ extension AudioPlayerViewController: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         //print("audioPlayerDidFinishPlaying")
         playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+        timeProgressView.progress = 0.0
     }
 }
