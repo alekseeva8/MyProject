@@ -110,7 +110,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7X-Im-hVV" userLabel="loginLabel">
-                                <rect key="frame" x="88.333333333333329" y="144" width="237.66666666666669" height="57"/>
+                                <rect key="frame" x="88.333333333333314" y="144" width="237.66666666666669" height="57"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -167,6 +167,13 @@
                                     <segue destination="Cf7-0a-QIe" kind="show" id="4jP-eV-sHk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejp-Nx-WBq">
+                                <rect key="frame" x="167.66666666666666" y="467" width="79" height="30"/>
+                                <state key="normal" title="To VideoVC"/>
+                                <connections>
+                                    <segue destination="VIs-BP-7QY" kind="show" id="npG-zL-qhI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -174,8 +181,10 @@
                             <constraint firstItem="WVX-yp-8WQ" firstAttribute="centerY" secondItem="0sS-8u-EjC" secondAttribute="centerY" id="Hef-it-NVZ"/>
                             <constraint firstItem="WVX-yp-8WQ" firstAttribute="top" secondItem="168-yR-pGP" secondAttribute="bottom" constant="25" id="Inc-uK-nUk"/>
                             <constraint firstItem="tJn-gT-sC4" firstAttribute="centerX" secondItem="0sS-8u-EjC" secondAttribute="centerX" id="Nv8-cK-l0G"/>
+                            <constraint firstItem="ejp-Nx-WBq" firstAttribute="centerX" secondItem="0sS-8u-EjC" secondAttribute="centerX" id="Vmj-j8-YXy"/>
                             <constraint firstItem="tJn-gT-sC4" firstAttribute="top" secondItem="WVX-yp-8WQ" secondAttribute="bottom" constant="24" id="Vqb-VM-kTO"/>
                             <constraint firstItem="168-yR-pGP" firstAttribute="centerX" secondItem="0sS-8u-EjC" secondAttribute="centerX" id="etx-Gt-Ggn"/>
+                            <constraint firstItem="ejp-Nx-WBq" firstAttribute="top" secondItem="tJn-gT-sC4" secondAttribute="bottom" constant="30" id="fU5-Jc-RYm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DgI-U1-ete"/>
                     </view>
@@ -561,6 +570,41 @@
             </objects>
             <point key="canvasLocation" x="2519" y="1228"/>
         </scene>
+        <!--Video View Controller-->
+        <scene sceneID="0k8-cE-B4I">
+            <objects>
+                <viewController id="VIs-BP-7QY" customClass="VideoViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uc8-f4-sZQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1IK-YO-zOk" userLabel="videoWebView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1IK-YO-zOk" firstAttribute="trailing" secondItem="Guh-CA-Srh" secondAttribute="trailing" id="ImT-vW-9jl"/>
+                            <constraint firstItem="1IK-YO-zOk" firstAttribute="leading" secondItem="Guh-CA-Srh" secondAttribute="leading" id="SOQ-n9-Jxf"/>
+                            <constraint firstItem="1IK-YO-zOk" firstAttribute="top" secondItem="Guh-CA-Srh" secondAttribute="top" id="kfu-Bt-lob"/>
+                            <constraint firstItem="1IK-YO-zOk" firstAttribute="bottom" secondItem="Guh-CA-Srh" secondAttribute="bottom" id="qlA-yH-bL4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Guh-CA-Srh"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="f1Y-Gx-yQ0"/>
+                    <connections>
+                        <outlet property="videoWebView" destination="1IK-YO-zOk" id="lKI-m2-XQy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p60-HA-V2Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3315.9420289855075" y="1471.467391304348"/>
+        </scene>
         <!--Stories Collect View Controller-->
         <scene sceneID="c3y-se-ytZ">
             <objects>
@@ -578,7 +622,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVH-Hw-gEW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3316" y="863"/>
+            <point key="canvasLocation" x="3316" y="804"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4QZ-Eb-qhD">

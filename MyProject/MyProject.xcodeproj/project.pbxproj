@@ -10,6 +10,7 @@
 		F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBA24409C2E00E411B4 /* LoginViewController.swift */; };
 		F3344FBD2440AF0D00E411B4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBC2440AF0D00E411B4 /* FirstViewController.swift */; };
 		F3344FBF2440AF3200E411B4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */; };
+		F357C5B2245B054A009E09AE /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F357C5B1245B054A009E09AE /* VideoViewController.swift */; };
 		F3718DC32458945F00EC7054 /* SongsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3718DC22458945F00EC7054 /* SongsManager.swift */; };
 		F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */; };
 		F3718DCD2459C87C00EC7054 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3718DCC2459C87C00EC7054 /* Audio.swift */; };
@@ -33,6 +34,7 @@
 		F3344FBA24409C2E00E411B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F3344FBC2440AF0D00E411B4 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		F357C5B1245B054A009E09AE /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		F3718DC22458945F00EC7054 /* SongsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsManager.swift; sourceTree = "<group>"; };
 		F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Secret Life of Pets 2.mp3"; sourceTree = "<group>"; };
 		F3718DCC2459C87C00EC7054 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
@@ -92,13 +94,14 @@
 				F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */,
 				F3344FBA24409C2E00E411B4 /* LoginViewController.swift */,
 				F3726D722431ECFD00C37F00 /* MainViewController.swift */,
-				F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */,
-				F3718DC22458945F00EC7054 /* SongsManager.swift */,
-				F3E299192458605300EBB3E7 /* DataSourceForSongsTable.swift */,
 				F3718DCC2459C87C00EC7054 /* Audio.swift */,
+				F3718DC22458945F00EC7054 /* SongsManager.swift */,
+				F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */,
+				F3E299192458605300EBB3E7 /* DataSourceForSongsTable.swift */,
 				F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */,
 				F3718DCE2459E09C00EC7054 /* StoriesCollectViewCell.swift */,
 				F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */,
+				F357C5B1245B054A009E09AE /* VideoViewController.swift */,
 				F388CDD62450945E0046B2DD /* SettingsViewController.swift */,
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
 				F3E2991D245876EF00EBB3E7 /* Songs */,
@@ -199,6 +202,7 @@
 				F388CDD72450945E0046B2DD /* SettingsViewController.swift in Sources */,
 				F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */,
 				F388CDD524508F610046B2DD /* AudioPlayerViewController.swift in Sources */,
+				F357C5B2245B054A009E09AE /* VideoViewController.swift in Sources */,
 				F3718DCD2459C87C00EC7054 /* Audio.swift in Sources */,
 				F3726D732431ECFD00C37F00 /* MainViewController.swift in Sources */,
 				F3726D6F2431ECFD00C37F00 /* AppDelegate.swift in Sources */,
