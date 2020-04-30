@@ -34,6 +34,7 @@ class AudioPlayerViewController: UIViewController {
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setBackgroundView(reverseView)
         setBackgroundView(playView)
         setBackgroundView(forwardView)
@@ -71,6 +72,7 @@ class AudioPlayerViewController: UIViewController {
             print(error)
         }
         //audioPlayer = AVPlayer(url: url)
+        audioPlayer.delegate = self
         audioPlayer.prepareToPlay()
     }
 
@@ -155,5 +157,12 @@ class AudioPlayerViewController: UIViewController {
         if sender == volumeSlider {
             audioPlayer.volume = sender.value
         }
+    }
+}
+
+extension AudioPlayerViewController: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        //print("audioPlayerDidFinishPlaying")
+        playPauseButton.setImage(UIImage(named: "play"), for: .normal)
     }
 }
