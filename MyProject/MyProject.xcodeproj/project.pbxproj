@@ -10,26 +10,52 @@
 		F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBA24409C2E00E411B4 /* LoginViewController.swift */; };
 		F3344FBD2440AF0D00E411B4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBC2440AF0D00E411B4 /* FirstViewController.swift */; };
 		F3344FBF2440AF3200E411B4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */; };
+		F34A9A58245B3D4600DBC4D7 /* MAIN2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A57245B3D4600DBC4D7 /* MAIN2ViewController.swift */; };
+		F34A9A5A245B3D9300DBC4D7 /* MAIN2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A59245B3D9300DBC4D7 /* MAIN2CollectionViewCell.swift */; };
+		F357C5B2245B054A009E09AE /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F357C5B1245B054A009E09AE /* VideoViewController.swift */; };
+		F3718DC32458945F00EC7054 /* SongsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3718DC22458945F00EC7054 /* SongsManager.swift */; };
+		F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */; };
+		F3718DCD2459C87C00EC7054 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3718DCC2459C87C00EC7054 /* Audio.swift */; };
+		F3718DCF2459E09C00EC7054 /* StoriesCollectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3718DCE2459E09C00EC7054 /* StoriesCollectViewCell.swift */; };
 		F3726D6F2431ECFD00C37F00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3726D6E2431ECFD00C37F00 /* AppDelegate.swift */; };
 		F3726D712431ECFD00C37F00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3726D702431ECFD00C37F00 /* SceneDelegate.swift */; };
-		F3726D732431ECFD00C37F00 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3726D722431ECFD00C37F00 /* MainViewController.swift */; };
 		F3726D762431ECFD00C37F00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3726D742431ECFD00C37F00 /* Main.storyboard */; };
 		F3726D782431ECFF00C37F00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3726D772431ECFF00C37F00 /* Assets.xcassets */; };
 		F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3726D792431ECFF00C37F00 /* LaunchScreen.storyboard */; };
+		F388CDD124508E2F0046B2DD /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */; };
+		F388CDD324508E740046B2DD /* StoriesCollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */; };
+		F388CDD524508F610046B2DD /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */; };
+		F388CDD72450945E0046B2DD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD62450945E0046B2DD /* SettingsViewController.swift */; };
+		F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39D10B4245769690093CCF9 /* Rio.mp3 */; };
+		F3E2991A2458605300EBB3E7 /* DataSourceForSongsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E299192458605300EBB3E7 /* DataSourceForSongsTable.swift */; };
+		F3E2991C24586B8700EBB3E7 /* Masha i Medved.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3E2991B24586B8700EBB3E7 /* Masha i Medved.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F3344FBA24409C2E00E411B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F3344FBC2440AF0D00E411B4 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		F34A9A57245B3D4600DBC4D7 /* MAIN2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAIN2ViewController.swift; sourceTree = "<group>"; };
+		F34A9A59245B3D9300DBC4D7 /* MAIN2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAIN2CollectionViewCell.swift; sourceTree = "<group>"; };
+		F357C5B1245B054A009E09AE /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		F3718DC22458945F00EC7054 /* SongsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsManager.swift; sourceTree = "<group>"; };
+		F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Secret Life of Pets 2.mp3"; sourceTree = "<group>"; };
+		F3718DCC2459C87C00EC7054 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
+		F3718DCE2459E09C00EC7054 /* StoriesCollectViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectViewCell.swift; sourceTree = "<group>"; };
 		F3726D6B2431ECFD00C37F00 /* MyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3726D6E2431ECFD00C37F00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3726D702431ECFD00C37F00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F3726D722431ECFD00C37F00 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F3726D752431ECFD00C37F00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3726D772431ECFF00C37F00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3726D7A2431ECFF00C37F00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3726D7C2431ECFF00C37F00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
+		F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectViewController.swift; sourceTree = "<group>"; };
+		F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
+		F388CDD62450945E0046B2DD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F39D10B4245769690093CCF9 /* Rio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rio.mp3; sourceTree = "<group>"; };
+		F3E299192458605300EBB3E7 /* DataSourceForSongsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceForSongsTable.swift; sourceTree = "<group>"; };
+		F3E2991B24586B8700EBB3E7 /* Masha i Medved.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Masha i Medved.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,16 +90,37 @@
 			children = (
 				F3726D6E2431ECFD00C37F00 /* AppDelegate.swift */,
 				F3726D702431ECFD00C37F00 /* SceneDelegate.swift */,
+				F3726D792431ECFF00C37F00 /* LaunchScreen.storyboard */,
 				F3726D742431ECFD00C37F00 /* Main.storyboard */,
 				F3344FBC2440AF0D00E411B4 /* FirstViewController.swift */,
 				F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */,
 				F3344FBA24409C2E00E411B4 /* LoginViewController.swift */,
-				F3726D722431ECFD00C37F00 /* MainViewController.swift */,
+				F34A9A57245B3D4600DBC4D7 /* MAIN2ViewController.swift */,
+				F34A9A59245B3D9300DBC4D7 /* MAIN2CollectionViewCell.swift */,
+				F3718DCC2459C87C00EC7054 /* Audio.swift */,
+				F3718DC22458945F00EC7054 /* SongsManager.swift */,
+				F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */,
+				F3E299192458605300EBB3E7 /* DataSourceForSongsTable.swift */,
+				F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */,
+				F3718DCE2459E09C00EC7054 /* StoriesCollectViewCell.swift */,
+				F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */,
+				F357C5B1245B054A009E09AE /* VideoViewController.swift */,
+				F388CDD62450945E0046B2DD /* SettingsViewController.swift */,
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
-				F3726D792431ECFF00C37F00 /* LaunchScreen.storyboard */,
+				F3E2991D245876EF00EBB3E7 /* Songs */,
 				F3726D7C2431ECFF00C37F00 /* Info.plist */,
 			);
 			path = MyProject;
+			sourceTree = "<group>";
+		};
+		F3E2991D245876EF00EBB3E7 /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				F39D10B4245769690093CCF9 /* Rio.mp3 */,
+				F3E2991B24586B8700EBB3E7 /* Masha i Medved.mp3 */,
+				F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */,
+			);
+			path = Songs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,8 +181,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */,
 				F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */,
 				F3726D782431ECFF00C37F00 /* Assets.xcassets in Resources */,
+				F3E2991C24586B8700EBB3E7 /* Masha i Medved.mp3 in Resources */,
+				F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */,
 				F3726D762431ECFD00C37F00 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,11 +197,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F34A9A5A245B3D9300DBC4D7 /* MAIN2CollectionViewCell.swift in Sources */,
+				F3E2991A2458605300EBB3E7 /* DataSourceForSongsTable.swift in Sources */,
+				F3718DCF2459E09C00EC7054 /* StoriesCollectViewCell.swift in Sources */,
 				F3344FBF2440AF3200E411B4 /* RegistrationViewController.swift in Sources */,
 				F3344FBD2440AF0D00E411B4 /* FirstViewController.swift in Sources */,
+				F388CDD124508E2F0046B2DD /* SongsTableViewController.swift in Sources */,
+				F388CDD72450945E0046B2DD /* SettingsViewController.swift in Sources */,
 				F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */,
-				F3726D732431ECFD00C37F00 /* MainViewController.swift in Sources */,
+				F388CDD524508F610046B2DD /* AudioPlayerViewController.swift in Sources */,
+				F357C5B2245B054A009E09AE /* VideoViewController.swift in Sources */,
+				F3718DCD2459C87C00EC7054 /* Audio.swift in Sources */,
+				F34A9A58245B3D4600DBC4D7 /* MAIN2ViewController.swift in Sources */,
 				F3726D6F2431ECFD00C37F00 /* AppDelegate.swift in Sources */,
+				F388CDD324508E740046B2DD /* StoriesCollectViewController.swift in Sources */,
+				F3718DC32458945F00EC7054 /* SongsManager.swift in Sources */,
 				F3726D712431ECFD00C37F00 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +363,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = education.MyProject;
+				PRODUCT_BUNDLE_IDENTIFIER = education.MyProject2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -321,7 +381,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = education.MyProject;
+				PRODUCT_BUNDLE_IDENTIFIER = education.MyProject2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
