@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBA24409C2E00E411B4 /* LoginViewController.swift */; };
-		F3344FBD2440AF0D00E411B4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBC2440AF0D00E411B4 /* FirstViewController.swift */; };
 		F3344FBF2440AF3200E411B4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */; };
 		F34A9A58245B3D4600DBC4D7 /* MAIN2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A57245B3D4600DBC4D7 /* MAIN2ViewController.swift */; };
 		F34A9A5A245B3D9300DBC4D7 /* MAIN2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A59245B3D9300DBC4D7 /* MAIN2CollectionViewCell.swift */; };
@@ -33,7 +32,6 @@
 
 /* Begin PBXFileReference section */
 		F3344FBA24409C2E00E411B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		F3344FBC2440AF0D00E411B4 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F34A9A57245B3D4600DBC4D7 /* MAIN2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAIN2ViewController.swift; sourceTree = "<group>"; };
 		F34A9A59245B3D9300DBC4D7 /* MAIN2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAIN2CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 				F3726D702431ECFD00C37F00 /* SceneDelegate.swift */,
 				F3726D792431ECFF00C37F00 /* LaunchScreen.storyboard */,
 				F3726D742431ECFD00C37F00 /* Main.storyboard */,
-				F3344FBC2440AF0D00E411B4 /* FirstViewController.swift */,
 				F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */,
 				F3344FBA24409C2E00E411B4 /* LoginViewController.swift */,
 				F34A9A57245B3D4600DBC4D7 /* MAIN2ViewController.swift */,
@@ -201,7 +198,6 @@
 				F3E2991A2458605300EBB3E7 /* DataSourceForSongsTable.swift in Sources */,
 				F3718DCF2459E09C00EC7054 /* StoriesCollectViewCell.swift in Sources */,
 				F3344FBF2440AF3200E411B4 /* RegistrationViewController.swift in Sources */,
-				F3344FBD2440AF0D00E411B4 /* FirstViewController.swift in Sources */,
 				F388CDD124508E2F0046B2DD /* SongsTableViewController.swift in Sources */,
 				F388CDD72450945E0046B2DD /* SettingsViewController.swift in Sources */,
 				F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */,
