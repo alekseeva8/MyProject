@@ -1,5 +1,5 @@
 //
-//  MAIN2CollectionViewCell.swift
+//  MAINCollectionViewCell.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 4/30/20.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MAIN2CollectionViewCell: UICollectionViewCell {
+class MAINCollectionViewCell: UICollectionViewCell {
 
-    static let reuseID = "MAIN2CollectionViewCell"
+    static let reuseID = "MAINCollectionViewCell"
     
     let storyImageView: UIImageView = {
         let imageView = UIImageView()

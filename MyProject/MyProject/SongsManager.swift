@@ -11,9 +11,8 @@ import Foundation
 class SongsManager {
     //singleton
     static let shared = SongsManager()
-    var songName = ""
-    var songNumber = 0
-    //var image:
+    //var songName = ""
+    var currentSong = 0
     
     private init() {
     }

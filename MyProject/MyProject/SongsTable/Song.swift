@@ -1,5 +1,5 @@
 //
-//  Audio.swift
+//  Song.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 4/29/20.
@@ -12,13 +12,12 @@ import  UIKit
 struct Song {
     var name: String
     var image: UIImage
+    var url: URL
     
-    init(name: String, image: UIImage) {
+    init(name: String, image: UIImage, url: URL) {
         self.name = name
         self.image = image
+        self.url = url
     }
 }
 
-//struct  Stories {
-//    <#fields#>
-//}

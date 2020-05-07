@@ -11,15 +11,13 @@ import UIKit
 class SongsTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    let dataSourceForSongsTable = DataSourceForSongsTable()
-    var songsArray = DataSourceForSongsTable().songsArray
+    let dataSourceSongsTable = DataSourceSongsTable()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Songs"
         tableView.delegate = self
-        tableView.dataSource = dataSourceForSongsTable
+        tableView.dataSource = dataSourceSongsTable
     }
     //добавить  unwindSegue to MainVC
 }
@@ -30,8 +28,8 @@ extension SongsTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //достаем название аудио из ячейки (сохраняем в синглтон и передаем в AudioPlayerVC)
-        SongsManager.shared.songName = songsArray[indexPath.row].name
-        SongsManager.shared.songNumber = indexPath.row
+        //SongsManager.shared.songName = songsArray[indexPath.row].name
+        SongsManager.shared.currentSong = indexPath.row
         performSegue(withIdentifier: "fromSongsTableToPlayerVC", sender: nil)
     }
 }

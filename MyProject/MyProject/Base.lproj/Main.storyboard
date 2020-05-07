@@ -91,7 +91,7 @@
         <!--View Controller-->
         <scene sceneID="Huj-p8-3Ef">
             <objects>
-                <viewController id="Ubk-NW-xlz" customClass="MAIN2ViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ubk-NW-xlz" customClass="MAINViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0sS-8u-EjC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

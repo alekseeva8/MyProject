@@ -1,65 +1,65 @@
 //
-//  StoriesTableViewController.swift
+//  MAINViewController.swift
 //  MyProject
 //
-//  Created by Elena Alekseeva on 4/22/20.
+//  Created by Elena Alekseeva on 4/30/20.
 //  Copyright © 2020 Elena Alekseeva. All rights reserved.
 //
 
 import UIKit
 
-class StoriesCollectViewController: UIViewController {
+class MAINViewController: UIViewController {
 
     var collectionView: UICollectionView
-    
-    let dataSourceForSongsTable = DataSourceForSongsTable()
-    var songsArray = DataSourceForSongsTable().songsArray
-    
+
+    //вынести в отдельный файл? dataSource?
+    let activitiesArray = ["Songs", "Stories", "Learning videos", "Bedtime", "Favorities"]
+    //let colors - подобрать массив цветов
+    //let images - подобрать массив картинок
+
     //инициализация VC из storyboard и инициализация CollectionView в нем
     required init?(coder: NSCoder) {
         let layout = UICollectionViewFlowLayout()
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         super.init(coder: coder)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = " Stories"
-        
+        title = " Main"
+
         view.addSubview(collectionView)
         collectionViewLayout()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(StoriesCollectViewCell.self, forCellWithReuseIdentifier: StoriesCollectViewCell.reuseID)
+        collectionView.register(MAINCollectionViewCell.self, forCellWithReuseIdentifier: MAINCollectionViewCell.reuseID)
     }
 }
-//добавить  unwindSegue to MainVC
-
 
 //MARK: - Data Source
-extension StoriesCollectViewController: UICollectionViewDataSource {
-    
+extension MAINViewController: UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        songsArray.count
+        activitiesArray.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesCollectViewCell.reuseID, for: indexPath) as! StoriesCollectViewCell
-        
-        //cellDesign(cell: cell)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MAINCollectionViewCell.reuseID, for: indexPath) as! MAINCollectionViewCell
+
         cell.backgroundColor = UIColor(named: "BackgroundColor")
         cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 2
-        
-        cell.storyNameLabel.text = songsArray[indexPath.row].name
-        cell.storyImageView.image = songsArray[indexPath.row].image
-        
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 5
+
+        cell.storyNameLabel.text = activitiesArray[indexPath.row]
+        //cell.storyImageView.image = songsArray[indexPath.row].image
+
         return cell
     }
 }
 
 //MARK: - Layout, Design
-extension StoriesCollectViewController {
+extension MAINViewController {
     func collectionViewLayout() {
         collectionView.backgroundColor = UIColor(named: "BackgroundColor")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,29 +69,35 @@ extension StoriesCollectViewController {
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        
+
         //чтобы ячейки не доставали до краев collectionview на 10
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
-    
+
 }
 
 //MARK: - Delegate
-extension StoriesCollectViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension MAINViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemWidth = (UIScreen.main.bounds.width - 20 - 20 - 10/2)/2
-        return CGSize(width: itemWidth, height: 250)
+        let itemWidth = UIScreen.main.bounds.width - 20 - 20 - 10/2
+        //let itemWidth = 350
+        return CGSize(width: itemWidth, height: 150)
     }
 }
 
 //MARK: - DidSelect method
-extension StoriesCollectViewController {
+extension MAINViewController {
     //метод говорит делегату, какой выбран пользователем ряд (нажатием на ряд пользователем). здесь можно модифицировать ряд
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        SongsManager.shared.songName = songsArray[indexPath.row].name
-        SongsManager.shared.songNumber = indexPath.row
-        
-        performSegue(withIdentifier: "fromStoriesToPlayerVC", sender: nil)
+
+        switch  indexPath.row {
+        case 0: performSegue(withIdentifier: "fromMainToSongsVC", sender: nil)
+        case 1: performSegue(withIdentifier: "fromMainToStoriesVC", sender: nil)
+        case 2: performSegue(withIdentifier: "fromMainToVideoVC", sender: nil)
+        default:
+            break
+        }
     }
+
 
 }

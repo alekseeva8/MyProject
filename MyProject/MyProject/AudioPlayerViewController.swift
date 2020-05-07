@@ -10,13 +10,12 @@ import UIKit
 import  AVFoundation
 
 class AudioPlayerViewController: UIViewController {
-    
-    //var audioPlayer2 = AVPlayer()
+
     var audioPlayer = AVAudioPlayer()
     
     //let songName = SongsManager.shared.songName
-    var songNumber = SongsManager.shared.songNumber
-    let songsArray = DataSourceForSongsTable().songsArray
+    var currentSong = SongsManager.shared.currentSong
+    let songsArray = DataSourceSongsTable().songsArray
     
     @IBOutlet weak var reverseView: UIView!
     @IBOutlet weak var playView: UIView!
@@ -46,10 +45,11 @@ class AudioPlayerViewController: UIViewController {
         volumeSlider.minimumValue = 0.0
         volumeSlider.maximumValue = 1.0
         
-        let song = songsArray[songNumber]
+        let song = songsArray[currentSong]
         audioNameLabel.text = song.name
         imageView.image = song.image
-        preparingAudioToPlay(song: song.name)
+        //preparingAudioToPlay(url: song.url)
+        preparingAudioToPlay2()
     }
     
     //MARK: - Functions
@@ -60,22 +60,30 @@ class AudioPlayerViewController: UIViewController {
     }
     
     //MARK: - AVAudioPlayer prepareToPlay()
-    func preparingAudioToPlay(song: String) {
-        //ищем путь к файлу
-        guard let path = Bundle.main.path(forResource: song, ofType: "mp3") else {return}
-        //получаем url файла
-        let url = URL(fileURLWithPath: path)
-        //воспроизводим содержимое файла
+    func preparingAudioToPlay(url: URL) {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             timeSlider.maximumValue = Float(audioPlayer.duration)
         } catch let error {
             print(error)
         }
-        //audioPlayer = AVPlayer(url: url)
         audioPlayer.delegate = self
         audioPlayer.prepareToPlay()
     }
+
+    func preparingAudioToPlay2() {
+        guard let url = URL(string: "https://storage.googleapis.com/bucket-for-songs/Coco.mp3") else {return}
+        NetworkManager.downloadFileFrom(url: url) { (url) in
+            do {
+                self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+            } catch {
+                print(error)
+            }
+            self.audioPlayer.delegate = self
+            self.audioPlayer.prepareToPlay()
+    }
+    }
+
     
     //MARK: - playPauseButton
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
@@ -97,20 +105,21 @@ class AudioPlayerViewController: UIViewController {
             //действия для PREV
             if sender == self.prevButton {
                 if self.audioPlayer.isPlaying {
-                    if self.songNumber == 0 {
+                    if self.currentSong == 0 {
                         self.audioNameLabel.text = self.songsArray[0].name
                         self.imageView.image = self.songsArray[0].image
-                        self.preparingAudioToPlay(song: self.songsArray[0].name)
+                        self.preparingAudioToPlay(url: self.songsArray[0].url)
                         self.audioPlayer.play()
                     }
                     else {
-                        let previousSongNumber = self.songNumber - 1
-                        self.audioNameLabel.text = self.songsArray[previousSongNumber].name
-                        self.imageView.image = self.songsArray[previousSongNumber].image
-                        let previousSong = self.songsArray[previousSongNumber]
-                        self.preparingAudioToPlay(song: previousSong.name)
+                        let previousSongIndex = self.currentSong - 1
+                        self.audioNameLabel.text = self.songsArray[previousSongIndex].name
+                        self.imageView.image = self.songsArray[previousSongIndex].image
+                        let previousSong = self.songsArray[previousSongIndex]
+                        self.preparingAudioToPlay(url: previousSong.url
+                        )
                         self.audioPlayer.play()
-                        self.songNumber -= 1
+                        self.currentSong -= 1
                     }
                 }
             }
@@ -118,20 +127,20 @@ class AudioPlayerViewController: UIViewController {
             //действия для NEXT
             if sender == self.nextButton {
                 if self.audioPlayer.isPlaying {
-                    if self.songNumber < self.songsArray.count-1 {
-                        let nextSongNumber = self.songNumber + 1
+                    if self.currentSong < self.songsArray.count-1 {
+                        let nextSongNumber = self.currentSong + 1
                         self.audioNameLabel.text = self.songsArray[nextSongNumber].name
                         self.imageView.image = self.songsArray[nextSongNumber].image
                         let nextSong = self.songsArray[nextSongNumber]
-                        self.preparingAudioToPlay(song: nextSong.name)
+                        self.preparingAudioToPlay(url: nextSong.url)
                         self.audioPlayer.play()
-                        self.songNumber += 1
+                        self.currentSong += 1
                     }
                     else {
-                        self.songNumber = 0
+                        self.currentSong = 0
                         self.audioNameLabel.text = self.songsArray[0].name
                         self.imageView.image = self.songsArray[0].image
-                        self.preparingAudioToPlay(song: self.songsArray[0].name)
+                        self.preparingAudioToPlay(url: self.songsArray[0].url)
                         self.audioPlayer.play()
                     }
                 }
