@@ -19,11 +19,9 @@ class LocalDataHandler {
         //getting access to all of the files. All files will be stored in urlsArray
         do {
             let urlsArray = try FileManager.default.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
-            //print(urlsArray)
             urlsArray.forEach { (url) in
                 let urlString = url.absoluteString
                 if urlString.contains(".mp3") {
-                    //print(urlString)
                     let urlStringSplitted = urlString.split(separator: "/")
                     var songName = String(urlStringSplitted.last ?? "")
                     songName = songName.replacingOccurrences(of: ".mp3", with: "")

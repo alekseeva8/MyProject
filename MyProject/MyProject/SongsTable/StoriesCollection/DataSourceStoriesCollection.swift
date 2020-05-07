@@ -11,16 +11,15 @@ import UIKit
 
 class DataSourceStoriesCollection: NSObject, UICollectionViewDataSource {
 
-    var songsArray = [Song]()
+    var storiesArray = [Story]()
 
     override init() {
         super.init()
-        //изменить на другой источник данных!!!!!
-        songsArray = LocalDataHandler.gettingSongsArray()
+        storiesArray = CloudDataHandler.gettingStoriesArray()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        songsArray.count
+        storiesArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -31,8 +30,7 @@ class DataSourceStoriesCollection: NSObject, UICollectionViewDataSource {
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 2
 
-        cell.storyNameLabel.text = songsArray[indexPath.row].name
-        cell.storyImageView.image = songsArray[indexPath.row].image
+        cell.storyNameLabel.text = storiesArray[indexPath.row].name
 
         return cell
     }

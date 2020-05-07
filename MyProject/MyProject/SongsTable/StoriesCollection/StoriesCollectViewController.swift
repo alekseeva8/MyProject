@@ -63,9 +63,14 @@ extension StoriesCollectViewController: UICollectionViewDelegate, UICollectionVi
 extension StoriesCollectViewController {
     //метод говорит делегату, какой выбран пользователем ряд (нажатием на ряд пользователем). здесь можно модифицировать ряд
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //SongsManager.shared.songName = songsArray[indexPath.row].name
-        SongsManager.shared.currentSong = indexPath.row
-        
+        AudioManager.shared.currentAudio = indexPath.row
         performSegue(withIdentifier: "fromStoriesToPlayerVC", sender: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
+            audioPlayerVC.audioType = "story"
+            print("audioType is story")
+        }
     }
 }

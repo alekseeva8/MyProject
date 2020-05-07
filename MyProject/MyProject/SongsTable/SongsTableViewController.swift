@@ -28,9 +28,14 @@ extension SongsTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //достаем название аудио из ячейки (сохраняем в синглтон и передаем в AudioPlayerVC)
-        //SongsManager.shared.songName = songsArray[indexPath.row].name
-        SongsManager.shared.currentSong = indexPath.row
+        AudioManager.shared.currentAudio = indexPath.row
         performSegue(withIdentifier: "fromSongsTableToPlayerVC", sender: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
+            audioPlayerVC.audioType = "song"
+        }
     }
 }
 

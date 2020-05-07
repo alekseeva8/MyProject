@@ -16,7 +16,7 @@ class StoriesCollectViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor(named: "BackgroundColor")
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "Masha i Medved")
+        imageView.image = UIImage(named: "Children")
         return imageView
     }()
 

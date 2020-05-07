@@ -11,12 +11,12 @@ import  UIKit
 
 struct Story {
     var name: String
-    //var image: UIImage
+    var image: UIImage
     var url: URL
 
-    init(name: String, url: URL) {
+    init(name: String, image: UIImage, url: URL) {
         self.name = name
-        //self.image = image
+        self.image = image
         self.url = url
     }
 }

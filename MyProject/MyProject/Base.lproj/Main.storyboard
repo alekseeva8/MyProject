@@ -100,9 +100,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="BnF-Kq-xfM"/>
                     <connections>
-                        <segue destination="v0u-0b-kfw" kind="show" identifier="fromMainToSongsVC" id="d5C-ah-l4B"/>
-                        <segue destination="Cf7-0a-QIe" kind="show" identifier="fromMainToStoriesVC" id="BMl-A4-34A"/>
                         <segue destination="VIs-BP-7QY" kind="show" identifier="fromMainToVideoVC" id="Fc4-Ar-Ryf"/>
+                        <segue destination="v0u-0b-kfw" kind="show" identifier="fromMainToSongsVC" id="XpD-GR-WVF"/>
+                        <segue destination="Cf7-0a-QIe" kind="show" identifier="fromMainToStoriesVC" id="MyF-qV-fjC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PhD-av-3Vz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

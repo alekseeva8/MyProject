@@ -12,10 +12,11 @@ import  AVFoundation
 class AudioPlayerViewController: UIViewController {
 
     var audioPlayer = AVAudioPlayer()
-    
-    //let songName = SongsManager.shared.songName
-    var currentSong = SongsManager.shared.currentSong
+
+    var currentAudio = AudioManager.shared.currentAudio
     let songsArray = DataSourceSongsTable().songsArray
+    let storiesArray = DataSourceStoriesCollection().storiesArray
+    var audioType = ""
     
     @IBOutlet weak var reverseView: UIView!
     @IBOutlet weak var playView: UIView!
@@ -44,12 +45,8 @@ class AudioPlayerViewController: UIViewController {
         //setting volumeSlider
         volumeSlider.minimumValue = 0.0
         volumeSlider.maximumValue = 1.0
-        
-        let song = songsArray[currentSong]
-        audioNameLabel.text = song.name
-        imageView.image = song.image
-        //preparingAudioToPlay(url: song.url)
-        preparingAudioToPlay2()
+
+        choosingAudioToPlay()
     }
     
     //MARK: - Functions
@@ -58,30 +55,47 @@ class AudioPlayerViewController: UIViewController {
         backgroundView.layer.cornerRadius = backgroundView.bounds.width/2
         backgroundView.clipsToBounds = true
     }
+
+    func choosingAudioToPlay() {
+        if audioType == "song" {
+             let song = songsArray[currentAudio]
+             audioNameLabel.text = song.name
+             imageView.image = song.image
+             preparingAudioToPlay(url: song.url, fromCloudStorage: false)
+         }
+         else if audioType == "story" {
+             let story = storiesArray[currentAudio]
+             audioNameLabel.text = story.name
+             imageView.image = story.image
+             preparingAudioToPlay(url: story.url, fromCloudStorage: true)
+         }
+    }
     
     //MARK: - AVAudioPlayer prepareToPlay()
-    func preparingAudioToPlay(url: URL) {
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            timeSlider.maximumValue = Float(audioPlayer.duration)
-        } catch let error {
-            print(error)
-        }
-        audioPlayer.delegate = self
-        audioPlayer.prepareToPlay()
-    }
 
-    func preparingAudioToPlay2() {
-        guard let url = URL(string: "https://storage.googleapis.com/bucket-for-songs/Babushka%20Vyuga.mp3") else {return}
-        NetworkManager.downloadFileFrom(url: url) { (url) in
+    func preparingAudioToPlay(url: URL, fromCloudStorage: Bool) {
+        if fromCloudStorage == true {
+            NetworkManager.downloadFileFrom(url: url) { (url) in
+                print("downloaded")
+                do {
+                    self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+                } catch {
+                    print(error)
+                }
+                self.audioPlayer.delegate = self
+                self.audioPlayer.prepareToPlay()
+            }
+        }
+        else {
             do {
-                self.audioPlayer = try AVAudioPlayer(contentsOf: url)
-            } catch {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                timeSlider.maximumValue = Float(audioPlayer.duration)
+            } catch let error {
                 print(error)
             }
-            self.audioPlayer.delegate = self
-            self.audioPlayer.prepareToPlay()
-    }
+            audioPlayer.delegate = self
+            audioPlayer.prepareToPlay()
+        }
     }
 
     
@@ -105,21 +119,20 @@ class AudioPlayerViewController: UIViewController {
             //действия для PREV
             if sender == self.prevButton {
                 if self.audioPlayer.isPlaying {
-                    if self.currentSong == 0 {
+                    if self.currentAudio == 0 {
                         self.audioNameLabel.text = self.songsArray[0].name
                         self.imageView.image = self.songsArray[0].image
-                        self.preparingAudioToPlay(url: self.songsArray[0].url)
+                        self.preparingAudioToPlay(url: self.songsArray[0].url, fromCloudStorage: true)
                         self.audioPlayer.play()
                     }
                     else {
-                        let previousSongIndex = self.currentSong - 1
+                        let previousSongIndex = self.currentAudio - 1
                         self.audioNameLabel.text = self.songsArray[previousSongIndex].name
                         self.imageView.image = self.songsArray[previousSongIndex].image
                         let previousSong = self.songsArray[previousSongIndex]
-                        self.preparingAudioToPlay(url: previousSong.url
-                        )
+                        self.preparingAudioToPlay(url: previousSong.url, fromCloudStorage: true)
                         self.audioPlayer.play()
-                        self.currentSong -= 1
+                        self.currentAudio -= 1
                     }
                 }
             }
@@ -127,20 +140,20 @@ class AudioPlayerViewController: UIViewController {
             //действия для NEXT
             if sender == self.nextButton {
                 if self.audioPlayer.isPlaying {
-                    if self.currentSong < self.songsArray.count-1 {
-                        let nextSongNumber = self.currentSong + 1
+                    if self.currentAudio < self.songsArray.count-1 {
+                        let nextSongNumber = self.currentAudio + 1
                         self.audioNameLabel.text = self.songsArray[nextSongNumber].name
                         self.imageView.image = self.songsArray[nextSongNumber].image
                         let nextSong = self.songsArray[nextSongNumber]
-                        self.preparingAudioToPlay(url: nextSong.url)
+                        self.preparingAudioToPlay(url: nextSong.url, fromCloudStorage: true)
                         self.audioPlayer.play()
-                        self.currentSong += 1
+                        self.currentAudio += 1
                     }
                     else {
-                        self.currentSong = 0
+                        self.currentAudio = 0
                         self.audioNameLabel.text = self.songsArray[0].name
                         self.imageView.image = self.songsArray[0].image
-                        self.preparingAudioToPlay(url: self.songsArray[0].url)
+                        self.preparingAudioToPlay(url: self.songsArray[0].url, fromCloudStorage: true)
                         self.audioPlayer.play()
                     }
                 }

@@ -19,13 +19,12 @@ class CloudDataHandler {
 
         urlStringsArray.forEach { (urlString) in
             if urlString.contains(".mp3") {
-                print(urlString)
                 let urlStringSplitted = urlString.split(separator: "/")
                 var storyName = String(urlStringSplitted.last ?? "")
                 storyName = storyName.replacingOccurrences(of: ".mp3", with: "")
                 storyName = storyName.replacingOccurrences(of: "%20", with: " ")
                 guard let url = URL(string: urlString) else {return}
-                arrayOfStories.append(Story(name: storyName, url: url))
+                arrayOfStories.append(Story(name: storyName, image: UIImage(named: "music") ?? UIImage(), url: url))
                 }
             }
         return arrayOfStories
