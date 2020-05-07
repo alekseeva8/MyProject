@@ -72,7 +72,7 @@ class AudioPlayerViewController: UIViewController {
     }
 
     func preparingAudioToPlay2() {
-        guard let url = URL(string: "https://storage.googleapis.com/bucket-for-songs/Coco.mp3") else {return}
+        guard let url = URL(string: "https://storage.googleapis.com/bucket-for-songs/Babushka%20Vyuga.mp3") else {return}
         NetworkManager.downloadFileFrom(url: url) { (url) in
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: url)

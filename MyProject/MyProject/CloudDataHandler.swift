@@ -14,7 +14,7 @@ class CloudDataHandler {
     static func gettingStoriesArray() -> [Story] {
         var arrayOfStories: [Story] = []
         var urlStringsArray: [String] = []
-        let urlString = "https://storage.googleapis.com/bucket-for-songs/Coco.mp3"
+        let urlString = "https://storage.googleapis.com/bucket-for-songs/Babushka%20Vyuga.mp3"
         urlStringsArray.append(urlString)
 
         urlStringsArray.forEach { (urlString) in
