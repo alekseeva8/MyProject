@@ -28,7 +28,7 @@ class LocalDataHandler {
                     songName = songName.replacingOccurrences(of: "%20", with: " ")
                     guard let path = Bundle.main.path(forResource: songName, ofType: "mp3") else {return}
                     let url = URL(fileURLWithPath: path)
-                    arrayOfSongs.append(Song(name: songName, image: UIImage(named: songName) ?? UIImage(), url: url))
+                    arrayOfSongs.append(Song(name: songName, image: UIImage(named: songName) ?? UIImage(), url: url, kind: "song"))
                 }
             }
         } catch {

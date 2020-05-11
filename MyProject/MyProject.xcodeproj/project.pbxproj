@@ -35,6 +35,12 @@
 		F39873F82466F86F00545692 /* ParseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F72466F86F00545692 /* ParseHandler.swift */; };
 		F39873FA2466FF3500545692 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F92466FF3500545692 /* SearchResponse.swift */; };
 		F39873FD2467289D00545692 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F39873FC2467289D00545692 /* GoogleService-Info.plist */; };
+		F39873FF2469A4DD00545692 /* Ratatouille.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39873FE2469A4DD00545692 /* Ratatouille.mp3 */; };
+		F39874012469A78000545692 /* The Princess and the Frog.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874002469A78000545692 /* The Princess and the Frog.mp3 */; };
+		F39874032469A85900545692 /* Smallfoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874022469A85900545692 /* Smallfoot.mp3 */; };
+		F39874052469A89100545692 /* Grinch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874042469A89100545692 /* Grinch.mp3 */; };
+		F39874072469A89900545692 /* Moana.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874062469A89900545692 /* Moana.mp3 */; };
+		F39874092469A9BE00545692 /* Big Hero 6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874082469A9BE00545692 /* Big Hero 6.mp3 */; };
 		F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39D10B4245769690093CCF9 /* Rio.mp3 */; };
 		F3E2991A2458605300EBB3E7 /* DataSourceSongsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E299192458605300EBB3E7 /* DataSourceSongsTable.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +78,12 @@
 		F39873F72466F86F00545692 /* ParseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseHandler.swift; sourceTree = "<group>"; };
 		F39873F92466FF3500545692 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		F39873FC2467289D00545692 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F39873FE2469A4DD00545692 /* Ratatouille.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ratatouille.mp3; sourceTree = "<group>"; };
+		F39874002469A78000545692 /* The Princess and the Frog.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Princess and the Frog.mp3"; sourceTree = "<group>"; };
+		F39874022469A85900545692 /* Smallfoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Smallfoot.mp3; sourceTree = "<group>"; };
+		F39874042469A89100545692 /* Grinch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Grinch.mp3; sourceTree = "<group>"; };
+		F39874062469A89900545692 /* Moana.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Moana.mp3; sourceTree = "<group>"; };
+		F39874082469A9BE00545692 /* Big Hero 6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Big Hero 6.mp3"; sourceTree = "<group>"; };
 		F39D10B4245769690093CCF9 /* Rio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rio.mp3; sourceTree = "<group>"; };
 		F3E299192458605300EBB3E7 /* DataSourceSongsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceSongsTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,7 +131,6 @@
 			children = (
 				F3718DCC2459C87C00EC7054 /* Song.swift */,
 				F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */,
-				F3E299192458605300EBB3E7 /* DataSourceSongsTable.swift */,
 			);
 			path = SongsTable;
 			sourceTree = "<group>";
@@ -130,7 +141,6 @@
 				F34A9A672464675F00DBC4D7 /* Story.swift */,
 				F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */,
 				F3718DCE2459E09C00EC7054 /* StoriesCollectViewCell.swift */,
-				F39873FB2467053300545692 /* unused */,
 			);
 			path = StoriesCollection;
 			sourceTree = "<group>";
@@ -166,6 +176,7 @@
 				F3718DC22458945F00EC7054 /* AudioManager.swift */,
 				F34A9A65246465F700DBC4D7 /* SongsTable */,
 				F34A9A662464666400DBC4D7 /* StoriesCollection */,
+				F39873FB2467053300545692 /* unused */,
 				F39873F92466FF3500545692 /* SearchResponse.swift */,
 				F39873F32466F51C00545692 /* APIHandler.swift */,
 				F39873F72466F86F00545692 /* ParseHandler.swift */,
@@ -185,6 +196,7 @@
 		F39873FB2467053300545692 /* unused */ = {
 			isa = PBXGroup;
 			children = (
+				F3E299192458605300EBB3E7 /* DataSourceSongsTable.swift */,
 				F34A9A5F2463DFD000DBC4D7 /* CloudDataHandler.swift */,
 				F34A9A5D2463DAD500DBC4D7 /* DataSourceStoriesCollection.swift */,
 			);
@@ -196,6 +208,12 @@
 			children = (
 				F39D10B4245769690093CCF9 /* Rio.mp3 */,
 				F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */,
+				F39873FE2469A4DD00545692 /* Ratatouille.mp3 */,
+				F39874002469A78000545692 /* The Princess and the Frog.mp3 */,
+				F39874022469A85900545692 /* Smallfoot.mp3 */,
+				F39874042469A89100545692 /* Grinch.mp3 */,
+				F39874082469A9BE00545692 /* Big Hero 6.mp3 */,
+				F39874062469A89900545692 /* Moana.mp3 */,
 			);
 			path = Songs;
 			sourceTree = "<group>";
@@ -262,9 +280,15 @@
 			files = (
 				F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */,
 				F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */,
+				F39874072469A89900545692 /* Moana.mp3 in Resources */,
+				F39874032469A85900545692 /* Smallfoot.mp3 in Resources */,
+				F39874052469A89100545692 /* Grinch.mp3 in Resources */,
+				F39873FF2469A4DD00545692 /* Ratatouille.mp3 in Resources */,
 				F3726D782431ECFF00C37F00 /* Assets.xcassets in Resources */,
 				F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */,
+				F39874012469A78000545692 /* The Princess and the Frog.mp3 in Resources */,
 				F3726D762431ECFD00C37F00 /* Main.storyboard in Resources */,
+				F39874092469A9BE00545692 /* Big Hero 6.mp3 in Resources */,
 				F39873FD2467289D00545692 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

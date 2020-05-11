@@ -15,6 +15,7 @@ class AudioManager {
     var currentAudio = 0
 
     var story = Story(name: "", image: UIImage(), url: URL(string: ""), kind: "")
+    var song = Song(name: "", image: UIImage(), url: URL(string: ""), kind: "")
     
     private init() {
     }
