@@ -31,7 +31,10 @@
 		F388CDD324508E740046B2DD /* StoriesCollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */; };
 		F388CDD524508F610046B2DD /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */; };
 		F388CDD72450945E0046B2DD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD62450945E0046B2DD /* SettingsViewController.swift */; };
-		F39873F22465D18D00545692 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F39873F12465D18D00545692 /* GoogleService-Info.plist */; };
+		F39873F42466F51C00545692 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F32466F51C00545692 /* APIHandler.swift */; };
+		F39873F82466F86F00545692 /* ParseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F72466F86F00545692 /* ParseHandler.swift */; };
+		F39873FA2466FF3500545692 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F92466FF3500545692 /* SearchResponse.swift */; };
+		F39873FD2467289D00545692 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F39873FC2467289D00545692 /* GoogleService-Info.plist */; };
 		F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39D10B4245769690093CCF9 /* Rio.mp3 */; };
 		F3E2991A2458605300EBB3E7 /* DataSourceSongsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E299192458605300EBB3E7 /* DataSourceSongsTable.swift */; };
 /* End PBXBuildFile section */
@@ -65,7 +68,10 @@
 		F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectViewController.swift; sourceTree = "<group>"; };
 		F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
 		F388CDD62450945E0046B2DD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		F39873F12465D18D00545692 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F39873F32466F51C00545692 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		F39873F72466F86F00545692 /* ParseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseHandler.swift; sourceTree = "<group>"; };
+		F39873F92466FF3500545692 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		F39873FC2467289D00545692 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F39D10B4245769690093CCF9 /* Rio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rio.mp3; sourceTree = "<group>"; };
 		F3E299192458605300EBB3E7 /* DataSourceSongsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceSongsTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,7 +120,6 @@
 				F3718DCC2459C87C00EC7054 /* Song.swift */,
 				F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */,
 				F3E299192458605300EBB3E7 /* DataSourceSongsTable.swift */,
-				F34A9A662464666400DBC4D7 /* StoriesCollection */,
 			);
 			path = SongsTable;
 			sourceTree = "<group>";
@@ -125,7 +130,7 @@
 				F34A9A672464675F00DBC4D7 /* Story.swift */,
 				F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */,
 				F3718DCE2459E09C00EC7054 /* StoriesCollectViewCell.swift */,
-				F34A9A5D2463DAD500DBC4D7 /* DataSourceStoriesCollection.swift */,
+				F39873FB2467053300545692 /* unused */,
 			);
 			path = StoriesCollection;
 			sourceTree = "<group>";
@@ -160,8 +165,11 @@
 				F34A9A64246465C700DBC4D7 /* MAIN */,
 				F3718DC22458945F00EC7054 /* AudioManager.swift */,
 				F34A9A65246465F700DBC4D7 /* SongsTable */,
+				F34A9A662464666400DBC4D7 /* StoriesCollection */,
+				F39873F92466FF3500545692 /* SearchResponse.swift */,
+				F39873F32466F51C00545692 /* APIHandler.swift */,
+				F39873F72466F86F00545692 /* ParseHandler.swift */,
 				F34A9A5B2463CC5500DBC4D7 /* LocalDataHandler.swift */,
-				F34A9A5F2463DFD000DBC4D7 /* CloudDataHandler.swift */,
 				F34A9A622464579C00DBC4D7 /* NetworkManager.swift */,
 				F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */,
 				F357C5B1245B054A009E09AE /* VideoViewController.swift */,
@@ -169,9 +177,18 @@
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
 				F3E2991D245876EF00EBB3E7 /* Songs */,
 				F3726D7C2431ECFF00C37F00 /* Info.plist */,
-				F39873F12465D18D00545692 /* GoogleService-Info.plist */,
+				F39873FC2467289D00545692 /* GoogleService-Info.plist */,
 			);
 			path = MyProject;
+			sourceTree = "<group>";
+		};
+		F39873FB2467053300545692 /* unused */ = {
+			isa = PBXGroup;
+			children = (
+				F34A9A5F2463DFD000DBC4D7 /* CloudDataHandler.swift */,
+				F34A9A5D2463DAD500DBC4D7 /* DataSourceStoriesCollection.swift */,
+			);
+			path = unused;
 			sourceTree = "<group>";
 		};
 		F3E2991D245876EF00EBB3E7 /* Songs */ = {
@@ -248,7 +265,7 @@
 				F3726D782431ECFF00C37F00 /* Assets.xcassets in Resources */,
 				F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */,
 				F3726D762431ECFD00C37F00 /* Main.storyboard in Resources */,
-				F39873F22465D18D00545692 /* GoogleService-Info.plist in Resources */,
+				F39873FD2467289D00545692 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,9 +318,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F39873F42466F51C00545692 /* APIHandler.swift in Sources */,
 				F34A9A5A245B3D9300DBC4D7 /* MAINCollectionViewCell.swift in Sources */,
 				F3E2991A2458605300EBB3E7 /* DataSourceSongsTable.swift in Sources */,
 				F3718DCF2459E09C00EC7054 /* StoriesCollectViewCell.swift in Sources */,
+				F39873F82466F86F00545692 /* ParseHandler.swift in Sources */,
 				F3344FBF2440AF3200E411B4 /* RegistrationViewController.swift in Sources */,
 				F34A9A632464579C00DBC4D7 /* NetworkManager.swift in Sources */,
 				F34A9A5C2463CC5500DBC4D7 /* LocalDataHandler.swift in Sources */,
@@ -320,6 +339,7 @@
 				F3718DC32458945F00EC7054 /* AudioManager.swift in Sources */,
 				F34A9A602463DFD000DBC4D7 /* CloudDataHandler.swift in Sources */,
 				F3726D712431ECFD00C37F00 /* SceneDelegate.swift in Sources */,
+				F39873FA2466FF3500545692 /* SearchResponse.swift in Sources */,
 				F34A9A682464675F00DBC4D7 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

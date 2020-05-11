@@ -15,8 +15,8 @@ class AudioPlayerViewController: UIViewController {
 
     var currentAudio = AudioManager.shared.currentAudio
     let songsArray = DataSourceSongsTable().songsArray
-    let storiesArray = DataSourceStoriesCollection().storiesArray
-    var audioType = ""
+    let story = AudioManager.shared.story
+    var kind = ""
     
     @IBOutlet weak var reverseView: UIView!
     @IBOutlet weak var playView: UIView!
@@ -57,17 +57,17 @@ class AudioPlayerViewController: UIViewController {
     }
 
     func choosingAudioToPlay() {
-        if audioType == "song" {
+        if kind == "song" {
              let song = songsArray[currentAudio]
              audioNameLabel.text = song.name
              imageView.image = song.image
              preparingAudioToPlay(url: song.url, fromCloudStorage: false)
          }
-         else if audioType == "story" {
-             let story = storiesArray[currentAudio]
-             audioNameLabel.text = story.name
-             imageView.image = story.image
-             preparingAudioToPlay(url: story.url, fromCloudStorage: true)
+         else if kind == "story" {
+            audioNameLabel.text = story.name
+            imageView.image = story.image
+            guard let url = story.url else {return}
+             preparingAudioToPlay(url: url, fromCloudStorage: true)
          }
     }
     

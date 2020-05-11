@@ -11,8 +11,9 @@ import UIKit
 class StoriesCollectViewController: UIViewController {
 
     var collectionView: UICollectionView
-    let dataSourceStoriesCollection = DataSourceStoriesCollection()
-    
+    var storiesArray: [Story] = []
+    //let dataSourceStoriesCollection = DataSourceStoriesCollection()
+
     //инициализация VC из storyboard и инициализация CollectionView в нем
     required init?(coder: NSCoder) {
         let layout = UICollectionViewFlowLayout()
@@ -26,13 +27,55 @@ class StoriesCollectViewController: UIViewController {
         
         view.addSubview(collectionView)
         collectionViewLayout()
-        collectionView.dataSource = dataSourceStoriesCollection
+        collectionView.dataSource = self
         collectionView.delegate = self
+        //collectionView.dataSource = dataSourceStoriesCollection
         collectionView.register(StoriesCollectViewCell.self, forCellWithReuseIdentifier: StoriesCollectViewCell.reuseID)
+
+        updateData()
     }
 }
 //добавить  unwindSegue to MainVC
 
+
+//MARK: - updateData
+extension StoriesCollectViewController {
+    func updateData() {
+        ParseHandler().getData() {[weak self] (searchResponse) in
+            searchResponse.results.forEach { (track) in
+                //if track.kind == "story" {}
+                guard let url = URL(string: track.trackUrl) else {return}
+                guard let urlImage = URL(string: track.image) else {return}
+                guard let data = try? Data(contentsOf: urlImage) else {return}
+                self?.storiesArray.append(Story(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: "story"))
+            }
+            self?.collectionView.reloadData()
+        }
+    }
+}
+
+
+//MARK: - DataSource
+extension StoriesCollectViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        storiesArray.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesCollectViewCell.reuseID, for: indexPath) as! StoriesCollectViewCell
+
+        //cellDesign(cell: cell)
+        cell.backgroundColor = UIColor(named: "BackgroundColor")
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 2
+
+        cell.storyNameLabel.text = storiesArray[indexPath.row].name
+        cell.storyImageView.image = storiesArray[indexPath.row].image
+
+        return cell
+    }
+
+}
 
 //MARK: - Layout, Design
 extension StoriesCollectViewController {
@@ -64,13 +107,15 @@ extension StoriesCollectViewController {
     //метод говорит делегату, какой выбран пользователем ряд (нажатием на ряд пользователем). здесь можно модифицировать ряд
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         AudioManager.shared.currentAudio = indexPath.row
+        AudioManager.shared.story = storiesArray[indexPath.row]
         performSegue(withIdentifier: "fromStoriesToPlayerVC", sender: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
-            audioPlayerVC.audioType = "story"
+            audioPlayerVC.kind = "story"
             print("audioType is story")
+
         }
     }
 }

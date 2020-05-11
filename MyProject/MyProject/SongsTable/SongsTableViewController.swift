@@ -34,7 +34,7 @@ extension SongsTableViewController: UITableViewDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
-            audioPlayerVC.audioType = "song"
+            audioPlayerVC.kind = "song"
         }
     }
 }

@@ -6,17 +6,18 @@
 //  Copyright © 2020 Elena Alekseeva. All rights reserved.
 //
 
-import Foundation
 import  UIKit
 
 struct Story {
     var name: String
     var image: UIImage
-    var url: URL
+    var url: URL?
+    var kind: String
 
-    init(name: String, image: UIImage, url: URL) {
+    init(name: String, image: UIImage, url: URL?, kind: String) {
         self.name = name
         self.image = image
         self.url = url
+        self.kind = kind
     }
 }
