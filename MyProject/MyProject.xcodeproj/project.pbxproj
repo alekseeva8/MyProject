@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1A88CC75C5DBADF5A911CE87 /* Pods_MyProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F9C82B3138BB8CFA075606 /* Pods_MyProject.framework */; };
 		F32747E8246C04E60071843C /* Rio 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747E7246C04E60071843C /* Rio 2.mp3 */; };
-		F32747EA246C05260071843C /* Coco.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747E9246C05260071843C /* Coco.mp3 */; };
 		F32747EC246C052E0071843C /* Ballerina 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747EB246C052E0071843C /* Ballerina 2.mp3 */; };
 		F32747EE246C09C10071843C /* Smallfoot 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747ED246C09C10071843C /* Smallfoot 2.mp3 */; };
 		F32747F0246C09CB0071843C /* Gerkules.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747EF246C09CB0071843C /* Gerkules.mp3 */; };
@@ -56,7 +55,6 @@
 		63F9C82B3138BB8CFA075606 /* Pods_MyProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BF01C57285BA48B362E0F5 /* Pods-MyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProject.release.xcconfig"; path = "Target Support Files/Pods-MyProject/Pods-MyProject.release.xcconfig"; sourceTree = "<group>"; };
 		F32747E7246C04E60071843C /* Rio 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Rio 2.mp3"; sourceTree = "<group>"; };
-		F32747E9246C05260071843C /* Coco.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Coco.mp3; sourceTree = "<group>"; };
 		F32747EB246C052E0071843C /* Ballerina 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ballerina 2.mp3"; sourceTree = "<group>"; };
 		F32747ED246C09C10071843C /* Smallfoot 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Smallfoot 2.mp3"; sourceTree = "<group>"; };
 		F32747EF246C09CB0071843C /* Gerkules.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Gerkules.mp3; sourceTree = "<group>"; };
@@ -231,7 +229,6 @@
 				F32747EF246C09CB0071843C /* Gerkules.mp3 */,
 				F32747F1246C09D20071843C /* Angry Birds.mp3 */,
 				F32747F3246C09E30071843C /* Moana 2.mp3 */,
-				F32747E9246C05260071843C /* Coco.mp3 */,
 			);
 			path = Songs;
 			sourceTree = "<group>";
@@ -301,7 +298,6 @@
 				F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */,
 				F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */,
 				F32747EC246C052E0071843C /* Ballerina 2.mp3 in Resources */,
-				F32747EA246C05260071843C /* Coco.mp3 in Resources */,
 				F39874072469A89900545692 /* Moana.mp3 in Resources */,
 				F39874032469A85900545692 /* Smallfoot.mp3 in Resources */,
 				F39874052469A89100545692 /* Grinch.mp3 in Resources */,

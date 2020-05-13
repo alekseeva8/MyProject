@@ -119,7 +119,14 @@ class AudioPlayerViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         }
-        playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+        playPrevious()
+    }
+
+    @IBAction func prevButtonTouchedUpInside(_ sender: UIButton) {
+        sender.transform = CGAffineTransform.identity
+    }
+
+    func playPrevious() {
         if self.currentAudio == 0 {
             self.audioNameLabel.text = self.audioArray[0].name
             self.imageView.image = self.audioArray[0].image
@@ -139,10 +146,6 @@ class AudioPlayerViewController: UIViewController {
         }
     }
 
-    @IBAction func prevButtonTouchedUpInside(_ sender: UIButton) {
-        sender.transform = CGAffineTransform.identity
-    }
-
 
     //MARK: - NextButton
 
@@ -150,7 +153,14 @@ class AudioPlayerViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         }
-        playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+        playNext()
+    }
+
+    @IBAction func nextButtonTouchedUpInside(_ sender: UIButton) {
+        sender.transform = CGAffineTransform.identity
+    }
+
+    func playNext() {
         if self.currentAudio < self.audioArray.count-1 {
             let nextSongNumber = self.currentAudio + 1
             self.audioNameLabel.text = self.audioArray[nextSongNumber].name
@@ -158,7 +168,6 @@ class AudioPlayerViewController: UIViewController {
             let nextSong = self.audioArray[nextSongNumber]
             guard let url = nextSong.url else {return}
             self.preparingAudioToPlay(url: url)
-            //self.audioPlayer.play()
             self.currentAudio += 1
         }
         else {
@@ -167,14 +176,8 @@ class AudioPlayerViewController: UIViewController {
             self.imageView.image = self.audioArray[0].image
             guard let url = self.audioArray[0].url else {return}
             self.preparingAudioToPlay(url: url)
-            //self.audioPlayer.play()
         }
     }
-
-    @IBAction func nextButtonTouchedUpInside(_ sender: UIButton) {
-        sender.transform = CGAffineTransform.identity
-    }
-
 
     
     //MARK: - timeSlider
@@ -195,6 +198,6 @@ class AudioPlayerViewController: UIViewController {
 
 extension AudioPlayerViewController: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+        playNext()
     }
 }
