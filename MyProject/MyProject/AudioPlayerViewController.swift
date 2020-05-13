@@ -88,74 +88,91 @@ class AudioPlayerViewController: UIViewController {
 
     
     //MARK: - playPauseButton
-    @IBAction func playPauseButtonTapped(_ sender: UIButton) {
+    @IBAction func playPauseButtonTouchedDown(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.3) {
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        }
         if audioPlayer.isPlaying == false {
             audioPlayer.play()
-            playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+            if audioPlayer.isPlaying == true {
+                playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+            }
         }
         else {
             audioPlayer.pause()
             playPauseButton.setImage(UIImage(named: "play"), for: .normal)
         }
     }
-    
-    //MARK: - PrevButton; NextButton
-    @IBAction func touchedDown(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.3) {
-            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-            
-            //действия для PREV
-//            if sender == self.prevButton {
-//                if self.audioPlayer.isPlaying {
-//                    if self.currentAudio == 0 {
-//                        self.audioNameLabel.text = self.songsArray[0].name
-//                        self.imageView.image = self.songsArray[0].image
-//                        guard let url = self.songsArray[0].url else {return}
-//                        self.preparingAudioToPlay(url: url)
-//                        self.audioPlayer.play()
-//                    }
-//                    else {
-//                        let previousSongIndex = self.currentAudio - 1
-//                        self.audioNameLabel.text = self.songsArray[previousSongIndex].name
-//                        self.imageView.image = self.songsArray[previousSongIndex].image
-//                        let previousSong = self.songsArray[previousSongIndex]
-//                        guard let url = previousSong.url else {return}
-//                        self.preparingAudioToPlay(url: url)
-//                        self.audioPlayer.play()
-//                        self.currentAudio -= 1
-//                    }
-//                }
-//            }
-            
-            //действия для NEXT
-//            if sender == self.nextButton {
-//                if self.audioPlayer.isPlaying {
-//                    if self.currentAudio < self.songsArray.count-1 {
-//                        let nextSongNumber = self.currentAudio + 1
-//                        self.audioNameLabel.text = self.songsArray[nextSongNumber].name
-//                        self.imageView.image = self.songsArray[nextSongNumber].image
-//                        let nextSong = self.songsArray[nextSongNumber]
-//                        guard let url = nextSong.url else {return}
-//                        self.preparingAudioToPlay(url: url)
-//                        self.audioPlayer.play()
-//                        self.currentAudio += 1
-//                    }
-//                    else {
-//                        self.currentAudio = 0
-//                        self.audioNameLabel.text = self.songsArray[0].name
-//                        self.imageView.image = self.songsArray[0].image
-//                        guard let url = self.songsArray[0].url else {return}
-//                        self.preparingAudioToPlay(url: url)
-//                        self.audioPlayer.play()
-//                    }
-//                }
-//            }
-        }
-    }
-    
-    @IBAction func touchedUpInside(_ sender: UIButton) {
+
+    @IBAction func playPauseButtonTouchedUpInside(_ sender: UIButton) {
         sender.transform = CGAffineTransform.identity
     }
+
+    
+    //MARK: - PrevButton
+    @IBAction func prevButtonTouchedDown(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.3) {
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        }
+        if self.audioPlayer.isPlaying {
+//            if self.currentAudio == 0 {
+//                self.audioNameLabel.text = self.songsArray[0].name
+//                self.imageView.image = self.songsArray[0].image
+//                guard let url = self.songsArray[0].url else {return}
+//                self.preparingAudioToPlay(url: url)
+//                self.audioPlayer.play()
+//            }
+//            else {
+//                let previousSongIndex = self.currentAudio - 1
+//                self.audioNameLabel.text = self.songsArray[previousSongIndex].name
+//                self.imageView.image = self.songsArray[previousSongIndex].image
+//                let previousSong = self.songsArray[previousSongIndex]
+//                guard let url = previousSong.url else {return}
+//                self.preparingAudioToPlay(url: url)
+//                self.audioPlayer.play()
+//                self.currentAudio -= 1
+            }
+        }
+
+    @IBAction func prevButtonTouchedUpInside(_ sender: UIButton) {
+        sender.transform = CGAffineTransform.identity
+    }
+
+
+    //MARK: - NextButton
+
+    @IBAction func nextButtonTouchedDown(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.3) {
+            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        }
+        //                if self.audioPlayer.isPlaying {
+        //                    if self.currentAudio < self.songsArray.count-1 {
+        //                        let nextSongNumber = self.currentAudio + 1
+        //                        self.audioNameLabel.text = self.songsArray[nextSongNumber].name
+        //                        self.imageView.image = self.songsArray[nextSongNumber].image
+        //                        let nextSong = self.songsArray[nextSongNumber]
+        //                        guard let url = nextSong.url else {return}
+        //                        self.preparingAudioToPlay(url: url)
+        //                        self.audioPlayer.play()
+        //                        self.currentAudio += 1
+        //                    }
+        //                    else {
+        //                        self.currentAudio = 0
+        //                        self.audioNameLabel.text = self.songsArray[0].name
+        //                        self.imageView.image = self.songsArray[0].image
+        //                        guard let url = self.songsArray[0].url else {return}
+        //                        self.preparingAudioToPlay(url: url)
+        //                        self.audioPlayer.play()
+        //                    }
+        //                }
+
+    }
+
+    @IBAction func nextButtonTouchedUpInside(_ sender: UIButton) {
+sender.transform = CGAffineTransform.identity
+    }
+
+
     
     //MARK: - timeSlider
     @IBAction func timeSliderScrolled(_ sender: UISlider) {

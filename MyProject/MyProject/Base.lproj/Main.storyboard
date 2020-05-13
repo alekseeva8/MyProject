@@ -210,8 +210,8 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button" image="reverse"/>
                                                         <connections>
-                                                            <action selector="touchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="oh6-b7-m6S"/>
-                                                            <action selector="touchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="3Sp-JU-QbU"/>
+                                                            <action selector="prevButtonTouchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="jfT-un-19A"/>
+                                                            <action selector="prevButtonTouchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="sHU-CM-Q8D"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -231,9 +231,8 @@
                                                         </constraints>
                                                         <state key="normal" title="Button" image="play"/>
                                                         <connections>
-                                                            <action selector="playPauseButtonTapped:" destination="I9R-3G-UfO" eventType="touchUpInside" id="J0D-yq-123"/>
-                                                            <action selector="touchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="hMm-zg-XLR"/>
-                                                            <action selector="touchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="Lio-yo-4zB"/>
+                                                            <action selector="playPauseButtonTouchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="shW-Gl-aA6"/>
+                                                            <action selector="playPauseButtonTouchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="eCB-2Y-Ix8"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -253,8 +252,8 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button" image="forward"/>
                                                         <connections>
-                                                            <action selector="touchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="1o3-pZ-SXV"/>
-                                                            <action selector="touchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="tU9-jx-SgL"/>
+                                                            <action selector="nextButtonTouchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="CgP-Ys-3UU"/>
+                                                            <action selector="nextButtonTouchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="x6E-l3-Kw0"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
