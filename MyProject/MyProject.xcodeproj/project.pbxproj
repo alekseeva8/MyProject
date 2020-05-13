@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1A88CC75C5DBADF5A911CE87 /* Pods_MyProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F9C82B3138BB8CFA075606 /* Pods_MyProject.framework */; };
+		F32747E8246C04E60071843C /* Rio 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747E7246C04E60071843C /* Rio 2.mp3 */; };
+		F32747EA246C05260071843C /* Coco.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747E9246C05260071843C /* Coco.mp3 */; };
+		F32747EC246C052E0071843C /* Ballerina 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747EB246C052E0071843C /* Ballerina 2.mp3 */; };
+		F32747EE246C09C10071843C /* Smallfoot 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747ED246C09C10071843C /* Smallfoot 2.mp3 */; };
+		F32747F0246C09CB0071843C /* Gerkules.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747EF246C09CB0071843C /* Gerkules.mp3 */; };
+		F32747F2246C09D20071843C /* Angry Birds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747F1246C09D20071843C /* Angry Birds.mp3 */; };
+		F32747F4246C09E30071843C /* Moana 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747F3246C09E30071843C /* Moana 2.mp3 */; };
 		F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBA24409C2E00E411B4 /* LoginViewController.swift */; };
 		F3344FBF2440AF3200E411B4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */; };
 		F34A9A58245B3D4600DBC4D7 /* MAINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A57245B3D4600DBC4D7 /* MAINViewController.swift */; };
@@ -49,6 +56,13 @@
 		3A4AA8A8CCF42C712C47E869 /* Pods-MyProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProject.debug.xcconfig"; path = "Target Support Files/Pods-MyProject/Pods-MyProject.debug.xcconfig"; sourceTree = "<group>"; };
 		63F9C82B3138BB8CFA075606 /* Pods_MyProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BF01C57285BA48B362E0F5 /* Pods-MyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProject.release.xcconfig"; path = "Target Support Files/Pods-MyProject/Pods-MyProject.release.xcconfig"; sourceTree = "<group>"; };
+		F32747E7246C04E60071843C /* Rio 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Rio 2.mp3"; sourceTree = "<group>"; };
+		F32747E9246C05260071843C /* Coco.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Coco.mp3; sourceTree = "<group>"; };
+		F32747EB246C052E0071843C /* Ballerina 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ballerina 2.mp3"; sourceTree = "<group>"; };
+		F32747ED246C09C10071843C /* Smallfoot 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Smallfoot 2.mp3"; sourceTree = "<group>"; };
+		F32747EF246C09CB0071843C /* Gerkules.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Gerkules.mp3; sourceTree = "<group>"; };
+		F32747F1246C09D20071843C /* Angry Birds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Angry Birds.mp3"; sourceTree = "<group>"; };
+		F32747F3246C09E30071843C /* Moana 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Moana 2.mp3"; sourceTree = "<group>"; };
 		F3344FBA24409C2E00E411B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F3344FBE2440AF3200E411B4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F34A9A57245B3D4600DBC4D7 /* MAINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAINViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +228,13 @@
 				F39874042469A89100545692 /* Grinch.mp3 */,
 				F39874082469A9BE00545692 /* Big Hero 6.mp3 */,
 				F39874062469A89900545692 /* Moana.mp3 */,
+				F32747E7246C04E60071843C /* Rio 2.mp3 */,
+				F32747EB246C052E0071843C /* Ballerina 2.mp3 */,
+				F32747ED246C09C10071843C /* Smallfoot 2.mp3 */,
+				F32747EF246C09CB0071843C /* Gerkules.mp3 */,
+				F32747F1246C09D20071843C /* Angry Birds.mp3 */,
+				F32747F3246C09E30071843C /* Moana 2.mp3 */,
+				F32747E9246C05260071843C /* Coco.mp3 */,
 			);
 			path = Songs;
 			sourceTree = "<group>";
@@ -278,15 +299,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F32747EE246C09C10071843C /* Smallfoot 2.mp3 in Resources */,
+				F32747F0246C09CB0071843C /* Gerkules.mp3 in Resources */,
 				F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */,
 				F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */,
+				F32747EC246C052E0071843C /* Ballerina 2.mp3 in Resources */,
+				F32747EA246C05260071843C /* Coco.mp3 in Resources */,
 				F39874072469A89900545692 /* Moana.mp3 in Resources */,
 				F39874032469A85900545692 /* Smallfoot.mp3 in Resources */,
 				F39874052469A89100545692 /* Grinch.mp3 in Resources */,
+				F32747F4246C09E30071843C /* Moana 2.mp3 in Resources */,
+				F32747E8246C04E60071843C /* Rio 2.mp3 in Resources */,
 				F39873FF2469A4DD00545692 /* Ratatouille.mp3 in Resources */,
 				F3726D782431ECFF00C37F00 /* Assets.xcassets in Resources */,
 				F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */,
 				F39874012469A78000545692 /* The Princess and the Frog.mp3 in Resources */,
+				F32747F2246C09D20071843C /* Angry Birds.mp3 in Resources */,
 				F3726D762431ECFD00C37F00 /* Main.storyboard in Resources */,
 				F39874092469A9BE00545692 /* Big Hero 6.mp3 in Resources */,
 				F398740B246A705000545692 /* GoogleService-Info.plist in Resources */,
