@@ -1,14 +1,14 @@
 //
-//  Story.swift
+//  Audio.swift
 //  MyProject
 //
-//  Created by Elena Alekseeva on 5/7/20.
+//  Created by Elena Alekseeva on 5/13/20.
 //  Copyright © 2020 Elena Alekseeva. All rights reserved.
 //
 
 import  UIKit
 
-struct Story {
+struct Audio {
     var name: String
     var image: UIImage
     var url: URL?

@@ -11,8 +11,8 @@ import UIKit
 class StoriesCollectViewController: UIViewController {
 
     var collectionView: UICollectionView
-    var storiesArray: [Story] = []
     //let dataSourceStoriesCollection = DataSourceStoriesCollection()
+    var stories = [Audio]()
 
     required init?(coder: NSCoder) {
         let layout = UICollectionViewFlowLayout()
@@ -46,7 +46,7 @@ extension StoriesCollectViewController {
                 guard let url = URL(string: track.trackUrl) else {return}
                 guard let urlImage = URL(string: track.image) else {return}
                 guard let data = try? Data(contentsOf: urlImage) else {return}
-                    self?.storiesArray.append(Story(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind))
+                self?.stories.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind))
             }
             }
             self?.collectionView.reloadData()
@@ -58,7 +58,7 @@ extension StoriesCollectViewController {
 //MARK: - DataSource
 extension StoriesCollectViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        storiesArray.count
+        stories.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,8 +69,8 @@ extension StoriesCollectViewController: UICollectionViewDataSource {
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 2
 
-        cell.storyNameLabel.text = storiesArray[indexPath.row].name
-        cell.storyImageView.image = storiesArray[indexPath.row].image
+        cell.storyNameLabel.text = stories[indexPath.row].name
+        cell.storyImageView.image = stories[indexPath.row].image
 
         return cell
     }
@@ -107,12 +107,13 @@ extension StoriesCollectViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //saving info in singleton to use it in AudioPlayerVC
         AudioManager.shared.currentAudio = indexPath.row
-        AudioManager.shared.story = storiesArray[indexPath.row]
+        AudioManager.shared.audio = stories[indexPath.row]
         performSegue(withIdentifier: "fromStoriesToPlayerVC", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
             audioPlayerVC.kind = "story"
+            audioPlayerVC.audioArray = stories
         }
     }
 }
