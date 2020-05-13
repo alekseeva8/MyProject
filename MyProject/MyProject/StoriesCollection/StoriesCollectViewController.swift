@@ -14,7 +14,6 @@ class StoriesCollectViewController: UIViewController {
     var storiesArray: [Story] = []
     //let dataSourceStoriesCollection = DataSourceStoriesCollection()
 
-    //инициализация VC из storyboard и инициализация CollectionView в нем
     required init?(coder: NSCoder) {
         let layout = UICollectionViewFlowLayout()
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -89,8 +88,7 @@ extension StoriesCollectViewController {
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        
-        //чтобы ячейки не доставали до краев collectionview на 10
+
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 }
@@ -105,8 +103,9 @@ extension StoriesCollectViewController: UICollectionViewDelegate, UICollectionVi
 
 //MARK: - DidSelect method
 extension StoriesCollectViewController {
-    //метод говорит делегату, какой выбран пользователем ряд (нажатием на ряд пользователем). здесь можно модифицировать ряд
+    //Tells the delegate that the item at the specified index path was selected.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //saving info in singleton to use it in AudioPlayerVC
         AudioManager.shared.currentAudio = indexPath.row
         AudioManager.shared.story = storiesArray[indexPath.row]
         performSegue(withIdentifier: "fromStoriesToPlayerVC", sender: nil)

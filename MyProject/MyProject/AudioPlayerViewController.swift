@@ -157,8 +157,6 @@ class AudioPlayerViewController: UIViewController {
         sender.transform = CGAffineTransform.identity
     }
     
-    //НЕУДАЧНЫЙ ЖЕСТ - ПРОБОВАТЬ ЗАМЕНИТЬ
-    //ДОРОЖКУ ОТОБРАЖАТЬ
     //MARK: - timeSlider
     @IBAction func timeSliderScrolled(_ sender: UISlider) {
         if sender == timeSlider {

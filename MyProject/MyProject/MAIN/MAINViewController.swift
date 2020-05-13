@@ -12,12 +12,8 @@ class MAINViewController: UIViewController {
 
     var collectionView: UICollectionView
 
-    //вынести в отдельный файл? dataSource?
     let activitiesArray = ["Songs", "Stories", "Learning videos", "Bedtime", "Favorities"]
-    //let colors - подобрать массив цветов
-    //let images - подобрать массив картинок
 
-    //инициализация VC из storyboard и инициализация CollectionView в нем
     required init?(coder: NSCoder) {
         let layout = UICollectionViewFlowLayout()
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -52,7 +48,6 @@ extension MAINViewController: UICollectionViewDataSource {
         cell.layer.cornerRadius = 5
 
         cell.storyNameLabel.text = activitiesArray[indexPath.row]
-        //cell.storyImageView.image = songsArray[indexPath.row].image
 
         return cell
     }
@@ -70,7 +65,6 @@ extension MAINViewController {
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 
-        //чтобы ячейки не доставали до краев collectionview на 10
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 
@@ -87,7 +81,7 @@ extension MAINViewController: UICollectionViewDelegate, UICollectionViewDelegate
 
 //MARK: - DidSelect method
 extension MAINViewController {
-    //метод говорит делегату, какой выбран пользователем ряд (нажатием на ряд пользователем). здесь можно модифицировать ряд
+    //Tells the delegate that the item at the specified index path was selected.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         switch  indexPath.row {

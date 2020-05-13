@@ -41,7 +41,6 @@ extension SongsTableViewController {
                 }
             }
             self?.tableView.reloadData()
-            print(self?.songsArray.count)
         }
     }
 }
@@ -51,7 +50,7 @@ extension SongsTableViewController {
 extension SongsTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //достаем название аудио из ячейки (сохраняем в синглтон и передаем в AudioPlayerVC)
+        //saving info in singleton to use it in AudioPlayerVC
         AudioManager.shared.currentAudio = indexPath.row
         AudioManager.shared.song = songsArray[indexPath.row]
         performSegue(withIdentifier: "fromSongsTableToPlayerVC", sender: nil)
