@@ -110,4 +110,9 @@ extension StoriesCollectViewController {
         AudioManager.shared.story = storiesArray[indexPath.row]
         performSegue(withIdentifier: "fromStoriesToPlayerVC", sender: nil)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
+            audioPlayerVC.kind = "story"
+        }
+    }
 }

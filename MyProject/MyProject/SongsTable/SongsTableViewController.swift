@@ -56,6 +56,11 @@ extension SongsTableViewController: UITableViewDelegate {
         AudioManager.shared.song = songsArray[indexPath.row]
         performSegue(withIdentifier: "fromSongsTableToPlayerVC", sender: nil)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
+            audioPlayerVC.kind = "song"
+        }
+    }
 }
 
 //MARK: - DataSource

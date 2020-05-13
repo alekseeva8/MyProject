@@ -16,6 +16,7 @@ class AudioPlayerViewController: UIViewController {
     var currentAudio = AudioManager.shared.currentAudio
     let song = AudioManager.shared.song
     let story = AudioManager.shared.story
+    var kind = ""
     
     @IBOutlet weak var reverseView: UIView!
     @IBOutlet weak var playView: UIView!
@@ -56,13 +57,13 @@ class AudioPlayerViewController: UIViewController {
     }
 
     func choosingAudioToPlay() {
-        if song.kind == "song" {
+        if kind == "song" {
             audioNameLabel.text = song.name
             imageView.image = song.image
             guard let url = song.url else {return}
             preparingAudioToPlay(url: url)
         }
-        else if story.kind == "story" {
+        else if kind == "story" {
             audioNameLabel.text = story.name
             imageView.image = story.image
             guard let url = story.url else {return}
