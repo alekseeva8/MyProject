@@ -84,6 +84,10 @@ class AudioPlayerViewController: UIViewController {
             }
             self.audioPlayer.delegate = self
             self.audioPlayer.prepareToPlay()
+            self.audioPlayer.play()
+            DispatchQueue.main.async {
+                self.playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+            }
         }
     }
 
@@ -115,24 +119,23 @@ class AudioPlayerViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         }
-        if self.audioPlayer.isPlaying {
-            if self.currentAudio == 0 {
-                self.audioNameLabel.text = self.audioArray[0].name
-                self.imageView.image = self.audioArray[0].image
-                guard let url = self.audioArray[0].url else {return}
-                self.preparingAudioToPlay(url: url)
-                self.audioPlayer.play()
-            }
-            else {
-                let previousSongIndex = self.currentAudio - 1
-                self.audioNameLabel.text = self.audioArray[previousSongIndex].name
-                self.imageView.image = self.audioArray[previousSongIndex].image
-                let previousSong = self.audioArray[previousSongIndex]
-                guard let url = previousSong.url else {return}
-                self.preparingAudioToPlay(url: url)
-                self.audioPlayer.play()
-                self.currentAudio -= 1
-            }
+        playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+        if self.currentAudio == 0 {
+            self.audioNameLabel.text = self.audioArray[0].name
+            self.imageView.image = self.audioArray[0].image
+            guard let url = self.audioArray[0].url else {return}
+            self.preparingAudioToPlay(url: url)
+            self.audioPlayer.play()
+        }
+        else {
+            let previousSongIndex = self.currentAudio - 1
+            self.audioNameLabel.text = self.audioArray[previousSongIndex].name
+            self.imageView.image = self.audioArray[previousSongIndex].image
+            let previousSong = self.audioArray[previousSongIndex]
+            guard let url = previousSong.url else {return}
+            self.preparingAudioToPlay(url: url)
+            self.audioPlayer.play()
+            self.currentAudio -= 1
         }
     }
 
@@ -147,25 +150,24 @@ class AudioPlayerViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         }
-        if self.audioPlayer.isPlaying {
-            if self.currentAudio < self.audioArray.count-1 {
-                let nextSongNumber = self.currentAudio + 1
-                self.audioNameLabel.text = self.audioArray[nextSongNumber].name
-                self.imageView.image = self.audioArray[nextSongNumber].image
-                let nextSong = self.audioArray[nextSongNumber]
-                guard let url = nextSong.url else {return}
-                self.preparingAudioToPlay(url: url)
-                self.audioPlayer.play()
-                self.currentAudio += 1
-            }
-            else {
-                self.currentAudio = 0
-                self.audioNameLabel.text = self.audioArray[0].name
-                self.imageView.image = self.audioArray[0].image
-                guard let url = self.audioArray[0].url else {return}
-                self.preparingAudioToPlay(url: url)
-                self.audioPlayer.play()
-            }
+        playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+        if self.currentAudio < self.audioArray.count-1 {
+            let nextSongNumber = self.currentAudio + 1
+            self.audioNameLabel.text = self.audioArray[nextSongNumber].name
+            self.imageView.image = self.audioArray[nextSongNumber].image
+            let nextSong = self.audioArray[nextSongNumber]
+            guard let url = nextSong.url else {return}
+            self.preparingAudioToPlay(url: url)
+            //self.audioPlayer.play()
+            self.currentAudio += 1
+        }
+        else {
+            self.currentAudio = 0
+            self.audioNameLabel.text = self.audioArray[0].name
+            self.imageView.image = self.audioArray[0].image
+            guard let url = self.audioArray[0].url else {return}
+            self.preparingAudioToPlay(url: url)
+            //self.audioPlayer.play()
         }
     }
 
