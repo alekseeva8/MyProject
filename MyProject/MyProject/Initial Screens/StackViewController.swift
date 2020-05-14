@@ -64,9 +64,12 @@ class StackViewController: UIViewController {
 
     func setSubStackView(array: [UITextField], arrayOfPlaceholders: [String]) {
         for (index, item) in array.enumerated() {
-            item.textColor = UIColor(named: "TextFieldColor")
+            //item.textColor = UIColor(named: "TextFieldColor")
             item.borderStyle = .roundedRect
             item.placeholder = arrayOfPlaceholders[index]
+            if item.placeholder == SignupViewController.passwordPlaceholder || item.placeholder == SignupViewController.repeatPasswordPlaceholder {
+                item.isSecureTextEntry = true
+            }
             item.heightAnchor.constraint(equalToConstant: 34).isActive = true
             subStackView.addArrangedSubview(item)
         }

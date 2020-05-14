@@ -15,6 +15,8 @@ class SignupViewController: StackViewController {
     let passwordTextField = UITextField()
     let repeatPasswordTextField = UITextField()
     let button = UIButton()
+    static let passwordPlaceholder = "Password"
+    static let repeatPasswordPlaceholder = "Repeat password"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,7 @@ class SignupViewController: StackViewController {
         setLabel(label: label, text: "Signing up")
 
         let arrayOfTextFields = [usernameTextField, passwordTextField, repeatPasswordTextField]
-        setSubStackView(array: arrayOfTextFields, arrayOfPlaceholders: ["Username", "Password", "Repeat password"])
+        setSubStackView(array: arrayOfTextFields, arrayOfPlaceholders: ["Username", SignupViewController.passwordPlaceholder, SignupViewController.repeatPasswordPlaceholder])
         subStackViewLayout()
 
         setButton(button: button, title: "SIGN UP")
