@@ -54,8 +54,7 @@ class SignupViewController: StackViewController {
             MyUserDefaults.saveSignedValue()
             performSegue(withIdentifier: "fromSignupToMainVC", sender: nil)
         } else {
+            Alert.alertSending(self)
         }
-
-
     }
 }
