@@ -533,7 +533,7 @@
                         <viewLayoutGuide key="safeArea" id="oeY-Zc-47U"/>
                     </view>
                     <connections>
-                        <segue destination="2bf-TE-1j5" kind="presentation" identifier="fromSigninToMainVC" modalPresentationStyle="fullScreen" id="Oh0-q7-h4s"/>
+                        <segue destination="2bf-TE-1j5" kind="presentation" identifier="fromSignupToMainVC" modalPresentationStyle="fullScreen" id="Oh0-q7-h4s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFy-gw-W2m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

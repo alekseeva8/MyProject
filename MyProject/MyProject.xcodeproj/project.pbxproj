@@ -17,6 +17,7 @@
 		F32747F6246C47A30071843C /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32747F5246C47A30071843C /* Audio.swift */; };
 		F32747FA246D5D2B0071843C /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32747F9246D5D2B0071843C /* StackViewController.swift */; };
 		F32747FC246D79EF0071843C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32747FB246D79EF0071843C /* UserDefaults.swift */; };
+		F32747FF246D9F250071843C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32747FE246D9F250071843C /* Validator.swift */; };
 		F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBA24409C2E00E411B4 /* LoginViewController.swift */; };
 		F3344FBF2440AF3200E411B4 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBE2440AF3200E411B4 /* SignupViewController.swift */; };
 		F34A9A58245B3D4600DBC4D7 /* MAINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A57245B3D4600DBC4D7 /* MAINViewController.swift */; };
@@ -65,6 +66,7 @@
 		F32747F5246C47A30071843C /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		F32747F9246D5D2B0071843C /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
 		F32747FB246D79EF0071843C /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		F32747FE246D9F250071843C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		F3344FBA24409C2E00E411B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F3344FBE2440AF3200E411B4 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F34A9A57245B3D4600DBC4D7 /* MAINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAINViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */,
 				F357C5B1245B054A009E09AE /* VideoViewController.swift */,
 				F388CDD62450945E0046B2DD /* SettingsViewController.swift */,
+				F32747FE246D9F250071843C /* Validator.swift */,
 				F32747FD246D7CDB0071843C /* Storage */,
 				F39873FB2467053300545692 /* unused */,
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
@@ -407,6 +410,7 @@
 				F3718DC32458945F00EC7054 /* AudioManager.swift in Sources */,
 				F32747FC246D79EF0071843C /* UserDefaults.swift in Sources */,
 				F34A9A602463DFD000DBC4D7 /* CloudDataHandler.swift in Sources */,
+				F32747FF246D9F250071843C /* Validator.swift in Sources */,
 				F3726D712431ECFD00C37F00 /* SceneDelegate.swift in Sources */,
 				F39873FA2466FF3500545692 /* SearchResponse.swift in Sources */,
 			);
