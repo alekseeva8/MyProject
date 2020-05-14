@@ -41,6 +41,7 @@ class SignupViewController: StackViewController {
     }
 
     @objc func buttonTapped(sender: UIButton) {
-         performSegue(withIdentifier: "fromSigninToMainVC", sender: nil)
+        MyUserDefaults.saveSignedValue()
+        performSegue(withIdentifier: "fromSigninToMainVC", sender: nil)
     }
 }

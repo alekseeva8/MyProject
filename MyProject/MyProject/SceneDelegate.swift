@@ -22,9 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
         //choosing initial VC by checking UserDefault's value (signed or not)
-        let isSigned = UserDefaults.standard.value(forKey: "signed") as? String
+        let isSigned = UserDefaults.standard.value(forKey: "signed") as? Bool
         var initialVC = UIViewController()
-        if isSigned == "true" {
+        if isSigned == true {
             // open MainVC
             initialVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationVC")
         }
