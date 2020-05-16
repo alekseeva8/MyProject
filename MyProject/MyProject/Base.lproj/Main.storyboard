@@ -172,7 +172,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="The Secret Life of Pets 2" translatesAutoresizingMaskIntoConstraints="NO" id="OaA-Ef-tdz">
                                         <rect key="frame" x="20.666666666666686" y="0.0" width="239" height="196.33333333333334"/>
                                     </imageView>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sd5-SN-cD9">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sd5-SN-cD9">
                                         <rect key="frame" x="-2" y="246.33333333333331" width="284" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="Hyn-oD-akX"/>
@@ -584,6 +584,6 @@
         <image name="speaker.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FD8-Di-rGL"/>
+        <segue reference="2fo-9K-mhP"/>
     </inferredMetricsTieBreakers>
 </document>

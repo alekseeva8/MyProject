@@ -52,12 +52,11 @@ extension SongsTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //saving info in singleton to use it in AudioPlayerVC
         AudioManager.shared.currentAudio = indexPath.row
-        AudioManager.shared.audio = songs[indexPath.row]
+        //AudioManager.shared.audio = songs[indexPath.row]
         performSegue(withIdentifier: "fromSongsTableToPlayerVC", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
-            audioPlayerVC.kind = "song"
             audioPlayerVC.audioArray = songs
         }
     }

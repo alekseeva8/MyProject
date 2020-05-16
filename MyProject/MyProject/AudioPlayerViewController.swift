@@ -12,10 +12,10 @@ import  AVFoundation
 class AudioPlayerViewController: UIViewController {
 
     var audioPlayer = AVAudioPlayer()
+    var timer: Timer?
 
     var currentAudio = AudioManager.shared.currentAudio
-    var kind = ""
-    let audio = AudioManager.shared.audio
+    //let audio = AudioManager.shared.audio
     var audioArray: [Audio] = []
     
     @IBOutlet weak var reverseView: UIView!
@@ -40,13 +40,20 @@ class AudioPlayerViewController: UIViewController {
         setBackgroundView(playView)
         setBackgroundView(forwardView)
         
-        //setting timeSlider
-        timeSlider.minimumValue = 0.0
+        //timer for timeSlider
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTimeSlider), userInfo: nil, repeats: true)
+
         //setting volumeSlider
         volumeSlider.minimumValue = 0.0
         volumeSlider.maximumValue = 1.0
 
         choosingAudioToPlay()
+    }
+
+     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // stop timer when view disappear
+        timer?.invalidate()
     }
     
     //MARK: - Functions
@@ -57,18 +64,10 @@ class AudioPlayerViewController: UIViewController {
     }
 
     func choosingAudioToPlay() {
-        if kind == "song" {
-            audioNameLabel.text = audio.name
-            imageView.image = audio.image
-            guard let url = audio.url else {return}
-            preparingAudioToPlay(url: url)
-        }
-        else if kind == "story" {
-            audioNameLabel.text = audio.name
-            imageView.image = audio.image
-            guard let url = audio.url else {return}
-            preparingAudioToPlay(url: url)
-        }
+        audioNameLabel.text = audioArray[currentAudio].name
+        imageView.image = audioArray[currentAudio].image
+        guard let url = audioArray[currentAudio].url else {return}
+        preparingAudioToPlay(url: url)
     }
     
     //MARK: - AVAudioPlayer prepareToPlay()
@@ -78,7 +77,10 @@ class AudioPlayerViewController: UIViewController {
             print("downloaded")
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: url)
-                //timeSlider.maximumValue = Float(audioPlayer.duration)
+                DispatchQueue.main.async {
+                    self.timeSlider.maximumValue = Float(self.audioPlayer.duration)
+                    //self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTimeSlider), userInfo: nil, repeats: true)
+                }
             } catch {
                 print(error)
             }
@@ -182,10 +184,13 @@ class AudioPlayerViewController: UIViewController {
     
     //MARK: - timeSlider
     @IBAction func timeSliderScrolled(_ sender: UISlider) {
-        if sender == timeSlider {
-            audioPlayer.currentTime = TimeInterval(sender.value)
-            audioPlayer.play()
-        }
+        audioPlayer.stop()
+        audioPlayer.currentTime = TimeInterval(sender.value)
+        audioPlayer.play()
+    }
+
+    @objc func updateTimeSlider() {
+        timeSlider.value = Float(audioPlayer.currentTime)
     }
     
     //MARK: - volumeSlider

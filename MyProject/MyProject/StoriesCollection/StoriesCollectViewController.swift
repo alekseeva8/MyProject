@@ -107,12 +107,11 @@ extension StoriesCollectViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //saving info in singleton to use it in AudioPlayerVC
         AudioManager.shared.currentAudio = indexPath.row
-        AudioManager.shared.audio = stories[indexPath.row]
+        //AudioManager.shared.audio = stories[indexPath.row]
         performSegue(withIdentifier: "fromStoriesToPlayerVC", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
-            audioPlayerVC.kind = "story"
             audioPlayerVC.audioArray = stories
         }
     }
