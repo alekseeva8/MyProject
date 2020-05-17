@@ -13,7 +13,6 @@ class AudioPlayerViewController: UIViewController {
 
     var audioPlayer = AVAudioPlayer()
     var timer: Timer?
-
     var currentAudio = AudioManager.shared.currentAudio
     //let audio = AudioManager.shared.audio
     var audioArray: [Audio] = []
@@ -36,22 +35,25 @@ class AudioPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //view.backgroundColor = UIColor(named: "BackgroundColor")
-        
-        setBackgroundView(reverseView)
-        setBackgroundView(playView)
-        setBackgroundView(forwardView)
+
+        imageView.image = audioArray[currentAudio].image
+        audioNameLabel.text = audioArray[currentAudio].name
 
         //setting timeSlider
         timeSlider.setThumbImage(UIImage(named: "round"), for: .normal)
-
         //timer for timeSlider
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTimeSlider), userInfo: nil, repeats: true)
+
+        setBackgroundView(reverseView)
+        setBackgroundView(playView)
+        setBackgroundView(forwardView)
 
         //setting volumeSlider
         volumeSlider.minimumValue = 0.0
         volumeSlider.maximumValue = 1.0
 
-        choosingAudioToPlay()
+        guard let url = audioArray[currentAudio].url else {return}
+        preparingAudioToPlay(url: url)
     }
 
      override func viewDidDisappear(_ animated: Bool) {
@@ -65,13 +67,6 @@ class AudioPlayerViewController: UIViewController {
     func setBackgroundView(_ backgroundView: UIView) {
         backgroundView.layer.cornerRadius = backgroundView.bounds.width/2
         backgroundView.clipsToBounds = true
-    }
-
-    func choosingAudioToPlay() {
-        audioNameLabel.text = audioArray[currentAudio].name
-        imageView.image = audioArray[currentAudio].image
-        guard let url = audioArray[currentAudio].url else {return}
-        preparingAudioToPlay(url: url)
     }
     
     //MARK: - AVAudioPlayer prepareToPlay()

@@ -23,15 +23,13 @@ class SongsTableViewController: UIViewController {
         tableView.dataSource = self
 
         songs = LocalDataHandler.gettingSongsArray()
-        updateData()
+        getData()
     }
-
-    //добавить  unwindSegue to MainVC
 }
 
-//MARK: - updateData
+//MARK: - getData
 extension SongsTableViewController {
-    func updateData() {
+    func getData() {
         ParseHandler().getData() {[weak self] (searchResponse) in
             searchResponse.results.forEach { (track) in
                 if track.kind == "song" {

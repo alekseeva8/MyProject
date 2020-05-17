@@ -34,8 +34,6 @@ class StoriesCollectViewController: UIViewController {
         updateData()
     }
 }
-//добавить  unwindSegue to MainVC
-
 
 //MARK: - updateData
 extension StoriesCollectViewController {
