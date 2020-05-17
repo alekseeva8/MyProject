@@ -35,11 +35,15 @@ class AudioPlayerViewController: UIViewController {
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        //view.backgroundColor = UIColor(named: "BackgroundColor")
         
         setBackgroundView(reverseView)
         setBackgroundView(playView)
         setBackgroundView(forwardView)
-        
+
+        //setting timeSlider
+        timeSlider.setThumbImage(UIImage(named: "round"), for: .normal)
+
         //timer for timeSlider
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTimeSlider), userInfo: nil, repeats: true)
 

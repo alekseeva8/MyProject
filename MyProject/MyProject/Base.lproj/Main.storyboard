@@ -167,7 +167,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="S50-cD-zZX">
-                                <rect key="frame" x="67" y="75.666666666666686" width="280" height="584.66666666666652"/>
+                                <rect key="frame" x="67" y="101.66666666666669" width="280" height="532.66666666666652"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="The Secret Life of Pets 2" translatesAutoresizingMaskIntoConstraints="NO" id="OaA-Ef-tdz">
                                         <rect key="frame" x="20.666666666666686" y="0.0" width="239" height="196.33333333333334"/>
@@ -177,24 +177,19 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="Hyn-oD-akX"/>
                                         </constraints>
+                                        <color key="minimumTrackTintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="timeSliderScrolled:" destination="I9R-3G-UfO" eventType="valueChanged" id="RSC-cA-byh"/>
                                         </connections>
                                     </slider>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tTA-NN-68w">
-                                        <rect key="frame" x="0.0" y="326.33333333333331" width="280" height="2"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="280" id="fWr-ui-y3V"/>
-                                        </constraints>
-                                    </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2S-q1-IcZ">
-                                        <rect key="frame" x="83.666666666666657" y="378.33333333333331" width="112.66666666666666" height="26.333333333333314"/>
+                                        <rect key="frame" x="83.666666666666657" y="326.33333333333331" width="112.66666666666666" height="26.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="OD9-XA-abj">
-                                        <rect key="frame" x="29" y="454.66666666666669" width="222" height="50"/>
+                                        <rect key="frame" x="29" y="402.66666666666663" width="222" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOz-uT-DSS" userLabel="reverseView">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -219,7 +214,7 @@
                                                 <rect key="frame" x="86" y="0.0" width="51" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4o8-fA-KN2" userLabel="playButton">
-                                                        <rect key="frame" x="8" y="8" width="35" height="34"/>
+                                                        <rect key="frame" x="8" y="8.0000000000000568" width="35" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="35" id="4dh-ln-qvH"/>
                                                         </constraints>
@@ -260,7 +255,7 @@
                                         </constraints>
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="speaker.fill" catalog="system" maximumValueImage="speaker.3.fill" translatesAutoresizingMaskIntoConstraints="NO" id="2Od-ST-wQb">
-                                        <rect key="frame" x="-2" y="554.66666666666674" width="284" height="31"/>
+                                        <rect key="frame" x="-2" y="502.66666666666674" width="284" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="ydY-77-CiM"/>
                                         </constraints>
@@ -291,7 +286,6 @@
                         <outlet property="playView" destination="j60-Vu-WVK" id="Bxh-T1-RBB"/>
                         <outlet property="prevButton" destination="rYU-IF-gcZ" id="kbX-rZ-5GN"/>
                         <outlet property="reverseView" destination="cOz-uT-DSS" id="FZi-3b-sTx"/>
-                        <outlet property="timeProgressView" destination="tTA-NN-68w" id="UJK-An-PeY"/>
                         <outlet property="timeSlider" destination="sd5-SN-cD9" id="HAl-Sn-n5c"/>
                         <outlet property="volumeSlider" destination="2Od-ST-wQb" id="LZd-vm-IM1"/>
                     </connections>
