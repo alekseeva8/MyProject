@@ -6,13 +6,12 @@
 //  Copyright © 2020 Elena Alekseeva. All rights reserved.
 //
 
-import Foundation
 import  UIKit
 
 class LocalDataHandler {
 
-    static func gettingSongsArray() -> [Song] {
-        var arrayOfSongs: [Song] = []
+    static func gettingSongsArray() -> [Audio] {
+        var arrayOfSongs: [Audio] = []
 
         //getting url to all of the files (to directory)
         let folderURL = URL(fileURLWithPath: Bundle.main.resourcePath ?? "")
@@ -28,7 +27,7 @@ class LocalDataHandler {
                     songName = songName.replacingOccurrences(of: "%20", with: " ")
                     guard let path = Bundle.main.path(forResource: songName, ofType: "mp3") else {return}
                     let url = URL(fileURLWithPath: path)
-                    arrayOfSongs.append(Song(name: songName, image: UIImage(named: songName) ?? UIImage(), url: url))
+                    arrayOfSongs.append(Audio(name: songName, image: UIImage(named: songName) ?? UIImage(), url: url, kind: "song"))
                 }
             }
         } catch {

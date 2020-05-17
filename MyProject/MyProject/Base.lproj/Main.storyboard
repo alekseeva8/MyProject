@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,9 +30,6 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     </preferredSymbolConfiguration>
                                 </state>
-                                <connections>
-                                    <segue destination="2bf-TE-1j5" kind="show" id="WBx-cV-Ya8"/>
-                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="L6E-Fw-mhL">
                                 <rect key="frame" x="40" y="229" width="334" height="99"/>
@@ -80,20 +77,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Zxq-bC-cFQ"/>
-                    <connections>
-                        <outlet property="loginButton" destination="9KA-Sq-XUN" id="Rdw-Z0-fMs"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1394" y="-151"/>
+            <point key="canvasLocation" x="719" y="1158"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Huj-p8-3Ef">
             <objects>
-                <viewController id="Ubk-NW-xlz" customClass="MAINViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="Ubk-NW-xlz" customClass="MAINViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0sS-8u-EjC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="DgI-U1-ete"/>
@@ -114,11 +108,11 @@
             <objects>
                 <viewController id="v0u-0b-kfw" customClass="SongsTableViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dA4-Ay-wHi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cbt-lI-J7a">
-                                <rect key="frame" x="0.0" y="56" width="414" height="660"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songsTableViewCell" textLabel="4P5-X0-bWb" imageView="4kl-Cy-HYP" style="IBUITableViewCellStyleDefault" id="yzq-z8-WcA">
@@ -169,38 +163,33 @@
             <objects>
                 <viewController id="I9R-3G-UfO" customClass="AudioPlayerViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BtX-Wl-7Gl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="S50-cD-zZX">
-                                <rect key="frame" x="67" y="70.333333333333314" width="280" height="575.33333333333348"/>
+                                <rect key="frame" x="67" y="101.66666666666669" width="280" height="532.66666666666652"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="The Secret Life of Pets 2" translatesAutoresizingMaskIntoConstraints="NO" id="OaA-Ef-tdz">
-                                        <rect key="frame" x="20.666666666666686" y="0.0" width="239" height="187"/>
+                                        <rect key="frame" x="20.666666666666686" y="0.0" width="239" height="196.33333333333334"/>
                                     </imageView>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sd5-SN-cD9">
-                                        <rect key="frame" x="-2" y="237" width="284" height="31"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sd5-SN-cD9">
+                                        <rect key="frame" x="-2" y="246.33333333333331" width="284" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="Hyn-oD-akX"/>
                                         </constraints>
+                                        <color key="minimumTrackTintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="timeSliderScrolled:" destination="I9R-3G-UfO" eventType="valueChanged" id="RSC-cA-byh"/>
                                         </connections>
                                     </slider>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tTA-NN-68w">
-                                        <rect key="frame" x="0.0" y="317" width="280" height="2"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="280" id="fWr-ui-y3V"/>
-                                        </constraints>
-                                    </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2S-q1-IcZ">
-                                        <rect key="frame" x="83.666666666666657" y="369" width="112.66666666666666" height="26.333333333333314"/>
+                                        <rect key="frame" x="83.666666666666657" y="326.33333333333331" width="112.66666666666666" height="26.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="OD9-XA-abj">
-                                        <rect key="frame" x="29" y="445.33333333333331" width="222" height="50"/>
+                                        <rect key="frame" x="29" y="402.66666666666663" width="222" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOz-uT-DSS" userLabel="reverseView">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -210,8 +199,8 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button" image="reverse"/>
                                                         <connections>
-                                                            <action selector="touchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="oh6-b7-m6S"/>
-                                                            <action selector="touchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="3Sp-JU-QbU"/>
+                                                            <action selector="prevButtonTouchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="jfT-un-19A"/>
+                                                            <action selector="prevButtonTouchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="sHU-CM-Q8D"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -225,15 +214,14 @@
                                                 <rect key="frame" x="86" y="0.0" width="51" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4o8-fA-KN2" userLabel="playButton">
-                                                        <rect key="frame" x="8" y="8" width="35" height="34"/>
+                                                        <rect key="frame" x="8" y="8.0000000000000568" width="35" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="35" id="4dh-ln-qvH"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="play"/>
                                                         <connections>
-                                                            <action selector="playPauseButtonTapped:" destination="I9R-3G-UfO" eventType="touchUpInside" id="J0D-yq-123"/>
-                                                            <action selector="touchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="hMm-zg-XLR"/>
-                                                            <action selector="touchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="Lio-yo-4zB"/>
+                                                            <action selector="playPauseButtonTouchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="shW-Gl-aA6"/>
+                                                            <action selector="playPauseButtonTouchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="eCB-2Y-Ix8"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -253,8 +241,8 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button" image="forward"/>
                                                         <connections>
-                                                            <action selector="touchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="1o3-pZ-SXV"/>
-                                                            <action selector="touchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="tU9-jx-SgL"/>
+                                                            <action selector="nextButtonTouchedDown:" destination="I9R-3G-UfO" eventType="touchDown" id="CgP-Ys-3UU"/>
+                                                            <action selector="nextButtonTouchedUpInside:" destination="I9R-3G-UfO" eventType="touchUpInside" id="x6E-l3-Kw0"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -267,7 +255,7 @@
                                         </constraints>
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="speaker.fill" catalog="system" maximumValueImage="speaker.3.fill" translatesAutoresizingMaskIntoConstraints="NO" id="2Od-ST-wQb">
-                                        <rect key="frame" x="-2" y="545.33333333333326" width="284" height="31"/>
+                                        <rect key="frame" x="-2" y="502.66666666666674" width="284" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="ydY-77-CiM"/>
                                         </constraints>
@@ -298,7 +286,6 @@
                         <outlet property="playView" destination="j60-Vu-WVK" id="Bxh-T1-RBB"/>
                         <outlet property="prevButton" destination="rYU-IF-gcZ" id="kbX-rZ-5GN"/>
                         <outlet property="reverseView" destination="cOz-uT-DSS" id="FZi-3b-sTx"/>
-                        <outlet property="timeProgressView" destination="tTA-NN-68w" id="UJK-An-PeY"/>
                         <outlet property="timeSlider" destination="sd5-SN-cD9" id="HAl-Sn-n5c"/>
                         <outlet property="volumeSlider" destination="2Od-ST-wQb" id="LZd-vm-IM1"/>
                     </connections>
@@ -307,10 +294,10 @@
             </objects>
             <point key="canvasLocation" x="5344.9275362318849" y="175.27173913043481"/>
         </scene>
-        <!--Registration View Controller-->
+        <!--View Controller-->
         <scene sceneID="NS8-Sh-l2d">
             <objects>
-                <viewController id="RAK-0j-VHA" customClass="RegistrationViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RAK-0j-VHA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vfZ-9e-AXQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -330,9 +317,6 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     </preferredSymbolConfiguration>
                                 </state>
-                                <connections>
-                                    <segue destination="2bf-TE-1j5" kind="show" id="hmf-g3-Y82"/>
-                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="01I-CN-ka1">
                                 <rect key="frame" x="40" y="229" width="334" height="99"/>
@@ -380,18 +364,15 @@
                         <viewLayoutGuide key="safeArea" id="xq0-Fr-sjJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="C9A-5V-umL"/>
-                    <connections>
-                        <outlet property="signUpButton" destination="jNC-VG-IUP" id="DGY-dO-4PX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xcg-w3-PUm" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1393" y="518"/>
+            <point key="canvasLocation" x="1419" y="1158"/>
         </scene>
-        <!--Login View Controller-->
+        <!--View Controller-->
         <scene sceneID="qoi-ZS-c1Z">
             <objects>
-                <viewController id="dvH-pZ-BQz" customClass="LoginViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dvH-pZ-BQz" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="02c-lQ-qyb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -463,7 +444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qNs-pC-JPP" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2038" y="856"/>
+            <point key="canvasLocation" x="2106" y="1158"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="aCp-1R-SW5">
@@ -486,11 +467,11 @@
             <objects>
                 <viewController id="VIs-BP-7QY" customClass="VideoViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uc8-f4-sZQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1IK-YO-zOk" userLabel="videoWebView">
-                                <rect key="frame" x="0.0" y="56" width="414" height="660"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -521,7 +502,7 @@
             <objects>
                 <viewController id="Cf7-0a-QIe" customClass="StoriesCollectViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yk5-iO-OBh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="dcG-3y-nkn"/>
@@ -535,14 +516,47 @@
             </objects>
             <point key="canvasLocation" x="4352.1739130434789" y="472.82608695652175"/>
         </scene>
+        <!--Signup View Controller-->
+        <scene sceneID="33V-4u-NH6">
+            <objects>
+                <viewController storyboardIdentifier="SignupVC" id="jpH-dN-sh6" customClass="SignupViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BfG-f0-zRD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="oeY-Zc-47U"/>
+                    </view>
+                    <connections>
+                        <segue destination="2bf-TE-1j5" kind="presentation" identifier="fromSignupToMainVC" modalPresentationStyle="fullScreen" id="Oh0-q7-h4s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uFy-gw-W2m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1761" y="-168"/>
+        </scene>
+        <!--Login Stack View Controller-->
+        <scene sceneID="8dw-MT-qDg">
+            <objects>
+                <viewController id="HOE-1N-jvD" customClass="LoginStackViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Eqi-vG-Dzz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="zwc-No-0MO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vKQ-Gr-1pu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1773" y="510"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="lca-mp-PoH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2bf-TE-1j5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="2bf-TE-1j5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Nao-EY-L7P"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SO9-IU-T6d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -564,7 +578,6 @@
         <image name="speaker.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hmf-g3-Y82"/>
-        <segue reference="FD8-Di-rGL"/>
+        <segue reference="2fo-9K-mhP"/>
     </inferredMetricsTieBreakers>
 </document>
