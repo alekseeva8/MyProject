@@ -17,7 +17,9 @@ class SongsTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Songs"
-        //view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = UIColor(named: "BackgroundColor")
+        tableView.rowHeight = 60
+
         tableView.delegate = self
         //tableView.dataSource = dataSourceSongsTable
         tableView.dataSource = self
@@ -72,7 +74,7 @@ extension SongsTableViewController: UITableViewDataSource {
         songsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "songsTableViewCell", for: indexPath)
         songsTableViewCell.textLabel?.text = songs[indexPath.row].name
         songsTableViewCell.imageView?.image = songs[indexPath.row].image
-        //songsTableViewCell.backgroundColor = UIColor(named: "BackgroundColor")
+        songsTableViewCell.textLabel?.font = UIFont.systemFont(ofSize: 19)
         return songsTableViewCell
     }
 }

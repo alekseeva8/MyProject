@@ -23,13 +23,21 @@ class MAINViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = " Main"
+        //title = " Main"
+        setNavigationBarStyle()
 
         view.addSubview(collectionView)
         collectionViewLayout()
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(MAINCollectionViewCell.self, forCellWithReuseIdentifier: MAINCollectionViewCell.reuseID)
+    }
+
+    func setNavigationBarStyle() {
+        navigationController?.navigationBar.barTintColor = UIColor(named: "NavigationBarColor")
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
     }
 }
 
@@ -51,7 +59,7 @@ extension MAINViewController: UICollectionViewDataSource {
     }
 }
 
-//MARK: - Layout, Design
+//MARK: - CollectionView Layout
 extension MAINViewController {
     func collectionViewLayout() {
         collectionView.backgroundColor = UIColor(named: "BackgroundColor")

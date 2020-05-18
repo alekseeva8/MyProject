@@ -34,7 +34,7 @@ class AudioPlayerViewController: UIViewController {
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        //view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = UIColor(named: "BackgroundColor")
 
         imageView.image = audioArray[currentAudio].image
         audioNameLabel.text = audioArray[currentAudio].name
