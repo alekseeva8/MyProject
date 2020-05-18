@@ -169,13 +169,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="S50-cD-zZX">
-                                <rect key="frame" x="67" y="101.66666666666669" width="280" height="532.66666666666652"/>
+                                <rect key="frame" x="5" y="49" width="404" height="647"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="The Secret Life of Pets 2" translatesAutoresizingMaskIntoConstraints="NO" id="OaA-Ef-tdz">
-                                        <rect key="frame" x="20.666666666666686" y="0.0" width="239" height="196.33333333333334"/>
+                                        <rect key="frame" x="77" y="0.0" width="250" height="251.66666666666666"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="OaA-Ef-tdz" secondAttribute="height" multiplier="144:145" id="A6T-Dr-etF"/>
+                                            <constraint firstAttribute="width" constant="250" id="m31-ME-yr2"/>
+                                        </constraints>
                                     </imageView>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sd5-SN-cD9">
-                                        <rect key="frame" x="-2" y="246.33333333333331" width="284" height="31"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sd5-SN-cD9">
+                                        <rect key="frame" x="60" y="301.66666666666669" width="284" height="90"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="Hyn-oD-akX"/>
                                         </constraints>
@@ -185,13 +189,13 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2S-q1-IcZ">
-                                        <rect key="frame" x="83.666666666666657" y="326.33333333333331" width="112.66666666666666" height="26.333333333333314"/>
+                                        <rect key="frame" x="145.66666666666666" y="440.66666666666669" width="112.66666666666666" height="26.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="OD9-XA-abj">
-                                        <rect key="frame" x="29" y="402.66666666666663" width="222" height="50"/>
+                                        <rect key="frame" x="91" y="517" width="222" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOz-uT-DSS" userLabel="reverseView">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -216,7 +220,7 @@
                                                 <rect key="frame" x="86" y="0.0" width="51" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4o8-fA-KN2" userLabel="playButton">
-                                                        <rect key="frame" x="8" y="8.0000000000000568" width="35" height="34"/>
+                                                        <rect key="frame" x="8" y="8" width="35" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="35" id="4dh-ln-qvH"/>
                                                         </constraints>
@@ -257,7 +261,7 @@
                                         </constraints>
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="speaker.fill" catalog="system" maximumValueImage="speaker.3.fill" translatesAutoresizingMaskIntoConstraints="NO" id="2Od-ST-wQb">
-                                        <rect key="frame" x="-2" y="502.66666666666674" width="284" height="31"/>
+                                        <rect key="frame" x="60" y="617" width="284" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="ydY-77-CiM"/>
                                         </constraints>
@@ -270,11 +274,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="OaA-Ef-tdz" firstAttribute="width" secondItem="v5o-CG-tid" secondAttribute="width" multiplier="0.577295" id="5PM-bz-Zhn"/>
                             <constraint firstItem="S50-cD-zZX" firstAttribute="centerX" secondItem="BtX-Wl-7Gl" secondAttribute="centerX" id="9p2-uE-lkG"/>
-                            <constraint firstItem="S50-cD-zZX" firstAttribute="centerY" secondItem="BtX-Wl-7Gl" secondAttribute="centerY" id="Qnz-II-uav"/>
-                            <constraint firstItem="S50-cD-zZX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="v5o-CG-tid" secondAttribute="top" constant="10" id="sJM-FP-EDP"/>
-                            <constraint firstItem="OaA-Ef-tdz" firstAttribute="height" secondItem="v5o-CG-tid" secondAttribute="height" multiplier="0.283619" id="u5H-vE-j0b"/>
+                            <constraint firstItem="S50-cD-zZX" firstAttribute="top" secondItem="v5o-CG-tid" secondAttribute="top" constant="5" id="FKp-69-5gO"/>
+                            <constraint firstItem="v5o-CG-tid" firstAttribute="bottom" secondItem="S50-cD-zZX" secondAttribute="bottom" constant="40" id="Q94-9M-3kc"/>
+                            <constraint firstItem="v5o-CG-tid" firstAttribute="trailing" secondItem="S50-cD-zZX" secondAttribute="trailing" constant="5" id="VV4-1u-qcf"/>
+                            <constraint firstItem="S50-cD-zZX" firstAttribute="leading" secondItem="v5o-CG-tid" secondAttribute="leading" constant="5" id="d4K-xQ-Vux"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v5o-CG-tid"/>
                     </view>
