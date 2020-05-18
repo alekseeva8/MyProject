@@ -45,9 +45,8 @@ extension MAINViewController: UICollectionViewDataSource {
 
         cell.backgroundColor = UIColor(named: "PinkCellColor")
         cell.layer.cornerRadius = 10
-        cell.activityNameLabel.text = categories[indexPath.row].name
-        cell.activityImageView.image = categories[indexPath.row].image
-
+        let category = categories[indexPath.row]
+        cell.setCategory(category)
         return cell
     }
 }
