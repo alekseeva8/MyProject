@@ -51,6 +51,7 @@ class MAINCollectionViewCell: UICollectionViewCell {
     func setCategory(_ category: Category) {
         categoryImageView.image = category.image
         categoryNameLabel.text = category.name
+        backgroundColor = category.color
     }
     
 }

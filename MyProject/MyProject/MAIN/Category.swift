@@ -11,4 +11,5 @@ import UIKit
 struct Category {
     var name: String = ""
     var image: UIImage = UIImage()
+    var color: UIColor = UIColor()
 }

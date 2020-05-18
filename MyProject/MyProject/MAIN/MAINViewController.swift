@@ -11,7 +11,7 @@ import UIKit
 class MAINViewController: UIViewController {
 
     var collectionView: UICollectionView
-    let categories = [Category(name: "Songs", image: UIImage(named: "music-cake") ?? UIImage()), Category(name: "Stories", image: UIImage(named: "fantasy") ?? UIImage()), Category(name: "Learning Videos", image: UIImage(named: "artist") ?? UIImage()), Category(name: "Favorities", image: UIImage(named: "hearts") ?? UIImage())]
+    let categories = [Category(name: "Songs", image: UIImage(named: "music-cake") ?? UIImage(), color: UIColor(named: "PinkCellColor") ?? UIColor()), Category(name: "Stories", image: UIImage(named: "fantasy") ?? UIImage(), color: UIColor(named: "YellowCellColor") ?? UIColor()), Category(name: "Learning Videos", image: UIImage(named: "artist") ?? UIImage(), color: UIColor(named: "GreenCellColor") ?? UIColor()), Category(name: "Favorities", image: UIImage(named: "hearts") ?? UIImage(), color: UIColor(named: "PurpleCellColor") ?? UIColor())]
 
     required init?(coder: NSCoder) {
         let layout = UICollectionViewFlowLayout()
@@ -51,7 +51,6 @@ extension MAINViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MAINCollectionViewCell.reuseID, for: indexPath) as! MAINCollectionViewCell
 
-        cell.backgroundColor = UIColor(named: "PinkCellColor")
         cell.layer.cornerRadius = 10
         let category = categories[indexPath.row]
         cell.setCategory(category)
@@ -80,7 +79,6 @@ extension MAINViewController {
 extension MAINViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth = UIScreen.main.bounds.width - 20 - 20 - 10/2
-        //let itemWidth = 350
         return CGSize(width: itemWidth, height: 150)
     }
 }
