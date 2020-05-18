@@ -11,11 +11,12 @@ import UIKit
 class MAINViewController: UIViewController {
 
     var collectionView: UICollectionView
-
-    let activitiesArray = ["Songs", "Stories", "Learning videos", "Bedtime", "Favorities"]
+    let categories = [Category(name: "Songs", image: UIImage(named: "music-cake") ?? UIImage()), Category(name: "Stories", image: UIImage(named: "fantasy") ?? UIImage()), Category(name: "Learning Videos", image: UIImage(named: "artist") ?? UIImage()), Category(name: "Favorities", image: UIImage(named: "hearts") ?? UIImage())]
 
     required init?(coder: NSCoder) {
         let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = 15
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         super.init(coder: coder)
     }
@@ -36,18 +37,16 @@ class MAINViewController: UIViewController {
 extension MAINViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        activitiesArray.count
+        categories.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MAINCollectionViewCell.reuseID, for: indexPath) as! MAINCollectionViewCell
 
-        cell.backgroundColor = UIColor(named: "BackgroundColor")
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 5
-
-        cell.storyNameLabel.text = activitiesArray[indexPath.row]
+        cell.backgroundColor = UIColor(named: "PinkCellColor")
+        cell.layer.cornerRadius = 10
+        cell.activityNameLabel.text = categories[indexPath.row].name
+        cell.activityImageView.image = categories[indexPath.row].image
 
         return cell
     }
@@ -65,7 +64,7 @@ extension MAINViewController {
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        collectionView.contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
     }
 
 }

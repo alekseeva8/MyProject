@@ -15,5 +15,5 @@ struct Track: Codable {
     let kind: String
     let trackName: String
     let trackUrl: String
-    let image: String
+    let imageUrl: String
 }

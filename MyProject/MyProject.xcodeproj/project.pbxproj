@@ -28,6 +28,7 @@
 		F34A9A602463DFD000DBC4D7 /* CloudDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A5F2463DFD000DBC4D7 /* CloudDataHandler.swift */; };
 		F34A9A632464579C00DBC4D7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A622464579C00DBC4D7 /* NetworkManager.swift */; };
 		F357C5B2245B054A009E09AE /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F357C5B1245B054A009E09AE /* VideoViewController.swift */; };
+		F3709E3B2472652400C981E8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3709E3A2472652400C981E8 /* Category.swift */; };
 		F3718DC32458945F00EC7054 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3718DC22458945F00EC7054 /* AudioManager.swift */; };
 		F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */; };
 		F3718DCF2459E09C00EC7054 /* StoriesCollectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3718DCE2459E09C00EC7054 /* StoriesCollectViewCell.swift */; };
@@ -78,6 +79,7 @@
 		F34A9A5F2463DFD000DBC4D7 /* CloudDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudDataHandler.swift; sourceTree = "<group>"; };
 		F34A9A622464579C00DBC4D7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F357C5B1245B054A009E09AE /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		F3709E3A2472652400C981E8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F3718DC22458945F00EC7054 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Secret Life of Pets 2.mp3"; sourceTree = "<group>"; };
 		F3718DCE2459E09C00EC7054 /* StoriesCollectViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectViewCell.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		F34A9A64246465C700DBC4D7 /* MAIN */ = {
 			isa = PBXGroup;
 			children = (
+				F3709E3A2472652400C981E8 /* Category.swift */,
 				F34A9A57245B3D4600DBC4D7 /* MAINViewController.swift */,
 				F34A9A59245B3D9300DBC4D7 /* MAINCollectionViewCell.swift */,
 			);
@@ -414,6 +417,7 @@
 				F3718DC32458945F00EC7054 /* AudioManager.swift in Sources */,
 				F32747FC246D79EF0071843C /* UserDefaults.swift in Sources */,
 				F34A9A602463DFD000DBC4D7 /* CloudDataHandler.swift in Sources */,
+				F3709E3B2472652400C981E8 /* Category.swift in Sources */,
 				F32747FF246D9F250071843C /* Validator.swift in Sources */,
 				F3726D712431ECFD00C37F00 /* SceneDelegate.swift in Sources */,
 				F39873FA2466FF3500545692 /* SearchResponse.swift in Sources */,

@@ -12,39 +12,36 @@ class MAINCollectionViewCell: UICollectionViewCell {
 
     static let reuseID = "MAINCollectionViewCell"
     
-    let storyImageView: UIImageView = {
+    let activityImageView: UIImageView = {
         let imageView = UIImageView()
-        //imageView.backgroundColor = UIColor(named: "BackgroundColor")
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "Children")
         return imageView
     }()
     
-    let storyNameLabel: UILabel = {
+    let activityNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 26, weight: .bold)
         label.textColor = .black
         label.numberOfLines = 2
-        label.textAlignment = .center
+        label.textAlignment = .left
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(storyImageView)
-        addSubview(storyNameLabel)
+        addSubview(activityImageView)
+        addSubview(activityNameLabel)
         
-        storyImageView.translatesAutoresizingMaskIntoConstraints = false
-        storyNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        storyImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        storyImageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        storyImageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        storyImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1/2).isActive = true
-        storyNameLabel.topAnchor.constraint(equalTo: storyImageView.bottomAnchor, constant: 20).isActive = true
-        storyNameLabel.leadingAnchor.constraint(equalTo: storyImageView.leadingAnchor, constant: 5).isActive = true
-        storyNameLabel.trailingAnchor.constraint(equalTo: storyImageView.trailingAnchor, constant: -5).isActive = true
+        activityImageView.translatesAutoresizingMaskIntoConstraints = false
+        activityNameLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        activityImageView.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+        activityImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+        activityImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -5).isActive = true
+        activityNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
+        activityNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        activityNameLabel.trailingAnchor.constraint(equalTo: activityImageView.leadingAnchor, constant: 10).isActive = true
     }
     
     required init?(coder: NSCoder) {
