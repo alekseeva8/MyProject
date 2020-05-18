@@ -16,6 +16,8 @@ class StoriesCollectViewController: UIViewController {
 
     required init?(coder: NSCoder) {
         let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = 15
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         super.init(coder: coder)
     }
@@ -31,13 +33,13 @@ class StoriesCollectViewController: UIViewController {
         //collectionView.dataSource = dataSourceStoriesCollection
         collectionView.register(StoriesCollectViewCell.self, forCellWithReuseIdentifier: StoriesCollectViewCell.reuseID)
 
-        updateData()
+        getData()
     }
 }
 
 //MARK: - updateData
 extension StoriesCollectViewController {
-    func updateData() {
+    func getData() {
         ParseHandler().getData() {[weak self] (searchResponse) in
             searchResponse.results.forEach { (track) in
                 if track.kind == "story" {
@@ -61,13 +63,6 @@ extension StoriesCollectViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesCollectViewCell.reuseID, for: indexPath) as! StoriesCollectViewCell
-
-        //cellDesign(cell: cell)
-        cell.backgroundColor = UIColor(named: "BackgroundColor")
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 2
-
-        cell.storyNameLabel.text = stories[indexPath.row].name
         cell.storyImageView.image = stories[indexPath.row].image
 
         return cell
@@ -87,15 +82,15 @@ extension StoriesCollectViewController {
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
 }
 
 //MARK: - Delegate
 extension StoriesCollectViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemWidth = (UIScreen.main.bounds.width - 20 - 20 - 10/2)/2
-        return CGSize(width: itemWidth, height: 250)
+        let itemWidth = (UIScreen.main.bounds.width - 20 - 20 - 20)/2
+        return CGSize(width: itemWidth, height: itemWidth)
     }
 }
 
