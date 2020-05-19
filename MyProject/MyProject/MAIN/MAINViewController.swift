@@ -39,6 +39,9 @@ class MAINViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
     }
+
+    @IBAction func backToMainScreen(unwindSegue: UIStoryboardSegue) {
+}
 }
 
 //MARK: - Data Source
