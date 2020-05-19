@@ -72,7 +72,6 @@ extension MAINViewController {
 
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
     }
-
 }
 
 //MARK: - Delegate

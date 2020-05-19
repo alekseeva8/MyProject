@@ -11,6 +11,7 @@ import UIKit
 class StoriesCollectViewController: UIViewController {
 
     var collectionView: UICollectionView
+    let activityIndicator = UIActivityIndicatorView(style: .large)
     //let dataSourceStoriesCollection = DataSourceStoriesCollection()
     var stories = [Audio]()
 
@@ -27,6 +28,7 @@ class StoriesCollectViewController: UIViewController {
         title = " Stories"
         
         view.addSubview(collectionView)
+
         collectionViewLayout()
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -34,6 +36,10 @@ class StoriesCollectViewController: UIViewController {
         collectionView.register(StoriesCollectViewCell.self, forCellWithReuseIdentifier: StoriesCollectViewCell.reuseID)
 
         getData()
+
+        collectionView.addSubview(activityIndicator)
+        activityIndicatorLayout()
+        activityIndicator.startAnimating()
     }
 }
 
@@ -50,6 +56,7 @@ extension StoriesCollectViewController {
             }
             }
             self?.collectionView.reloadData()
+            self?.activityIndicator.stopAnimating()
         }
     }
 }
@@ -70,7 +77,7 @@ extension StoriesCollectViewController: UICollectionViewDataSource {
 
 }
 
-//MARK: - Layout, Design
+//MARK: - CollectionView Layout
 extension StoriesCollectViewController {
     func collectionViewLayout() {
         collectionView.backgroundColor = UIColor(named: "BackgroundColor")
@@ -83,6 +90,15 @@ extension StoriesCollectViewController {
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    }
+
+    //MARK: - ActivityIndicator
+    func activityIndicatorLayout() {
+        activityIndicator.color = .systemBlue
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor).isActive = true
+        activityIndicator.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor).isActive = true
+        activityIndicator.hidesWhenStopped = true
     }
 }
 

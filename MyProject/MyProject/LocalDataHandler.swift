@@ -17,6 +17,7 @@ class LocalDataHandler {
         let folderURL = URL(fileURLWithPath: Bundle.main.resourcePath ?? "")
         //getting access to all of the files. All files will be stored in urlsArray
         do {
+            //Performs a shallow search of the specified directory, returns URLs for the contained items.
             let urlsArray = try FileManager.default.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
             urlsArray.forEach { (url) in
                 let urlString = url.absoluteString
