@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MyAudioHandler {
+class AudioHandler {
 
    static func getAudioURL(url: URL, completion: @escaping(URL) -> Void) {
         let fileManager = FileManager.default

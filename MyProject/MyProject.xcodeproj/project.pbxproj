@@ -214,11 +214,7 @@
 				F32747F5246C47A30071843C /* Audio.swift */,
 				F3718DC22458945F00EC7054 /* AudioManager.swift */,
 				F39873F92466FF3500545692 /* SearchResponse.swift */,
-				F39873F32466F51C00545692 /* APIHandler.swift */,
-				F39873F72466F86F00545692 /* ParseHandler.swift */,
-				F34A9A5B2463CC5500DBC4D7 /* LocalDataHandler.swift */,
-				F34A9A622464579C00DBC4D7 /* NetworkManager.swift */,
-				F37AD2B4247505F4001244DF /* AudioHandler.swift */,
+				F3D723452475A4CA002A03ED /* Handlers */,
 				F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */,
 				F357C5B1245B054A009E09AE /* VideoViewController.swift */,
 				F388CDD62450945E0046B2DD /* SettingsViewController.swift */,
@@ -241,6 +237,18 @@
 				F34A9A5D2463DAD500DBC4D7 /* DataSourceStoriesCollection.swift */,
 			);
 			path = unused;
+			sourceTree = "<group>";
+		};
+		F3D723452475A4CA002A03ED /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				F39873F32466F51C00545692 /* APIHandler.swift */,
+				F39873F72466F86F00545692 /* ParseHandler.swift */,
+				F34A9A5B2463CC5500DBC4D7 /* LocalDataHandler.swift */,
+				F34A9A622464579C00DBC4D7 /* NetworkManager.swift */,
+				F37AD2B4247505F4001244DF /* AudioHandler.swift */,
+			);
+			path = Handlers;
 			sourceTree = "<group>";
 		};
 		F3E2991D245876EF00EBB3E7 /* Songs */ = {

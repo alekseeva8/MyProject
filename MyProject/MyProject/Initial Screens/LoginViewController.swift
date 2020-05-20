@@ -43,13 +43,14 @@ class LoginViewController: StackViewController {
     }
 
     @objc func buttonPressed(sender: UIButton) {
-        //saving the fact of user's logging in
-        //MyUserDefaults.saveSignedValue()
         //check if user have already have user ID
         let username = usernameTextField.text ?? ""
         let password = passwordTextField.text ?? ""
-        Auth.auth().signIn(withEmail: username, password: password) { (result, error) in
+        Auth.auth().signIn(withEmail: username, password: password) {[weak self] (result, error) in
+            guard let self = self else { return }
             if error == nil {
+                //saving the fact of user's logging in
+                MyUserDefaults.saveSignedValue()
                 self.performSegue(withIdentifier: "fromLoginToMainVC", sender: nil)
             }
             else {

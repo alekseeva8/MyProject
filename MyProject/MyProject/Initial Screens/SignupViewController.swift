@@ -55,12 +55,12 @@ class SignupViewController: StackViewController {
         //checking the validation of login and password
         let validator = Validator()
         if validator.isPasswordCorrect(password: password) == true && validator.isRepeatPasswordCorrect(password: password, repeatPassword: repeatPassword) {
-            //saving the fact of user's registration
-            //MyUserDefaults.saveSignedValue()
-            Auth.auth().createUser(withEmail: username, password: password) { (result, error) in
+            Auth.auth().createUser(withEmail: username, password: password) {(result, error) in
                 print("user is created")
                 print(result?.user.uid)
             }
+            //saving the fact of user's registration
+            MyUserDefaults.saveSignedValue()
             performSegue(withIdentifier: "fromSignupToMainVC", sender: nil)
         } else {
             Alert.alertSending(self)

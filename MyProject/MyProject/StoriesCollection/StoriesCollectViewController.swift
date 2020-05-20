@@ -61,7 +61,6 @@ extension StoriesCollectViewController {
     }
 }
 
-
 //MARK: - DataSource
 extension StoriesCollectViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

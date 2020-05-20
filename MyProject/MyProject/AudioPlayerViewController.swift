@@ -30,8 +30,8 @@ class AudioPlayerViewController: UIViewController {
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var volumeSlider: UISlider!
     @IBOutlet weak var audioNameLabel: UILabel!
-    
-    //MARK: - ViewDidLoad
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BackgroundColor")
@@ -73,7 +73,7 @@ class AudioPlayerViewController: UIViewController {
 
     func prepareAudioToPlay(url: URL) {
 
-        MyAudioHandler.getAudioURL(url: url) {[weak self] (url) in
+        AudioHandler.getAudioURL(url: url) {[weak self] (url) in
             guard let self = self else {return}
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: url)
@@ -87,12 +87,11 @@ class AudioPlayerViewController: UIViewController {
             self.audioPlayer.prepareToPlay()
             self.audioPlayer.play()
             DispatchQueue.main.async {
-                self.playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+            self.playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
             }
         }
     }
 
-    
     //MARK: - playPauseButton
     @IBAction func playPauseButtonTouchedDown(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
@@ -114,7 +113,6 @@ class AudioPlayerViewController: UIViewController {
         sender.transform = CGAffineTransform.identity
     }
 
-    
     //MARK: - PrevButton
     @IBAction func prevButtonTouchedDown(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
@@ -146,7 +144,6 @@ class AudioPlayerViewController: UIViewController {
             self.currentAudio -= 1
         }
     }
-
 
     //MARK: - NextButton
 
@@ -180,7 +177,6 @@ class AudioPlayerViewController: UIViewController {
         }
     }
 
-    
     //MARK: - timeSlider
     @IBAction func timeSliderScrolled(_ sender: UISlider) {
         audioPlayer.stop()
