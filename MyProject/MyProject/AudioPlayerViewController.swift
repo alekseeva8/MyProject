@@ -53,7 +53,7 @@ class AudioPlayerViewController: UIViewController {
         volumeSlider.maximumValue = 1.0
 
         guard let url = audioArray[currentAudio].url else {return}
-        preparingAudioToPlay(url: url)
+        prepareAudioToPlay(url: url)
     }
 
      override func viewDidDisappear(_ animated: Bool) {
@@ -71,14 +71,14 @@ class AudioPlayerViewController: UIViewController {
     
     //MARK: - AVAudioPlayer prepareToPlay()
 
-    func preparingAudioToPlay(url: URL) {
-        NetworkManager.downloadFileFrom(url: url) { (url) in
-            print("downloaded")
+    func prepareAudioToPlay(url: URL) {
+
+        MyAudioHandler.getAudioURL(url: url) {[weak self] (url) in
+            guard let self = self else {return}
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: url)
                 DispatchQueue.main.async {
                     self.timeSlider.maximumValue = Float(self.audioPlayer.duration)
-                    //self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTimeSlider), userInfo: nil, repeats: true)
                 }
             } catch {
                 print(error)
@@ -132,7 +132,7 @@ class AudioPlayerViewController: UIViewController {
             self.audioNameLabel.text = self.audioArray[0].name
             self.imageView.image = self.audioArray[0].image
             guard let url = self.audioArray[0].url else {return}
-            self.preparingAudioToPlay(url: url)
+            self.prepareAudioToPlay(url: url)
             self.audioPlayer.play()
         }
         else {
@@ -141,7 +141,7 @@ class AudioPlayerViewController: UIViewController {
             self.imageView.image = self.audioArray[previousSongIndex].image
             let previousSong = self.audioArray[previousSongIndex]
             guard let url = previousSong.url else {return}
-            self.preparingAudioToPlay(url: url)
+            self.prepareAudioToPlay(url: url)
             self.audioPlayer.play()
             self.currentAudio -= 1
         }
@@ -168,7 +168,7 @@ class AudioPlayerViewController: UIViewController {
             self.imageView.image = self.audioArray[nextSongNumber].image
             let nextSong = self.audioArray[nextSongNumber]
             guard let url = nextSong.url else {return}
-            self.preparingAudioToPlay(url: url)
+            self.prepareAudioToPlay(url: url)
             self.currentAudio += 1
         }
         else {
@@ -176,7 +176,7 @@ class AudioPlayerViewController: UIViewController {
             self.audioNameLabel.text = self.audioArray[0].name
             self.imageView.image = self.audioArray[0].image
             guard let url = self.audioArray[0].url else {return}
-            self.preparingAudioToPlay(url: url)
+            self.prepareAudioToPlay(url: url)
         }
     }
 
