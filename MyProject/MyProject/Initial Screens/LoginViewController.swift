@@ -7,18 +7,21 @@
 //
 
 import UIKit
+import  FirebaseAuth
 
-class LoginStackViewController: StackViewController {
+class LoginViewController: StackViewController {
 
     let label = UILabel()
     let usernameTextField = UITextField()
     let passwordTextField = UITextField()
+    let questionButton = UIButton()
     let button = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mainStackView.insertArrangedSubview(label, at: 0)
+        mainStackView.addArrangedSubview(questionButton)
         mainStackView.addArrangedSubview(button)
         setMainStackViewLayout()
 
@@ -26,7 +29,8 @@ class LoginStackViewController: StackViewController {
 
         let arrayOfTextFields = [usernameTextField, passwordTextField]
         setSubStackView(array: arrayOfTextFields, arrayOfPlaceholders: ["Username", "Password"])
-        subStackViewLayout()
+
+        setQuestionButton(button: questionButton, title: "Haven't got an account? Sign in please.")
 
         setButton(button: button, title: "LOG IN")
     }
@@ -38,9 +42,28 @@ class LoginStackViewController: StackViewController {
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     }
 
-    //MARK: - Button's action
     @objc func buttonPressed(sender: UIButton) {
-        //performSegue(withIdentifier: "", sender: nil)
+        //saving the fact of user's logging in
+        //MyUserDefaults.saveSignedValue()
+        //check if user have already have user ID
+        let username = usernameTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        Auth.auth().signIn(withEmail: username, password: password) { (result, error) in
+            if error == nil {
+                self.performSegue(withIdentifier: "fromLoginToMainVC", sender: nil)
+            }
+            else {
+                print(error)
+            }
+        }
+    }
+
+    override func setQuestionButton(button: UIButton, title: String) {
+        super.setQuestionButton(button: questionButton, title: title)
+        button.addTarget(self, action: #selector(questionButtonPressed), for: .touchUpInside)
+    }
+    @objc func questionButtonPressed(sender: UIButton) {
+        performSegue(withIdentifier: "toSignupVC", sender: nil)
     }
 }
 

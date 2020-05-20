@@ -22,6 +22,8 @@ class StackViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(mainStackView)
         view.backgroundColor = UIColor(named: "BackgroundColor")
+        setMainStackViewLayout()
+        subStackViewLayout()
     }
 
     //MARK: - MainStackView
@@ -48,9 +50,11 @@ class StackViewController: UIViewController {
     func setLabel(label: UILabel, text: String) {
         label.text = text
         label.font = UIFont.systemFont(ofSize: 25)
+        label.numberOfLines = 2
+        label.textAlignment = .center
     }
 
-    //MARK: - Button
+    //MARK: - Buttons
     func setButton(button: UIButton, title: String) {
         button.widthAnchor.constraint(equalToConstant: 200).isActive = true
         button.layer.cornerRadius = 20
@@ -58,6 +62,14 @@ class StackViewController: UIViewController {
         button.setTitle(title, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+    }
+
+    func setQuestionButton(button: UIButton, title: String) {
+        button.setTitle(title, for: .normal)
+        //button.setTitleColor(.black, for: .normal)
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 20
     }
 
     //MARK: - SubStackView
