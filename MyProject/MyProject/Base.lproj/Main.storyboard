@@ -97,6 +97,7 @@
                         <segue destination="VIs-BP-7QY" kind="show" identifier="fromMainToVideoVC" id="Fc4-Ar-Ryf"/>
                         <segue destination="v0u-0b-kfw" kind="show" identifier="fromMainToSongsVC" id="XpD-GR-WVF"/>
                         <segue destination="Cf7-0a-QIe" kind="show" identifier="fromMainToStoriesVC" id="MyF-qV-fjC"/>
+                        <segue destination="Fla-Gs-iID" kind="show" identifier="fromMainToFavoritesVC" id="sp7-Ed-KhA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PhD-av-3Vz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -136,13 +137,16 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17" scale="medium"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dyn-zB-JY3">
-                                                    <rect key="frame" x="331" y="11" width="51" height="38"/>
+                                                    <rect key="frame" x="324" y="11" width="70" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" title="Button" image="heart" catalog="system"/>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="likeButton" destination="Dyn-zB-JY3" id="uG1-Vd-77j"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -686,6 +690,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wLi-m7-RDZ"/>
+        <segue reference="y5A-nH-05Q"/>
         <segue reference="JCm-ck-0vV"/>
         <segue reference="2fo-9K-mhP"/>
     </inferredMetricsTieBreakers>

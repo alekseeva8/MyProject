@@ -94,6 +94,7 @@ extension MAINViewController {
         case 0: performSegue(withIdentifier: "fromMainToSongsVC", sender: nil)
         case 1: performSegue(withIdentifier: "fromMainToStoriesVC", sender: nil)
         case 2: performSegue(withIdentifier: "fromMainToVideoVC", sender: nil)
+        case 3: performSegue(withIdentifier: "fromMainToFavoritesVC", sender: nil)
         default:
             break
         }

@@ -21,9 +21,6 @@ class FavoritesViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
-
-//        songs = LocalDataHandler.gettingSongsArray()
-//        getData()
     }
 }
 

@@ -11,9 +11,14 @@ import UIKit
 class SongsTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
     //let dataSourceSongsTable = DataSourceSongsTable()
     var songs = [Audio]()
+    var likes: [String] = []
+    var favorites = [Audio]()
+
+    override func viewWillAppear(_ animated: Bool) {
+        favorites = []
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +32,26 @@ class SongsTableViewController: UIViewController {
 
         songs = LocalDataHandler.gettingSongsArray()
         getData()
+        likes = [String](repeating: "dislike", count: songs.count)
     }
 
     @IBAction func favoritesButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "toFavoritesVC", sender: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
+            audioPlayerVC.audioArray = songs
+        }
+        if let favoritesVC = segue.destination as? FavoritesViewController {
+            for (index, item) in likes.enumerated() {
+                let song = songs[index]
+                if item == "like" {
+                    favorites.append(song)
+                }
+            }
+            favoritesVC.favorites = favorites
+        }
     }
 }
 
@@ -44,6 +65,7 @@ extension SongsTableViewController {
                     guard let urlImage = URL(string: track.imageUrl) else {return}
                     guard let data = try? Data(contentsOf: urlImage) else {return}
                     self?.songs.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind))
+                    self?.likes.append("dislike")
                 }
             }
             self?.tableView.reloadData()
@@ -60,11 +82,6 @@ extension SongsTableViewController: UITableViewDelegate {
         //AudioManager.shared.audio = songs[indexPath.row]
         performSegue(withIdentifier: "fromSongsTableToPlayerVC", sender: nil)
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
-            audioPlayerVC.audioArray = songs
-        }
-    }
 }
 
 //MARK: - DataSource
@@ -75,16 +92,28 @@ extension SongsTableViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //var songsTableViewCell: UITableViewCell
-        let songsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "songsTableViewCell", for: indexPath) as! SongsTableViewCell
-        //songsTableViewCell.tag
-        songsTableViewCell.textLabel?.text = songs[indexPath.row].name
-        songsTableViewCell.imageView?.image = songs[indexPath.row].image
-        songsTableViewCell.textLabel?.font = UIFont.systemFont(ofSize: 19)
-        return songsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "songsTableViewCell", for: indexPath) as! SongsTableViewCell
+        cell.textLabel?.text = songs[indexPath.row].name
+        cell.imageView?.image = songs[indexPath.row].image
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 19)
+        cell.tag = indexPath.row
+        cell.likeButton.tag = indexPath.row
+        cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchDown)
+        return cell
+    }
+    
+    @objc func likeButtonTapped(sender: UIButton) {
+        if likes.count != 0 {
+        print(sender.tag)
+        if likes[sender.tag] == "dislike" {
+            likes[sender.tag] = "like"
+        }
+        else {
+            likes[sender.tag] = "dislike"
+        }
+    }
+        else {
+            //alert: no internet connection
+        }
     }
 }
-//var cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as TableViewCell
-//  cell.tag = indexPath.row
-//  cell.like.tag = indexPath.row
-//  cell.like.addTarget(self, action: "handleLikes:", forControlEvents: .TouchUpInside)
-//  return cell
