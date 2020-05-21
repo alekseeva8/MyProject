@@ -141,6 +141,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" title="Button" image="heart" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="likeButtonPressed:" destination="yzq-z8-WcA" eventType="touchDown" id="bdL-WM-lRU"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -156,7 +159,7 @@
                             <constraint firstItem="cbt-lI-J7a" firstAttribute="top" secondItem="jiz-Bd-xYf" secondAttribute="top" id="2It-qg-Dws"/>
                             <constraint firstItem="cbt-lI-J7a" firstAttribute="trailing" secondItem="jiz-Bd-xYf" secondAttribute="trailing" id="8jm-jz-sS8"/>
                             <constraint firstItem="cbt-lI-J7a" firstAttribute="leading" secondItem="jiz-Bd-xYf" secondAttribute="leading" id="Wy2-7L-xlA"/>
-                            <constraint firstItem="cbt-lI-J7a" firstAttribute="bottom" secondItem="jiz-Bd-xYf" secondAttribute="bottom" id="Ymd-68-JiQ"/>
+                            <constraint firstItem="cbt-lI-J7a" firstAttribute="bottom" secondItem="dA4-Ay-wHi" secondAttribute="bottom" id="Ymd-68-JiQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jiz-Bd-xYf"/>
                     </view>
@@ -690,7 +693,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wLi-m7-RDZ"/>
-        <segue reference="y5A-nH-05Q"/>
+        <segue reference="sp7-Ed-KhA"/>
         <segue reference="JCm-ck-0vV"/>
         <segue reference="2fo-9K-mhP"/>
     </inferredMetricsTieBreakers>

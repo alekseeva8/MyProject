@@ -91,7 +91,6 @@ extension SongsTableViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //var songsTableViewCell: UITableViewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "songsTableViewCell", for: indexPath) as! SongsTableViewCell
         cell.textLabel?.text = songs[indexPath.row].name
         cell.imageView?.image = songs[indexPath.row].image
@@ -107,9 +106,11 @@ extension SongsTableViewController: UITableViewDataSource {
         print(sender.tag)
         if likes[sender.tag] == "dislike" {
             likes[sender.tag] = "like"
+            print(likes)
         }
         else {
             likes[sender.tag] = "dislike"
+            print(likes)
         }
     }
         else {

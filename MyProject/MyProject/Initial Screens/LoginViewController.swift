@@ -28,9 +28,9 @@ class LoginViewController: StackViewController {
         setLabel(label: label, text: "Login to your account")
 
         let arrayOfTextFields = [usernameTextField, passwordTextField]
-        setSubStackView(array: arrayOfTextFields, arrayOfPlaceholders: ["Username", "Password"])
+        setSubStackView(array: arrayOfTextFields, arrayOfPlaceholders: ["E-mail", "Password"])
 
-        setQuestionButton(button: questionButton, title: "Haven't got an account? Sign in please.")
+        setQuestionButton(button: questionButton, title: "Haven't got an account? Press here.")
 
         setButton(button: button, title: "LOG IN")
     }

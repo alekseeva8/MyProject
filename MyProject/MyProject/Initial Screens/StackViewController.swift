@@ -32,7 +32,7 @@ class StackViewController: UIViewController {
         mainStackView.axis = .vertical
         mainStackView.alignment = .center
         mainStackView.distribution = .equalCentering
-        mainStackView.spacing = 15
+        mainStackView.spacing = 30
 
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         mainStackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -40,7 +40,7 @@ class StackViewController: UIViewController {
         mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
 
-        let insets = UIEdgeInsets(top: 40, left: 0, bottom: 60, right: 0)
+        let insets = UIEdgeInsets(top: 40, left: 0, bottom: 120, right: 0)
         //the stack view pins its content to the relevant margin instead of its edge.
         mainStackView.isLayoutMarginsRelativeArrangement = true
         mainStackView.layoutMargins = insets
@@ -66,10 +66,8 @@ class StackViewController: UIViewController {
 
     func setQuestionButton(button: UIButton, title: String) {
         button.setTitle(title, for: .normal)
-        //button.setTitleColor(.black, for: .normal)
-        button.layer.borderColor = UIColor.black.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 20
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.setTitleColor(.systemBlue, for: .normal)
     }
 
     //MARK: - SubStackView
@@ -91,7 +89,7 @@ class StackViewController: UIViewController {
         subStackView.axis = .vertical
         subStackView.alignment = .fill
         subStackView.distribution = .fill
-        subStackView.spacing = 20
+        subStackView.spacing = 25
     }
 }
 

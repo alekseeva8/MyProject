@@ -33,9 +33,9 @@ class SignupViewController: StackViewController {
         setLabel(label: label, text: "Welcome to the world of joy!\nPlease sign up.")
 
         let arrayOfTextFields = [nameTextField, usernameTextField, passwordTextField, repeatPasswordTextField]
-        setSubStackView(array: arrayOfTextFields, arrayOfPlaceholders: ["Name", "Username/E-mail", SignupViewController.passwordPlaceholder, SignupViewController.repeatPasswordPlaceholder])
+        setSubStackView(array: arrayOfTextFields, arrayOfPlaceholders: ["Name", "E-mail", SignupViewController.passwordPlaceholder, SignupViewController.repeatPasswordPlaceholder])
 
-        setQuestionButton(button: questionButton, title: "Have already have an account? Log in please.")
+        setQuestionButton(button: questionButton, title: "Have already have an account? Press here.")
 
         setButton(button: button, title: "SIGN UP")
     }
