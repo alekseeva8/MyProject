@@ -23,7 +23,6 @@ class LoginViewController: StackViewController {
         mainStackView.insertArrangedSubview(label, at: 0)
         mainStackView.addArrangedSubview(questionButton)
         mainStackView.addArrangedSubview(button)
-        setMainStackViewLayout()
 
         setLabel(label: label, text: "Login to your account")
 

@@ -48,13 +48,14 @@ class SignupViewController: StackViewController {
     }
 
     @objc func buttonTapped(sender: UIButton) {
+        let name = nameTextField.text ?? ""
         let username = usernameTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         let repeatPassword = repeatPasswordTextField.text ?? ""
 
         //checking the validation of login and password
         let validator = Validator()
-        if validator.isPasswordCorrect(password: password) == true && validator.isRepeatPasswordCorrect(password: password, repeatPassword: repeatPassword) {
+        if validator.isLoginCorrect(text: name) && validator.isLoginCorrect(text: username) && validator.isEmailCorrect(text: username) && validator.isPasswordCorrect(password: password) == true && validator.isRepeatPasswordCorrect(password: password, repeatPassword: repeatPassword) {
             Auth.auth().createUser(withEmail: username, password: password) {(result, error) in
                 print("user is created")
                 print(result?.user.uid)

@@ -9,7 +9,7 @@
 import Foundation
 
 class Validator {
-    var login = ""
+    var text = ""
     var password = ""
     var repeatPassword = ""
     var loginIsCorrect = false
@@ -18,8 +18,8 @@ class Validator {
     init() {
     }
 
-    func isLoginCorrect(login: String) -> Bool {
-        if login.count > 0 {
+    func isLoginCorrect(text: String) -> Bool {
+        if text.count > 0 {
             loginIsCorrect = true
         } else {
             loginIsCorrect = false
@@ -27,12 +27,12 @@ class Validator {
         return loginIsCorrect
     }
 
-    func isLoginContainsCorrectSymbols(login: String) -> Bool {
+    func isLoginContainsCorrectSymbols(text: String) -> Bool {
         var arrayOfActualSymbols: [Int] = []
         let rangeOfCorrectSymbols1 = 65...90
         let rangeOfCorrectSymbols2 = 48...57
         let rangeOfCorrectSymbols3 = 97...122
-        for symbol in login.utf8 {
+        for symbol in text.utf8 {
             arrayOfActualSymbols.append(Int(symbol))
         }
         var numberCorrect = 0
@@ -43,7 +43,16 @@ class Validator {
             numberCorrect += 1
         }
         }
-        return numberCorrect == login.count
+        return numberCorrect == text.count
+    }
+
+    func isEmailCorrect(text: String) -> Bool {
+        if text.contains("@") && text.contains(".") {
+            return true
+        }
+        else {
+            return false
+        }
     }
 
     func isPasswordCorrect(password: String) -> Bool {

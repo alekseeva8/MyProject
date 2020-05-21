@@ -33,7 +33,6 @@ class StackViewController: UIViewController {
         mainStackView.alignment = .center
         mainStackView.distribution = .equalCentering
         mainStackView.spacing = 30
-
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         mainStackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         mainStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
