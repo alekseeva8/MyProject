@@ -11,6 +11,7 @@ import UIKit
 class SongsTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+
     //let dataSourceSongsTable = DataSourceSongsTable()
     var songs = [Audio]()
     
@@ -26,6 +27,10 @@ class SongsTableViewController: UIViewController {
 
         songs = LocalDataHandler.gettingSongsArray()
         getData()
+    }
+
+    @IBAction func favoritesButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "toFavoritesVC", sender: nil)
     }
 }
 
@@ -69,11 +74,17 @@ extension SongsTableViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var songsTableViewCell: UITableViewCell
-        songsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "songsTableViewCell", for: indexPath)
+        //var songsTableViewCell: UITableViewCell
+        let songsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "songsTableViewCell", for: indexPath) as! SongsTableViewCell
+        //songsTableViewCell.tag
         songsTableViewCell.textLabel?.text = songs[indexPath.row].name
         songsTableViewCell.imageView?.image = songs[indexPath.row].image
         songsTableViewCell.textLabel?.font = UIFont.systemFont(ofSize: 19)
         return songsTableViewCell
     }
 }
+//var cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as TableViewCell
+//  cell.tag = indexPath.row
+//  cell.like.tag = indexPath.row
+//  cell.like.addTarget(self, action: "handleLikes:", forControlEvents: .TouchUpInside)
+//  return cell

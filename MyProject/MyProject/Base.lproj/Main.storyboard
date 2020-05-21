@@ -116,7 +116,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songsTableViewCell" textLabel="4P5-X0-bWb" imageView="4kl-Cy-HYP" rowHeight="60" style="IBUITableViewCellStyleDefault" id="yzq-z8-WcA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songsTableViewCell" textLabel="4P5-X0-bWb" imageView="4kl-Cy-HYP" rowHeight="60" style="IBUITableViewCellStyleDefault" id="yzq-z8-WcA" customClass="SongsTableViewCell" customModule="MyProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yzq-z8-WcA" id="7CE-Cm-gHl">
@@ -135,6 +135,12 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17" scale="medium"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dyn-zB-JY3">
+                                                    <rect key="frame" x="331" y="11" width="51" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <state key="normal" title="Button" image="heart" catalog="system"/>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -150,10 +156,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jiz-Bd-xYf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Songs" id="2Ql-0f-AAI"/>
+                    <navigationItem key="navigationItem" title="Songs" id="2Ql-0f-AAI">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart.fill" catalog="system" id="xJ3-BF-Wox">
+                            <connections>
+                                <action selector="favoritesButtonPressed:" destination="v0u-0b-kfw" id="TPw-mJ-vdf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cbt-lI-J7a" id="ccZ-c1-rQY"/>
                         <segue destination="I9R-3G-UfO" kind="show" identifier="fromSongsTableToPlayerVC" id="2fo-9K-mhP"/>
+                        <segue destination="Fla-Gs-iID" kind="show" identifier="toFavoritesVC" id="y5A-nH-05Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bk8-i7-4xl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -595,10 +608,76 @@
             </objects>
             <point key="canvasLocation" x="2657.971014492754" y="127.98913043478262"/>
         </scene>
+        <!--Favorites-->
+        <scene sceneID="CiH-21-SwQ">
+            <objects>
+                <viewController id="Fla-Gs-iID" customClass="FavoritesViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eAI-ts-a4L">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p7H-yT-UlY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="separatorColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoritesTableViewCell" textLabel="dXw-OR-BFp" imageView="2n3-ag-Mau" rowHeight="60" style="IBUITableViewCellStyleDefault" id="LGD-jf-f8w">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LGD-jf-f8w" id="GOW-WC-5cg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dXw-OR-BFp">
+                                                    <rect key="frame" x="95" y="0.0" width="299" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="The Secret Life of Pets 2" id="2n3-ag-Mau">
+                                                    <rect key="frame" x="20" y="0.0" width="60" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17" scale="medium"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="p7H-yT-UlY" firstAttribute="leading" secondItem="3lE-es-xRR" secondAttribute="leading" id="01B-nF-EYX"/>
+                            <constraint firstItem="p7H-yT-UlY" firstAttribute="top" secondItem="3lE-es-xRR" secondAttribute="top" id="5Rx-Zm-1RD"/>
+                            <constraint firstItem="p7H-yT-UlY" firstAttribute="bottom" secondItem="3lE-es-xRR" secondAttribute="bottom" id="B2w-jq-Czy"/>
+                            <constraint firstItem="p7H-yT-UlY" firstAttribute="trailing" secondItem="3lE-es-xRR" secondAttribute="trailing" id="hqn-zh-m2F"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3lE-es-xRR"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorites" id="Aeh-0H-AdT">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="house" catalog="system" id="Chh-ml-V6k">
+                            <connections>
+                                <segue destination="wyP-6d-8hj" kind="unwind" unwindAction="backToMainScreenWithUnwindSegue:" id="d36-jp-pbk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="p7H-yT-UlY" id="bKy-hC-bbm"/>
+                        <segue destination="I9R-3G-UfO" kind="show" identifier="fromFavoritesToPlayerVC" id="Nxh-Et-4hZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r1L-bJ-uRb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="wyP-6d-8hj" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5112" y="-542"/>
+        </scene>
     </scenes>
     <resources>
         <image name="The Secret Life of Pets 2" width="145" height="145"/>
         <image name="forward" width="60" height="60"/>
+        <image name="heart" catalog="system" width="64" height="54"/>
+        <image name="heart.fill" catalog="system" width="64" height="54"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="play" width="60" height="60"/>
         <image name="reverse" width="60" height="60"/>
