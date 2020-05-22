@@ -42,7 +42,6 @@
 		F388CDD124508E2F0046B2DD /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */; };
 		F388CDD324508E740046B2DD /* StoriesCollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */; };
 		F388CDD524508F610046B2DD /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */; };
-		F388CDD72450945E0046B2DD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD62450945E0046B2DD /* SettingsViewController.swift */; };
 		F39873F42466F51C00545692 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F32466F51C00545692 /* APIHandler.swift */; };
 		F39873F82466F86F00545692 /* ParseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F72466F86F00545692 /* ParseHandler.swift */; };
 		F39873FA2466FF3500545692 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F92466FF3500545692 /* SearchResponse.swift */; };
@@ -55,6 +54,7 @@
 		F398740B246A705000545692 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F398740A246A705000545692 /* GoogleService-Info.plist */; };
 		F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39D10B4245769690093CCF9 /* Rio.mp3 */; };
 		F3E2991A2458605300EBB3E7 /* DataSourceSongsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E299192458605300EBB3E7 /* DataSourceSongsTable.swift */; };
+		F3E63679247792F00035EF91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E63678247792F00035EF91 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,7 +97,6 @@
 		F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
 		F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectViewController.swift; sourceTree = "<group>"; };
 		F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
-		F388CDD62450945E0046B2DD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F39873F32466F51C00545692 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		F39873F72466F86F00545692 /* ParseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseHandler.swift; sourceTree = "<group>"; };
 		F39873F92466FF3500545692 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		F398740A246A705000545692 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F39D10B4245769690093CCF9 /* Rio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rio.mp3; sourceTree = "<group>"; };
 		F3E299192458605300EBB3E7 /* DataSourceSongsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceSongsTable.swift; sourceTree = "<group>"; };
+		F3E63678247792F00035EF91 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,7 +223,7 @@
 				F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */,
 				F357C5B1245B054A009E09AE /* VideoViewController.swift */,
 				F35124402475BE8E0024EB21 /* FavoritesViewController.swift */,
-				F388CDD62450945E0046B2DD /* SettingsViewController.swift */,
+				F3E63678247792F00035EF91 /* ProfileViewController.swift */,
 				F32747FE246D9F250071843C /* Validator.swift */,
 				F3274800246DA9A70071843C /* Alert.swift */,
 				F32747FD246D7CDB0071843C /* Storage */,
@@ -421,7 +421,7 @@
 				F34A9A5C2463CC5500DBC4D7 /* LocalDataHandler.swift in Sources */,
 				F37AD2B5247505F4001244DF /* AudioHandler.swift in Sources */,
 				F388CDD124508E2F0046B2DD /* SongsTableViewController.swift in Sources */,
-				F388CDD72450945E0046B2DD /* SettingsViewController.swift in Sources */,
+				F3E63679247792F00035EF91 /* ProfileViewController.swift in Sources */,
 				F34A9A5E2463DAD500DBC4D7 /* DataSourceStoriesCollection.swift in Sources */,
 				F384C211247646E0003296BA /* SongsTableViewCell.swift in Sources */,
 				F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */,
