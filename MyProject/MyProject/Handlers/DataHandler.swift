@@ -1,5 +1,5 @@
 //
-//  ParseHandler.swift
+//  DataHandler.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 5/9/20.
@@ -8,14 +8,14 @@
 
 import Foundation
 
-class ParseHandler {
+class DataHandler {
 
     let urlString = "https://my-json-server.typicode.com/alekseeva8/json-db/db"
 
-    func getData(completionHanndler: @escaping (SearchResponse) -> Void) {
+    func getData(completionHanndler: @escaping (Tracks) -> Void) {
         APIHandler.requestDataToAPI(urlString: urlString) { (data) in
             do {
-                let json = try JSONDecoder().decode(SearchResponse.self, from: data)
+                let json = try JSONDecoder().decode(Tracks.self, from: data)
                 DispatchQueue.main.async {
                     completionHanndler(json)
                 }

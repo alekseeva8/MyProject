@@ -16,9 +16,6 @@ class SongsTableViewController: UIViewController {
     var likes: [String] = []
     var favorites = [Audio]()
 
-    override func viewWillAppear(_ animated: Bool) {
-        favorites = []
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +29,6 @@ class SongsTableViewController: UIViewController {
 
         songs = LocalDataHandler.gettingSongsArray()
         getData()
-        likes = [String](repeating: "dislike", count: songs.count)
     }
 
     @IBAction func favoritesButtonPressed(_ sender: UIButton) {
@@ -44,28 +40,21 @@ class SongsTableViewController: UIViewController {
             audioPlayerVC.audioArray = songs
         }
         if let favoritesVC = segue.destination as? FavoritesViewController {
-            for (index, item) in likes.enumerated() {
-                let song = songs[index]
-                if item == "like" {
-                    favorites.append(song)
-                }
-            }
             favoritesVC.favorites = favorites
         }
-    }
+}
 }
 
 //MARK: - getData
 extension SongsTableViewController {
     func getData() {
-        ParseHandler().getData() {[weak self] (searchResponse) in
-            searchResponse.results.forEach { (track) in
+        DataHandler().getData() {[weak self] (tracks) in
+            tracks.results.forEach { (track) in
                 if track.kind == "song" {
                     guard let url = URL(string: track.trackUrl) else {return}
                     guard let urlImage = URL(string: track.imageUrl) else {return}
                     guard let data = try? Data(contentsOf: urlImage) else {return}
                     self?.songs.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind))
-                    self?.likes.append("dislike")
                 }
             }
             self?.tableView.reloadData()
@@ -95,26 +84,10 @@ extension SongsTableViewController: UITableViewDataSource {
         cell.textLabel?.text = songs[indexPath.row].name
         cell.imageView?.image = songs[indexPath.row].image
         cell.textLabel?.font = UIFont.systemFont(ofSize: 19)
-        cell.tag = indexPath.row
-        cell.likeButton.tag = indexPath.row
-        cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchDown)
+        //cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchDown)
         return cell
     }
     
     @objc func likeButtonTapped(sender: UIButton) {
-        if likes.count != 0 {
-        print(sender.tag)
-        if likes[sender.tag] == "dislike" {
-            likes[sender.tag] = "like"
-            print(likes)
-        }
-        else {
-            likes[sender.tag] = "dislike"
-            print(likes)
-        }
-    }
-        else {
-            //alert: no internet connection
-        }
     }
 }

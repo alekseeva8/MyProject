@@ -1,5 +1,5 @@
 //
-//  SearchResponse.swift
+//  Tracks.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 5/9/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SearchResponse: Codable {
+struct Tracks: Codable {
     let results: [Track]
 }
 struct Track: Codable {

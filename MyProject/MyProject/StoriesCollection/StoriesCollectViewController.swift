@@ -46,8 +46,8 @@ class StoriesCollectViewController: UIViewController {
 //MARK: - updateData
 extension StoriesCollectViewController {
     func getData() {
-        ParseHandler().getData() {[weak self] (searchResponse) in
-            searchResponse.results.forEach { (track) in
+        DataHandler().getData() {[weak self] (tracks) in
+            tracks.results.forEach { (track) in
                 if track.kind == "story" {
                 guard let url = URL(string: track.trackUrl) else {return}
                 guard let urlImage = URL(string: track.imageUrl) else {return}

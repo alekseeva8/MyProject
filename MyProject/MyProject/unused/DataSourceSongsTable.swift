@@ -21,8 +21,8 @@ import UIKit
 //
 //    //MARK: - DataSource functions
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        ParseHandler().getData() {[weak self] (searchResponse) in
-//            searchResponse.results.forEach { (track) in
+//        DataHandler().getData() {[weak self] (tracks) in
+//            tracks.results.forEach { (track) in
 //                if track.kind == "song" {
 //                guard let url = URL(string: track.trackUrl) else {return}
 //                guard let urlImage = URL(string: track.image) else {return}

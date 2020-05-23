@@ -43,7 +43,7 @@
 		F388CDD324508E740046B2DD /* StoriesCollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */; };
 		F388CDD524508F610046B2DD /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */; };
 		F39873F42466F51C00545692 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F32466F51C00545692 /* APIHandler.swift */; };
-		F39873F82466F86F00545692 /* ParseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F72466F86F00545692 /* ParseHandler.swift */; };
+		F39873F82466F86F00545692 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F72466F86F00545692 /* DataHandler.swift */; };
 		F39873FA2466FF3500545692 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F92466FF3500545692 /* SearchResponse.swift */; };
 		F39873FF2469A4DD00545692 /* Ratatouille.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39873FE2469A4DD00545692 /* Ratatouille.mp3 */; };
 		F39874012469A78000545692 /* The Princess and the Frog.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874002469A78000545692 /* The Princess and the Frog.mp3 */; };
@@ -98,7 +98,7 @@
 		F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectViewController.swift; sourceTree = "<group>"; };
 		F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
 		F39873F32466F51C00545692 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
-		F39873F72466F86F00545692 /* ParseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseHandler.swift; sourceTree = "<group>"; };
+		F39873F72466F86F00545692 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		F39873F92466FF3500545692 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		F39873FE2469A4DD00545692 /* Ratatouille.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ratatouille.mp3; sourceTree = "<group>"; };
 		F39874002469A78000545692 /* The Princess and the Frog.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Princess and the Frog.mp3"; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				F39873F32466F51C00545692 /* APIHandler.swift */,
-				F39873F72466F86F00545692 /* ParseHandler.swift */,
+				F39873F72466F86F00545692 /* DataHandler.swift */,
 				F34A9A5B2463CC5500DBC4D7 /* LocalDataHandler.swift */,
 				F34A9A622464579C00DBC4D7 /* NetworkManager.swift */,
 				F37AD2B4247505F4001244DF /* AudioHandler.swift */,
@@ -415,7 +415,7 @@
 				F3E2991A2458605300EBB3E7 /* DataSourceSongsTable.swift in Sources */,
 				F32747FA246D5D2B0071843C /* StackViewController.swift in Sources */,
 				F3718DCF2459E09C00EC7054 /* StoriesCollectViewCell.swift in Sources */,
-				F39873F82466F86F00545692 /* ParseHandler.swift in Sources */,
+				F39873F82466F86F00545692 /* DataHandler.swift in Sources */,
 				F3344FBF2440AF3200E411B4 /* SignupViewController.swift in Sources */,
 				F34A9A632464579C00DBC4D7 /* NetworkManager.swift in Sources */,
 				F34A9A5C2463CC5500DBC4D7 /* LocalDataHandler.swift in Sources */,

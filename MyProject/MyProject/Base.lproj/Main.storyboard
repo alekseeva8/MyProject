@@ -56,7 +56,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in to your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7X-Im-hVV" userLabel="loginLabel">
-                                <rect key="frame" x="88.333333333333314" y="100" width="237.66666666666669" height="101"/>
+                                <rect key="frame" x="88.333333333333329" y="100" width="237.66666666666669" height="101"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -146,7 +146,7 @@
                                                     <rect key="frame" x="324" y="11" width="38" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <state key="normal" title="Button" image="heart" catalog="system">
+                                                    <state key="normal" image="heart" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                                                     </state>
                                                     <connections>
@@ -644,7 +644,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="wLi-m7-RDZ"/>
         <segue reference="y5A-nH-05Q"/>
-        <segue reference="JCm-ck-0vV"/>
+        <segue reference="Oh0-q7-h4s"/>
         <segue reference="2fo-9K-mhP"/>
     </inferredMetricsTieBreakers>
 </document>
