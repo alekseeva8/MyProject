@@ -15,4 +15,11 @@ class Alert {
         alert.addAction(action)
         sender.present(alert, animated: true, completion: nil)
     }
+    
+    static func sendAlert(_ sender: UIViewController) {
+        let alert = UIAlertController(title: "Incorrect login or password", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        sender.present(alert, animated: true, completion: nil)
+    }
 }

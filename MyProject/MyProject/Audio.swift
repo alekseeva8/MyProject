@@ -13,5 +13,7 @@ struct Audio {
     var image: UIImage
     var url: URL?
     var kind: String
+    var isFavorite: Bool
+
 }
 

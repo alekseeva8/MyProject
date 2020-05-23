@@ -8,10 +8,15 @@
 
 import Foundation
 
-class MyUserDefaults {
+class AppUserDefaults {
 
     static func saveSignedValue() {
         let userDefaults = UserDefaults.standard
         userDefaults.set(true, forKey: "signed")
+    }
+
+    static func saveUnsignedValue() {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(false, forKey: "signed")
     }
 }

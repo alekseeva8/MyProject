@@ -52,7 +52,8 @@ extension StoriesCollectViewController {
                 guard let url = URL(string: track.trackUrl) else {return}
                 guard let urlImage = URL(string: track.imageUrl) else {return}
                 guard let data = try? Data(contentsOf: urlImage) else {return}
-                self?.stories.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind))
+                guard let isFavorite = Bool("false") else {return}
+                    self?.stories.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind, isFavorite: isFavorite))
             }
             }
             self?.collectionView.reloadData()

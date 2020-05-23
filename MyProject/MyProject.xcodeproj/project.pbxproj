@@ -44,7 +44,7 @@
 		F388CDD524508F610046B2DD /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */; };
 		F39873F42466F51C00545692 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F32466F51C00545692 /* APIHandler.swift */; };
 		F39873F82466F86F00545692 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F72466F86F00545692 /* DataHandler.swift */; };
-		F39873FA2466FF3500545692 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F92466FF3500545692 /* SearchResponse.swift */; };
+		F39873FA2466FF3500545692 /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F92466FF3500545692 /* Tracks.swift */; };
 		F39873FF2469A4DD00545692 /* Ratatouille.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39873FE2469A4DD00545692 /* Ratatouille.mp3 */; };
 		F39874012469A78000545692 /* The Princess and the Frog.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874002469A78000545692 /* The Princess and the Frog.mp3 */; };
 		F39874032469A85900545692 /* Smallfoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874022469A85900545692 /* Smallfoot.mp3 */; };
@@ -99,7 +99,7 @@
 		F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
 		F39873F32466F51C00545692 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		F39873F72466F86F00545692 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
-		F39873F92466FF3500545692 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		F39873F92466FF3500545692 /* Tracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
 		F39873FE2469A4DD00545692 /* Ratatouille.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ratatouille.mp3; sourceTree = "<group>"; };
 		F39874002469A78000545692 /* The Princess and the Frog.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Princess and the Frog.mp3"; sourceTree = "<group>"; };
 		F39874022469A85900545692 /* Smallfoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Smallfoot.mp3; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 				F34A9A662464666400DBC4D7 /* StoriesCollection */,
 				F32747F5246C47A30071843C /* Audio.swift */,
 				F3718DC22458945F00EC7054 /* AudioManager.swift */,
-				F39873F92466FF3500545692 /* SearchResponse.swift */,
+				F39873F92466FF3500545692 /* Tracks.swift */,
 				F3D723452475A4CA002A03ED /* Handlers */,
 				F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */,
 				F357C5B1245B054A009E09AE /* VideoViewController.swift */,
@@ -436,7 +436,7 @@
 				F3709E3B2472652400C981E8 /* Category.swift in Sources */,
 				F32747FF246D9F250071843C /* Validator.swift in Sources */,
 				F3726D712431ECFD00C37F00 /* SceneDelegate.swift in Sources */,
-				F39873FA2466FF3500545692 /* SearchResponse.swift in Sources */,
+				F39873FA2466FF3500545692 /* Tracks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

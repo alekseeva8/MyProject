@@ -40,6 +40,10 @@ class MAINViewController: UIViewController {
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
     }
 
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        AppUserDefaults.saveUnsignedValue()
+    }
+
     @IBAction func backToMainScreen(unwindSegue: UIStoryboardSegue) {
 }
 }

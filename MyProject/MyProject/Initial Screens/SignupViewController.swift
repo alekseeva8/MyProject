@@ -61,7 +61,7 @@ class SignupViewController: StackViewController {
                 print(result?.user.uid)
             }
             //saving the fact of user's registration
-            MyUserDefaults.saveSignedValue()
+            AppUserDefaults.saveSignedValue()
             performSegue(withIdentifier: "fromSignupToMainVC", sender: nil)
         } else {
             Alert.alertSending(self)

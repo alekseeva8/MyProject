@@ -49,11 +49,12 @@ class LoginViewController: StackViewController {
             guard let self = self else { return }
             if error == nil {
                 //saving the fact of user's logging in
-                MyUserDefaults.saveSignedValue()
+                AppUserDefaults.saveSignedValue()
                 self.performSegue(withIdentifier: "fromLoginToMainVC", sender: nil)
             }
             else {
                 print(error)
+                Alert.sendAlert(self)
             }
         }
     }
