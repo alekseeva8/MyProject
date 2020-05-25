@@ -16,5 +16,5 @@ struct Track: Codable {
     let trackName: String
     let trackUrl: String
     let imageUrl: String
-    let isFavorite: String
+    var isFavorite: String
 }
