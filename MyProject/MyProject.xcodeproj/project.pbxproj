@@ -38,6 +38,7 @@
 		F3726D782431ECFF00C37F00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3726D772431ECFF00C37F00 /* Assets.xcassets */; };
 		F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3726D792431ECFF00C37F00 /* LaunchScreen.storyboard */; };
 		F37AD2B5247505F4001244DF /* AudioHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37AD2B4247505F4001244DF /* AudioHandler.swift */; };
+		F37EB2B2247C0329006DBA8A /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37EB2B1247C0329006DBA8A /* ActivityIndicator.swift */; };
 		F384C211247646E0003296BA /* SongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384C210247646E0003296BA /* SongsTableViewCell.swift */; };
 		F388CDD124508E2F0046B2DD /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */; };
 		F388CDD324508E740046B2DD /* StoriesCollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */; };
@@ -93,6 +94,7 @@
 		F3726D7A2431ECFF00C37F00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3726D7C2431ECFF00C37F00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F37AD2B4247505F4001244DF /* AudioHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHandler.swift; sourceTree = "<group>"; };
+		F37EB2B1247C0329006DBA8A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		F384C210247646E0003296BA /* SongsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewCell.swift; sourceTree = "<group>"; };
 		F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
 		F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				F3E63678247792F00035EF91 /* ProfileViewController.swift */,
 				F32747FE246D9F250071843C /* Validator.swift */,
 				F3274800246DA9A70071843C /* Alert.swift */,
+				F37EB2B1247C0329006DBA8A /* ActivityIndicator.swift */,
 				F32747FD246D7CDB0071843C /* Storage */,
 				F39873FB2467053300545692 /* unused */,
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
@@ -424,6 +427,7 @@
 				F3E63679247792F00035EF91 /* ProfileViewController.swift in Sources */,
 				F34A9A5E2463DAD500DBC4D7 /* DataSourceStoriesCollection.swift in Sources */,
 				F384C211247646E0003296BA /* SongsTableViewCell.swift in Sources */,
+				F37EB2B2247C0329006DBA8A /* ActivityIndicator.swift in Sources */,
 				F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */,
 				F388CDD524508F610046B2DD /* AudioPlayerViewController.swift in Sources */,
 				F357C5B2245B054A009E09AE /* VideoViewController.swift in Sources */,

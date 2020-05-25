@@ -14,6 +14,7 @@ class SongsTableViewController: UIViewController {
     let database = Firestore.firestore()
 
     @IBOutlet weak var tableView: UITableView!
+    let activityIndicator = UIActivityIndicatorView(style: .large)
     var songs = [Audio]()
     var likes: [String] = []
     var favorites = [Audio]()
@@ -30,6 +31,10 @@ class SongsTableViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+
+        tableView.addSubview(activityIndicator)
+        activityIndicatorLayout()
+        activityIndicator.startAnimating()
 
         songs = LocalDataHandler.gettingSongsArray()
         getData()
@@ -98,10 +103,23 @@ extension SongsTableViewController {
             self?.getFavorites(completion: { () in
                 print("2nd reloading after favorites received")
                 self?.tableView.reloadData()
+                self?.activityIndicator.stopAnimating()
             })
             self?.tableView.reloadData()
             print("1st tableView reloading")
         }
+    }
+}
+
+
+//MARK: - ActivityIndicator
+extension SongsTableViewController {
+    func activityIndicatorLayout() {
+        activityIndicator.color = .systemBlue
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerYAnchor.constraint(equalTo: tableView.centerYAnchor).isActive = true
+        activityIndicator.centerXAnchor.constraint(equalTo: tableView.centerXAnchor).isActive = true
+        activityIndicator.hidesWhenStopped = true
     }
 }
 
