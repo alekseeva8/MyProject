@@ -54,9 +54,9 @@ class SongsTableViewController: UIViewController {
                     favorites.append(song)
                 }
             }
-             favoritesVC.favorites = self.favorites
+            favoritesVC.favorites = self.favorites
         }
-}
+    }
 
     //MARK: - getFavorites from Firestore
     func getFavorites(completion: @escaping() -> Void) {
@@ -71,7 +71,7 @@ class SongsTableViewController: UIViewController {
                 guard let querySnapshot = querySnapshot else {return}
                 for document in querySnapshot.documents {
                     dictionary = document.data()
-                    //move to completion [when calling getFavorites()]
+                    //move to completion
                     dictionary.forEach { (key, value) in
                         let valueString = String.init(describing: value)
                         self.songs.forEach { (song) in
@@ -161,7 +161,7 @@ extension SongsTableViewController: UITableViewDataSource {
         let songName = song.name
         if song.isFavorite == false {
             //add to Firestore
-            addSong(with: songName)
+            addSong(song)
             song.isFavorite = true
             tableView.reloadData()
         }
@@ -175,22 +175,33 @@ extension SongsTableViewController: UITableViewDataSource {
     }
 
     //MARK: - Firestore functions
-    func addSong(with songName: String) {
+    func addSong(_ song: Audio) {
         guard let currentUser = Auth.auth().currentUser?.uid else {return}
         let reference = database.document("users/\(currentUser)").collection("favoriteSongs")
-        reference.document("\(songName)-id").setData(["songName": "\(songName)", "isFavorite": "true"], merge: true)
-        print("\(songName) is added")
+        guard let trackUrl = song.url else {return}
+        let trackUrlString = trackUrl.absoluteString
+        let trackImage = song.image
+        guard let trackImageData = trackImage.jpegData(compressionQuality: 1) else {return}
+        let trackImageDataString = trackImageData.base64EncodedString()
+
+        reference.document("\(song.name)-id").setData([
+            "kind": "song",
+            "trackName": "\(song.name)",
+            "trackUrl": "\(trackUrlString) ",
+            "imageUrl": "\(trackImageDataString)",
+            "isFavorite": "true"], merge: true)
+        print("\(song.name) is added")
     }
 
     func deleteSong(with songName: String) {
-            guard let currentUser = Auth.auth().currentUser?.uid else {return}
-            let reference = database.document("users/\(currentUser)").collection("favoriteSongs")
-            reference.document("\(songName)-id").delete() { err in
-                if let err = err {
-                    print("Error removing document: \(err)")
-                } else {
-                    print("\(songName) is removed")
-                }
+        guard let currentUser = Auth.auth().currentUser?.uid else {return}
+        let reference = database.document("users/\(currentUser)").collection("favoriteSongs")
+        reference.document("\(songName)-id").delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("\(songName) is removed")
             }
         }
+    }
 }
