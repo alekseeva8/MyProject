@@ -7,11 +7,8 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 
 class MAINViewController: UIViewController {
-    let database = Firestore.firestore()
     let decoder = JSONDecoder()
     var favorites: [Audio] = []
     
@@ -106,33 +103,12 @@ extension MAINViewController {
         case 0: performSegue(withIdentifier: "fromMainToSongsVC", sender: nil)
         case 1: performSegue(withIdentifier: "fromMainToStoriesVC", sender: nil)
         case 2: performSegue(withIdentifier: "fromMainToVideoVC", sender: nil)
-        case 3: getFavorites {
-            self.performSegue(withIdentifier: "fromMainToFavoritesVC", sender: nil)
-            }
-        default: break
-        }
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let favoritesVC = segue.destination as? FavoritesViewController {
-            favoritesVC.favorites = self.favorites
-        }
-    }
-}
-
-extension MAINViewController {
-    
-    func getFavorites(completion: @escaping() -> Void) {
-        guard let currentUser = Auth.auth().currentUser?.uid else {return}
-        let ref = database.document("users/\(currentUser)").collection("favoriteSongs")
-        ref.getDocuments {(querySnapshot, error) in
-            if let error = error {
-                print("Error is \(error)")
-            }
-            else {
-                guard let querySnapshot = querySnapshot else {return}
-                for document in querySnapshot.documents {
+        case 3:
+            //get favorite songs from Firestore, set favorites array to pass later to FavoritesVC
+            FirebaseManager().getFavorites { (dictionariesArray) in
+                dictionariesArray.forEach { (dictionary) in
                     do {
-                        let jsonData = try? JSONSerialization.data(withJSONObject:document.data())
+                        let jsonData = try? JSONSerialization.data(withJSONObject:dictionary)
                         let track = try self.decoder.decode(Track.self, from: jsonData!)
                         guard let data = Data(base64Encoded:track.imageUrl) else {return}
                         let url = URL(string: track.trackUrl)
@@ -141,8 +117,15 @@ extension MAINViewController {
                         print(error.localizedDescription)
                     }
                 }
-                completion()
+                self.performSegue(withIdentifier: "fromMainToFavoritesVC", sender: nil)
             }
+        default: break
+        }
+    }
+    //pass favorites to FavoritesVC
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let favoritesVC = segue.destination as? FavoritesViewController {
+            favoritesVC.favorites = self.favorites
         }
     }
 }

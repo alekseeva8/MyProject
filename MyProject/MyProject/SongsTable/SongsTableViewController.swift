@@ -61,34 +61,6 @@ class SongsTableViewController: UIViewController {
             favoritesVC.favorites = self.favorites
         }
     }
-
-    //MARK: - getFavorites from Firestore
-    func getFavorites(completion: @escaping() -> Void) {
-        var dictionary: [String : Any] = [:]
-        guard let currentUser = Auth.auth().currentUser?.uid else {return}
-        let ref = database.document("users/\(currentUser)").collection("favoriteSongs")
-        ref.getDocuments { (querySnapshot, error) in
-            if let error = error {
-                print("Error is \(error)")
-            }
-            else {
-                guard let querySnapshot = querySnapshot else {return}
-                for document in querySnapshot.documents {
-                    dictionary = document.data()
-                    //move to completion
-                    dictionary.forEach { (key, value) in
-                        let valueString = String.init(describing: value)
-                        self.songs.forEach { (song) in
-                            if song.name == valueString {
-                                song.isFavorite = true
-                            }
-                        }
-                    }
-                }
-                completion()
-            }
-        }
-    }
 }
 
 //MARK: - getData
@@ -104,11 +76,22 @@ extension SongsTableViewController {
                     self?.songs.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind, isFavorite: isFavorite))
                 }
             }
-            self?.getFavorites(completion: { () in
+            //get favorite audio names, update songs array setting isFavority property's value to true
+            FirebaseManager().getFavorites { (dictionariesArray) in
+                dictionariesArray.forEach { (dictionary) in
+                    dictionary.forEach { (key, value) in
+                        let valueString = String.init(describing: value)
+                        self?.songs.forEach { (song) in
+                            if song.name == valueString {
+                                song.isFavorite = true
+                            }
+                        }
+                    }
+                }
                 print("2nd reloading after favorites received")
                 self?.tableView.reloadData()
                 self?.activityIndicator.stopAnimating()
-            })
+            }
             self?.tableView.reloadData()
             print("1st tableView reloading")
         }

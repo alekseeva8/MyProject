@@ -54,6 +54,7 @@
 		F39874092469A9BE00545692 /* Big Hero 6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874082469A9BE00545692 /* Big Hero 6.mp3 */; };
 		F398740B246A705000545692 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F398740A246A705000545692 /* GoogleService-Info.plist */; };
 		F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39D10B4245769690093CCF9 /* Rio.mp3 */; };
+		F3DBB270247D2E8C0020A519 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DBB26F247D2E8C0020A519 /* FirebaseManager.swift */; };
 		F3E2991A2458605300EBB3E7 /* DataSourceSongsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E299192458605300EBB3E7 /* DataSourceSongsTable.swift */; };
 		F3E63679247792F00035EF91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E63678247792F00035EF91 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -110,6 +111,7 @@
 		F39874082469A9BE00545692 /* Big Hero 6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Big Hero 6.mp3"; sourceTree = "<group>"; };
 		F398740A246A705000545692 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F39D10B4245769690093CCF9 /* Rio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rio.mp3; sourceTree = "<group>"; };
+		F3DBB26F247D2E8C0020A519 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F3E299192458605300EBB3E7 /* DataSourceSongsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceSongsTable.swift; sourceTree = "<group>"; };
 		F3E63678247792F00035EF91 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -255,6 +257,7 @@
 				F39873F72466F86F00545692 /* DataHandler.swift */,
 				F34A9A5B2463CC5500DBC4D7 /* LocalDataHandler.swift */,
 				F34A9A622464579C00DBC4D7 /* NetworkManager.swift */,
+				F3DBB26F247D2E8C0020A519 /* FirebaseManager.swift */,
 				F37AD2B4247505F4001244DF /* AudioHandler.swift */,
 			);
 			path = Handlers;
@@ -420,6 +423,7 @@
 				F3718DCF2459E09C00EC7054 /* StoriesCollectViewCell.swift in Sources */,
 				F39873F82466F86F00545692 /* DataHandler.swift in Sources */,
 				F3344FBF2440AF3200E411B4 /* SignupViewController.swift in Sources */,
+				F3DBB270247D2E8C0020A519 /* FirebaseManager.swift in Sources */,
 				F34A9A632464579C00DBC4D7 /* NetworkManager.swift in Sources */,
 				F34A9A5C2463CC5500DBC4D7 /* LocalDataHandler.swift in Sources */,
 				F37AD2B5247505F4001244DF /* AudioHandler.swift in Sources */,
