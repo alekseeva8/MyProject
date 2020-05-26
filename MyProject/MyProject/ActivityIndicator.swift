@@ -9,5 +9,13 @@
 import UIKit
 
 class AppActivityIndicator {
+
+    static func activityIndicatorLayout(activityIndicator: UIActivityIndicatorView, superview: UIScrollView) {
+        activityIndicator.color = .systemBlue
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerYAnchor.constraint(equalTo: superview.centerYAnchor).isActive = true
+        activityIndicator.centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
+        activityIndicator.hidesWhenStopped = true
+    }
 }
 

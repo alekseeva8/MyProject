@@ -32,7 +32,6 @@ class MAINViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //title = " Main"
         setNavigationBarStyle()
         
         view.addSubview(collectionView)

@@ -12,7 +12,6 @@ class StoriesCollectViewController: UIViewController {
 
     var collectionView: UICollectionView
     let activityIndicator = UIActivityIndicatorView(style: .large)
-    //let dataSourceStoriesCollection = DataSourceStoriesCollection()
     var stories = [Audio]()
 
     required init?(coder: NSCoder) {
@@ -32,13 +31,12 @@ class StoriesCollectViewController: UIViewController {
         collectionViewLayout()
         collectionView.dataSource = self
         collectionView.delegate = self
-        //collectionView.dataSource = dataSourceStoriesCollection
         collectionView.register(StoriesCollectViewCell.self, forCellWithReuseIdentifier: StoriesCollectViewCell.reuseID)
 
         getData()
 
         collectionView.addSubview(activityIndicator)
-        activityIndicatorLayout()
+        AppActivityIndicator.activityIndicatorLayout(activityIndicator: activityIndicator, superview: collectionView)
         activityIndicator.startAnimating()
     }
 }
@@ -90,15 +88,6 @@ extension StoriesCollectViewController {
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-    }
-
-    //MARK: - ActivityIndicator
-    func activityIndicatorLayout() {
-        activityIndicator.color = .systemBlue
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor).isActive = true
-        activityIndicator.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor).isActive = true
-        activityIndicator.hidesWhenStopped = true
     }
 }
 

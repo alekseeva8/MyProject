@@ -13,6 +13,10 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var favorites = [Audio]()
 
+    override var shouldAutorotate: Bool {
+        return false
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Favorites"

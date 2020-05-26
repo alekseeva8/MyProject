@@ -18,6 +18,10 @@ class StackViewController: UIViewController {
         super.init(coder: coder)
     }
 
+    override var shouldAutorotate: Bool {
+        return false
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(mainStackView)

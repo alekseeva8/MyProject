@@ -19,6 +19,10 @@ class SongsTableViewController: UIViewController {
     var likes: [String] = []
     var favorites = [Audio]()
 
+    override var shouldAutorotate: Bool {
+        return false
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         favorites = []
     }
@@ -33,7 +37,7 @@ class SongsTableViewController: UIViewController {
         tableView.dataSource = self
 
         tableView.addSubview(activityIndicator)
-        activityIndicatorLayout()
+        AppActivityIndicator.activityIndicatorLayout(activityIndicator: activityIndicator, superview: tableView)
         activityIndicator.startAnimating()
 
         songs = LocalDataHandler.gettingSongsArray()
@@ -108,18 +112,6 @@ extension SongsTableViewController {
             self?.tableView.reloadData()
             print("1st tableView reloading")
         }
-    }
-}
-
-
-//MARK: - ActivityIndicator
-extension SongsTableViewController {
-    func activityIndicatorLayout() {
-        activityIndicator.color = .systemBlue
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.centerYAnchor.constraint(equalTo: tableView.centerYAnchor).isActive = true
-        activityIndicator.centerXAnchor.constraint(equalTo: tableView.centerXAnchor).isActive = true
-        activityIndicator.hidesWhenStopped = true
     }
 }
 
