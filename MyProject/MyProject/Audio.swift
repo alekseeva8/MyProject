@@ -2,23 +2,26 @@
 //  Audio.swift
 //  MyProject
 //
-//  Created by Elena Alekseeva on 4/29/20.
+//  Created by Elena Alekseeva on 5/13/20.
 //  Copyright © 2020 Elena Alekseeva. All rights reserved.
 //
 
-import Foundation
 import  UIKit
 
-struct Song {
+class Audio {
     var name: String
     var image: UIImage
-    
-    init(name: String, image: UIImage) {
+    var url: URL?
+    var kind: String
+    var isFavorite: Bool
+
+    init(name: String, image: UIImage, url: URL?, kind: String, isFavorite: Bool) {
         self.name = name
         self.image = image
+        self.url = url
+        self.kind = kind
+        self.isFavorite = isFavorite
     }
+
 }
 
-//struct  Stories {
-//    <#fields#>
-//}
