@@ -276,99 +276,6 @@
             </objects>
             <point key="canvasLocation" x="5344.9275362318849" y="175.27173913043481"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="qoi-ZS-c1Z">
-            <objects>
-                <viewController id="dvH-pZ-BQz" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="02c-lQ-qyb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc1-0U-UnF" userLabel="loginButton">
-                                <rect key="frame" x="107" y="348" width="200" height="40"/>
-                                <color key="backgroundColor" red="0.84267407660000004" green="0.46896923880000002" blue="0.77376014959999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="JTe-pd-MO9"/>
-                                    <constraint firstAttribute="width" constant="200" id="vvK-Lh-cMv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" title="CONTINUE">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" weight="semibold">
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                    </preferredSymbolConfiguration>
-                                </state>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="v4v-XE-CzT">
-                                <rect key="frame" x="40" y="229" width="334" height="99"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kid's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KSf-tu-CEy">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="AFK-E6-0Pg"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Birthday" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rs6-xo-zNa">
-                                        <rect key="frame" x="0.0" y="65" width="334" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="LeO-Cr-Xbb"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="334" id="NIv-xk-EgR"/>
-                                </constraints>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's set up your kid's account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTV-7H-nhm" userLabel="loginLabel">
-                                <rect key="frame" x="45" y="100" width="324.33333333333331" height="101"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="MTV-7H-nhm" firstAttribute="top" secondItem="oav-eH-Kw3" secondAttribute="top" constant="100" id="bP8-yC-mb8"/>
-                            <constraint firstItem="oav-eH-Kw3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="v4v-XE-CzT" secondAttribute="trailing" constant="20" id="buz-ed-wVV"/>
-                            <constraint firstItem="Vc1-0U-UnF" firstAttribute="top" secondItem="v4v-XE-CzT" secondAttribute="bottom" constant="20" id="eri-sc-HNL"/>
-                            <constraint firstItem="v4v-XE-CzT" firstAttribute="top" secondItem="MTV-7H-nhm" secondAttribute="bottom" constant="28" id="jfP-7k-h2x"/>
-                            <constraint firstItem="v4v-XE-CzT" firstAttribute="centerX" secondItem="02c-lQ-qyb" secondAttribute="centerX" id="lYT-pl-Pes"/>
-                            <constraint firstItem="Vc1-0U-UnF" firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="02c-lQ-qyb" secondAttribute="centerY" id="p7N-20-ht2"/>
-                            <constraint firstItem="MTV-7H-nhm" firstAttribute="centerX" secondItem="02c-lQ-qyb" secondAttribute="centerX" id="rIj-wB-h13"/>
-                            <constraint firstItem="Vc1-0U-UnF" firstAttribute="centerX" secondItem="02c-lQ-qyb" secondAttribute="centerX" id="sd2-Hf-tYS"/>
-                            <constraint firstItem="v4v-XE-CzT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oav-eH-Kw3" secondAttribute="leading" constant="20" id="vk5-cl-fFd"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="oav-eH-Kw3"/>
-                    </view>
-                    <connections>
-                        <outlet property="loginButton" destination="Vc1-0U-UnF" id="dSS-bX-jQM"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qNs-pC-JPP" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1775" y="1242"/>
-        </scene>
-        <!--Profile View Controller-->
-        <scene sceneID="aCp-1R-SW5">
-            <objects>
-                <viewController id="v8Z-RY-ZoA" customClass="ProfileViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="22G-Za-MmL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="f6G-FM-USB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="9ZI-aF-7Sj"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jf9-ep-Ugo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3564" y="-595"/>
-        </scene>
         <!--Video View Controller-->
         <scene sceneID="0k8-cE-B4I">
             <objects>
@@ -435,7 +342,7 @@
             <objects>
                 <viewController storyboardIdentifier="SignupVC" id="jpH-dN-sh6" customClass="SignupViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BfG-f0-zRD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="oeY-Zc-47U"/>
@@ -462,7 +369,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Qb1-rK-9PR"/>
                     <connections>
-                        <segue destination="jpH-dN-sh6" kind="show" identifier="toSignupVC" id="NX3-Q7-0TJ"/>
+                        <segue destination="jpH-dN-sh6" kind="presentation" identifier="toSignupVC" modalPresentationStyle="fullScreen" id="NX3-Q7-0TJ"/>
                         <segue destination="2bf-TE-1j5" kind="presentation" identifier="fromLoginToMainVC" modalPresentationStyle="fullScreen" id="JCm-ck-0vV"/>
                     </connections>
                 </viewController>
@@ -568,7 +475,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="wLi-m7-RDZ"/>
         <segue reference="sp7-Ed-KhA"/>
-        <segue reference="Oh0-q7-h4s"/>
+        <segue reference="JCm-ck-0vV"/>
         <segue reference="2fo-9K-mhP"/>
     </inferredMetricsTieBreakers>
 </document>

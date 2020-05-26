@@ -14,7 +14,6 @@ class SongsTableViewController: UIViewController {
     let database = Firestore.firestore()
 
     @IBOutlet weak var tableView: UITableView!
-    let activityIndicator = UIActivityIndicatorView(style: .large)
     var songs = [Audio]()
     var likes: [String] = []
     var favorites = [Audio]()
@@ -35,10 +34,6 @@ class SongsTableViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
-
-        tableView.addSubview(activityIndicator)
-        AppActivityIndicator.activityIndicatorLayout(activityIndicator: activityIndicator, superview: tableView)
-        activityIndicator.startAnimating()
 
         songs = LocalDataHandler.gettingSongsArray()
         getData()
@@ -90,7 +85,6 @@ extension SongsTableViewController {
                 }
                 print("2nd reloading after favorites received")
                 self?.tableView.reloadData()
-                self?.activityIndicator.stopAnimating()
             }
             self?.tableView.reloadData()
             print("1st tableView reloading")
@@ -104,7 +98,6 @@ extension SongsTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //saving info in singleton to use it in AudioPlayerVC
         AudioManager.shared.currentAudio = indexPath.row
-        //AudioManager.shared.audio = songs[indexPath.row]
         performSegue(withIdentifier: "fromSongsTableToPlayerVC", sender: nil)
     }
 }

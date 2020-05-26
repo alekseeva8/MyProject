@@ -9,19 +9,19 @@
 import UIKit
 
 class StackViewController: UIViewController {
-
+    
     var mainStackView: UIStackView
     var subStackView = UIStackView(arrangedSubviews: [])
-
+    
     required init?(coder: NSCoder) {
         self.mainStackView = UIStackView(arrangedSubviews: [subStackView])
         super.init(coder: coder)
     }
-
+    
     override var shouldAutorotate: Bool {
         return false
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(mainStackView)
@@ -29,10 +29,10 @@ class StackViewController: UIViewController {
         setMainStackViewLayout()
         subStackViewLayout()
     }
-
+    
     //MARK: - MainStackView
     func setMainStackViewLayout() {
-
+        
         mainStackView.axis = .vertical
         mainStackView.alignment = .center
         mainStackView.distribution = .equalCentering
@@ -42,13 +42,13 @@ class StackViewController: UIViewController {
         mainStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-
+        
         let insets = UIEdgeInsets(top: 40, left: 0, bottom: 120, right: 0)
         //the stack view pins its content to the relevant margin instead of its edge.
         mainStackView.isLayoutMarginsRelativeArrangement = true
         mainStackView.layoutMargins = insets
     }
-
+    
     //MARK: - Label
     func setLabel(label: UILabel, text: String) {
         label.text = text
@@ -56,7 +56,7 @@ class StackViewController: UIViewController {
         label.numberOfLines = 2
         label.textAlignment = .center
     }
-
+    
     //MARK: - Buttons
     func setButton(button: UIButton, title: String) {
         button.widthAnchor.constraint(equalToConstant: 200).isActive = true
@@ -66,15 +66,15 @@ class StackViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
     }
-
+    
     func setQuestionButton(button: UIButton, title: String) {
         button.setTitle(title, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.setTitleColor(.systemBlue, for: .normal)
     }
-
+    
     //MARK: - SubStackView
-
+    
     func setSubStackView(array: [UITextField], arrayOfPlaceholders: [String]) {
         for (index, item) in array.enumerated() {
             //item.textColor = UIColor(named: "TextFieldColor")

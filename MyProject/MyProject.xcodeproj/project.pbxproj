@@ -16,7 +16,6 @@
 		F32747F4246C09E30071843C /* Moana 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747F3246C09E30071843C /* Moana 2.mp3 */; };
 		F32747F6246C47A30071843C /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32747F5246C47A30071843C /* Audio.swift */; };
 		F32747FA246D5D2B0071843C /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32747F9246D5D2B0071843C /* StackViewController.swift */; };
-		F32747FC246D79EF0071843C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32747FB246D79EF0071843C /* UserDefaults.swift */; };
 		F32747FF246D9F250071843C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32747FE246D9F250071843C /* Validator.swift */; };
 		F3274801246DA9A70071843C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3274800246DA9A70071843C /* Alert.swift */; };
 		F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBA24409C2E00E411B4 /* LoginViewController.swift */; };
@@ -71,7 +70,6 @@
 		F32747F3246C09E30071843C /* Moana 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Moana 2.mp3"; sourceTree = "<group>"; };
 		F32747F5246C47A30071843C /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		F32747F9246D5D2B0071843C /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
-		F32747FB246D79EF0071843C /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F32747FE246D9F250071843C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		F3274800246DA9A70071843C /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		F3344FBA24409C2E00E411B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -155,14 +153,6 @@
 			path = "Initial Screens";
 			sourceTree = "<group>";
 		};
-		F32747FD246D7CDB0071843C /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				F32747FB246D79EF0071843C /* UserDefaults.swift */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
 		F34A9A64246465C700DBC4D7 /* MAIN */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,10 +221,9 @@
 				F32747FE246D9F250071843C /* Validator.swift */,
 				F3274800246DA9A70071843C /* Alert.swift */,
 				F37EB2B1247C0329006DBA8A /* ActivityIndicator.swift */,
-				F32747FD246D7CDB0071843C /* Storage */,
 				F39873FB2467053300545692 /* unused */,
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
-				F3E2991D245876EF00EBB3E7 /* Songs */,
+				F3E2991D245876EF00EBB3E7 /* Assets */,
 				F3726D7C2431ECFF00C37F00 /* Info.plist */,
 				F398740A246A705000545692 /* GoogleService-Info.plist */,
 			);
@@ -263,7 +252,7 @@
 			path = Handlers;
 			sourceTree = "<group>";
 		};
-		F3E2991D245876EF00EBB3E7 /* Songs */ = {
+		F3E2991D245876EF00EBB3E7 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				F39D10B4245769690093CCF9 /* Rio.mp3 */,
@@ -281,7 +270,7 @@
 				F32747F1246C09D20071843C /* Angry Birds.mp3 */,
 				F32747F3246C09E30071843C /* Moana 2.mp3 */,
 			);
-			path = Songs;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,7 +429,6 @@
 				F3274801246DA9A70071843C /* Alert.swift in Sources */,
 				F388CDD324508E740046B2DD /* StoriesCollectViewController.swift in Sources */,
 				F3718DC32458945F00EC7054 /* AudioManager.swift in Sources */,
-				F32747FC246D79EF0071843C /* UserDefaults.swift in Sources */,
 				F3709E3B2472652400C981E8 /* Category.swift in Sources */,
 				F32747FF246D9F250071843C /* Validator.swift in Sources */,
 				F3726D712431ECFD00C37F00 /* SceneDelegate.swift in Sources */,

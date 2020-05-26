@@ -46,7 +46,7 @@ class MAINViewController: UIViewController {
     }
     
     @IBAction func logoutButtonTapped(_ sender: Any) {
-        AppUserDefaults.saveUnsignedValue()
+        UserDefaults.standard.set(false, forKey: "signed")
     }
     
     @IBAction func backToMainScreen(unwindSegue: UIStoryboardSegue) {

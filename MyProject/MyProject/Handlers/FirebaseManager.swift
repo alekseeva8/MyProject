@@ -13,22 +13,22 @@ import FirebaseAuth
 class FirebaseManager {
     let database = Firestore.firestore()
     var dictionariesArray = [[String : Any]]()
-
+    
     func getFavorites(completion: @escaping([[String : Any]]) -> Void) {
-            guard let currentUser = Auth.auth().currentUser?.uid else {return}
-            let ref = database.document("users/\(currentUser)").collection("favoriteSongs")
-            ref.getDocuments {(querySnapshot, error) in
-                if let error = error {
-                    print("Error is \(error)")
+        guard let currentUser = Auth.auth().currentUser?.uid else {return}
+        let ref = database.document("users/\(currentUser)").collection("favoriteSongs")
+        ref.getDocuments {(querySnapshot, error) in
+            if let error = error {
+                print("Error is \(error)")
+            }
+            else {
+                guard let querySnapshot = querySnapshot else {return}
+                for document in querySnapshot.documents {
+                    let dictionary = document.data()
+                    self.dictionariesArray.append(dictionary)
                 }
-                else {
-                    guard let querySnapshot = querySnapshot else {return}
-                    for document in querySnapshot.documents {
-                        let dictionary = document.data()
-                        self.dictionariesArray.append(dictionary)
-                    }
-                    completion(self.dictionariesArray)
-                }
+                completion(self.dictionariesArray)
             }
         }
     }
+}
