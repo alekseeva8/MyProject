@@ -187,7 +187,7 @@ extension SongsTableViewController: UITableViewDataSource {
         reference.document("\(song.name)-id").setData([
             "kind": "song",
             "trackName": "\(song.name)",
-            "trackUrl": "\(trackUrlString) ",
+            "trackUrl": "\(trackUrlString)",
             "imageUrl": "\(trackImageDataString)",
             "isFavorite": "true"], merge: true)
         print("\(song.name) is added")

@@ -137,7 +137,6 @@ extension MAINViewController {
                         let track = try self.decoder.decode(Track.self, from: jsonData!)
                         guard let data = Data(base64Encoded:track.imageUrl) else {return}
                         let url = URL(string: track.trackUrl)
-                        print(url)
                         self.favorites.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind, isFavorite: true))
                     } catch let error  {
                         print(error.localizedDescription)
