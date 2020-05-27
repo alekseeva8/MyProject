@@ -9,7 +9,7 @@
 import Foundation
 
 class APIHandler {
-
+    
     static func requestDataToAPI(urlString: String, completion: @escaping (Data) -> Void) {
         let session = URLSession.shared
         guard let url = URL(string: urlString) else {return}

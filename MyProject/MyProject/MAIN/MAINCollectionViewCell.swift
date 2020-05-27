@@ -53,5 +53,4 @@ class MAINCollectionViewCell: UICollectionViewCell {
         categoryNameLabel.text = category.name
         backgroundColor = category.color
     }
-    
 }

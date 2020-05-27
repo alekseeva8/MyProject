@@ -9,11 +9,11 @@
 import UIKit
 
 class StoriesCollectViewController: UIViewController {
-
+    
     var collectionView: UICollectionView
     let activityIndicator = UIActivityIndicatorView(style: .large)
     var stories = [Audio]()
-
+    
     required init?(coder: NSCoder) {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 20
@@ -27,16 +27,16 @@ class StoriesCollectViewController: UIViewController {
         title = " Stories"
         
         view.addSubview(collectionView)
-
+        
         collectionViewLayout()
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(StoriesCollectViewCell.self, forCellWithReuseIdentifier: StoriesCollectViewCell.reuseID)
-
+        
         getData()
-
+        
         collectionView.addSubview(activityIndicator)
-        AppActivityIndicator.activityIndicatorLayout(activityIndicator: activityIndicator, superview: collectionView)
+        activityIndicatorLayout()
         activityIndicator.startAnimating()
     }
 }
@@ -47,12 +47,12 @@ extension StoriesCollectViewController {
         DataHandler().getData() {[weak self] (tracks) in
             tracks.results.forEach { (track) in
                 if track.kind == "story" {
-                guard let url = URL(string: track.trackUrl) else {return}
-                guard let urlImage = URL(string: track.imageUrl) else {return}
-                guard let data = try? Data(contentsOf: urlImage) else {return}
-                guard let isFavorite = Bool("false") else {return}
+                    guard let url = URL(string: track.trackUrl) else {return}
+                    guard let urlImage = URL(string: track.imageUrl) else {return}
+                    guard let data = try? Data(contentsOf: urlImage) else {return}
+                    guard let isFavorite = Bool("false") else {return}
                     self?.stories.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind, isFavorite: isFavorite))
-            }
+                }
             }
             self?.collectionView.reloadData()
             self?.activityIndicator.stopAnimating()
@@ -65,17 +65,17 @@ extension StoriesCollectViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         stories.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesCollectViewCell.reuseID, for: indexPath) as! StoriesCollectViewCell
         cell.storyImageView.image = stories[indexPath.row].image
-
+        
         return cell
     }
-
+    
 }
 
-//MARK: - CollectionView Layout
+//MARK: - CollectionView Layout, ActivityIndicator
 extension StoriesCollectViewController {
     func collectionViewLayout() {
         collectionView.backgroundColor = UIColor(named: "BackgroundColor")
@@ -86,8 +86,16 @@ extension StoriesCollectViewController {
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-
+        
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    }
+
+    func activityIndicatorLayout() {
+        activityIndicator.color = .systemBlue
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor).isActive = true
+        activityIndicator.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor).isActive = true
+        activityIndicator.hidesWhenStopped = true
     }
 }
 

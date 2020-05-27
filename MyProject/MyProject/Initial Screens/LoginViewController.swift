@@ -10,37 +10,39 @@ import UIKit
 import  FirebaseAuth
 
 class LoginViewController: StackViewController {
-
+    
     let label = UILabel()
     let usernameTextField = UITextField()
     let passwordTextField = UITextField()
     let questionButton = UIButton()
     let button = UIButton()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         mainStackView.insertArrangedSubview(label, at: 0)
         mainStackView.addArrangedSubview(questionButton)
         mainStackView.addArrangedSubview(button)
-
+        
         setLabel(label: label, text: "Log in to your account")
         let arrayOfTextFields = [usernameTextField, passwordTextField]
         setSubStackView(array: arrayOfTextFields, arrayOfPlaceholders: ["E-mail", "Password"])
         setQuestionButton(button: questionButton, title: "Haven't got an account? Press here.")
         setButton(button: button, title: "LOG IN")
-
+        
         usernameTextField.delegate = self
         passwordTextField.delegate = self
+        
+        //usernameTextField.becomeFirstResponder()
     }
-
-
+    
+    
     //MARK: - Button
     override func setButton(button: UIButton, title: String) {
         super.setButton(button: button, title: title)
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     }
-
+    
     @objc func buttonPressed(sender: UIButton) {
         //check if user have already have user ID
         let username = usernameTextField.text ?? ""
@@ -58,7 +60,7 @@ class LoginViewController: StackViewController {
             }
         }
     }
-
+    
     override func setQuestionButton(button: UIButton, title: String) {
         super.setQuestionButton(button: questionButton, title: title)
         button.addTarget(self, action: #selector(questionButtonPressed), for: .touchUpInside)
@@ -69,7 +71,7 @@ class LoginViewController: StackViewController {
 }
 
 extension LoginViewController: UITextFieldDelegate {
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == usernameTextField {
             passwordTextField.becomeFirstResponder()

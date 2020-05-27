@@ -9,10 +9,10 @@
 import  UIKit
 
 class LocalDataHandler {
-
+    
     static func gettingSongsArray() -> [Audio] {
         var arrayOfSongs: [Audio] = []
-
+        
         //getting url to all of the files (to directory)
         let folderURL = URL(fileURLWithPath: Bundle.main.resourcePath ?? "")
         //getting access to all of the files. All files will be stored in urlsArray

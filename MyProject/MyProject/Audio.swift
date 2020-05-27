@@ -22,6 +22,5 @@ class Audio {
         self.kind = kind
         self.isFavorite = isFavorite
     }
-
 }
 

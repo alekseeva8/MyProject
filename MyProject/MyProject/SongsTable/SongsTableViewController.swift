@@ -12,16 +12,16 @@ import FirebaseAuth
 
 class SongsTableViewController: UIViewController {
     let database = Firestore.firestore()
-
+    
     @IBOutlet weak var tableView: UITableView!
     var songs = [Audio]()
     var likes: [String] = []
     var favorites = [Audio]()
-
+    
     override var shouldAutorotate: Bool {
         return false
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         favorites = []
     }
@@ -31,18 +31,18 @@ class SongsTableViewController: UIViewController {
         title = "Songs"
         view.backgroundColor = UIColor(named: "BackgroundColor")
         tableView.rowHeight = 60
-
+        
         tableView.delegate = self
         tableView.dataSource = self
-
+        
         songs = LocalDataHandler.gettingSongsArray()
         getData()
     }
-
+    
     @IBAction func favoritesButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "toFavoritesVC", sender: nil)
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
             audioPlayerVC.audioArray = songs
@@ -107,7 +107,7 @@ extension SongsTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songs.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "songsTableViewCell", for: indexPath) as! SongsTableViewCell
         cell.textLabel?.text = songs[indexPath.row].name
@@ -141,7 +141,7 @@ extension SongsTableViewController: UITableViewDataSource {
             tableView.reloadData()
         }
     }
-
+    
     //MARK: - Firestore functions
     func addSong(_ song: Audio) {
         guard let currentUser = Auth.auth().currentUser?.uid else {return}
@@ -151,7 +151,7 @@ extension SongsTableViewController: UITableViewDataSource {
         let trackImage = song.image
         guard let trackImageData = trackImage.jpegData(compressionQuality: 1) else {return}
         let trackImageDataString = trackImageData.base64EncodedString()
-
+        
         reference.document("\(song.name)-id").setData([
             "kind": "song",
             "trackName": "\(song.name)",
@@ -160,7 +160,7 @@ extension SongsTableViewController: UITableViewDataSource {
             "isFavorite": "true"], merge: true)
         print("\(song.name) is added")
     }
-
+    
     func deleteSong(with songName: String) {
         guard let currentUser = Auth.auth().currentUser?.uid else {return}
         let reference = database.document("users/\(currentUser)").collection("favoriteSongs")

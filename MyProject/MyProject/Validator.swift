@@ -14,10 +14,10 @@ class Validator {
     var repeatPassword = ""
     var loginIsCorrect = false
     var passwordIsCorrect = false
-
+    
     init() {
     }
-
+    
     func isLoginCorrect(text: String) -> Bool {
         if text.count > 0 {
             loginIsCorrect = true
@@ -26,7 +26,7 @@ class Validator {
         }
         return loginIsCorrect
     }
-
+    
     func isLoginContainsCorrectSymbols(text: String) -> Bool {
         var arrayOfActualSymbols: [Int] = []
         let rangeOfCorrectSymbols1 = 65...90
@@ -38,14 +38,14 @@ class Validator {
         var numberCorrect = 0
         arrayOfActualSymbols.forEach { (one) in
             if rangeOfCorrectSymbols1.contains(one) ||
-            rangeOfCorrectSymbols2.contains(one) ||
-            rangeOfCorrectSymbols3.contains(one) {
-            numberCorrect += 1
-        }
+                rangeOfCorrectSymbols2.contains(one) ||
+                rangeOfCorrectSymbols3.contains(one) {
+                numberCorrect += 1
+            }
         }
         return numberCorrect == text.count
     }
-
+    
     func isEmailCorrect(text: String) -> Bool {
         if text.contains("@") && text.contains(".") {
             return true
@@ -54,7 +54,7 @@ class Validator {
             return false
         }
     }
-
+    
     func isPasswordCorrect(password: String) -> Bool {
         if password.count >= 6 {
             passwordIsCorrect = true
@@ -63,7 +63,7 @@ class Validator {
         }
         return passwordIsCorrect
     }
-
+    
     func isRepeatPasswordCorrect(password: String, repeatPassword: String) -> Bool {
         password == repeatPassword
     }

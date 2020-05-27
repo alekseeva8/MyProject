@@ -9,9 +9,9 @@
 import Foundation
 
 class DataHandler {
-
+    
     let urlString = "https://my-json-server.typicode.com/alekseeva8/json-db/db"
-
+    
     func getData(completionHanndler: @escaping (Tracks) -> Void) {
         APIHandler.requestDataToAPI(urlString: urlString) { (data) in
             do {

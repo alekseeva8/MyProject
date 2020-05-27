@@ -11,7 +11,7 @@ import FirebaseAuth
 import  Firebase
 
 class SignupViewController: StackViewController {
-
+    
     let label = UILabel()
     let nameTextField = UITextField()
     let usernameTextField = UITextField()
@@ -21,43 +21,45 @@ class SignupViewController: StackViewController {
     let button = UIButton()
     static let passwordPlaceholder = "Password"
     static let repeatPasswordPlaceholder = "Repeat password"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         mainStackView.insertArrangedSubview(label, at: 0)
         mainStackView.addArrangedSubview(questionButton)
         mainStackView.addArrangedSubview(button)
         //setting MainStackView and it's elements (label,subStackView, questionButton, button)
-
+        
         setLabel(label: label, text: "Welcome to the world of joy!\nPlease sign up.")
-
+        
         let arrayOfTextFields = [nameTextField, usernameTextField, passwordTextField, repeatPasswordTextField]
         setSubStackView(array: arrayOfTextFields, arrayOfPlaceholders: ["Name", "E-mail", SignupViewController.passwordPlaceholder, SignupViewController.repeatPasswordPlaceholder])
-
+        
         setQuestionButton(button: questionButton, title: "Have already have an account? Press here.")
-
+        
         setButton(button: button, title: "SIGN UP")
-
+        
         nameTextField.delegate = self
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         repeatPasswordTextField.delegate = self
+        
+        //nameTextField.becomeFirstResponder()
     }
-
-
+    
+    
     //MARK: - Buttons
     override func setButton(button: UIButton, title: String) {
         super.setButton(button: button, title: title)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
-
+    
     @objc func buttonTapped(sender: UIButton) {
         let name = nameTextField.text ?? ""
         let username = usernameTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         let repeatPassword = repeatPasswordTextField.text ?? ""
-
+        
         //checking the validation of login and password
         let validator = Validator()
         if validator.isLoginCorrect(text: name) && validator.isLoginCorrect(text: username) && validator.isEmailCorrect(text: username) && validator.isPasswordCorrect(password: password) == true && validator.isRepeatPasswordCorrect(password: password, repeatPassword: repeatPassword) {
@@ -70,7 +72,7 @@ class SignupViewController: StackViewController {
             Alert.alertSending(self)
         }
     }
-
+    
     override func setQuestionButton(button: UIButton, title: String) {
         super.setQuestionButton(button: questionButton, title: title)
         button.addTarget(self, action: #selector(questionButtonPressed), for: .touchUpInside)

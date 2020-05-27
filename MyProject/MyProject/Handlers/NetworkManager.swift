@@ -9,7 +9,7 @@
 import Foundation
 
 class NetworkManager {
-
+    
     static func downloadFileFrom(url: URL, completion: @escaping(URL) -> Void) {
         let session = URLSession.shared
         let task = session.downloadTask(with: url) { (url, response, error) in
@@ -18,5 +18,5 @@ class NetworkManager {
         }
         task.resume()
     }
-
+    
 }

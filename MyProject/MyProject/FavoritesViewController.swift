@@ -9,20 +9,20 @@
 import UIKit
 
 class FavoritesViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     var favorites = [Audio]()
-
+    
     override var shouldAutorotate: Bool {
         return false
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Favorites"
         view.backgroundColor = UIColor(named: "BackgroundColor")
         tableView.rowHeight = 60
-
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -31,7 +31,7 @@ class FavoritesViewController: UIViewController {
 
 //MARK: - Delegate
 extension FavoritesViewController: UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //saving info in singleton to use it in AudioPlayerVC
         AudioManager.shared.currentAudio = indexPath.row
@@ -49,7 +49,7 @@ extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favorites.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         cell = tableView.dequeueReusableCell(withIdentifier: "favoritesTableViewCell", for: indexPath)
@@ -58,5 +58,4 @@ extension FavoritesViewController: UITableViewDataSource {
         cell.textLabel?.font = UIFont.systemFont(ofSize: 19)
         return cell
     }
-
 }
