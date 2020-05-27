@@ -11,7 +11,6 @@ import UIKit
 class MAINViewController: UIViewController {
     let decoder = JSONDecoder()
     var favorites: [Audio] = []
-    
     var collectionView: UICollectionView
     let categories = [Category(name: "Songs", image: UIImage(named: "music-cake") ?? UIImage(), color: UIColor(named: "PinkCellColor") ?? UIColor()), Category(name: "Stories", image: UIImage(named: "fantasy") ?? UIImage(), color: UIColor(named: "YellowCellColor") ?? UIColor()), Category(name: "Learning Videos", image: UIImage(named: "artist") ?? UIImage(), color: UIColor(named: "GreenCellColor") ?? UIColor()), Category(name: "Favorities", image: UIImage(named: "hearts") ?? UIImage(), color: UIColor(named: "PurpleCellColor") ?? UIColor())]
     
@@ -105,7 +104,7 @@ extension MAINViewController {
         case 2: performSegue(withIdentifier: "fromMainToVideoVC", sender: nil)
         case 3:
             //get favorite songs from Firestore, set favorites array to pass later to FavoritesVC
-            FirebaseManager().getFavorites { (dictionariesArray) in
+            FirestoreManager().getFavorites { (dictionariesArray) in
                 dictionariesArray.forEach { (dictionary) in
                     do {
                         let jsonData = try? JSONSerialization.data(withJSONObject:dictionary)

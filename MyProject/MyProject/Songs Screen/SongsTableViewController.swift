@@ -35,8 +35,8 @@ class SongsTableViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        songs = LocalDataHandler.gettingSongsArray()
-        getData()
+        songs = LocalAssetsHandler.gettingSongsArray()
+        getSongs()
     }
     
     @IBAction func favoritesButtonPressed(_ sender: UIButton) {
@@ -58,10 +58,10 @@ class SongsTableViewController: UIViewController {
     }
 }
 
-//MARK: - getData
+//MARK: - getSongs
 extension SongsTableViewController {
-    func getData() {
-        DataHandler().getData() {[weak self] (tracks) in
+    func getSongs() {
+        DataHandler.getTracks() {[weak self] (tracks) in
             tracks.results.forEach { (track) in
                 if track.kind == "song" {
                     guard let url = URL(string: track.trackUrl) else {return}
@@ -72,7 +72,7 @@ extension SongsTableViewController {
                 }
             }
             //get favorite audio names, update songs array setting isFavority property's value to true
-            FirebaseManager().getFavorites { (dictionariesArray) in
+            FirestoreManager().getFavorites { [weak self] (dictionariesArray) in
                 dictionariesArray.forEach { (dictionary) in
                     dictionary.forEach { (key, value) in
                         let valueString = String.init(describing: value)

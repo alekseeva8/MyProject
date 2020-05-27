@@ -1,5 +1,5 @@
 //
-//  AudioHandler.swift
+//  AssetHandler.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 5/20/20.
@@ -8,24 +8,27 @@
 
 import Foundation
 
-class AudioHandler {
-    
-    static func getAudioURL(url: URL, completion: @escaping(URL) -> Void) {
+class AssetHandler {
+
+    //get url for AudioPlayer
+    static func getAssetURL(url: URL, completion: @escaping(URL) -> Void) {
         let fileManager = FileManager.default
         let docsDirectoryPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         guard let docsDirectoryURL = docsDirectoryPath.first else {return}
         let newDirectoryURL = docsDirectoryURL.appendingPathComponent(url.lastPathComponent)
-        
+
+        //if audio has already been downloaded and saved to file system (to newDirectoryURL) return newDirectoryURL
         if fileManager.fileExists(atPath: newDirectoryURL.path) {
             completion(newDirectoryURL)
             print("from file system")
         }
+        //if not - download audio from network and return tmpUrl. finally, save it to newDirectoryURL
         else {
-            NetworkManager.downloadFileFrom(url: url) { (url) in
+            NetworkHandler.downloadAssetFrom(url: url) { (tmpUrl) in
                 print("downloaded")
-                completion(url)
+                completion(tmpUrl)
                 do{
-                    try fileManager.moveItem(at: url, to: newDirectoryURL)
+                    try fileManager.moveItem(at: tmpUrl, to: newDirectoryURL)
                     print("moved")
                 } catch {
                     print(error)

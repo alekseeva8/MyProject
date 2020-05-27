@@ -14,7 +14,6 @@ class AudioPlayerViewController: UIViewController {
     var audioPlayer = AVAudioPlayer()
     var timer: Timer?
     var currentAudio = AudioManager.shared.currentAudio
-    //let audio = AudioManager.shared.audio
     var audioArray: [Audio] = []
     
     @IBOutlet weak var reverseView: UIView!
@@ -55,8 +54,8 @@ class AudioPlayerViewController: UIViewController {
         volumeSlider.minimumValue = 0.0
         volumeSlider.maximumValue = 1.0
         
-        guard let url = audioArray[currentAudio].url else {return}
-        prepareAudioToPlay(url: url)
+        guard let trackUrl = audioArray[currentAudio].url else {return}
+        prepareAudioToPlay(trackUrl: trackUrl)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -73,10 +72,11 @@ class AudioPlayerViewController: UIViewController {
     }
     
     //MARK: - AVAudioPlayer prepareToPlay()
-    
-    func prepareAudioToPlay(url: URL) {
-        
-        AudioHandler.getAudioURL(url: url) {[weak self] (url) in
+    // get url for AudioPlayer
+    // if audio has already been downloaded and saved to file system - get newDirectoryURL
+    // if it hasn't - audio is downloading from network and tmpDirectoryURL is being passed. (finally, audio is being saved to file system)
+    func prepareAudioToPlay(trackUrl: URL) {
+        AssetHandler.getAssetURL(url: trackUrl) {[weak self] (url) in
             guard let self = self else {return}
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: url)
@@ -132,17 +132,17 @@ class AudioPlayerViewController: UIViewController {
         if self.currentAudio == 0 {
             self.audioNameLabel.text = self.audioArray[0].name
             self.imageView.image = self.audioArray[0].image
-            guard let url = self.audioArray[0].url else {return}
-            self.prepareAudioToPlay(url: url)
+            guard let trackUrl = self.audioArray[0].url else {return}
+            self.prepareAudioToPlay(trackUrl: trackUrl)
             self.audioPlayer.play()
         }
         else {
-            let previousSongIndex = self.currentAudio - 1
-            self.audioNameLabel.text = self.audioArray[previousSongIndex].name
-            self.imageView.image = self.audioArray[previousSongIndex].image
-            let previousSong = self.audioArray[previousSongIndex]
-            guard let url = previousSong.url else {return}
-            self.prepareAudioToPlay(url: url)
+            let previousAudioNumber = self.currentAudio - 1
+            self.audioNameLabel.text = self.audioArray[previousAudioNumber].name
+            self.imageView.image = self.audioArray[previousAudioNumber].image
+            let previousAudio = self.audioArray[previousAudioNumber]
+            guard let trackUrl = previousAudio.url else {return}
+            self.prepareAudioToPlay(trackUrl: trackUrl)
             self.audioPlayer.play()
             self.currentAudio -= 1
         }
@@ -163,20 +163,20 @@ class AudioPlayerViewController: UIViewController {
     
     func playNext() {
         if self.currentAudio < self.audioArray.count-1 {
-            let nextSongNumber = self.currentAudio + 1
-            self.audioNameLabel.text = self.audioArray[nextSongNumber].name
-            self.imageView.image = self.audioArray[nextSongNumber].image
-            let nextSong = self.audioArray[nextSongNumber]
-            guard let url = nextSong.url else {return}
-            self.prepareAudioToPlay(url: url)
+            let nextAudioNumber = self.currentAudio + 1
+            self.audioNameLabel.text = self.audioArray[nextAudioNumber].name
+            self.imageView.image = self.audioArray[nextAudioNumber].image
+            let nextAudio = self.audioArray[nextAudioNumber]
+            guard let trackUrl = nextAudio.url else {return}
+            self.prepareAudioToPlay(trackUrl: trackUrl)
             self.currentAudio += 1
         }
         else {
             self.currentAudio = 0
             self.audioNameLabel.text = self.audioArray[0].name
             self.imageView.image = self.audioArray[0].image
-            guard let url = self.audioArray[0].url else {return}
-            self.prepareAudioToPlay(url: url)
+            guard let trackUrl = self.audioArray[0].url else {return}
+            self.prepareAudioToPlay(trackUrl: trackUrl)
         }
     }
     

@@ -12,7 +12,6 @@ class AudioManager {
     //singleton
     static let shared = AudioManager()
     var currentAudio = 0
-    //var audio = Audio(name: "", image: UIImage(), url: URL(string: ""), kind: "")
     
     private init() {
     }

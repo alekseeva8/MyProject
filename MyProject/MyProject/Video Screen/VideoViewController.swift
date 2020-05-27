@@ -12,11 +12,10 @@ import WebKit
 class VideoViewController: UIViewController {
     
     @IBOutlet weak var videoWebView: WKWebView!
-    let videoLink = "https://www.youtube.com/embed/Rd4AGeReUIY"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let url = URL(string: videoLink) else {return}
+        guard let url = URL(string: Constants.videoLink) else {return}
         videoWebView.load(URLRequest(url: url))
     }
 }

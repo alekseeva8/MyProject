@@ -33,7 +33,7 @@ class StoriesCollectViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(StoriesCollectViewCell.self, forCellWithReuseIdentifier: StoriesCollectViewCell.reuseID)
         
-        getData()
+        getStories()
         
         collectionView.addSubview(activityIndicator)
         activityIndicatorLayout()
@@ -41,10 +41,10 @@ class StoriesCollectViewController: UIViewController {
     }
 }
 
-//MARK: - updateData
+//MARK: - getStories
 extension StoriesCollectViewController {
-    func getData() {
-        DataHandler().getData() {[weak self] (tracks) in
+    func getStories() {
+        DataHandler.getTracks() {[weak self] (tracks) in
             tracks.results.forEach { (track) in
                 if track.kind == "story" {
                     guard let url = URL(string: track.trackUrl) else {return}
@@ -113,7 +113,6 @@ extension StoriesCollectViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //saving info in singleton to use it in AudioPlayerVC
         AudioManager.shared.currentAudio = indexPath.row
-        //AudioManager.shared.audio = stories[indexPath.row]
         performSegue(withIdentifier: "fromStoriesToPlayerVC", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

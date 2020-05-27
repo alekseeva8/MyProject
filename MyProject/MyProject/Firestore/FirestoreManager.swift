@@ -1,5 +1,5 @@
 //
-//  FirebaseManager.swift
+//  FirestoreManager.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 5/26/20.
@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class FirebaseManager {
+class FirestoreManager {
     let database = Firestore.firestore()
     var dictionariesArray = [[String : Any]]()
     

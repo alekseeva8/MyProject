@@ -1,5 +1,5 @@
 //
-//  LocalDataHandler.swift
+//  LocalAssetsHandler.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 5/7/20.
@@ -8,7 +8,7 @@
 
 import  UIKit
 
-class LocalDataHandler {
+class LocalAssetsHandler {
     
     static func gettingSongsArray() -> [Audio] {
         var arrayOfSongs: [Audio] = []
