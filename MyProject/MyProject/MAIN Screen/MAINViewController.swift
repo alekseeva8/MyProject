@@ -104,7 +104,7 @@ extension MAINViewController {
         case 2: performSegue(withIdentifier: "fromMainToVideoVC", sender: nil)
         case 3:
             //get favorite songs from Firestore, set favorites array to pass later to FavoritesVC
-            FirestoreManager().getFavorites { (dictionariesArray) in
+            FirestoreHandler().getFavorites { (dictionariesArray) in
                 dictionariesArray.forEach { (dictionary) in
                     do {
                         let jsonData = try? JSONSerialization.data(withJSONObject:dictionary)

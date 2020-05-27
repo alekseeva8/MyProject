@@ -15,7 +15,6 @@ class SongsTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var songs = [Audio]()
-    var likes: [String] = []
     var favorites = [Audio]()
     
     override var shouldAutorotate: Bool {
@@ -72,7 +71,7 @@ extension SongsTableViewController {
                 }
             }
             //get favorite audio names, update songs array setting isFavority property's value to true
-            FirestoreManager().getFavorites { [weak self] (dictionariesArray) in
+            FirestoreHandler().getFavorites { [weak self] (dictionariesArray) in
                 dictionariesArray.forEach { (dictionary) in
                     dictionary.forEach { (key, value) in
                         let valueString = String.init(describing: value)
@@ -126,50 +125,28 @@ extension SongsTableViewController: UITableViewDataSource {
         guard let cell = sender.superview?.superview as? SongsTableViewCell else { return}
         guard let indexPath = self.tableView.indexPath(for: cell) else {return}
         let song = songs[indexPath.row]
-        let songName = song.name
+        
         if song.isFavorite == false {
             //add to Firestore
-            addSong(song)
+            addToFavorites(song)
             song.isFavorite = true
             tableView.reloadData()
         }
         else if song.isFavorite == true {
             sender.setImage(UIImage(systemName: "heart"), for: .normal)
             //delete from Firestore
-            deleteSong(with: songName)
+            deleteFromFavorites(song)
             song.isFavorite = false
             tableView.reloadData()
         }
     }
     
     //MARK: - Firestore functions
-    func addSong(_ song: Audio) {
-        guard let currentUser = Auth.auth().currentUser?.uid else {return}
-        let reference = database.document("users/\(currentUser)").collection("favoriteSongs")
-        guard let trackUrl = song.url else {return}
-        let trackUrlString = trackUrl.absoluteString
-        let trackImage = song.image
-        guard let trackImageData = trackImage.jpegData(compressionQuality: 1) else {return}
-        let trackImageDataString = trackImageData.base64EncodedString()
-        
-        reference.document("\(song.name)-id").setData([
-            "kind": "song",
-            "trackName": "\(song.name)",
-            "trackUrl": "\(trackUrlString)",
-            "imageUrl": "\(trackImageDataString)",
-            "isFavorite": "true"], merge: true)
-        print("\(song.name) is added")
+    func addToFavorites(_ audio: Audio) {
+        FirestoreHandler().addToFavorites(audio)
     }
-    
-    func deleteSong(with songName: String) {
-        guard let currentUser = Auth.auth().currentUser?.uid else {return}
-        let reference = database.document("users/\(currentUser)").collection("favoriteSongs")
-        reference.document("\(songName)-id").delete() { err in
-            if let err = err {
-                print("Error removing document: \(err)")
-            } else {
-                print("\(songName) is removed")
-            }
-        }
+
+    func deleteFromFavorites(_ audio: Audio) {
+        FirestoreHandler().deleteFromFavorites(audio)
     }
 }
