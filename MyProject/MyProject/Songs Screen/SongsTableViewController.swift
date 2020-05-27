@@ -34,7 +34,7 @@ class SongsTableViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        songs = LocalAssetsHandler.gettingSongsArray()
+        songs = LocalAssetsHandler.getAssets()
         getSongs()
     }
     

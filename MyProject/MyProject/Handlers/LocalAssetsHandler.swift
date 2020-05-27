@@ -10,8 +10,8 @@ import  UIKit
 
 class LocalAssetsHandler {
     
-    static func gettingSongsArray() -> [Audio] {
-        var arrayOfSongs: [Audio] = []
+    static func getAssets() -> [Audio] {
+        var assets: [Audio] = []
         
         //getting url to all of the files (to directory)
         let folderURL = URL(fileURLWithPath: Bundle.main.resourcePath ?? "")
@@ -23,18 +23,19 @@ class LocalAssetsHandler {
                 let urlString = url.absoluteString
                 if urlString.contains(".mp3") {
                     let urlStringSplitted = urlString.split(separator: "/")
-                    var songName = String(urlStringSplitted.last ?? "")
-                    songName = songName.replacingOccurrences(of: ".mp3", with: "")
-                    songName = songName.replacingOccurrences(of: "%20", with: " ")
-                    guard let path = Bundle.main.path(forResource: songName, ofType: "mp3") else {return}
+                    
+                    var assetName = String(urlStringSplitted.last ?? "")
+                    assetName = assetName.replacingOccurrences(of: ".mp3", with: "")
+                    assetName = assetName.replacingOccurrences(of: "%20", with: " ")
+                    guard let path = Bundle.main.path(forResource: assetName, ofType: "mp3") else {return}
                     let url = URL(fileURLWithPath: path)
-                    arrayOfSongs.append(Audio(name: songName, image: UIImage(named: songName) ?? UIImage(), url: url, kind: "song", isFavorite: false))
+                    assets.append(Audio(name: assetName, image: UIImage(named: assetName) ?? UIImage(), url: url, kind: "song", isFavorite: false))
                 }
             }
         } catch {
             print(error)
         }
-        return arrayOfSongs
+        return assets
     }
 }
 
