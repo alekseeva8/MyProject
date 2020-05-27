@@ -38,6 +38,11 @@ class SignupViewController: StackViewController {
         setQuestionButton(button: questionButton, title: "Have already have an account? Press here.")
 
         setButton(button: button, title: "SIGN UP")
+
+        nameTextField.delegate = self
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        repeatPasswordTextField.delegate = self
     }
 
 
@@ -72,5 +77,24 @@ class SignupViewController: StackViewController {
     }
     @objc func questionButtonPressed(sender: UIButton) {
         performSegue(withIdentifier: "toLoginVC", sender: nil)
+    }
+}
+
+extension SignupViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameTextField {
+            usernameTextField.becomeFirstResponder()
+        }
+        if textField == usernameTextField {
+            passwordTextField.becomeFirstResponder()
+        }
+        if textField == passwordTextField {
+            repeatPasswordTextField.becomeFirstResponder()
+        }
+        if textField == repeatPasswordTextField {
+            repeatPasswordTextField.resignFirstResponder()
+        }
+        return true
     }
 }

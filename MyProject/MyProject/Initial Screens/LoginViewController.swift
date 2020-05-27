@@ -24,14 +24,14 @@ class LoginViewController: StackViewController {
         mainStackView.addArrangedSubview(questionButton)
         mainStackView.addArrangedSubview(button)
 
-        setLabel(label: label, text: "Login to your account")
-
+        setLabel(label: label, text: "Log in to your account")
         let arrayOfTextFields = [usernameTextField, passwordTextField]
         setSubStackView(array: arrayOfTextFields, arrayOfPlaceholders: ["E-mail", "Password"])
-
         setQuestionButton(button: questionButton, title: "Haven't got an account? Press here.")
-
         setButton(button: button, title: "LOG IN")
+
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
 
@@ -65,6 +65,19 @@ class LoginViewController: StackViewController {
     }
     @objc func questionButtonPressed(sender: UIButton) {
         performSegue(withIdentifier: "toSignupVC", sender: nil)
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameTextField {
+            passwordTextField.becomeFirstResponder()
+        }
+        if textField == passwordTextField {
+            passwordTextField.resignFirstResponder()
+        }
+        return true
     }
 }
 
