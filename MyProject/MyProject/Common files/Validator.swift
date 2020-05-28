@@ -34,7 +34,7 @@ class Validator {
 
     func validateEmail(text: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailTest.evaluate(with: text)
     }
     
@@ -55,8 +55,7 @@ class Validator {
         var errorLabelText = errorLabelText
         if tfText.isEmpty {
             errorLabelText = "This field can't be empty"
-        }
-        else {
+        } else {
             errorLabelText = ""
         }
         return errorLabelText
@@ -66,8 +65,7 @@ class Validator {
         var errorLabelText = errorLabelText
         if tfText.isEmpty {
             errorLabelText = "This field can't be empty"
-        }
-        else {
+        } else {
             let emailIsCorrect =  validateEmail(text: tfText)
             if emailIsCorrect == true {
                 errorLabelText = ""
@@ -83,8 +81,7 @@ class Validator {
         var errorLabelText = errorLabelText
         if tfText.count < 6 {
             errorLabelText = "Password must contain at least 6 symbols"
-        }
-        else {
+        } else {
             errorLabelText = ""
         }
         return errorLabelText
@@ -94,8 +91,7 @@ class Validator {
         var errorLabelText = errorLabelText
         if passwtfText != repeatPasswtfText {
             errorLabelText = "Incorrect password"
-        }
-        else {
+        } else {
             errorLabelText = ""
         }
         return errorLabelText

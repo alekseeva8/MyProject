@@ -35,5 +35,3 @@ class StoriesCollectViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-

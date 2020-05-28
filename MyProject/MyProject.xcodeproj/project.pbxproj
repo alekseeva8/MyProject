@@ -192,6 +192,7 @@
 		F308D58D247F00AC002DBD67 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F3709E3A2472652400C981E8 /* Category.swift */,
 				F32747F5246C47A30071843C /* Audio.swift */,
 			);
 			path = Models;
@@ -210,7 +211,6 @@
 		F34A9A64246465C700DBC4D7 /* MAIN Screen */ = {
 			isa = PBXGroup;
 			children = (
-				F3709E3A2472652400C981E8 /* Category.swift */,
 				F34A9A57245B3D4600DBC4D7 /* MAINViewController.swift */,
 				F34A9A59245B3D9300DBC4D7 /* MAINCollectionViewCell.swift */,
 			);
@@ -324,6 +324,7 @@
 				F3726D682431ECFD00C37F00 /* Frameworks */,
 				F3726D692431ECFD00C37F00 /* Resources */,
 				9DE29A2C83DD2552DC1843A7 /* [CP] Embed Pods Frameworks */,
+				F31EDA43247FE1E700B303AE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -434,6 +435,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyProject/Pods-MyProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		F31EDA43247FE1E700B303AE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

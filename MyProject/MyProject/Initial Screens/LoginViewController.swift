@@ -37,8 +37,7 @@ class LoginViewController: StackViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
-    
-    
+
     //MARK: - Button
     override func setButton(button: UIButton, title: String) {
         super.setButton(button: button, title: title)
@@ -83,5 +82,3 @@ extension LoginViewController: UITextFieldDelegate {
         return true
     }
 }
-
-

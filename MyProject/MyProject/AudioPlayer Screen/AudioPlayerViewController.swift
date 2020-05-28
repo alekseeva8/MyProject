@@ -105,8 +105,7 @@ class AudioPlayerViewController: UIViewController {
             if audioPlayer.isPlaying == true {
                 playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
             }
-        }
-        else {
+        } else {
             audioPlayer.pause()
             playPauseButton.setImage(UIImage(named: "play"), for: .normal)
         }
@@ -135,8 +134,7 @@ class AudioPlayerViewController: UIViewController {
             guard let trackUrl = self.audioArray[0].url else {return}
             self.prepareAudioToPlay(trackUrl: trackUrl)
             self.audioPlayer.play()
-        }
-        else {
+        } else {
             let previousAudioNumber = self.currentAudio - 1
             self.audioNameLabel.text = self.audioArray[previousAudioNumber].name
             self.imageView.image = self.audioArray[previousAudioNumber].image
@@ -149,7 +147,6 @@ class AudioPlayerViewController: UIViewController {
     }
     
     //MARK: - NextButton
-    
     @IBAction func nextButtonTouchedDown(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)

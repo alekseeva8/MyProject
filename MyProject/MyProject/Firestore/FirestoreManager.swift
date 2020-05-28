@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class FirestoreHandler {
     let database = Firestore.firestore()
-    var dictionariesArray = [[String : Any]]()
+    var dictionariesArray = [[String: Any]]()
     let currentUser = Auth.auth().currentUser?.uid
     
     func getFavorites(completion: @escaping([[String : Any]]) -> Void) {
@@ -21,8 +21,7 @@ class FirestoreHandler {
         reference.getDocuments {(querySnapshot, error) in
             if let error = error {
                 print("Error is \(error)")
-            }
-            else {
+            } else {
                 guard let querySnapshot = querySnapshot else {return}
                 for document in querySnapshot.documents {
                     let dictionary = document.data()
@@ -55,7 +54,7 @@ class FirestoreHandler {
     func deleteFromFavorites(_ audio: Audio) {
         guard let currentUser = currentUser else {return}
         let reference = database.document("users/\(currentUser)").collection("favoriteSongs")
-        reference.document("\(audio.name)-id").delete() { err in
+        reference.document("\(audio.name)-id").delete() {(err) in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {

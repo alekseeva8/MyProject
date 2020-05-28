@@ -85,10 +85,10 @@ class StackViewController: UIViewController {
     
     func setTextFields(array: [UITextField], arrayOfPlaceholders: [String]) {
         for (index, item) in array.enumerated() {
-            //item.textColor = UIColor(named: "TextFieldColor")
             item.borderStyle = .roundedRect
             item.placeholder = arrayOfPlaceholders[index]
-            if item.placeholder == SignupViewController.passwordPlaceholder || item.placeholder == SignupViewController.repeatPasswordPlaceholder {
+            if item.placeholder == Constants.passwPlaceholder ||
+            item.placeholder == Constants.repeatPasswPlaceholder {
                 item.isSecureTextEntry = true
             }
             item.heightAnchor.constraint(equalToConstant: 34).isActive = true
@@ -102,4 +102,3 @@ class StackViewController: UIViewController {
         }
     }
 }
-

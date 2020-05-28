@@ -38,4 +38,3 @@ class LocalAssetsHandler {
         return assets
     }
 }
-

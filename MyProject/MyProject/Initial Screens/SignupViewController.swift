@@ -23,8 +23,8 @@ class SignupViewController: StackViewController {
     let repeatPasswErrorLabel = UILabel()
     let questionButton = UIButton()
     let button = UIButton()
-    static let passwordPlaceholder = "Password"
-    static let repeatPasswordPlaceholder = "Repeat password"
+//    static let passwordPlaceholder = "Password"
+//    static let repeatPasswordPlaceholder = "Repeat password"
     let validator = Validator()
     
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ class SignupViewController: StackViewController {
         subStackView.addArrangedSubview(repeatPasswErrorLabel)
 
         let arrayOfTextFields = [nameTextField, emailTextField, passwordTextField, repeatPasswordTextField]
-        setTextFields(array: arrayOfTextFields, arrayOfPlaceholders: ["Name", "E-mail", SignupViewController.passwordPlaceholder, SignupViewController.repeatPasswordPlaceholder])
+        setTextFields(array: arrayOfTextFields, arrayOfPlaceholders: ["Name", "E-mail", Constants.passwPlaceholder, Constants.repeatPasswPlaceholder])
         nameTextField.addTarget(self, action: #selector(nameTFChanged(sender:)), for: .editingChanged)
         emailTextField.addTarget(self, action: #selector(emailTFChanged), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(passwordTFChanged), for: .editingChanged)
@@ -83,7 +83,10 @@ class SignupViewController: StackViewController {
     }
 
     @objc func repeatPasswordTFChanged(sender: UITextField) {
-        repeatPasswErrorLabel.text = validator.setRepeatPasswErrorLabel(passwtfText: passwordTextField.text ?? "", repeatPasswtfText: sender.text ?? "", errorLabelText: repeatPasswErrorLabel.text ?? "")
+        repeatPasswErrorLabel.text = validator.setRepeatPasswErrorLabel(
+            passwtfText: passwordTextField.text ?? "",
+            repeatPasswtfText: sender.text ?? "",
+            errorLabelText: repeatPasswErrorLabel.text ?? "")
         repeatPasswErrorLabel.textColor = .red
     }
     
@@ -100,7 +103,11 @@ class SignupViewController: StackViewController {
         let repeatPassword = repeatPasswordTextField.text ?? ""
         
         //checking the validation of login and password
-        if validator.isLoginCorrect(text: name) && validator.isLoginCorrect(text: email) && validator.isEmailCorrect(text: email) && validator.isPasswordCorrect(password: password) == true && validator.isRepeatPasswordCorrect(password: password, repeatPassword: repeatPassword) {
+        if validator.isLoginCorrect(text: name) &&
+            validator.isLoginCorrect(text: email) &&
+            validator.isEmailCorrect(text: email) &&
+            validator.isPasswordCorrect(password: password) == true &&
+            validator.isRepeatPasswordCorrect(password: password, repeatPassword: repeatPassword) {
             Auth.auth().createUser(withEmail: email, password: password) {(result, error) in
             }
             //saving the fact of user's registration

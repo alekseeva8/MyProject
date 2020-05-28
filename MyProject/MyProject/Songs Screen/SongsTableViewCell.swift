@@ -15,7 +15,7 @@ class SongsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
+
     @IBAction func likeButtonPressed(_ sender: UIButton) {
     }
 }

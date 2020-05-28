@@ -28,7 +28,6 @@ class FavoritesViewController: UIViewController {
     }
 }
 
-
 //MARK: - Delegate
 extension FavoritesViewController: UITableViewDelegate {
     

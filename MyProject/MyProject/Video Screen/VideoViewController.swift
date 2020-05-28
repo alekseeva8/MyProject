@@ -23,4 +23,3 @@ class VideoViewController: UIViewController {
         videoWebView.load(URLRequest(url: url))
     }
 }
-

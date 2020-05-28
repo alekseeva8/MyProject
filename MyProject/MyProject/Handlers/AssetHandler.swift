@@ -27,7 +27,7 @@ class AssetHandler {
             NetworkHandler.downloadAssetFrom(url: url) { (tmpUrl) in
                 print("downloaded")
                 completion(tmpUrl)
-                do{
+                do {
                     try fileManager.moveItem(at: tmpUrl, to: newDirectoryURL)
                     print("moved")
                 } catch {

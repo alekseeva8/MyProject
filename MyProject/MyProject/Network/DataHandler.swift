@@ -9,7 +9,6 @@
 import Foundation
 
 class DataHandler {
-    
     static func getTracks(completionHanndler: @escaping (Tracks) -> Void) {
         APIHandler.requestDataToAPI(urlString: Constants.urlStringAPI) { (data) in
             do {
@@ -17,8 +16,7 @@ class DataHandler {
                 DispatchQueue.main.async {
                     completionHanndler(tracks)
                 }
-            }
-            catch let error {
+            } catch let error {
                 print(error)
             }
         }

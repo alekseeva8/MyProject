@@ -15,9 +15,8 @@ class NetworkHandler {
         let session = URLSession.shared
         let task = session.downloadTask(with: url) { (tmpUrl, response, error) in
             guard let tmpUrl = tmpUrl else {return}
-            completion (tmpUrl)
+            completion(tmpUrl)
         }
         task.resume()
     }
-    
 }

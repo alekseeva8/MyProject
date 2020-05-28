@@ -12,7 +12,10 @@ class MAINViewController: UIViewController {
     let decoder = JSONDecoder()
     var favorites: [Audio] = []
     var collectionView: UICollectionView
-    let categories = [Category(name: "Songs", image: UIImage(named: "music-cake") ?? UIImage(), color: UIColor(named: "PinkCellColor") ?? UIColor()), Category(name: "Stories", image: UIImage(named: "fantasy") ?? UIImage(), color: UIColor(named: "YellowCellColor") ?? UIColor()), Category(name: "Learning Videos", image: UIImage(named: "artist") ?? UIImage(), color: UIColor(named: "GreenCellColor") ?? UIColor()), Category(name: "Favorities", image: UIImage(named: "hearts") ?? UIImage(), color: UIColor(named: "PurpleCellColor") ?? UIColor())]
+    let categories = [Category(name: "Songs", image: UIImage(named: "music-cake"), color: UIColor(named: "PinkCellColor")),
+                     Category(name: "Stories", image: UIImage(named: "fantasy"), color: UIColor(named: "YellowCellColor")),
+                     Category(name: "Videos", image: UIImage(named: "artist"), color: UIColor(named: "GreenCellColor")),
+                     Category(name: "Favorities", image: UIImage(named: "hearts"), color: UIColor(named: "PurpleCellColor"))]
     
     required init?(coder: NSCoder) {
         let layout = UICollectionViewFlowLayout()
@@ -107,12 +110,12 @@ extension MAINViewController {
             FirestoreHandler().getFavorites { (dictionariesArray) in
                 dictionariesArray.forEach { (dictionary) in
                     do {
-                        let jsonData = try? JSONSerialization.data(withJSONObject:dictionary)
+                        let jsonData = try? JSONSerialization.data(withJSONObject: dictionary)
                         let track = try self.decoder.decode(Track.self, from: jsonData!)
-                        guard let data = Data(base64Encoded:track.imageUrl) else {return}
+                        guard let data = Data(base64Encoded: track.imageUrl) else {return}
                         let url = URL(string: track.trackUrl)
                         self.favorites.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind, isFavorite: true))
-                    } catch let error  {
+                    } catch let error {
                         print(error.localizedDescription)
                     }
                 }
