@@ -27,32 +27,15 @@ class Validator {
         return loginIsCorrect
     }
     
-    func isLoginContainsCorrectSymbols(text: String) -> Bool {
-        var arrayOfActualSymbols: [Int] = []
-        let rangeOfCorrectSymbols1 = 65...90
-        let rangeOfCorrectSymbols2 = 48...57
-        let rangeOfCorrectSymbols3 = 97...122
-        for symbol in text.utf8 {
-            arrayOfActualSymbols.append(Int(symbol))
-        }
-        var numberCorrect = 0
-        arrayOfActualSymbols.forEach { (one) in
-            if rangeOfCorrectSymbols1.contains(one) ||
-                rangeOfCorrectSymbols2.contains(one) ||
-                rangeOfCorrectSymbols3.contains(one) {
-                numberCorrect += 1
-            }
-        }
-        return numberCorrect == text.count
-    }
-    
     func isEmailCorrect(text: String) -> Bool {
-        if text.contains("@") && text.contains(".") {
-            return true
-        }
-        else {
-            return false
-        }
+        let emailIsCorrect = validateEmail(text: text)
+        return emailIsCorrect
+    }
+
+    func validateEmail(text: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        return emailTest.evaluate(with: text)
     }
     
     func isPasswordCorrect(password: String) -> Bool {
@@ -85,7 +68,8 @@ class Validator {
             errorLabelText = "This field can't be empty"
         }
         else {
-            if tfText.contains("@") && tfText.contains(".") {
+            let emailIsCorrect =  validateEmail(text: tfText)
+            if emailIsCorrect == true {
                 errorLabelText = ""
             }
             else {
@@ -116,6 +100,4 @@ class Validator {
         }
         return errorLabelText
     }
-
-
 }
