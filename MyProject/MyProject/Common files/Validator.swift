@@ -67,4 +67,55 @@ class Validator {
     func isRepeatPasswordCorrect(password: String, repeatPassword: String) -> Bool {
         password == repeatPassword
     }
+
+    func setNameErrorLabel (tfText: String, errorLabelText: String) -> String {
+        var errorLabelText = errorLabelText
+        if tfText.isEmpty {
+            errorLabelText = "This field can't be empty"
+        }
+        else {
+            errorLabelText = ""
+        }
+        return errorLabelText
+    }
+
+    func setEmailErrorLabel (tfText: String, errorLabelText: String) -> String {
+        var errorLabelText = errorLabelText
+        if tfText.isEmpty {
+            errorLabelText = "This field can't be empty"
+        }
+        else {
+            if tfText.contains("@") && tfText.contains(".") {
+                errorLabelText = ""
+            }
+            else {
+                errorLabelText = "Incorrect e-mail"
+            }
+        }
+        return errorLabelText
+    }
+
+    func setPasswordErrorLabel (tfText: String, errorLabelText: String) -> String {
+        var errorLabelText = errorLabelText
+        if tfText.count < 6 {
+            errorLabelText = "Password must contain at least 6 symbols"
+        }
+        else {
+            errorLabelText = ""
+        }
+        return errorLabelText
+    }
+
+    func setRepeatPasswErrorLabel (passwtfText: String, repeatPasswtfText: String, errorLabelText: String) -> String {
+        var errorLabelText = errorLabelText
+        if passwtfText != repeatPasswtfText {
+            errorLabelText = "Incorrect password"
+        }
+        else {
+            errorLabelText = ""
+        }
+        return errorLabelText
+    }
+
+
 }

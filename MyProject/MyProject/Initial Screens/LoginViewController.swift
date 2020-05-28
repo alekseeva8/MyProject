@@ -12,7 +12,7 @@ import  FirebaseAuth
 class LoginViewController: StackViewController {
     
     let label = UILabel()
-    let usernameTextField = UITextField()
+    let emailTextField = UITextField()
     let passwordTextField = UITextField()
     let questionButton = UIButton()
     let button = UIButton()
@@ -25,15 +25,17 @@ class LoginViewController: StackViewController {
         mainStackView.addArrangedSubview(button)
         
         setLabel(label: label, text: "Log in to your account")
-        let arrayOfTextFields = [usernameTextField, passwordTextField]
-        setSubStackView(array: arrayOfTextFields, arrayOfPlaceholders: ["E-mail", "Password"])
+
+        subStackView.insertArrangedSubview(emailTextField, at: 0)
+        subStackView.addArrangedSubview(passwordTextField)
+        let arrayOfTextFields = [emailTextField, passwordTextField]
+        setTextFields(array: arrayOfTextFields, arrayOfPlaceholders: ["E-mail", "Password"])
+        
         setQuestionButton(button: questionButton, title: "Haven't got an account? Press here.")
         setButton(button: button, title: "LOG IN")
         
-        usernameTextField.delegate = self
+        emailTextField.delegate = self
         passwordTextField.delegate = self
-        
-        //usernameTextField.becomeFirstResponder()
     }
     
     
@@ -45,9 +47,9 @@ class LoginViewController: StackViewController {
     
     @objc func buttonPressed(sender: UIButton) {
         //check if user have already have user ID
-        let username = usernameTextField.text ?? ""
+        let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
-        Auth.auth().signIn(withEmail: username, password: password) {[weak self] (result, error) in
+        Auth.auth().signIn(withEmail: email, password: password) {[weak self] (result, error) in
             guard let self = self else { return }
             if error == nil {
                 //saving the fact of user's logging in
@@ -55,8 +57,7 @@ class LoginViewController: StackViewController {
                 self.performSegue(withIdentifier: "fromLoginToMainVC", sender: nil)
             }
             else {
-                print(error)
-                Alert.sendAlert(self)
+                Alert.sendAlertForLoginVC(self)
             }
         }
     }
@@ -73,7 +74,7 @@ class LoginViewController: StackViewController {
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == usernameTextField {
+        if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
         }
         if textField == passwordTextField {

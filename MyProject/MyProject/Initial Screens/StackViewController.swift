@@ -74,8 +74,16 @@ class StackViewController: UIViewController {
     }
     
     //MARK: - SubStackView
+
+    func subStackViewLayout() {
+        subStackView.widthAnchor.constraint(equalToConstant: 335).isActive = true
+        subStackView.axis = .vertical
+        subStackView.alignment = .fill
+        subStackView.distribution = .fill
+        subStackView.spacing = 10
+    }
     
-    func setSubStackView(array: [UITextField], arrayOfPlaceholders: [String]) {
+    func setTextFields(array: [UITextField], arrayOfPlaceholders: [String]) {
         for (index, item) in array.enumerated() {
             //item.textColor = UIColor(named: "TextFieldColor")
             item.borderStyle = .roundedRect
@@ -84,15 +92,14 @@ class StackViewController: UIViewController {
                 item.isSecureTextEntry = true
             }
             item.heightAnchor.constraint(equalToConstant: 34).isActive = true
-            subStackView.addArrangedSubview(item)
         }
     }
-    func subStackViewLayout() {
-        subStackView.widthAnchor.constraint(equalToConstant: 335).isActive = true
-        subStackView.axis = .vertical
-        subStackView.alignment = .fill
-        subStackView.distribution = .fill
-        subStackView.spacing = 25
+
+    func setLabels(array: [UILabel], text: [String]) {
+        for (index, item) in array.enumerated() {
+            item.text = text[index]
+            item.font = UIFont.systemFont(ofSize: 16)
+        }
     }
 }
 
