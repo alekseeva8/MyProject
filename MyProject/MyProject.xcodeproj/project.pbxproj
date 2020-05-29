@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1A88CC75C5DBADF5A911CE87 /* Pods_MyProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F9C82B3138BB8CFA075606 /* Pods_MyProject.framework */; };
+		F308D586247EE380002DBD67 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F308D585247EE380002DBD67 /* Constants.swift */; };
 		F32747E8246C04E60071843C /* Rio 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747E7246C04E60071843C /* Rio 2.mp3 */; };
-		F32747EC246C052E0071843C /* Ballerina 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747EB246C052E0071843C /* Ballerina 2.mp3 */; };
-		F32747EE246C09C10071843C /* Smallfoot 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747ED246C09C10071843C /* Smallfoot 2.mp3 */; };
-		F32747F0246C09CB0071843C /* Gerkules.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747EF246C09CB0071843C /* Gerkules.mp3 */; };
+		F32747EC246C052E0071843C /* Ballerina.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747EB246C052E0071843C /* Ballerina.mp3 */; };
+		F32747EE246C09C10071843C /* Smallfoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747ED246C09C10071843C /* Smallfoot.mp3 */; };
 		F32747F2246C09D20071843C /* Angry Birds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747F1246C09D20071843C /* Angry Birds.mp3 */; };
-		F32747F4246C09E30071843C /* Moana 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F32747F3246C09E30071843C /* Moana 2.mp3 */; };
 		F32747F6246C47A30071843C /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32747F5246C47A30071843C /* Audio.swift */; };
 		F32747FA246D5D2B0071843C /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32747F9246D5D2B0071843C /* StackViewController.swift */; };
 		F32747FF246D9F250071843C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32747FE246D9F250071843C /* Validator.swift */; };
@@ -22,8 +21,8 @@
 		F3344FBF2440AF3200E411B4 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBE2440AF3200E411B4 /* SignupViewController.swift */; };
 		F34A9A58245B3D4600DBC4D7 /* MAINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A57245B3D4600DBC4D7 /* MAINViewController.swift */; };
 		F34A9A5A245B3D9300DBC4D7 /* MAINCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A59245B3D9300DBC4D7 /* MAINCollectionViewCell.swift */; };
-		F34A9A5C2463CC5500DBC4D7 /* LocalDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A5B2463CC5500DBC4D7 /* LocalDataHandler.swift */; };
-		F34A9A632464579C00DBC4D7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A622464579C00DBC4D7 /* NetworkManager.swift */; };
+		F34A9A5C2463CC5500DBC4D7 /* LocalAssetsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A5B2463CC5500DBC4D7 /* LocalAssetsHandler.swift */; };
+		F34A9A632464579C00DBC4D7 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A622464579C00DBC4D7 /* NetworkHandler.swift */; };
 		F35124412475BE8E0024EB21 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35124402475BE8E0024EB21 /* FavoritesViewController.swift */; };
 		F357C5B2245B054A009E09AE /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F357C5B1245B054A009E09AE /* VideoViewController.swift */; };
 		F3709E3B2472652400C981E8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3709E3A2472652400C981E8 /* Category.swift */; };
@@ -35,7 +34,7 @@
 		F3726D762431ECFD00C37F00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3726D742431ECFD00C37F00 /* Main.storyboard */; };
 		F3726D782431ECFF00C37F00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3726D772431ECFF00C37F00 /* Assets.xcassets */; };
 		F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3726D792431ECFF00C37F00 /* LaunchScreen.storyboard */; };
-		F37AD2B5247505F4001244DF /* AudioHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37AD2B4247505F4001244DF /* AudioHandler.swift */; };
+		F37AD2B5247505F4001244DF /* AssetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37AD2B4247505F4001244DF /* AssetHandler.swift */; };
 		F384C211247646E0003296BA /* SongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F384C210247646E0003296BA /* SongsTableViewCell.swift */; };
 		F388CDD124508E2F0046B2DD /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */; };
 		F388CDD324508E740046B2DD /* StoriesCollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */; };
@@ -45,25 +44,23 @@
 		F39873FA2466FF3500545692 /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39873F92466FF3500545692 /* Tracks.swift */; };
 		F39873FF2469A4DD00545692 /* Ratatouille.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39873FE2469A4DD00545692 /* Ratatouille.mp3 */; };
 		F39874012469A78000545692 /* The Princess and the Frog.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874002469A78000545692 /* The Princess and the Frog.mp3 */; };
-		F39874032469A85900545692 /* Smallfoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874022469A85900545692 /* Smallfoot.mp3 */; };
 		F39874052469A89100545692 /* Grinch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874042469A89100545692 /* Grinch.mp3 */; };
 		F39874072469A89900545692 /* Moana.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874062469A89900545692 /* Moana.mp3 */; };
 		F39874092469A9BE00545692 /* Big Hero 6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874082469A9BE00545692 /* Big Hero 6.mp3 */; };
 		F398740B246A705000545692 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F398740A246A705000545692 /* GoogleService-Info.plist */; };
 		F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39D10B4245769690093CCF9 /* Rio.mp3 */; };
-		F3DBB270247D2E8C0020A519 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DBB26F247D2E8C0020A519 /* FirebaseManager.swift */; };
+		F3DBB270247D2E8C0020A519 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DBB26F247D2E8C0020A519 /* FirestoreManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3A4AA8A8CCF42C712C47E869 /* Pods-MyProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProject.debug.xcconfig"; path = "Target Support Files/Pods-MyProject/Pods-MyProject.debug.xcconfig"; sourceTree = "<group>"; };
 		63F9C82B3138BB8CFA075606 /* Pods_MyProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BF01C57285BA48B362E0F5 /* Pods-MyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProject.release.xcconfig"; path = "Target Support Files/Pods-MyProject/Pods-MyProject.release.xcconfig"; sourceTree = "<group>"; };
+		F308D585247EE380002DBD67 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F32747E7246C04E60071843C /* Rio 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Rio 2.mp3"; sourceTree = "<group>"; };
-		F32747EB246C052E0071843C /* Ballerina 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ballerina 2.mp3"; sourceTree = "<group>"; };
-		F32747ED246C09C10071843C /* Smallfoot 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Smallfoot 2.mp3"; sourceTree = "<group>"; };
-		F32747EF246C09CB0071843C /* Gerkules.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Gerkules.mp3; sourceTree = "<group>"; };
+		F32747EB246C052E0071843C /* Ballerina.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ballerina.mp3; sourceTree = "<group>"; };
+		F32747ED246C09C10071843C /* Smallfoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Smallfoot.mp3; sourceTree = "<group>"; };
 		F32747F1246C09D20071843C /* Angry Birds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Angry Birds.mp3"; sourceTree = "<group>"; };
-		F32747F3246C09E30071843C /* Moana 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Moana 2.mp3"; sourceTree = "<group>"; };
 		F32747F5246C47A30071843C /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		F32747F9246D5D2B0071843C /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
 		F32747FE246D9F250071843C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -72,8 +69,8 @@
 		F3344FBE2440AF3200E411B4 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F34A9A57245B3D4600DBC4D7 /* MAINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAINViewController.swift; sourceTree = "<group>"; };
 		F34A9A59245B3D9300DBC4D7 /* MAINCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAINCollectionViewCell.swift; sourceTree = "<group>"; };
-		F34A9A5B2463CC5500DBC4D7 /* LocalDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataHandler.swift; sourceTree = "<group>"; };
-		F34A9A622464579C00DBC4D7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F34A9A5B2463CC5500DBC4D7 /* LocalAssetsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAssetsHandler.swift; sourceTree = "<group>"; };
+		F34A9A622464579C00DBC4D7 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		F35124402475BE8E0024EB21 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F357C5B1245B054A009E09AE /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		F3709E3A2472652400C981E8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -87,7 +84,7 @@
 		F3726D772431ECFF00C37F00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3726D7A2431ECFF00C37F00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3726D7C2431ECFF00C37F00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F37AD2B4247505F4001244DF /* AudioHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHandler.swift; sourceTree = "<group>"; };
+		F37AD2B4247505F4001244DF /* AssetHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetHandler.swift; sourceTree = "<group>"; };
 		F384C210247646E0003296BA /* SongsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewCell.swift; sourceTree = "<group>"; };
 		F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
 		F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectViewController.swift; sourceTree = "<group>"; };
@@ -97,13 +94,12 @@
 		F39873F92466FF3500545692 /* Tracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
 		F39873FE2469A4DD00545692 /* Ratatouille.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ratatouille.mp3; sourceTree = "<group>"; };
 		F39874002469A78000545692 /* The Princess and the Frog.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Princess and the Frog.mp3"; sourceTree = "<group>"; };
-		F39874022469A85900545692 /* Smallfoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Smallfoot.mp3; sourceTree = "<group>"; };
 		F39874042469A89100545692 /* Grinch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Grinch.mp3; sourceTree = "<group>"; };
 		F39874062469A89900545692 /* Moana.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Moana.mp3; sourceTree = "<group>"; };
 		F39874082469A9BE00545692 /* Big Hero 6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Big Hero 6.mp3"; sourceTree = "<group>"; };
 		F398740A246A705000545692 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F39D10B4245769690093CCF9 /* Rio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rio.mp3; sourceTree = "<group>"; };
-		F3DBB26F247D2E8C0020A519 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		F3DBB26F247D2E8C0020A519 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +131,67 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F308D584247EE2B8002DBD67 /* Video Screen */ = {
+			isa = PBXGroup;
+			children = (
+				F357C5B1245B054A009E09AE /* VideoViewController.swift */,
+			);
+			path = "Video Screen";
+			sourceTree = "<group>";
+		};
+		F308D587247EE4DF002DBD67 /* AudioPlayer Screen */ = {
+			isa = PBXGroup;
+			children = (
+				F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */,
+			);
+			path = "AudioPlayer Screen";
+			sourceTree = "<group>";
+		};
+		F308D588247EE513002DBD67 /* Favorites Screen */ = {
+			isa = PBXGroup;
+			children = (
+				F35124402475BE8E0024EB21 /* FavoritesViewController.swift */,
+			);
+			path = "Favorites Screen";
+			sourceTree = "<group>";
+		};
+		F308D58A247EE71B002DBD67 /* Common files */ = {
+			isa = PBXGroup;
+			children = (
+				F3718DC22458945F00EC7054 /* AudioManager.swift */,
+				F308D585247EE380002DBD67 /* Constants.swift */,
+				F3274800246DA9A70071843C /* Alert.swift */,
+				F32747FE246D9F250071843C /* Validator.swift */,
+			);
+			path = "Common files";
+			sourceTree = "<group>";
+		};
+		F308D58B247EE909002DBD67 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				F3DBB26F247D2E8C0020A519 /* FirestoreManager.swift */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
+		F308D58C247EE9F6002DBD67 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				F34A9A5B2463CC5500DBC4D7 /* LocalAssetsHandler.swift */,
+				F37AD2B4247505F4001244DF /* AssetHandler.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		F308D58D247F00AC002DBD67 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F3709E3A2472652400C981E8 /* Category.swift */,
+				F32747F5246C47A30071843C /* Audio.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F32747F8246D5C9D0071843C /* Initial Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,32 +202,31 @@
 			path = "Initial Screens";
 			sourceTree = "<group>";
 		};
-		F34A9A64246465C700DBC4D7 /* MAIN */ = {
+		F34A9A64246465C700DBC4D7 /* MAIN Screen */ = {
 			isa = PBXGroup;
 			children = (
-				F3709E3A2472652400C981E8 /* Category.swift */,
 				F34A9A57245B3D4600DBC4D7 /* MAINViewController.swift */,
 				F34A9A59245B3D9300DBC4D7 /* MAINCollectionViewCell.swift */,
 			);
-			path = MAIN;
+			path = "MAIN Screen";
 			sourceTree = "<group>";
 		};
-		F34A9A65246465F700DBC4D7 /* SongsTable */ = {
+		F34A9A65246465F700DBC4D7 /* Songs Screen */ = {
 			isa = PBXGroup;
 			children = (
 				F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */,
 				F384C210247646E0003296BA /* SongsTableViewCell.swift */,
 			);
-			path = SongsTable;
+			path = "Songs Screen";
 			sourceTree = "<group>";
 		};
-		F34A9A662464666400DBC4D7 /* StoriesCollection */ = {
+		F34A9A662464666400DBC4D7 /* Stories Screen */ = {
 			isa = PBXGroup;
 			children = (
 				F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */,
 				F3718DCE2459E09C00EC7054 /* StoriesCollectViewCell.swift */,
 			);
-			path = StoriesCollection;
+			path = "Stories Screen";
 			sourceTree = "<group>";
 		};
 		F3726D622431ECFD00C37F00 = {
@@ -199,18 +255,17 @@
 				F3726D792431ECFF00C37F00 /* LaunchScreen.storyboard */,
 				F3726D742431ECFD00C37F00 /* Main.storyboard */,
 				F32747F8246D5C9D0071843C /* Initial Screens */,
-				F34A9A64246465C700DBC4D7 /* MAIN */,
-				F34A9A65246465F700DBC4D7 /* SongsTable */,
-				F34A9A662464666400DBC4D7 /* StoriesCollection */,
-				F32747F5246C47A30071843C /* Audio.swift */,
-				F3718DC22458945F00EC7054 /* AudioManager.swift */,
-				F39873F92466FF3500545692 /* Tracks.swift */,
-				F3D723452475A4CA002A03ED /* Handlers */,
-				F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */,
-				F357C5B1245B054A009E09AE /* VideoViewController.swift */,
-				F35124402475BE8E0024EB21 /* FavoritesViewController.swift */,
-				F32747FE246D9F250071843C /* Validator.swift */,
-				F3274800246DA9A70071843C /* Alert.swift */,
+				F34A9A64246465C700DBC4D7 /* MAIN Screen */,
+				F34A9A65246465F700DBC4D7 /* Songs Screen */,
+				F34A9A662464666400DBC4D7 /* Stories Screen */,
+				F308D587247EE4DF002DBD67 /* AudioPlayer Screen */,
+				F308D584247EE2B8002DBD67 /* Video Screen */,
+				F308D588247EE513002DBD67 /* Favorites Screen */,
+				F308D58D247F00AC002DBD67 /* Models */,
+				F308D58C247EE9F6002DBD67 /* Handlers */,
+				F308D58B247EE909002DBD67 /* Firestore */,
+				F308D58A247EE71B002DBD67 /* Common files */,
+				F3D723452475A4CA002A03ED /* Network */,
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
 				F3E2991D245876EF00EBB3E7 /* Assets */,
 				F3726D7C2431ECFF00C37F00 /* Info.plist */,
@@ -219,17 +274,15 @@
 			path = MyProject;
 			sourceTree = "<group>";
 		};
-		F3D723452475A4CA002A03ED /* Handlers */ = {
+		F3D723452475A4CA002A03ED /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F39873F92466FF3500545692 /* Tracks.swift */,
 				F39873F32466F51C00545692 /* APIHandler.swift */,
 				F39873F72466F86F00545692 /* DataHandler.swift */,
-				F34A9A5B2463CC5500DBC4D7 /* LocalDataHandler.swift */,
-				F34A9A622464579C00DBC4D7 /* NetworkManager.swift */,
-				F3DBB26F247D2E8C0020A519 /* FirebaseManager.swift */,
-				F37AD2B4247505F4001244DF /* AudioHandler.swift */,
+				F34A9A622464579C00DBC4D7 /* NetworkHandler.swift */,
 			);
-			path = Handlers;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		F3E2991D245876EF00EBB3E7 /* Assets */ = {
@@ -239,16 +292,13 @@
 				F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */,
 				F39873FE2469A4DD00545692 /* Ratatouille.mp3 */,
 				F39874002469A78000545692 /* The Princess and the Frog.mp3 */,
-				F39874022469A85900545692 /* Smallfoot.mp3 */,
 				F39874042469A89100545692 /* Grinch.mp3 */,
 				F39874082469A9BE00545692 /* Big Hero 6.mp3 */,
 				F39874062469A89900545692 /* Moana.mp3 */,
 				F32747E7246C04E60071843C /* Rio 2.mp3 */,
-				F32747EB246C052E0071843C /* Ballerina 2.mp3 */,
-				F32747ED246C09C10071843C /* Smallfoot 2.mp3 */,
-				F32747EF246C09CB0071843C /* Gerkules.mp3 */,
+				F32747EB246C052E0071843C /* Ballerina.mp3 */,
+				F32747ED246C09C10071843C /* Smallfoot.mp3 */,
 				F32747F1246C09D20071843C /* Angry Birds.mp3 */,
-				F32747F3246C09E30071843C /* Moana 2.mp3 */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -265,6 +315,7 @@
 				F3726D682431ECFD00C37F00 /* Frameworks */,
 				F3726D692431ECFD00C37F00 /* Resources */,
 				9DE29A2C83DD2552DC1843A7 /* [CP] Embed Pods Frameworks */,
+				F31EDA43247FE1E700B303AE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -313,15 +364,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F32747EE246C09C10071843C /* Smallfoot 2.mp3 in Resources */,
-				F32747F0246C09CB0071843C /* Gerkules.mp3 in Resources */,
+				F32747EE246C09C10071843C /* Smallfoot.mp3 in Resources */,
 				F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */,
 				F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */,
-				F32747EC246C052E0071843C /* Ballerina 2.mp3 in Resources */,
+				F32747EC246C052E0071843C /* Ballerina.mp3 in Resources */,
 				F39874072469A89900545692 /* Moana.mp3 in Resources */,
-				F39874032469A85900545692 /* Smallfoot.mp3 in Resources */,
 				F39874052469A89100545692 /* Grinch.mp3 in Resources */,
-				F32747F4246C09E30071843C /* Moana 2.mp3 in Resources */,
 				F32747E8246C04E60071843C /* Rio 2.mp3 in Resources */,
 				F39873FF2469A4DD00545692 /* Ratatouille.mp3 in Resources */,
 				F3726D782431ECFF00C37F00 /* Assets.xcassets in Resources */,
@@ -376,6 +424,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyProject/Pods-MyProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F31EDA43247FE1E700B303AE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -391,10 +456,10 @@
 				F3718DCF2459E09C00EC7054 /* StoriesCollectViewCell.swift in Sources */,
 				F39873F82466F86F00545692 /* DataHandler.swift in Sources */,
 				F3344FBF2440AF3200E411B4 /* SignupViewController.swift in Sources */,
-				F3DBB270247D2E8C0020A519 /* FirebaseManager.swift in Sources */,
-				F34A9A632464579C00DBC4D7 /* NetworkManager.swift in Sources */,
-				F34A9A5C2463CC5500DBC4D7 /* LocalDataHandler.swift in Sources */,
-				F37AD2B5247505F4001244DF /* AudioHandler.swift in Sources */,
+				F3DBB270247D2E8C0020A519 /* FirestoreManager.swift in Sources */,
+				F34A9A632464579C00DBC4D7 /* NetworkHandler.swift in Sources */,
+				F34A9A5C2463CC5500DBC4D7 /* LocalAssetsHandler.swift in Sources */,
+				F37AD2B5247505F4001244DF /* AssetHandler.swift in Sources */,
 				F388CDD124508E2F0046B2DD /* SongsTableViewController.swift in Sources */,
 				F384C211247646E0003296BA /* SongsTableViewCell.swift in Sources */,
 				F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */,
@@ -409,6 +474,7 @@
 				F32747FF246D9F250071843C /* Validator.swift in Sources */,
 				F3726D712431ECFD00C37F00 /* SceneDelegate.swift in Sources */,
 				F39873FA2466FF3500545692 /* Tracks.swift in Sources */,
+				F308D586247EE380002DBD67 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

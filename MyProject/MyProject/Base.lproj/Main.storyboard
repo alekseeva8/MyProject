@@ -350,7 +350,7 @@
                     <navigationItem key="navigationItem" id="CfY-hn-W45"/>
                     <connections>
                         <segue destination="2bf-TE-1j5" kind="presentation" identifier="fromSignupToMainVC" modalPresentationStyle="fullScreen" id="Oh0-q7-h4s"/>
-                        <segue destination="HOE-1N-jvD" kind="show" identifier="toLoginVC" id="wLi-m7-RDZ"/>
+                        <segue destination="HOE-1N-jvD" kind="presentation" identifier="toLoginVC" modalPresentationStyle="fullScreen" id="wLi-m7-RDZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFy-gw-W2m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -362,7 +362,7 @@
             <objects>
                 <viewController id="HOE-1N-jvD" customClass="LoginViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eqi-vG-Dzz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="zwc-No-0MO"/>
@@ -375,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKQ-Gr-1pu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="536"/>
+            <point key="canvasLocation" x="1761" y="593"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lca-mp-PoH">

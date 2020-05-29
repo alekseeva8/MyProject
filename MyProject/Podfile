@@ -9,5 +9,6 @@ target 'MyProject' do
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
     pod 'FirebaseFirestoreSwift'
+    pod 'SwiftLint'
 
 end

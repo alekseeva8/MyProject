@@ -74,25 +74,31 @@ class StackViewController: UIViewController {
     }
     
     //MARK: - SubStackView
-    
-    func setSubStackView(array: [UITextField], arrayOfPlaceholders: [String]) {
-        for (index, item) in array.enumerated() {
-            //item.textColor = UIColor(named: "TextFieldColor")
-            item.borderStyle = .roundedRect
-            item.placeholder = arrayOfPlaceholders[index]
-            if item.placeholder == SignupViewController.passwordPlaceholder || item.placeholder == SignupViewController.repeatPasswordPlaceholder {
-                item.isSecureTextEntry = true
-            }
-            item.heightAnchor.constraint(equalToConstant: 34).isActive = true
-            subStackView.addArrangedSubview(item)
-        }
-    }
+
     func subStackViewLayout() {
         subStackView.widthAnchor.constraint(equalToConstant: 335).isActive = true
         subStackView.axis = .vertical
         subStackView.alignment = .fill
         subStackView.distribution = .fill
-        subStackView.spacing = 25
+        subStackView.spacing = 10
+    }
+    
+    func setTextFields(array: [UITextField], arrayOfPlaceholders: [String]) {
+        for (index, item) in array.enumerated() {
+            item.borderStyle = .roundedRect
+            item.placeholder = arrayOfPlaceholders[index]
+            if item.placeholder == Constants.passwPlaceholder ||
+            item.placeholder == Constants.repeatPasswPlaceholder {
+                item.isSecureTextEntry = true
+            }
+            item.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        }
+    }
+
+    func setLabels(array: [UILabel], text: [String]) {
+        for (index, item) in array.enumerated() {
+            item.text = text[index]
+            item.font = UIFont.systemFont(ofSize: 16)
+        }
     }
 }
-
