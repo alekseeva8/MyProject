@@ -67,7 +67,7 @@ extension StoriesCollectViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesCollectViewCell.reuseID, for: indexPath) as! StoriesCollectViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesCollectViewCell.reuseID, for: indexPath) as? StoriesCollectViewCell else  {fatalError("There is no cell")}
         cell.storyImageView.image = stories[indexPath.row].image
         return cell
     }

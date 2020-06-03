@@ -75,13 +75,13 @@
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="likeButtonPressed:" destination="yzq-z8-WcA" eventType="touchDown" id="bdL-WM-lRU"/>
+                                                        <action selector="likeButtonPressed:" destination="yzq-z8-WcA" eventType="touchUpInside" id="RYC-aw-qrm"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="likeButton" destination="Dyn-zB-JY3" id="uG1-Vd-77j"/>
+                                            <outlet property="likeButton" destination="Dyn-zB-JY3" id="75P-DT-zWi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -475,7 +475,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="wLi-m7-RDZ"/>
         <segue reference="sp7-Ed-KhA"/>
-        <segue reference="JCm-ck-0vV"/>
+        <segue reference="Oh0-q7-h4s"/>
         <segue reference="2fo-9K-mhP"/>
     </inferredMetricsTieBreakers>
 </document>

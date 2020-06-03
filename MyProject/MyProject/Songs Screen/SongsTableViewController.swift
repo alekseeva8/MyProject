@@ -21,10 +21,6 @@ class SongsTableViewController: UIViewController {
         return false
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        favorites = []
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Songs"
@@ -36,6 +32,11 @@ class SongsTableViewController: UIViewController {
         
         songs = LocalAssetsHandler.getAssets()
         getSongs()
+    }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
+        favorites = []
     }
     
     @IBAction func favoritesButtonPressed(_ sender: UIButton) {
@@ -108,7 +109,7 @@ extension SongsTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "songsTableViewCell", for: indexPath) as! SongsTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "songsTableViewCell", for: indexPath) as? SongsTableViewCell else  {fatalError("There is no cell")}
         cell.textLabel?.text = songs[indexPath.row].name
         cell.imageView?.image = songs[indexPath.row].image
         cell.textLabel?.font = UIFont.systemFont(ofSize: 19)

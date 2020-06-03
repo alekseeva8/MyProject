@@ -25,10 +25,6 @@ class MAINViewController: UIViewController {
         super.init(coder: coder)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        favorites = []
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarStyle()
@@ -38,6 +34,10 @@ class MAINViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(MAINCollectionViewCell.self, forCellWithReuseIdentifier: MAINCollectionViewCell.reuseID)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        favorites = []
     }
     
     func setNavigationBarStyle() {
@@ -63,8 +63,7 @@ extension MAINViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MAINCollectionViewCell.reuseID, for: indexPath) as! MAINCollectionViewCell
-        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MAINCollectionViewCell.reuseID, for: indexPath) as? MAINCollectionViewCell else  {fatalError("There is no cell")}
         cell.layer.cornerRadius = 10
         let category = categories[indexPath.row]
         cell.setCategory(category)
@@ -110,8 +109,8 @@ extension MAINViewController {
             FirestoreHandler().getFavorites { (dictionariesArray) in
                 dictionariesArray.forEach { (dictionary) in
                     do {
-                        let jsonData = try? JSONSerialization.data(withJSONObject: dictionary)
-                        let track = try self.decoder.decode(Track.self, from: jsonData!)
+                        guard let jsonData = try? JSONSerialization.data(withJSONObject: dictionary) else {return}
+                        let track = try self.decoder.decode(Track.self, from: jsonData)
                         guard let data = Data(base64Encoded: track.imageUrl) else {return}
                         let url = URL(string: track.trackUrl)
                         self.favorites.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind, isFavorite: true))

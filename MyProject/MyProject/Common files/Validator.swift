@@ -71,7 +71,7 @@ class Validator {
                 errorLabelText = ""
             }
             else {
-                errorLabelText = "Incorrect e-mail"
+                errorLabelText = "E-mail is not valid"
             }
         }
         return errorLabelText
@@ -90,7 +90,7 @@ class Validator {
     func setRepeatPasswErrorLabel (passwtfText: String, repeatPasswtfText: String, errorLabelText: String) -> String {
         var errorLabelText = errorLabelText
         if passwtfText != repeatPasswtfText {
-            errorLabelText = "Incorrect password"
+            errorLabelText = "You entered wrong password"
         } else {
             errorLabelText = ""
         }
