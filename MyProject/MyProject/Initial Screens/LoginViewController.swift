@@ -66,7 +66,7 @@ class LoginViewController: StackViewController {
         button.addTarget(self, action: #selector(questionButtonPressed), for: .touchUpInside)
     }
     @objc func questionButtonPressed(sender: UIButton) {
-        performSegue(withIdentifier: "toSignupVC", sender: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 

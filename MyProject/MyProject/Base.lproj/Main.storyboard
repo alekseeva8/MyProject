@@ -360,7 +360,7 @@
         <!--Login View Controller-->
         <scene sceneID="8dw-MT-qDg">
             <objects>
-                <viewController id="HOE-1N-jvD" customClass="LoginViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HOE-1N-jvD" customClass="LoginViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eqi-vG-Dzz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -369,7 +369,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Qb1-rK-9PR"/>
                     <connections>
-                        <segue destination="jpH-dN-sh6" kind="presentation" identifier="toSignupVC" modalPresentationStyle="fullScreen" id="NX3-Q7-0TJ"/>
                         <segue destination="2bf-TE-1j5" kind="presentation" identifier="fromLoginToMainVC" modalPresentationStyle="fullScreen" id="JCm-ck-0vV"/>
                     </connections>
                 </viewController>
@@ -473,9 +472,8 @@
         <image name="speaker.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wLi-m7-RDZ"/>
         <segue reference="sp7-Ed-KhA"/>
-        <segue reference="Oh0-q7-h4s"/>
+        <segue reference="JCm-ck-0vV"/>
         <segue reference="2fo-9K-mhP"/>
     </inferredMetricsTieBreakers>
 </document>

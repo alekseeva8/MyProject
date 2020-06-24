@@ -23,8 +23,6 @@ class SignupViewController: StackViewController {
     let repeatPasswErrorLabel = UILabel()
     let questionButton = UIButton()
     let button = UIButton()
-//    static let passwordPlaceholder = "Password"
-//    static let repeatPasswordPlaceholder = "Repeat password"
     let validator = Validator()
     
     override func viewDidLoad() {
@@ -123,7 +121,7 @@ class SignupViewController: StackViewController {
         button.addTarget(self, action: #selector(questionButtonPressed), for: .touchUpInside)
     }
     @objc func questionButtonPressed(sender: UIButton) {
-        performSegue(withIdentifier: "toLoginVC", sender: nil)
+          performSegue(withIdentifier: "toLoginVC", sender: nil)
     }
 }
 
