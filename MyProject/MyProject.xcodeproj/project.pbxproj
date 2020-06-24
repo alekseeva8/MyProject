@@ -47,8 +47,8 @@
 		F39874052469A89100545692 /* Grinch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874042469A89100545692 /* Grinch.mp3 */; };
 		F39874072469A89900545692 /* Moana.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874062469A89900545692 /* Moana.mp3 */; };
 		F39874092469A9BE00545692 /* Big Hero 6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874082469A9BE00545692 /* Big Hero 6.mp3 */; };
-		F398740B246A705000545692 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F398740A246A705000545692 /* GoogleService-Info.plist */; };
 		F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39D10B4245769690093CCF9 /* Rio.mp3 */; };
+		F3B2492C24A32779002C1008 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3B2492B24A32778002C1008 /* GoogleService-Info.plist */; };
 		F3DBB270247D2E8C0020A519 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DBB26F247D2E8C0020A519 /* FirestoreManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,8 +97,8 @@
 		F39874042469A89100545692 /* Grinch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Grinch.mp3; sourceTree = "<group>"; };
 		F39874062469A89900545692 /* Moana.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Moana.mp3; sourceTree = "<group>"; };
 		F39874082469A9BE00545692 /* Big Hero 6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Big Hero 6.mp3"; sourceTree = "<group>"; };
-		F398740A246A705000545692 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F39D10B4245769690093CCF9 /* Rio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rio.mp3; sourceTree = "<group>"; };
+		F3B2492B24A32778002C1008 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3DBB26F247D2E8C0020A519 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,7 +269,7 @@
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
 				F3E2991D245876EF00EBB3E7 /* Assets */,
 				F3726D7C2431ECFF00C37F00 /* Info.plist */,
-				F398740A246A705000545692 /* GoogleService-Info.plist */,
+				F3B2492B24A32778002C1008 /* GoogleService-Info.plist */,
 			);
 			path = MyProject;
 			sourceTree = "<group>";
@@ -366,6 +366,7 @@
 			files = (
 				F32747EE246C09C10071843C /* Smallfoot.mp3 in Resources */,
 				F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */,
+				F3B2492C24A32779002C1008 /* GoogleService-Info.plist in Resources */,
 				F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */,
 				F32747EC246C052E0071843C /* Ballerina.mp3 in Resources */,
 				F39874072469A89900545692 /* Moana.mp3 in Resources */,
@@ -378,7 +379,6 @@
 				F32747F2246C09D20071843C /* Angry Birds.mp3 in Resources */,
 				F3726D762431ECFD00C37F00 /* Main.storyboard in Resources */,
 				F39874092469A9BE00545692 /* Big Hero 6.mp3 in Resources */,
-				F398740B246A705000545692 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
