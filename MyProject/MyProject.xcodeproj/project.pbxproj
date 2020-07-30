@@ -131,33 +131,34 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		F308D584247EE2B8002DBD67 /* Video Screen */ = {
+		F308D584247EE2B8002DBD67 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				F357C5B1245B054A009E09AE /* VideoViewController.swift */,
+				F3A898D624D2E9EF00EBE695 /* Controller */,
 			);
-			path = "Video Screen";
+			path = Video;
 			sourceTree = "<group>";
 		};
-		F308D587247EE4DF002DBD67 /* AudioPlayer Screen */ = {
+		F308D587247EE4DF002DBD67 /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */,
+				F3A898D524D2E9E400EBE695 /* Controller */,
 			);
-			path = "AudioPlayer Screen";
+			path = AudioPlayer;
 			sourceTree = "<group>";
 		};
-		F308D588247EE513002DBD67 /* Favorites Screen */ = {
+		F308D588247EE513002DBD67 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				F35124402475BE8E0024EB21 /* FavoritesViewController.swift */,
+				F3A898D724D2EA0700EBE695 /* Controller */,
 			);
-			path = "Favorites Screen";
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		F308D58A247EE71B002DBD67 /* Common files */ = {
 			isa = PBXGroup;
 			children = (
+				F32747F9246D5D2B0071843C /* StackViewController.swift */,
 				F3718DC22458945F00EC7054 /* AudioManager.swift */,
 				F308D585247EE380002DBD67 /* Constants.swift */,
 				F3274800246DA9A70071843C /* Alert.swift */,
@@ -183,50 +184,48 @@
 			path = Handlers;
 			sourceTree = "<group>";
 		};
-		F308D58D247F00AC002DBD67 /* Models */ = {
+		F308D58D247F00AC002DBD67 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F3709E3A2472652400C981E8 /* Category.swift */,
 				F32747F5246C47A30071843C /* Audio.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		F32747F8246D5C9D0071843C /* Initial Screens */ = {
+		F32747F8246D5C9D0071843C /* Signup */ = {
 			isa = PBXGroup;
 			children = (
-				F32747F9246D5D2B0071843C /* StackViewController.swift */,
-				F3344FBE2440AF3200E411B4 /* SignupViewController.swift */,
-				F3344FBA24409C2E00E411B4 /* LoginViewController.swift */,
+				F3A898D324D2E9AE00EBE695 /* Controller */,
 			);
-			path = "Initial Screens";
+			path = Signup;
 			sourceTree = "<group>";
 		};
-		F34A9A64246465C700DBC4D7 /* MAIN Screen */ = {
+		F34A9A64246465C700DBC4D7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				F34A9A57245B3D4600DBC4D7 /* MAINViewController.swift */,
-				F34A9A59245B3D9300DBC4D7 /* MAINCollectionViewCell.swift */,
+				F3A898CD24D2E93F00EBE695 /* Controller */,
+				F3A898CE24D2E95100EBE695 /* View */,
 			);
-			path = "MAIN Screen";
+			path = Main;
 			sourceTree = "<group>";
 		};
-		F34A9A65246465F700DBC4D7 /* Songs Screen */ = {
+		F34A9A65246465F700DBC4D7 /* Songs */ = {
 			isa = PBXGroup;
 			children = (
-				F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */,
-				F384C210247646E0003296BA /* SongsTableViewCell.swift */,
+				F3A898CF24D2E96500EBE695 /* Controller */,
+				F3A898D024D2E97100EBE695 /* View */,
 			);
-			path = "Songs Screen";
+			path = Songs;
 			sourceTree = "<group>";
 		};
-		F34A9A662464666400DBC4D7 /* Stories Screen */ = {
+		F34A9A662464666400DBC4D7 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
-				F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */,
-				F3718DCE2459E09C00EC7054 /* StoriesCollectViewCell.swift */,
+				F3A898D124D2E98600EBE695 /* Controller */,
+				F3A898D224D2E99000EBE695 /* View */,
 			);
-			path = "Stories Screen";
+			path = Stories;
 			sourceTree = "<group>";
 		};
 		F3726D622431ECFD00C37F00 = {
@@ -254,24 +253,121 @@
 				F3726D702431ECFD00C37F00 /* SceneDelegate.swift */,
 				F3726D792431ECFF00C37F00 /* LaunchScreen.storyboard */,
 				F3726D742431ECFD00C37F00 /* Main.storyboard */,
-				F32747F8246D5C9D0071843C /* Initial Screens */,
-				F34A9A64246465C700DBC4D7 /* MAIN Screen */,
-				F34A9A65246465F700DBC4D7 /* Songs Screen */,
-				F34A9A662464666400DBC4D7 /* Stories Screen */,
-				F308D587247EE4DF002DBD67 /* AudioPlayer Screen */,
-				F308D584247EE2B8002DBD67 /* Video Screen */,
-				F308D588247EE513002DBD67 /* Favorites Screen */,
-				F308D58D247F00AC002DBD67 /* Models */,
+				F308D58D247F00AC002DBD67 /* Model */,
+				F32747F8246D5C9D0071843C /* Signup */,
+				F3A898CC24D2E62500EBE695 /* Login */,
+				F34A9A64246465C700DBC4D7 /* Main */,
+				F34A9A65246465F700DBC4D7 /* Songs */,
+				F34A9A662464666400DBC4D7 /* Stories */,
+				F308D587247EE4DF002DBD67 /* AudioPlayer */,
+				F308D584247EE2B8002DBD67 /* Video */,
+				F308D588247EE513002DBD67 /* Favorites */,
+				F3D723452475A4CA002A03ED /* Network */,
 				F308D58C247EE9F6002DBD67 /* Handlers */,
 				F308D58B247EE909002DBD67 /* Firestore */,
 				F308D58A247EE71B002DBD67 /* Common files */,
-				F3D723452475A4CA002A03ED /* Network */,
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
 				F3E2991D245876EF00EBB3E7 /* Assets */,
 				F3726D7C2431ECFF00C37F00 /* Info.plist */,
 				F3A898CA24D2E0FD00EBE695 /* GoogleService-Info.plist */,
 			);
 			path = MyProject;
+			sourceTree = "<group>";
+		};
+		F3A898CC24D2E62500EBE695 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F3A898D424D2E9C200EBE695 /* Controller */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F3A898CD24D2E93F00EBE695 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F34A9A57245B3D4600DBC4D7 /* MAINViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F3A898CE24D2E95100EBE695 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F34A9A59245B3D9300DBC4D7 /* MAINCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3A898CF24D2E96500EBE695 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F388CDD024508E2F0046B2DD /* SongsTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F3A898D024D2E97100EBE695 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F384C210247646E0003296BA /* SongsTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3A898D124D2E98600EBE695 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F388CDD224508E740046B2DD /* StoriesCollectViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F3A898D224D2E99000EBE695 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3718DCE2459E09C00EC7054 /* StoriesCollectViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3A898D324D2E9AE00EBE695 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F3344FBE2440AF3200E411B4 /* SignupViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F3A898D424D2E9C200EBE695 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F3344FBA24409C2E00E411B4 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F3A898D524D2E9E400EBE695 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F388CDD424508F610046B2DD /* AudioPlayerViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F3A898D624D2E9EF00EBE695 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F357C5B1245B054A009E09AE /* VideoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F3A898D724D2EA0700EBE695 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F35124402475BE8E0024EB21 /* FavoritesViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		F3D723452475A4CA002A03ED /* Network */ = {

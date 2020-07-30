@@ -34,7 +34,6 @@ class SongsTableViewController: UIViewController {
         getSongs()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
     override func viewDidDisappear(_ animated: Bool) {
         favorites = []
     }
@@ -83,11 +82,9 @@ extension SongsTableViewController {
                         }
                     }
                 }
-                print("2nd reloading after favorites received")
                 self?.tableView.reloadData()
             }
             self?.tableView.reloadData()
-            print("1st tableView reloading")
         }
     }
 }
