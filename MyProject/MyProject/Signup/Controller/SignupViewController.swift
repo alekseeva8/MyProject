@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseAuth
-import  Firebase
+import Firebase
 
 class SignupViewController: StackViewController {
     
@@ -66,25 +66,29 @@ class SignupViewController: StackViewController {
 
     //MARK: - TextFields' methods
     @objc func nameTFChanged(sender: UITextField) {
-        nameErrorLabel.text = validator.setNameErrorLabel(tfText: sender.text ?? "", errorLabelText: nameErrorLabel.text ?? "")
+        let text = sender.text ?? ""
+        nameErrorLabel.text = validator.setNameErrorLabel(text: text)
         nameErrorLabel.textColor = .red
     }
 
     @objc func emailTFChanged(sender: UITextField) {
-        emailErrorLabel.text = validator.setEmailErrorLabel(tfText: sender.text ?? "", errorLabelText: emailErrorLabel.text ?? "")
+        let text = sender.text ?? ""
+        emailErrorLabel.text = validator.setEmailErrorLabel(text: text)
         emailErrorLabel.textColor = .red
     }
 
     @objc func passwordTFChanged(sender: UITextField) {
-        passwordErrorLabel.text = validator.setPasswordErrorLabel(tfText: sender.text ?? "", errorLabelText: passwordErrorLabel.text ?? "")
+        let text = sender.text ?? ""
+        passwordErrorLabel.text = validator.setPasswordErrorLabel(text: text)
         passwordErrorLabel.textColor = .red
     }
 
     @objc func repeatPasswordTFChanged(sender: UITextField) {
+        let password = passwordTextField.text ?? ""
+        let repeatPassword = sender.text ?? ""
         repeatPasswErrorLabel.text = validator.setRepeatPasswErrorLabel(
-            passwtfText: passwordTextField.text ?? "",
-            repeatPasswtfText: sender.text ?? "",
-            errorLabelText: repeatPasswErrorLabel.text ?? "")
+            password: password,
+            repeatPassword: repeatPassword)
         repeatPasswErrorLabel.textColor = .red
     }
     
@@ -129,18 +133,20 @@ class SignupViewController: StackViewController {
 extension SignupViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == nameTextField {
+        
+        switch textField {
+        case nameTextField:
             emailTextField.becomeFirstResponder()
-        }
-        if textField == emailTextField {
+        case emailTextField:
             passwordTextField.becomeFirstResponder()
-        }
-        if textField == passwordTextField {
+        case passwordTextField:
             repeatPasswordTextField.becomeFirstResponder()
-        }
-        if textField == repeatPasswordTextField {
+        case repeatPasswordTextField:
             repeatPasswordTextField.resignFirstResponder()
+        default:
+            break
         }
+        
         return true
     }
 }

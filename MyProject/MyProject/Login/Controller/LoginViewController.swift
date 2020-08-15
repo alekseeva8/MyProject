@@ -50,6 +50,7 @@ class LoginViewController: StackViewController {
         let password = passwordTextField.text ?? ""
         Auth.auth().signIn(withEmail: email, password: password) {[weak self] (result, error) in
             guard let self = self else { return }
+            
             if error == nil {
                 //saving the fact of user's logging in
                 UserDefaults.standard.set(true, forKey: "signed")
@@ -75,12 +76,16 @@ class LoginViewController: StackViewController {
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == emailTextField {
+        
+        switch textField {
+        case emailTextField:
             passwordTextField.becomeFirstResponder()
-        }
-        if textField == passwordTextField {
+        case passwordTextField:
             passwordTextField.resignFirstResponder()
+        default:
+            break
         }
+        
         return true
     }
 }

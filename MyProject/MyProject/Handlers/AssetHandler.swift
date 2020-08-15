@@ -16,19 +16,17 @@ class AssetHandler {
         let docsDirectoryPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         guard let docsDirectoryURL = docsDirectoryPath.first else {return}
         let newDirectoryURL = docsDirectoryURL.appendingPathComponent(url.lastPathComponent)
-
-        //if audio has already been downloaded and saved to file system (to newDirectoryURL) return newDirectoryURL
-        if fileManager.fileExists(atPath: newDirectoryURL.path) {
-            completion(newDirectoryURL)
+        
+        switch fileManager.fileExists(atPath: newDirectoryURL.path) {
+        case true:
+            completion(newDirectoryURL)  //return newDirectoryURL
             print("from file system")
-        }
-        //if not - download audio from network and return tmpUrl. finally, save it to newDirectoryURL
-        else {
+        default:
             NetworkHandler.downloadAssetFrom(url: url) { (tmpUrl) in
                 print("downloaded")
-                completion(tmpUrl)
+                completion(tmpUrl) //download audio from network and return tmpUrl
                 do {
-                    try fileManager.moveItem(at: tmpUrl, to: newDirectoryURL)
+                    try fileManager.moveItem(at: tmpUrl, to: newDirectoryURL)  //save audio to newDirectoryURL
                     print("moved")
                 } catch {
                     print(error)

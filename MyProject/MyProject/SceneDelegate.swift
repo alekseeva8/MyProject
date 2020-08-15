@@ -17,17 +17,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        // chosing the screen to be loaded [SignupVC or MainVC]
+        // choosing the screen to be loaded by checking UserDefault's value (signed or not)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        //choosing initial VC by checking UserDefault's value (signed or not)
         let isSigned = UserDefaults.standard.value(forKey: "signed") as? Bool
         var initialVC = UIViewController()
-        if isSigned == true {
-            // open MainVC
-            initialVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationVC")
-        } else {
-            // open SignupVC
+        
+        switch isSigned {
+        case true: 
+            initialVC = storyboard.instantiateViewController(withIdentifier: "NavigationVC")
+        default: 
             initialVC = storyboard.instantiateViewController(withIdentifier: "SignupVC")
         }
         

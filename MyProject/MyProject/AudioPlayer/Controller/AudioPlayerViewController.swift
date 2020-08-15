@@ -100,12 +100,13 @@ class AudioPlayerViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         }
-        if audioPlayer.isPlaying == false {
+        switch audioPlayer.isPlaying {
+        case false:
             audioPlayer.play()
             if audioPlayer.isPlaying == true {
                 playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
             }
-        } else {
+        default:
             audioPlayer.pause()
             playPauseButton.setImage(UIImage(named: "play"), for: .normal)
         }
@@ -128,13 +129,15 @@ class AudioPlayerViewController: UIViewController {
     }
     
     func playPrevious() {
-        if self.currentAudio == 0 {
+        
+        switch currentAudio {
+        case 0:
             self.audioNameLabel.text = self.audioArray[0].name
             self.imageView.image = self.audioArray[0].image
             guard let trackUrl = self.audioArray[0].url else {return}
             self.prepareAudioToPlay(trackUrl: trackUrl)
             self.audioPlayer.play()
-        } else {
+        default:
             let previousAudioNumber = self.currentAudio - 1
             self.audioNameLabel.text = self.audioArray[previousAudioNumber].name
             self.imageView.image = self.audioArray[previousAudioNumber].image

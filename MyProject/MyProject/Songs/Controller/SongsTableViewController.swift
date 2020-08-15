@@ -41,6 +41,7 @@ class SongsTableViewController: UIViewController {
     func getSongs() {
         DataHandler.getTracks() {[weak self] (tracks) in
             tracks.results.forEach { (track) in
+                
                 if track.kind == "song" {
                     guard let url = URL(string: track.trackUrl) else {return}
                     guard let urlImage = URL(string: track.imageUrl) else {return}
@@ -108,11 +109,14 @@ extension SongsTableViewController: UITableViewDataSource {
         cell.imageView?.image = songs[indexPath.row].image
         cell.textLabel?.font = UIFont.systemFont(ofSize: 19)
         cell.likeButton.addTarget(self, action: #selector(likeButtonTapped(sender:isFavorite:)), for: .touchDown)
-        if  songs[indexPath.row].isFavorite == true {
+        
+        switch songs[indexPath.row].isFavorite {
+        case true:
             cell.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        } else  if songs[indexPath.row].isFavorite == false {
+        default:
             cell.likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
+        
         return cell
     }
     
@@ -121,13 +125,13 @@ extension SongsTableViewController: UITableViewDataSource {
         guard let indexPath = self.tableView.indexPath(for: cell) else {return}
         let song = songs[indexPath.row]
         
-        if song.isFavorite == false {
+        switch song.isFavorite {
+        case false:
             //add to Firestore
             addToFavorites(song)
             song.isFavorite = true
             tableView.reloadData()
-        }
-        else if song.isFavorite == true {
+        default:
             sender.setImage(UIImage(systemName: "heart"), for: .normal)
             //delete from Firestore
             deleteFromFavorites(song)

@@ -120,6 +120,7 @@ extension MAINViewController: UICollectionViewDelegate, UICollectionViewDelegate
     }
     //pass favorites to FavoritesVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let favoritesVC = segue.destination as? FavoritesViewController {
             favoritesVC.favorites = self.favorites
         }
