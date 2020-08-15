@@ -38,27 +38,6 @@ class SongsTableViewController: UIViewController {
         favorites = []
     }
     
-    @IBAction func favoritesButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "toFavoritesVC", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
-            audioPlayerVC.audioArray = songs
-        }
-        if let favoritesVC = segue.destination as? FavoritesViewController {
-            songs.forEach { (song) in
-                if song.isFavorite == true {
-                    favorites.append(song)
-                }
-            }
-            favoritesVC.favorites = self.favorites
-        }
-    }
-}
-
-//MARK: - getSongs
-extension SongsTableViewController {
     func getSongs() {
         DataHandler.getTracks() {[weak self] (tracks) in
             tracks.results.forEach { (track) in
@@ -85,6 +64,24 @@ extension SongsTableViewController {
                 self?.tableView.reloadData()
             }
             self?.tableView.reloadData()
+        }
+    }
+    
+    @IBAction func favoritesButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "toFavoritesVC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
+            audioPlayerVC.audioArray = songs
+        }
+        if let favoritesVC = segue.destination as? FavoritesViewController {
+            songs.forEach { (song) in
+                if song.isFavorite == true {
+                    favorites.append(song)
+                }
+            }
+            favoritesVC.favorites = self.favorites
         }
     }
 }
@@ -138,8 +135,7 @@ extension SongsTableViewController: UITableViewDataSource {
             tableView.reloadData()
         }
     }
-    
-    //MARK: - Firestore functions
+
     func addToFavorites(_ audio: Audio) {
         FirestoreHandler().addToFavorites(audio)
     }

@@ -9,6 +9,7 @@
 import UIKit
 
 class MAINViewController: UIViewController {
+    
     let decoder = JSONDecoder()
     var favorites: [Audio] = []
     var collectionView: UICollectionView
@@ -47,6 +48,19 @@ class MAINViewController: UIViewController {
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
     }
     
+    func collectionViewLayout() {
+        collectionView.backgroundColor = UIColor(named: "BackgroundColor")
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        collectionView.contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
+    }
+    
     @IBAction func logoutButtonTapped(_ sender: Any) {
         UserDefaults.standard.set(false, forKey: "signed")
     }
@@ -71,33 +85,14 @@ extension MAINViewController: UICollectionViewDataSource {
     }
 }
 
-//MARK: - CollectionView Layout
-extension MAINViewController {
-    func collectionViewLayout() {
-        collectionView.backgroundColor = UIColor(named: "BackgroundColor")
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        
-        collectionView.contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
-    }
-}
-
 //MARK: - Delegate
 extension MAINViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth = UIScreen.main.bounds.width - 20 - 20 - 10/2
         return CGSize(width: itemWidth, height: 150)
     }
-}
-
-//MARK: - DidSelect method
-extension MAINViewController {
-    //Tells the delegate that the item at the specified index path was selected.
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         switch  indexPath.row {
