@@ -13,7 +13,7 @@ class AudioPlayerViewController: UIViewController {
     
     var audioPlayer = AVAudioPlayer()
     var timer: Timer?
-    var currentAudio = AudioManager.shared.currentAudio
+    var audioNumber = 0
     var audioArray: [Audio] = []
     
     @IBOutlet weak var reverseView: UIView!
@@ -38,8 +38,9 @@ class AudioPlayerViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BackgroundColor")
         
-        imageView.image = audioArray[currentAudio].image
-        audioNameLabel.text = audioArray[currentAudio].name
+        let currentAudio = audioArray[audioNumber]
+        imageView.image = currentAudio.image
+        audioNameLabel.text = currentAudio.name
         
         //setting timeSlider
         timeSlider.setThumbImage(UIImage(named: "round"), for: .normal)
@@ -54,7 +55,7 @@ class AudioPlayerViewController: UIViewController {
         volumeSlider.minimumValue = 0.0
         volumeSlider.maximumValue = 1.0
         
-        guard let trackUrl = audioArray[currentAudio].url else {return}
+        guard let trackUrl = currentAudio.url else {return}
         prepareAudioToPlay(trackUrl: trackUrl)
     }
     
@@ -135,7 +136,7 @@ class AudioPlayerViewController: UIViewController {
     
     func playPrevious() {
         
-        switch currentAudio {
+        switch audioNumber {
         case 0:
             self.audioNameLabel.text = self.audioArray[0].name
             self.imageView.image = self.audioArray[0].image
@@ -143,14 +144,14 @@ class AudioPlayerViewController: UIViewController {
             self.prepareAudioToPlay(trackUrl: trackUrl)
             self.audioPlayer.play()
         default:
-            let previousAudioNumber = self.currentAudio - 1
+            let previousAudioNumber = self.audioNumber - 1
             self.audioNameLabel.text = self.audioArray[previousAudioNumber].name
             self.imageView.image = self.audioArray[previousAudioNumber].image
             let previousAudio = self.audioArray[previousAudioNumber]
             guard let trackUrl = previousAudio.url else {return}
             self.prepareAudioToPlay(trackUrl: trackUrl)
             self.audioPlayer.play()
-            self.currentAudio -= 1
+            self.audioNumber -= 1
         }
     }
     
@@ -167,17 +168,17 @@ class AudioPlayerViewController: UIViewController {
     }
     
     func playNext() {
-        if self.currentAudio < self.audioArray.count-1 {
-            let nextAudioNumber = self.currentAudio + 1
+        if self.audioNumber < self.audioArray.count-1 {
+            let nextAudioNumber = self.audioNumber + 1
             self.audioNameLabel.text = self.audioArray[nextAudioNumber].name
             self.imageView.image = self.audioArray[nextAudioNumber].image
             let nextAudio = self.audioArray[nextAudioNumber]
             guard let trackUrl = nextAudio.url else {return}
             self.prepareAudioToPlay(trackUrl: trackUrl)
-            self.currentAudio += 1
+            self.audioNumber += 1
         }
         else {
-            self.currentAudio = 0
+            self.audioNumber = 0
             self.audioNameLabel.text = self.audioArray[0].name
             self.imageView.image = self.audioArray[0].image
             guard let trackUrl = self.audioArray[0].url else {return}

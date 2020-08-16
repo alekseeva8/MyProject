@@ -37,10 +37,9 @@ class FavoritesViewController: UIViewController {
 extension FavoritesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        AudioManager.shared.currentAudio = indexPath.row
+        let audioNumber = indexPath.row
         let router = Router(presentor: self)
-        router.showPlayerScreen(with: favorites)
+        router.showPlayerScreen(with: favorites, audioNumber: audioNumber)
     }
 }
 

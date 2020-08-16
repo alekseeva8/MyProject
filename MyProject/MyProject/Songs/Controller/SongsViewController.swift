@@ -83,10 +83,9 @@ class SongsViewController: UIViewController {
 extension SongsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        AudioManager.shared.currentAudio = indexPath.row
+        let audioNumber = indexPath.row
         let router = Router(presentor: self)
-        router.showPlayerScreen(with: songs)
+        router.showPlayerScreen(with: songs, audioNumber: audioNumber)
     }
 }
 

@@ -57,9 +57,10 @@ struct Router {
         presentor.navigationController?.pushViewController(videoVC, animated: true)
     }
     
-    func showPlayerScreen(with audio: [Audio]) {
+    func showPlayerScreen(with audio: [Audio], audioNumber: Int) {
         guard let playerVC = storyboard.instantiateViewController(identifier: "playerVC") as? AudioPlayerViewController else { return }
         playerVC.audioArray = audio
+        playerVC.audioNumber = audioNumber
         presentor.navigationController?.pushViewController(playerVC, animated: true)
     }
     

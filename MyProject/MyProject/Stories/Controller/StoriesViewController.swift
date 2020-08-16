@@ -98,9 +98,8 @@ extension StoriesViewController: UICollectionViewDelegate, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        AudioManager.shared.currentAudio = indexPath.row
+        let audioNumber = indexPath.row
         let router = Router(presentor: self)
-        router.showPlayerScreen(with: stories)
+        router.showPlayerScreen(with: stories, audioNumber: audioNumber)
     }
 }
