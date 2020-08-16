@@ -36,11 +36,11 @@ class Validator {
         password == repeatPassword
     }
     
-    func setNameErrorLabel (text: String) -> String {
+    func setNameErrorLabel (with text: String) -> String {
         text.isEmpty ? "This field can't be empty" : ""
     }
 
-    func setEmailErrorLabel (text: String) -> String {
+    func setEmailErrorLabel (with text: String) -> String {
         var errorLabelText = ""
         switch text.isEmpty {
         case true:
@@ -52,7 +52,7 @@ class Validator {
         return errorLabelText
     }
 
-    func setPasswordErrorLabel (text: String) -> String {
+    func setPasswordErrorLabel (with text: String) -> String {
         text.count < 6 ? "Password must contain at least 6 symbols" : ""
     }
 

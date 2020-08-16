@@ -28,15 +28,15 @@ class StoriesViewController: UIViewController {
         
         view.addSubview(collectionView)
         
-        collectionViewLayout()
+        configureCollectionView()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(StoriesCollectViewCell.self, forCellWithReuseIdentifier: StoriesCollectViewCell.reuseID)
+        collectionView.register(StoriesCollectionViewCell.self, forCellWithReuseIdentifier: StoriesCollectionViewCell.reuseID)
         
         getStories()
         
         collectionView.addSubview(activityIndicator)
-        activityIndicatorLayout()
+        configureActivityIndicator()
         activityIndicator.startAnimating()
     }
     
@@ -56,8 +56,8 @@ class StoriesViewController: UIViewController {
         }
     }
     
-    private func collectionViewLayout() {
-        collectionView.backgroundColor = UIColor(named: "BackgroundColor")
+    private func configureCollectionView() {
+        collectionView.backgroundColor = UIColor.backgroundColor
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
@@ -68,7 +68,7 @@ class StoriesViewController: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
 
-    private func activityIndicatorLayout() {
+    private func configureActivityIndicator() {
         activityIndicator.color = .systemBlue
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor).isActive = true
@@ -84,7 +84,7 @@ extension StoriesViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesCollectViewCell.reuseID, for: indexPath) as? StoriesCollectViewCell else  {fatalError("There is no cell")}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesCollectionViewCell.reuseID, for: indexPath) as? StoriesCollectionViewCell else  {fatalError("There is no cell")}
         cell.storyImageView.image = stories[indexPath.row].image
         return cell
     }

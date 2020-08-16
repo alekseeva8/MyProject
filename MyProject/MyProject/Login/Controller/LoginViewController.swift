@@ -24,23 +24,25 @@ class LoginViewController: StackViewController {
         mainStackView.addArrangedSubview(questionButton)
         mainStackView.addArrangedSubview(button)
         
-        setLabel(label: label, text: "Log in to your account")
+        configureLabel(label, with: "Log in to your account")
 
         subStackView.insertArrangedSubview(emailTextField, at: 0)
         subStackView.addArrangedSubview(passwordTextField)
-        let arrayOfTextFields = [emailTextField, passwordTextField]
-        setTextFields(array: arrayOfTextFields, arrayOfPlaceholders: ["E-mail", "Password"])
         
-        setQuestionButton(button: questionButton, title: "Haven't got an account? Press here.")
-        setButton(button: button, title: "LOG IN")
+        let textFields = [emailTextField, passwordTextField]
+        let placeholders = ["E-mail", "Password"]
+        configureTextFields(textFields, with: placeholders)
+        
+        configureQuestionButton(questionButton, with: "Haven't got an account? Press here.")
+        configureButton(button, with: "LOG IN")
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
 
-    //MARK: - Button
-    override func setButton(button: UIButton, title: String) {
-        super.setButton(button: button, title: title)
+    //MARK: - Buttons
+    override func configureButton(_ button: UIButton, with title: String) {
+        super.configureButton(button, with: title)
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     }
     
@@ -61,8 +63,8 @@ class LoginViewController: StackViewController {
         }
     }
     
-    override func setQuestionButton(button: UIButton, title: String) {
-        super.setQuestionButton(button: questionButton, title: title)
+    override func configureQuestionButton(_: UIButton, with title: String) {
+        super.configureQuestionButton(questionButton, with: title)
         button.addTarget(self, action: #selector(questionButtonPressed), for: .touchUpInside)
     }
     @objc func questionButtonPressed(sender: UIButton) {

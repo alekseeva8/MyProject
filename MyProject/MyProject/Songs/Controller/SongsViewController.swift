@@ -18,14 +18,10 @@ class SongsViewController: UIViewController {
     private var songs = [Audio]()
     private var favorites = [Audio]()
     
-    override var shouldAutorotate: Bool {
-        return false
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Songs"
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = UIColor.backgroundColor
         tableView.rowHeight = 60
         
         tableView.delegate = self

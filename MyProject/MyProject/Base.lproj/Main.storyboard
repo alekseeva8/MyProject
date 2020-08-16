@@ -326,7 +326,7 @@
         <!--Signup View Controller-->
         <scene sceneID="33V-4u-NH6">
             <objects>
-                <viewController storyboardIdentifier="SignupVC" id="jpH-dN-sh6" customClass="SignupViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signupVC" id="jpH-dN-sh6" customClass="SignupViewController" customModule="MyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BfG-f0-zRD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -358,7 +358,7 @@
         <!--Navigation Controller-->
         <scene sceneID="lca-mp-PoH">
             <objects>
-                <navigationController storyboardIdentifier="NavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="2bf-TE-1j5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationVC" automaticallyAdjustsScrollViewInsets="NO" id="2bf-TE-1j5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Nao-EY-L7P"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SO9-IU-T6d">

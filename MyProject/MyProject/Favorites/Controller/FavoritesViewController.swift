@@ -14,14 +14,10 @@ class FavoritesViewController: UIViewController {
     
     var favorites = [Audio]()
     
-    override var shouldAutorotate: Bool {
-        return false
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Favorites"
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = UIColor.backgroundColor
         tableView.rowHeight = 60
         
         tableView.delegate = self

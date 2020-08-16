@@ -17,14 +17,14 @@ struct Router {
     
     static func setInitialScreen() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let isSigned = UserDefaults.standard.value(forKey: "signed") as? Bool
+        let isSigned = UserDefaults.standard.value(forKey: Constants.signed) as? Bool
         var initialVC = UIViewController()
         
         switch isSigned {
         case true: 
-            initialVC = storyboard.instantiateViewController(withIdentifier: "NavigationVC")
+            initialVC = storyboard.instantiateViewController(withIdentifier: "navigationVC")
         default: 
-            initialVC = storyboard.instantiateViewController(withIdentifier: "SignupVC")
+            initialVC = storyboard.instantiateViewController(withIdentifier: "signupVC")
         }
         return initialVC
     }
@@ -36,8 +36,8 @@ struct Router {
     }
     
     func showMainScreen() {
-        UserDefaults.standard.set(true, forKey: "signed")
-        let navigationVC = storyboard.instantiateViewController(identifier: "NavigationVC")
+        UserDefaults.standard.set(true, forKey: Constants.signed)
+        let navigationVC = storyboard.instantiateViewController(identifier: "navigationVC")
         navigationVC.modalPresentationStyle = .fullScreen
         presentor.present(navigationVC, animated: true, completion: nil)
     }

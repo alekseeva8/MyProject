@@ -9,7 +9,8 @@
 import Foundation
 
 enum Constants {
-
+    
+    static let signed = "signed"
     static let passwPlaceholder = "Password"
     static let repeatPasswPlaceholder = "Repeat password"
     static let urlStringAPI = "https://my-json-server.typicode.com/alekseeva8/json-db/db"

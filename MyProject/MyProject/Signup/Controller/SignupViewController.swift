@@ -33,7 +33,7 @@ class SignupViewController: StackViewController {
         mainStackView.addArrangedSubview(questionButton)
         mainStackView.addArrangedSubview(button)
         
-        setLabel(label: label, text: "Welcome to the world of joy!\nPlease sign up.")
+        configureLabel(label, with: "Welcome to the world of joy!\nPlease sign up.")
 
         subStackView.insertArrangedSubview(nameTextField, at: 0)
         subStackView.addArrangedSubview(nameErrorLabel)
@@ -44,18 +44,20 @@ class SignupViewController: StackViewController {
         subStackView.addArrangedSubview(repeatPasswordTextField)
         subStackView.addArrangedSubview(repeatPasswErrorLabel)
 
-        let arrayOfTextFields = [nameTextField, emailTextField, passwordTextField, repeatPasswordTextField]
-        setTextFields(array: arrayOfTextFields, arrayOfPlaceholders: ["Name", "E-mail", Constants.passwPlaceholder, Constants.repeatPasswPlaceholder])
+        let textFields = [nameTextField, emailTextField, passwordTextField, repeatPasswordTextField]
+        let placeholders = ["Name", "E-mail", Constants.passwPlaceholder, Constants.repeatPasswPlaceholder]
+        configureTextFields(textFields, with: placeholders)
         nameTextField.addTarget(self, action: #selector(nameTFChanged(sender:)), for: .editingChanged)
         emailTextField.addTarget(self, action: #selector(emailTFChanged), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(passwordTFChanged), for: .editingChanged)
         repeatPasswordTextField.addTarget(self, action: #selector(repeatPasswordTFChanged), for: .editingChanged)
 
-        let arrayOfLabels = [nameErrorLabel, emailErrorLabel, passwordErrorLabel, repeatPasswErrorLabel]
-        setLabels(array: arrayOfLabels, text: ["", "", "", ""])
+        let errorLabels = [nameErrorLabel, emailErrorLabel, passwordErrorLabel, repeatPasswErrorLabel]
+        let texts = ["", "", "", ""]
+        configureErrorLabels(errorLabels, with: texts)
         
-        setQuestionButton(button: questionButton, title: "Have already have an account? Press here.")
-        setButton(button: button, title: "SIGN UP")
+        configureQuestionButton(questionButton, with: "Have already have an account? Press here.")
+        configureButton(button, with: "SIGN UP")
         
         nameTextField.delegate = self
         emailTextField.delegate = self
@@ -66,19 +68,19 @@ class SignupViewController: StackViewController {
     //MARK: - TextFields' methods
     @objc func nameTFChanged(sender: UITextField) {
         let text = sender.text ?? ""
-        nameErrorLabel.text = validator.setNameErrorLabel(text: text)
+        nameErrorLabel.text = validator.setNameErrorLabel(with: text)
         nameErrorLabel.textColor = .red
     }
 
     @objc func emailTFChanged(sender: UITextField) {
         let text = sender.text ?? ""
-        emailErrorLabel.text = validator.setEmailErrorLabel(text: text)
+        emailErrorLabel.text = validator.setEmailErrorLabel(with: text)
         emailErrorLabel.textColor = .red
     }
 
     @objc func passwordTFChanged(sender: UITextField) {
         let text = sender.text ?? ""
-        passwordErrorLabel.text = validator.setPasswordErrorLabel(text: text)
+        passwordErrorLabel.text = validator.setPasswordErrorLabel(with: text)
         passwordErrorLabel.textColor = .red
     }
 
@@ -92,8 +94,8 @@ class SignupViewController: StackViewController {
     }
     
     //MARK: - Buttons
-    override func setButton(button: UIButton, title: String) {
-        super.setButton(button: button, title: title)
+    override func configureButton(_ button: UIButton, with title: String) {
+        super.configureButton(button, with: title)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
@@ -118,8 +120,8 @@ class SignupViewController: StackViewController {
         }
     }
     
-    override func setQuestionButton(button: UIButton, title: String) {
-        super.setQuestionButton(button: questionButton, title: title)
+    override func configureQuestionButton(_ button: UIButton, with title: String) {
+        super.configureQuestionButton(questionButton, with: title)
         button.addTarget(self, action: #selector(questionButtonPressed), for: .touchUpInside)
     }
     @objc func questionButtonPressed(sender: UIButton) {

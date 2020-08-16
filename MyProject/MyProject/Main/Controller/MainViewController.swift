@@ -28,28 +28,28 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBarStyle()
+        configureNavigationBarStyle()
         
         view.addSubview(collectionView)
-        collectionViewLayout()
+        configureCollectionView()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(MAINCollectionViewCell.self, forCellWithReuseIdentifier: MAINCollectionViewCell.reuseID)
+        collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.reuseID)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         favorites = []
     }
     
-    private func setNavigationBarStyle() {
-        navigationController?.navigationBar.barTintColor = UIColor(named: "NavigationBarColor")
+    private func configureNavigationBarStyle() {
+        navigationController?.navigationBar.barTintColor = UIColor.navigationBarColor
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
     }
     
-    private func collectionViewLayout() {
-        collectionView.backgroundColor = UIColor(named: "BackgroundColor")
+    private func configureCollectionView() {
+        collectionView.backgroundColor = UIColor.backgroundColor
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
@@ -61,8 +61,8 @@ class MainViewController: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
     }
     
-    @IBAction func logoutButtonTapped(_ sender: Any) {
-        UserDefaults.standard.set(false, forKey: "signed")
+    @IBAction func logoutButtonTapped(_ sender: UIButton) {
+        UserDefaults.standard.set(false, forKey: Constants.signed)
     }
 }
 
@@ -74,7 +74,7 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MAINCollectionViewCell.reuseID, for: indexPath) as? MAINCollectionViewCell else  {fatalError("There is no cell")}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.reuseID, for: indexPath) as? MainCollectionViewCell else  {fatalError("There is no cell")}
         cell.layer.cornerRadius = 10
         let category = categories[indexPath.row]
         cell.setCategory(category)

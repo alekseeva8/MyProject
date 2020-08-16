@@ -27,13 +27,9 @@ class AudioPlayerViewController: UIViewController {
     @IBOutlet weak var volumeSlider: UISlider!
     @IBOutlet weak var audioNameLabel: UILabel!
     
-    override var shouldAutorotate: Bool {
-        return false
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = UIColor.backgroundColor
         
         let currentAudio = audioArray[audioNumber]
         imageView.image = currentAudio.image
@@ -74,7 +70,7 @@ class AudioPlayerViewController: UIViewController {
         backgroundView.clipsToBounds = true
     }
     
-    //MARK: - AVAudioPlayer prepareToPlay()
+    //MARK: - prepareAudioToPlay()
     // get url for AudioPlayer
     // if audio has already been downloaded and saved to file system - get newDirectoryURL
     // if it hasn't - audio is downloading from network and tmpDirectoryURL is being passed. (finally, audio is being saved to file system)
