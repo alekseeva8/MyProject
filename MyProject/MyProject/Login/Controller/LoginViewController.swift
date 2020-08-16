@@ -52,9 +52,8 @@ class LoginViewController: StackViewController {
             guard let self = self else { return }
             
             if error == nil {
-                //saving the fact of user's logging in
-                UserDefaults.standard.set(true, forKey: "signed")
-                self.performSegue(withIdentifier: "fromLoginToMainVC", sender: nil)
+                let router = Router(presentor: self)
+                router.showMainScreen()
             }
             else {
                 Alert.sendAlertForLoginVC(self)

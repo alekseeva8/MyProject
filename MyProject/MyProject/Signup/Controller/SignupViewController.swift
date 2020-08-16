@@ -63,7 +63,6 @@ class SignupViewController: StackViewController {
         repeatPasswordTextField.delegate = self
     }
 
-
     //MARK: - TextFields' methods
     @objc func nameTFChanged(sender: UITextField) {
         let text = sender.text ?? ""
@@ -112,9 +111,8 @@ class SignupViewController: StackViewController {
             validator.isRepeatPasswordCorrect(password: password, repeatPassword: repeatPassword) {
             Auth.auth().createUser(withEmail: email, password: password) {(result, error) in
             }
-            //saving the fact of user's registration
-            UserDefaults.standard.set(true, forKey: "signed")
-            performSegue(withIdentifier: "fromSignupToMainVC", sender: nil)
+            let router = Router(presentor: self)
+            router.showMainScreen()
         } else {
             Alert.sendAlertForSigninVC(self)
         }
@@ -125,7 +123,8 @@ class SignupViewController: StackViewController {
         button.addTarget(self, action: #selector(questionButtonPressed), for: .touchUpInside)
     }
     @objc func questionButtonPressed(sender: UIButton) {
-          performSegue(withIdentifier: "toLoginVC", sender: nil)
+        let router = Router(presentor: self)
+        router.showLoginScreen()
     }
 }
 

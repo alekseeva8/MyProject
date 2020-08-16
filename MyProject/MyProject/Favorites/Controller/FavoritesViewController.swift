@@ -32,14 +32,10 @@ class FavoritesViewController: UIViewController {
 extension FavoritesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //saving info in singleton to use it in AudioPlayerVC
+
         AudioManager.shared.currentAudio = indexPath.row
-        performSegue(withIdentifier: "fromFavoritesToPlayerVC", sender: nil)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
-            audioPlayerVC.audioArray = favorites
-        }
+        let router = Router(presentor: self)
+        router.showPlayerScreen(with: favorites)
     }
 }
 

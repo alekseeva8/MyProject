@@ -1,5 +1,5 @@
 //
-//  AVPlayerViewController.swift
+//  AudioPlayerViewController.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 4/22/20.

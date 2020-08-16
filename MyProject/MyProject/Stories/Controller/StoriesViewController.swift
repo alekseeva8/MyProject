@@ -1,5 +1,5 @@
 //
-//  StoriesTableViewController.swift
+//  StoriesViewController.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 4/22/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoriesCollectViewController: UIViewController {
+class StoriesViewController: UIViewController {
     
     var collectionView: UICollectionView
     let activityIndicator = UIActivityIndicatorView(style: .large)
@@ -78,7 +78,7 @@ class StoriesCollectViewController: UIViewController {
 }
 
 //MARK: - DataSource
-extension StoriesCollectViewController: UICollectionViewDataSource {
+extension StoriesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         stories.count
     }
@@ -91,20 +91,16 @@ extension StoriesCollectViewController: UICollectionViewDataSource {
 }
 
 //MARK: - Delegate
-extension StoriesCollectViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension StoriesViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth = (UIScreen.main.bounds.width - 20 - 20 - 20)/2
         return CGSize(width: itemWidth, height: itemWidth)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //saving info in singleton to use it in AudioPlayerVC
+
         AudioManager.shared.currentAudio = indexPath.row
-        performSegue(withIdentifier: "fromStoriesToPlayerVC", sender: nil)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
-            audioPlayerVC.audioArray = stories
-        }
+        let router = Router(presentor: self)
+        router.showPlayerScreen(with: stories)
     }
 }

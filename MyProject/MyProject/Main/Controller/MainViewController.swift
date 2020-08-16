@@ -1,5 +1,5 @@
 //
-//  MAINViewController.swift
+//  MainViewController.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 4/30/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MAINViewController: UIViewController {
+class MainViewController: UIViewController {
     
     let decoder = JSONDecoder()
     var favorites: [Audio] = []
@@ -70,7 +70,7 @@ class MAINViewController: UIViewController {
 }
 
 //MARK: - Data Source
-extension MAINViewController: UICollectionViewDataSource {
+extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         categories.count
@@ -86,7 +86,7 @@ extension MAINViewController: UICollectionViewDataSource {
 }
 
 //MARK: - Delegate
-extension MAINViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth = UIScreen.main.bounds.width - 20 - 20 - 10/2
@@ -95,13 +95,19 @@ extension MAINViewController: UICollectionViewDelegate, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let router = Router(presentor: self)
+        
         switch  indexPath.row {
-        case 0: performSegue(withIdentifier: "fromMainToSongsVC", sender: nil)
-        case 1: performSegue(withIdentifier: "fromMainToStoriesVC", sender: nil)
-        case 2: performSegue(withIdentifier: "fromMainToVideoVC", sender: nil)
+        case 0: 
+            router.showSongsScreen()
+        case 1:
+            router.showStoriesScreen()
+        case 2:
+            router.showVideoScreen()
         case 3:
             //get favorite songs from Firestore, set favorites array to pass later to FavoritesVC
-            FirestoreHandler().getFavorites { (dictionariesArray) in
+            FirestoreHandler().getFavorites { [weak self] (dictionariesArray) in
+                guard let self = self else {return}
                 dictionariesArray.forEach { (dictionary) in
                     do {
                         guard let jsonData = try? JSONSerialization.data(withJSONObject: dictionary) else {return}
@@ -113,16 +119,9 @@ extension MAINViewController: UICollectionViewDelegate, UICollectionViewDelegate
                         print(error.localizedDescription)
                     }
                 }
-                self.performSegue(withIdentifier: "fromMainToFavoritesVC", sender: nil)
+                router.showFavoritesScreen(with: self.favorites)
             }
         default: break
-        }
-    }
-    //pass favorites to FavoritesVC
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let favoritesVC = segue.destination as? FavoritesViewController {
-            favoritesVC.favorites = self.favorites
         }
     }
 }

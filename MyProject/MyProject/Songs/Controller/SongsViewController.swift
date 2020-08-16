@@ -1,5 +1,5 @@
 //
-//  SongsTableViewController.swift
+//  SongsViewController.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 4/22/20.
@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class SongsTableViewController: UIViewController {
+class SongsViewController: UIViewController {
     let database = Firestore.firestore()
     
     @IBOutlet weak var tableView: UITableView!
@@ -69,36 +69,29 @@ class SongsTableViewController: UIViewController {
     }
     
     @IBAction func favoritesButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "toFavoritesVC", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
-            audioPlayerVC.audioArray = songs
-        }
-        if let favoritesVC = segue.destination as? FavoritesViewController {
-            songs.forEach { (song) in
-                if song.isFavorite == true {
-                    favorites.append(song)
-                }
+        songs.forEach { (song) in
+            if song.isFavorite == true {
+                favorites.append(song)
             }
-            favoritesVC.favorites = self.favorites
         }
+        let router = Router(presentor: self)
+        router.showFavoritesScreen(with: favorites)
     }
 }
 
 //MARK: - Delegate
-extension SongsTableViewController: UITableViewDelegate {
+extension SongsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //saving info in singleton to use it in AudioPlayerVC
+        
         AudioManager.shared.currentAudio = indexPath.row
-        performSegue(withIdentifier: "fromSongsTableToPlayerVC", sender: nil)
+        let router = Router(presentor: self)
+        router.showPlayerScreen(with: songs)
     }
 }
 
 //MARK: - DataSource
-extension SongsTableViewController: UITableViewDataSource {
+extension SongsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songs.count
     }

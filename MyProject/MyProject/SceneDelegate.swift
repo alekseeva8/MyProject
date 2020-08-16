@@ -16,19 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        
-        // choosing the screen to be loaded by checking UserDefault's value (signed or not)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let isSigned = UserDefaults.standard.value(forKey: "signed") as? Bool
-        var initialVC = UIViewController()
-        
-        switch isSigned {
-        case true: 
-            initialVC = storyboard.instantiateViewController(withIdentifier: "NavigationVC")
-        default: 
-            initialVC = storyboard.instantiateViewController(withIdentifier: "SignupVC")
-        }
-        
+        let initialVC = Router.setInitialScreen()
         self.window?.rootViewController = initialVC
         window?.makeKeyAndVisible()
     }
