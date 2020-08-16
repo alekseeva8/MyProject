@@ -64,9 +64,6 @@ class MainViewController: UIViewController {
     @IBAction func logoutButtonTapped(_ sender: Any) {
         UserDefaults.standard.set(false, forKey: "signed")
     }
-    
-    @IBAction func backToMainScreen(unwindSegue: UIStoryboardSegue) {
-    }
 }
 
 //MARK: - Data Source

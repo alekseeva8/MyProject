@@ -68,4 +68,8 @@ struct Router {
         favoritesVC.favorites = favorites
         presentor.navigationController?.pushViewController(favoritesVC, animated: true)
     }
+    
+    func returnToMainScreen() {
+        presentor.navigationController?.popToRootViewController(animated: true)
+    }
 }

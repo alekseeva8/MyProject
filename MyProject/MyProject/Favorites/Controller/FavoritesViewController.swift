@@ -26,6 +26,11 @@ class FavoritesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    @IBAction func homeButtonTapped(_ sender: UIBarButtonItem) {
+        let router = Router(presentor: self)
+        router.returnToMainScreen()
+    }
 }
 
 //MARK: - Delegate

@@ -64,6 +64,11 @@ class AudioPlayerViewController: UIViewController {
         timer?.invalidate()
     }
     
+    @IBAction func homeButtonTapped(_ sender: UIBarButtonItem) {
+        let router = Router(presentor: self)
+        router.returnToMainScreen()
+    }
+    
     //MARK: - Functions
     //setting up background views of buttons
     func setBackgroundView(_ backgroundView: UIView) {

@@ -244,9 +244,9 @@
                         <viewLayoutGuide key="safeArea" id="v5o-CG-tid"/>
                     </view>
                     <navigationItem key="navigationItem" id="ehx-hF-ywX">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="house" catalog="system" id="oYB-LW-WDo">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="house" catalog="system" id="oYB-LW-WDo" userLabel="homeButton">
                             <connections>
-                                <segue destination="odV-9G-0sa" kind="unwind" unwindAction="backToMainScreenWithUnwindSegue:" id="Tp7-VK-BPZ"/>
+                                <action selector="homeButtonTapped:" destination="I9R-3G-UfO" id="Q0G-Bc-yW4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -264,7 +264,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BID-7R-dYI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="odV-9G-0sa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5344.9275362318849" y="175.27173913043481"/>
         </scene>
@@ -425,9 +424,9 @@
                         <viewLayoutGuide key="safeArea" id="3lE-es-xRR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="Aeh-0H-AdT">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="house" catalog="system" id="Chh-ml-V6k">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="house" catalog="system" id="Chh-ml-V6k" userLabel="homeButton">
                             <connections>
-                                <segue destination="wyP-6d-8hj" kind="unwind" unwindAction="backToMainScreenWithUnwindSegue:" id="d36-jp-pbk"/>
+                                <action selector="homeButtonTapped:" destination="Fla-Gs-iID" id="0Fz-5s-QPv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -436,7 +435,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1L-bJ-uRb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="wyP-6d-8hj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5049" y="-501"/>
         </scene>
