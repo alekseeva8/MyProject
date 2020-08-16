@@ -11,8 +11,8 @@ import  AVFoundation
 
 class AudioPlayerViewController: UIViewController {
     
-    var audioPlayer = AVAudioPlayer()
-    var timer: Timer?
+    private var audioPlayer = AVAudioPlayer()
+    private var timer: Timer?
     var audioNumber = 0
     var audioArray: [Audio] = []
     
@@ -21,11 +21,8 @@ class AudioPlayerViewController: UIViewController {
     @IBOutlet weak var forwardView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var playPauseButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
     
-    @IBOutlet weak var timeProgressView: UIProgressView!
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var volumeSlider: UISlider!
     @IBOutlet weak var audioNameLabel: UILabel!
@@ -72,7 +69,7 @@ class AudioPlayerViewController: UIViewController {
     
     //MARK: - Functions
     //setting up background views of buttons
-    func setBackgroundView(_ backgroundView: UIView) {
+    private func setBackgroundView(_ backgroundView: UIView) {
         backgroundView.layer.cornerRadius = backgroundView.bounds.width/2
         backgroundView.clipsToBounds = true
     }
@@ -81,7 +78,7 @@ class AudioPlayerViewController: UIViewController {
     // get url for AudioPlayer
     // if audio has already been downloaded and saved to file system - get newDirectoryURL
     // if it hasn't - audio is downloading from network and tmpDirectoryURL is being passed. (finally, audio is being saved to file system)
-    func prepareAudioToPlay(trackUrl: URL) {
+    private func prepareAudioToPlay(trackUrl: URL) {
         AssetHandler.getAssetURL(url: trackUrl) {[weak self] (url) in
             guard let self = self else {return}
             do {
@@ -101,7 +98,7 @@ class AudioPlayerViewController: UIViewController {
         }
     }
     
-    //MARK: - playPauseButton
+    //MARK: - playPauseButtonTouchedDown()
     @IBAction func playPauseButtonTouchedDown(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
@@ -122,7 +119,7 @@ class AudioPlayerViewController: UIViewController {
         sender.transform = CGAffineTransform.identity
     }
     
-    //MARK: - PrevButton
+    //MARK: - prevButtonTouchedDown()
     @IBAction func prevButtonTouchedDown(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
@@ -155,7 +152,7 @@ class AudioPlayerViewController: UIViewController {
         }
     }
     
-    //MARK: - NextButton
+    //MARK: - nextButtonTouchedDown()
     @IBAction func nextButtonTouchedDown(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
@@ -186,7 +183,7 @@ class AudioPlayerViewController: UIViewController {
         }
     }
     
-    //MARK: - timeSlider
+    //MARK: - timeSliderScrolled()
     @IBAction func timeSliderScrolled(_ sender: UISlider) {
         audioPlayer.stop()
         audioPlayer.currentTime = TimeInterval(sender.value)
@@ -197,7 +194,7 @@ class AudioPlayerViewController: UIViewController {
         timeSlider.value = Float(audioPlayer.currentTime)
     }
     
-    //MARK: - volumeSlider
+    //MARK: - volumeSliderScrolled()
     @IBAction func volumeSliderScrolled(_ sender: UISlider) {
         if sender == volumeSlider {
             audioPlayer.volume = sender.value

@@ -10,9 +10,9 @@ import UIKit
 
 class StoriesViewController: UIViewController {
     
-    var collectionView: UICollectionView
-    let activityIndicator = UIActivityIndicatorView(style: .large)
-    var stories = [Audio]()
+    private var collectionView: UICollectionView
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
+    private var stories = [Audio]()
     
     required init?(coder: NSCoder) {
         let layout = UICollectionViewFlowLayout()
@@ -40,7 +40,7 @@ class StoriesViewController: UIViewController {
         activityIndicator.startAnimating()
     }
     
-    func getStories() {
+    private func getStories() {
         DataHandler.getTracks() {[weak self] (tracks) in
             tracks.results.forEach { (track) in
                 if track.kind == "story" {
@@ -56,7 +56,7 @@ class StoriesViewController: UIViewController {
         }
     }
     
-    func collectionViewLayout() {
+    private func collectionViewLayout() {
         collectionView.backgroundColor = UIColor(named: "BackgroundColor")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
@@ -68,7 +68,7 @@ class StoriesViewController: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
 
-    func activityIndicatorLayout() {
+    private func activityIndicatorLayout() {
         activityIndicator.color = .systemBlue
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor).isActive = true

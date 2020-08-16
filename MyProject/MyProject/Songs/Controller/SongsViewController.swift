@@ -11,11 +11,12 @@ import Firebase
 import FirebaseAuth
 
 class SongsViewController: UIViewController {
-    let database = Firestore.firestore()
     
     @IBOutlet weak var tableView: UITableView!
-    var songs = [Audio]()
-    var favorites = [Audio]()
+    
+    private let database = Firestore.firestore()
+    private var songs = [Audio]()
+    private var favorites = [Audio]()
     
     override var shouldAutorotate: Bool {
         return false
@@ -38,7 +39,7 @@ class SongsViewController: UIViewController {
         favorites = []
     }
     
-    func getSongs() {
+    private func getSongs() {
         DataHandler.getTracks() {[weak self] (tracks) in
             tracks.results.forEach { (track) in
                 

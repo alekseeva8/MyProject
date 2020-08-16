@@ -10,10 +10,10 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    let decoder = JSONDecoder()
-    var favorites: [Audio] = []
-    var collectionView: UICollectionView
-    let categories = [Category(name: "Songs", image: UIImage(named: "music-cake"), color: UIColor(named: "PinkCellColor")),
+    private let decoder = JSONDecoder()
+    private var favorites: [Audio] = []
+    private var collectionView: UICollectionView
+    private let categories = [Category(name: "Songs", image: UIImage(named: "music-cake"), color: UIColor(named: "PinkCellColor")),
                      Category(name: "Stories", image: UIImage(named: "fantasy"), color: UIColor(named: "YellowCellColor")),
                      Category(name: "Videos", image: UIImage(named: "artist"), color: UIColor(named: "GreenCellColor")),
                      Category(name: "Favorities", image: UIImage(named: "hearts"), color: UIColor(named: "PurpleCellColor"))]
@@ -41,14 +41,14 @@ class MainViewController: UIViewController {
         favorites = []
     }
     
-    func setNavigationBarStyle() {
+    private func setNavigationBarStyle() {
         navigationController?.navigationBar.barTintColor = UIColor(named: "NavigationBarColor")
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
     }
     
-    func collectionViewLayout() {
+    private func collectionViewLayout() {
         collectionView.backgroundColor = UIColor(named: "BackgroundColor")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false

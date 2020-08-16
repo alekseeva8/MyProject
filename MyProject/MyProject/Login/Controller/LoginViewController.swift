@@ -11,11 +11,11 @@ import  FirebaseAuth
 
 class LoginViewController: StackViewController {
     
-    let label = UILabel()
-    let emailTextField = UITextField()
-    let passwordTextField = UITextField()
-    let questionButton = UIButton()
-    let button = UIButton()
+    private let label = UILabel()
+    private let emailTextField = UITextField()
+    private let passwordTextField = UITextField()
+    private let questionButton = UIButton()
+    private let button = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()

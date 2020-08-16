@@ -9,6 +9,7 @@
 import Foundation
 
 class DataHandler {
+    
     static func getTracks(completionHanndler: @escaping (Tracks) -> Void) {
         APIHandler.requestDataToAPI(urlString: Constants.urlStringAPI) { (data) in
             do {

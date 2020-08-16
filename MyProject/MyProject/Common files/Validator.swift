@@ -14,9 +14,6 @@ class Validator {
     var password = ""
     var repeatPassword = ""
     
-//    init() {
-//    }
-    
     func isLoginCorrect(text: String) -> Bool {
         text.count > 0 ? true : false
     }

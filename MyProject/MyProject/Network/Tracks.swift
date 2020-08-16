@@ -9,8 +9,10 @@
 import Foundation
 
 struct Tracks: Codable {
+    
     let results: [Track]
 }
+
 struct Track: Codable {
     let kind: String
     let trackName: String

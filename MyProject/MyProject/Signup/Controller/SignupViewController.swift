@@ -12,18 +12,18 @@ import Firebase
 
 class SignupViewController: StackViewController {
     
-    let label = UILabel()
-    let nameTextField = UITextField()
-    let emailTextField = UITextField()
-    let passwordTextField = UITextField()
-    let repeatPasswordTextField = UITextField()
-    let nameErrorLabel = UILabel()
-    let emailErrorLabel = UILabel()
-    let passwordErrorLabel = UILabel()
-    let repeatPasswErrorLabel = UILabel()
-    let questionButton = UIButton()
-    let button = UIButton()
-    let validator = Validator()
+    private let label = UILabel()
+    private let nameTextField = UITextField()
+    private let emailTextField = UITextField()
+    private let passwordTextField = UITextField()
+    private let repeatPasswordTextField = UITextField()
+    private let nameErrorLabel = UILabel()
+    private let emailErrorLabel = UILabel()
+    private let passwordErrorLabel = UILabel()
+    private let repeatPasswErrorLabel = UILabel()
+    private let questionButton = UIButton()
+    private let button = UIButton()
+    private let validator = Validator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
