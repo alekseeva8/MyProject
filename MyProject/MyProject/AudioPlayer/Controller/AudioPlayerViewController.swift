@@ -94,11 +94,20 @@ class AudioPlayerViewController: UIViewController {
         }
     }
     
-    //MARK: - playPauseButtonTouchedDown()
-    @IBAction func playPauseButtonTouchedDown(_ sender: UIButton) {
+    private func startAnimation(of sender: UIButton) {
         UIView.animate(withDuration: 0.3) {
             sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         }
+    }
+    
+    private func stopAnimation(of sender: UIButton) {
+        sender.transform = CGAffineTransform.identity
+    }
+    
+    //MARK: - playPauseButtonTouchedDown()
+    @IBAction func playPauseButtonTouchedDown(_ sender: UIButton) {
+        startAnimation(of: sender)
+
         switch audioPlayer.isPlaying {
         case false:
             audioPlayer.play()
@@ -112,70 +121,68 @@ class AudioPlayerViewController: UIViewController {
     }
     
     @IBAction func playPauseButtonTouchedUpInside(_ sender: UIButton) {
-        sender.transform = CGAffineTransform.identity
+        stopAnimation(of: sender)
     }
     
     //MARK: - prevButtonTouchedDown()
     @IBAction func prevButtonTouchedDown(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.3) {
-            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        }
+        startAnimation(of: sender)
         playPrevious()
     }
     
     @IBAction func prevButtonTouchedUpInside(_ sender: UIButton) {
-        sender.transform = CGAffineTransform.identity
+        stopAnimation(of: sender)
     }
     
     func playPrevious() {
         
         switch audioNumber {
         case 0:
-            self.audioNameLabel.text = self.audioArray[0].name
-            self.imageView.image = self.audioArray[0].image
-            guard let trackUrl = self.audioArray[0].url else {return}
-            self.prepareAudioToPlay(trackUrl: trackUrl)
-            self.audioPlayer.play()
+            guard let firstAudio = audioArray.first else {return}
+            audioNameLabel.text = firstAudio.name
+            imageView.image = firstAudio.image
+            guard let trackUrl = firstAudio.url else {return}
+            prepareAudioToPlay(trackUrl: trackUrl)
+            audioPlayer.play()
         default:
-            let previousAudioNumber = self.audioNumber - 1
-            self.audioNameLabel.text = self.audioArray[previousAudioNumber].name
-            self.imageView.image = self.audioArray[previousAudioNumber].image
-            let previousAudio = self.audioArray[previousAudioNumber]
+            let previousAudio = audioArray[audioNumber - 1]
+            audioNameLabel.text = previousAudio.name
+            imageView.image = previousAudio.image
             guard let trackUrl = previousAudio.url else {return}
-            self.prepareAudioToPlay(trackUrl: trackUrl)
-            self.audioPlayer.play()
-            self.audioNumber -= 1
+            prepareAudioToPlay(trackUrl: trackUrl)
+            audioPlayer.play()
+            audioNumber -= 1
         }
     }
     
     //MARK: - nextButtonTouchedDown()
     @IBAction func nextButtonTouchedDown(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.3) {
-            sender.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        }
+        startAnimation(of: sender)
         playNext()
     }
     
     @IBAction func nextButtonTouchedUpInside(_ sender: UIButton) {
-        sender.transform = CGAffineTransform.identity
+        stopAnimation(of: sender)
     }
     
     func playNext() {
-        if self.audioNumber < self.audioArray.count-1 {
-            let nextAudioNumber = self.audioNumber + 1
-            self.audioNameLabel.text = self.audioArray[nextAudioNumber].name
-            self.imageView.image = self.audioArray[nextAudioNumber].image
-            let nextAudio = self.audioArray[nextAudioNumber]
+        if audioNumber < audioArray.count-1 {
+            let nextAudio = audioArray[audioNumber + 1]
             guard let trackUrl = nextAudio.url else {return}
-            self.prepareAudioToPlay(trackUrl: trackUrl)
-            self.audioNumber += 1
+            prepareAudioToPlay(trackUrl: trackUrl)
+            
+            audioNameLabel.text = nextAudio.name
+            imageView.image = nextAudio.image
+            audioNumber += 1
         }
         else {
-            self.audioNumber = 0
-            self.audioNameLabel.text = self.audioArray[0].name
-            self.imageView.image = self.audioArray[0].image
-            guard let trackUrl = self.audioArray[0].url else {return}
-            self.prepareAudioToPlay(trackUrl: trackUrl)
+            audioNumber = 0
+            guard let firstAudio = audioArray.first else {return}
+            guard let trackUrl = firstAudio.url else {return}
+            prepareAudioToPlay(trackUrl: trackUrl)
+            
+            audioNameLabel.text = firstAudio.name
+            imageView.image = firstAudio.image
         }
     }
     

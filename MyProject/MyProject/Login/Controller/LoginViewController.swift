@@ -65,7 +65,7 @@ class LoginViewController: StackViewController {
     
     override func configureQuestionButton(_: UIButton, with title: String) {
         super.configureQuestionButton(questionButton, with: title)
-        button.addTarget(self, action: #selector(questionButtonPressed), for: .touchUpInside)
+        questionButton.addTarget(self, action: #selector(questionButtonPressed), for: .touchUpInside)
     }
     @objc func questionButtonPressed(sender: UIButton) {
         dismiss(animated: true, completion: nil)
