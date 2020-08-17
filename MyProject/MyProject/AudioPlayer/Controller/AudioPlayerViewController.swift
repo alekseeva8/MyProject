@@ -20,9 +20,7 @@ class AudioPlayerViewController: UIViewController {
     @IBOutlet weak var playView: UIView!
     @IBOutlet weak var forwardView: UIView!
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var playPauseButton: UIButton!
-    
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var volumeSlider: UISlider!
     @IBOutlet weak var audioNameLabel: UILabel!
@@ -35,27 +33,24 @@ class AudioPlayerViewController: UIViewController {
         imageView.image = currentAudio.image
         audioNameLabel.text = currentAudio.name
         
-        //setting timeSlider
         timeSlider.setThumbImage(UIImage(named: "round"), for: .normal)
-        //timer for timeSlider
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTimeSlider), userInfo: nil, repeats: true)
         
         setBackgroundView(reverseView)
         setBackgroundView(playView)
         setBackgroundView(forwardView)
         
-        //setting volumeSlider
         volumeSlider.minimumValue = 0.0
         volumeSlider.maximumValue = 1.0
         
         guard let trackUrl = currentAudio.url else {return}
-        prepareAudioToPlay(trackUrl: trackUrl)
+        prepareAudioToPlay(trackUrl: trackUrl) {
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        // stop timer when view disappear
-        timer?.invalidate()
+        timer?.invalidate()  // stop timer when view disappear
     }
     
     @IBAction func homeButtonTapped(_ sender: UIBarButtonItem) {
@@ -71,25 +66,21 @@ class AudioPlayerViewController: UIViewController {
     }
     
     //MARK: - prepareAudioToPlay()
-    // get url for AudioPlayer
-    // if audio has already been downloaded and saved to file system - get newDirectoryURL
-    // if it hasn't - audio is downloading from network and tmpDirectoryURL is being passed. (finally, audio is being saved to file system)
-    private func prepareAudioToPlay(trackUrl: URL) {
-        AssetHandler.getAssetURL(url: trackUrl) {[weak self] (url) in
+    // getting url for AudioPlayer
+    private func prepareAudioToPlay(trackUrl: URL, completionHandler: @escaping () -> Void) {
+        AssetHandler.getURL(trackUrl) {[weak self] (url) in
             guard let self = self else {return}
             do {
                 self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+                self.audioPlayer.delegate = self
+                self.audioPlayer.play()
                 DispatchQueue.main.async {
                     self.timeSlider.maximumValue = Float(self.audioPlayer.duration)
+                    self.playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+                    completionHandler()
                 }
             } catch {
                 print(error)
-            }
-            self.audioPlayer.delegate = self
-            self.audioPlayer.prepareToPlay()
-            self.audioPlayer.play()
-            DispatchQueue.main.async {
-                self.playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
             }
         }
     }
@@ -138,20 +129,22 @@ class AudioPlayerViewController: UIViewController {
         
         switch audioNumber {
         case 0:
+            audioPlayer.stop()
             guard let firstAudio = audioArray.first else {return}
-            audioNameLabel.text = firstAudio.name
-            imageView.image = firstAudio.image
             guard let trackUrl = firstAudio.url else {return}
-            prepareAudioToPlay(trackUrl: trackUrl)
-            audioPlayer.play()
+            prepareAudioToPlay(trackUrl: trackUrl){
+                self.audioNameLabel.text = firstAudio.name
+                self.imageView.image = firstAudio.image
+            }
         default:
+            audioPlayer.stop()
             let previousAudio = audioArray[audioNumber - 1]
-            audioNameLabel.text = previousAudio.name
-            imageView.image = previousAudio.image
             guard let trackUrl = previousAudio.url else {return}
-            prepareAudioToPlay(trackUrl: trackUrl)
-            audioPlayer.play()
-            audioNumber -= 1
+            prepareAudioToPlay(trackUrl: trackUrl){
+                self.audioNameLabel.text = previousAudio.name
+                self.imageView.image = previousAudio.image
+                self.audioNumber -= 1
+            }
         }
     }
     
@@ -167,22 +160,24 @@ class AudioPlayerViewController: UIViewController {
     
     func playNext() {
         if audioNumber < audioArray.count-1 {
+            audioPlayer.stop()
             let nextAudio = audioArray[audioNumber + 1]
             guard let trackUrl = nextAudio.url else {return}
-            prepareAudioToPlay(trackUrl: trackUrl)
-            
-            audioNameLabel.text = nextAudio.name
-            imageView.image = nextAudio.image
-            audioNumber += 1
+            prepareAudioToPlay(trackUrl: trackUrl) {
+                self.audioNameLabel.text = nextAudio.name
+                self.imageView.image = nextAudio.image
+                self.audioNumber += 1
+            }
         }
         else {
+            audioPlayer.stop()
             audioNumber = 0
             guard let firstAudio = audioArray.first else {return}
             guard let trackUrl = firstAudio.url else {return}
-            prepareAudioToPlay(trackUrl: trackUrl)
-            
-            audioNameLabel.text = firstAudio.name
-            imageView.image = firstAudio.image
+            prepareAudioToPlay(trackUrl: trackUrl) {           
+                self.audioNameLabel.text = firstAudio.name
+                self.imageView.image = firstAudio.image
+            }
         }
     }
     
