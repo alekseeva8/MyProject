@@ -1,5 +1,5 @@
 //
-//  StoriesTableViewController.swift
+//  StoriesViewController.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 4/22/20.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class StoriesCollectViewController: UIViewController {
+class StoriesViewController: UIViewController {
     
-    var collectionView: UICollectionView
-    let activityIndicator = UIActivityIndicatorView(style: .large)
-    var stories = [Audio]()
+    private var collectionView: UICollectionView
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
+    private var stories = [Audio]()
     
     required init?(coder: NSCoder) {
         let layout = UICollectionViewFlowLayout()
@@ -28,22 +28,19 @@ class StoriesCollectViewController: UIViewController {
         
         view.addSubview(collectionView)
         
-        collectionViewLayout()
+        configureCollectionView()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(StoriesCollectViewCell.self, forCellWithReuseIdentifier: StoriesCollectViewCell.reuseID)
+        collectionView.register(StoriesCollectionViewCell.self, forCellWithReuseIdentifier: StoriesCollectionViewCell.reuseID)
         
         getStories()
         
         collectionView.addSubview(activityIndicator)
-        activityIndicatorLayout()
+        configureActivityIndicator()
         activityIndicator.startAnimating()
     }
-}
-
-//MARK: - getStories
-extension StoriesCollectViewController {
-    func getStories() {
+    
+    private func getStories() {
         DataHandler.getTracks() {[weak self] (tracks) in
             tracks.results.forEach { (track) in
                 if track.kind == "story" {
@@ -58,25 +55,9 @@ extension StoriesCollectViewController {
             self?.activityIndicator.stopAnimating()
         }
     }
-}
-
-//MARK: - DataSource
-extension StoriesCollectViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        stories.count
-    }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesCollectViewCell.reuseID, for: indexPath) as? StoriesCollectViewCell else  {fatalError("There is no cell")}
-        cell.storyImageView.image = stories[indexPath.row].image
-        return cell
-    }
-}
-
-//MARK: - CollectionView Layout, ActivityIndicator
-extension StoriesCollectViewController {
-    func collectionViewLayout() {
-        collectionView.backgroundColor = UIColor(named: "BackgroundColor")
+    private func configureCollectionView() {
+        collectionView.backgroundColor = UIColor.backgroundColor
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
@@ -87,7 +68,7 @@ extension StoriesCollectViewController {
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
 
-    func activityIndicatorLayout() {
+    private func configureActivityIndicator() {
         activityIndicator.color = .systemBlue
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor).isActive = true
@@ -96,25 +77,29 @@ extension StoriesCollectViewController {
     }
 }
 
+//MARK: - DataSource
+extension StoriesViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        stories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoriesCollectionViewCell.reuseID, for: indexPath) as? StoriesCollectionViewCell else  {fatalError("There is no cell")}
+        cell.storyImageView.image = stories[indexPath.row].image
+        return cell
+    }
+}
+
 //MARK: - Delegate
-extension StoriesCollectViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension StoriesViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth = (UIScreen.main.bounds.width - 20 - 20 - 20)/2
         return CGSize(width: itemWidth, height: itemWidth)
     }
-}
-
-//MARK: - DidSelect method
-extension StoriesCollectViewController {
-    //Tells the delegate that the item at the specified index path was selected.
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //saving info in singleton to use it in AudioPlayerVC
-        AudioManager.shared.currentAudio = indexPath.row
-        performSegue(withIdentifier: "fromStoriesToPlayerVC", sender: nil)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
-            audioPlayerVC.audioArray = stories
-        }
+        let audioNumber = indexPath.row
+        let router = Router(presentor: self)
+        router.showPlayerScreen(with: stories, audioNumber: audioNumber)
     }
 }

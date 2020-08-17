@@ -8,22 +8,22 @@
 
 import UIKit
 import FirebaseAuth
-import  Firebase
+import Firebase
 
 class SignupViewController: StackViewController {
     
-    let label = UILabel()
-    let nameTextField = UITextField()
-    let emailTextField = UITextField()
-    let passwordTextField = UITextField()
-    let repeatPasswordTextField = UITextField()
-    let nameErrorLabel = UILabel()
-    let emailErrorLabel = UILabel()
-    let passwordErrorLabel = UILabel()
-    let repeatPasswErrorLabel = UILabel()
-    let questionButton = UIButton()
-    let button = UIButton()
-    let validator = Validator()
+    private let label = UILabel()
+    private let nameTextField = UITextField()
+    private let emailTextField = UITextField()
+    private let passwordTextField = UITextField()
+    private let repeatPasswordTextField = UITextField()
+    private let nameErrorLabel = UILabel()
+    private let emailErrorLabel = UILabel()
+    private let passwordErrorLabel = UILabel()
+    private let repeatPasswErrorLabel = UILabel()
+    private let questionButton = UIButton()
+    private let button = UIButton()
+    private let validator = Validator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class SignupViewController: StackViewController {
         mainStackView.addArrangedSubview(questionButton)
         mainStackView.addArrangedSubview(button)
         
-        setLabel(label: label, text: "Welcome to the world of joy!\nPlease sign up.")
+        configureLabel(label, with: "Welcome to the world of joy!\nPlease sign up.")
 
         subStackView.insertArrangedSubview(nameTextField, at: 0)
         subStackView.addArrangedSubview(nameErrorLabel)
@@ -44,18 +44,20 @@ class SignupViewController: StackViewController {
         subStackView.addArrangedSubview(repeatPasswordTextField)
         subStackView.addArrangedSubview(repeatPasswErrorLabel)
 
-        let arrayOfTextFields = [nameTextField, emailTextField, passwordTextField, repeatPasswordTextField]
-        setTextFields(array: arrayOfTextFields, arrayOfPlaceholders: ["Name", "E-mail", Constants.passwPlaceholder, Constants.repeatPasswPlaceholder])
+        let textFields = [nameTextField, emailTextField, passwordTextField, repeatPasswordTextField]
+        let placeholders = ["Name", "E-mail", Constants.passwPlaceholder, Constants.repeatPasswPlaceholder]
+        configureTextFields(textFields, with: placeholders)
         nameTextField.addTarget(self, action: #selector(nameTFChanged(sender:)), for: .editingChanged)
         emailTextField.addTarget(self, action: #selector(emailTFChanged), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(passwordTFChanged), for: .editingChanged)
         repeatPasswordTextField.addTarget(self, action: #selector(repeatPasswordTFChanged), for: .editingChanged)
 
-        let arrayOfLabels = [nameErrorLabel, emailErrorLabel, passwordErrorLabel, repeatPasswErrorLabel]
-        setLabels(array: arrayOfLabels, text: ["", "", "", ""])
+        let errorLabels = [nameErrorLabel, emailErrorLabel, passwordErrorLabel, repeatPasswErrorLabel]
+        let texts = ["", "", "", ""]
+        configureErrorLabels(errorLabels, with: texts)
         
-        setQuestionButton(button: questionButton, title: "Have already have an account? Press here.")
-        setButton(button: button, title: "SIGN UP")
+        configureQuestionButton(questionButton, with: "Have already have an account? Press here.")
+        configureButton(button, with: "SIGN UP")
         
         nameTextField.delegate = self
         emailTextField.delegate = self
@@ -63,34 +65,37 @@ class SignupViewController: StackViewController {
         repeatPasswordTextField.delegate = self
     }
 
-
     //MARK: - TextFields' methods
     @objc func nameTFChanged(sender: UITextField) {
-        nameErrorLabel.text = validator.setNameErrorLabel(tfText: sender.text ?? "", errorLabelText: nameErrorLabel.text ?? "")
+        let text = sender.text ?? ""
+        nameErrorLabel.text = validator.setNameErrorLabel(with: text)
         nameErrorLabel.textColor = .red
     }
 
     @objc func emailTFChanged(sender: UITextField) {
-        emailErrorLabel.text = validator.setEmailErrorLabel(tfText: sender.text ?? "", errorLabelText: emailErrorLabel.text ?? "")
+        let text = sender.text ?? ""
+        emailErrorLabel.text = validator.setEmailErrorLabel(with: text)
         emailErrorLabel.textColor = .red
     }
 
     @objc func passwordTFChanged(sender: UITextField) {
-        passwordErrorLabel.text = validator.setPasswordErrorLabel(tfText: sender.text ?? "", errorLabelText: passwordErrorLabel.text ?? "")
+        let text = sender.text ?? ""
+        passwordErrorLabel.text = validator.setPasswordErrorLabel(with: text)
         passwordErrorLabel.textColor = .red
     }
 
     @objc func repeatPasswordTFChanged(sender: UITextField) {
+        let password = passwordTextField.text ?? ""
+        let repeatPassword = sender.text ?? ""
         repeatPasswErrorLabel.text = validator.setRepeatPasswErrorLabel(
-            passwtfText: passwordTextField.text ?? "",
-            repeatPasswtfText: sender.text ?? "",
-            errorLabelText: repeatPasswErrorLabel.text ?? "")
+            password: password,
+            repeatPassword: repeatPassword)
         repeatPasswErrorLabel.textColor = .red
     }
     
     //MARK: - Buttons
-    override func setButton(button: UIButton, title: String) {
-        super.setButton(button: button, title: title)
+    override func configureButton(_ button: UIButton, with title: String) {
+        super.configureButton(button, with: title)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
@@ -108,20 +113,20 @@ class SignupViewController: StackViewController {
             validator.isRepeatPasswordCorrect(password: password, repeatPassword: repeatPassword) {
             Auth.auth().createUser(withEmail: email, password: password) {(result, error) in
             }
-            //saving the fact of user's registration
-            UserDefaults.standard.set(true, forKey: "signed")
-            performSegue(withIdentifier: "fromSignupToMainVC", sender: nil)
+            let router = Router(presentor: self)
+            router.showMainScreen()
         } else {
             Alert.sendAlertForSigninVC(self)
         }
     }
     
-    override func setQuestionButton(button: UIButton, title: String) {
-        super.setQuestionButton(button: questionButton, title: title)
+    override func configureQuestionButton(_ button: UIButton, with title: String) {
+        super.configureQuestionButton(questionButton, with: title)
         button.addTarget(self, action: #selector(questionButtonPressed), for: .touchUpInside)
     }
     @objc func questionButtonPressed(sender: UIButton) {
-          performSegue(withIdentifier: "toLoginVC", sender: nil)
+        let router = Router(presentor: self)
+        router.showLoginScreen()
     }
 }
 
@@ -129,18 +134,20 @@ class SignupViewController: StackViewController {
 extension SignupViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == nameTextField {
+        
+        switch textField {
+        case nameTextField:
             emailTextField.becomeFirstResponder()
-        }
-        if textField == emailTextField {
+        case emailTextField:
             passwordTextField.becomeFirstResponder()
-        }
-        if textField == passwordTextField {
+        case passwordTextField:
             repeatPasswordTextField.becomeFirstResponder()
-        }
-        if textField == repeatPasswordTextField {
+        case repeatPasswordTextField:
             repeatPasswordTextField.resignFirstResponder()
+        default:
+            break
         }
+        
         return true
     }
 }

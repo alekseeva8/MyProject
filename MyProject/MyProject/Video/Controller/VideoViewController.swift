@@ -12,10 +12,6 @@ import WebKit
 class VideoViewController: UIViewController {
     
     @IBOutlet weak var videoWebView: WKWebView!
-
-    override var shouldAutorotate: Bool {
-        return true
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

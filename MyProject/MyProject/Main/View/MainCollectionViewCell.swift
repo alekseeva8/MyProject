@@ -1,5 +1,5 @@
 //
-//  MAINCollectionViewCell.swift
+//  MainCollectionViewCell.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 4/30/20.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MAINCollectionViewCell: UICollectionViewCell {
+class MainCollectionViewCell: UICollectionViewCell {
 
-    static let reuseID = "MAINCollectionViewCell"
+    static let reuseID = "MainCollectionViewCell"
     
     let categoryImageView: UIImageView = {
         let imageView = UIImageView()

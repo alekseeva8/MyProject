@@ -1,5 +1,5 @@
 //
-//  MAINViewController.swift
+//  MainViewController.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 4/30/20.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class MAINViewController: UIViewController {
-    let decoder = JSONDecoder()
-    var favorites: [Audio] = []
-    var collectionView: UICollectionView
-    let categories = [Category(name: "Songs", image: UIImage(named: "music-cake"), color: UIColor(named: "PinkCellColor")),
+class MainViewController: UIViewController {
+    
+    private let decoder = JSONDecoder()
+    private var favorites: [Audio] = []
+    private var collectionView: UICollectionView
+    private let categories = [Category(name: "Songs", image: UIImage(named: "music-cake"), color: UIColor(named: "PinkCellColor")),
                      Category(name: "Stories", image: UIImage(named: "fantasy"), color: UIColor(named: "YellowCellColor")),
                      Category(name: "Videos", image: UIImage(named: "artist"), color: UIColor(named: "GreenCellColor")),
                      Category(name: "Favorities", image: UIImage(named: "hearts"), color: UIColor(named: "PurpleCellColor"))]
@@ -27,54 +28,28 @@ class MAINViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBarStyle()
+        configureNavigationBarStyle()
         
         view.addSubview(collectionView)
-        collectionViewLayout()
+        configureCollectionView()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(MAINCollectionViewCell.self, forCellWithReuseIdentifier: MAINCollectionViewCell.reuseID)
+        collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.reuseID)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         favorites = []
     }
     
-    func setNavigationBarStyle() {
-        navigationController?.navigationBar.barTintColor = UIColor(named: "NavigationBarColor")
+    private func configureNavigationBarStyle() {
+        navigationController?.navigationBar.barTintColor = UIColor.navigationBarColor
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
     }
     
-    @IBAction func logoutButtonTapped(_ sender: Any) {
-        UserDefaults.standard.set(false, forKey: "signed")
-    }
-    
-    @IBAction func backToMainScreen(unwindSegue: UIStoryboardSegue) {
-    }
-}
-
-//MARK: - Data Source
-extension MAINViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        categories.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MAINCollectionViewCell.reuseID, for: indexPath) as? MAINCollectionViewCell else  {fatalError("There is no cell")}
-        cell.layer.cornerRadius = 10
-        let category = categories[indexPath.row]
-        cell.setCategory(category)
-        return cell
-    }
-}
-
-//MARK: - CollectionView Layout
-extension MAINViewController {
-    func collectionViewLayout() {
-        collectionView.backgroundColor = UIColor(named: "BackgroundColor")
+    private func configureCollectionView() {
+        collectionView.backgroundColor = UIColor.backgroundColor
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
@@ -85,28 +60,51 @@ extension MAINViewController {
         
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
     }
+    
+    @IBAction func logoutButtonTapped(_ sender: UIButton) {
+        UserDefaults.standard.set(false, forKey: Constants.signed)
+    }
+}
+
+//MARK: - Data Source
+extension MainViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        categories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.reuseID, for: indexPath) as? MainCollectionViewCell else  {fatalError("There is no cell")}
+        cell.layer.cornerRadius = 10
+        let category = categories[indexPath.row]
+        cell.setCategory(category)
+        return cell
+    }
 }
 
 //MARK: - Delegate
-extension MAINViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth = UIScreen.main.bounds.width - 20 - 20 - 10/2
         return CGSize(width: itemWidth, height: 150)
     }
-}
-
-//MARK: - DidSelect method
-extension MAINViewController {
-    //Tells the delegate that the item at the specified index path was selected.
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let router = Router(presentor: self)
+        
         switch  indexPath.row {
-        case 0: performSegue(withIdentifier: "fromMainToSongsVC", sender: nil)
-        case 1: performSegue(withIdentifier: "fromMainToStoriesVC", sender: nil)
-        case 2: performSegue(withIdentifier: "fromMainToVideoVC", sender: nil)
+        case 0: 
+            router.showSongsScreen()
+        case 1:
+            router.showStoriesScreen()
+        case 2:
+            router.showVideoScreen()
         case 3:
             //get favorite songs from Firestore, set favorites array to pass later to FavoritesVC
-            FirestoreHandler().getFavorites { (dictionariesArray) in
+            FirestoreHandler().getFavorites { [weak self] (dictionariesArray) in
+                guard let self = self else {return}
                 dictionariesArray.forEach { (dictionary) in
                     do {
                         guard let jsonData = try? JSONSerialization.data(withJSONObject: dictionary) else {return}
@@ -118,15 +116,9 @@ extension MAINViewController {
                         print(error.localizedDescription)
                     }
                 }
-                self.performSegue(withIdentifier: "fromMainToFavoritesVC", sender: nil)
+                router.showFavoritesScreen(with: self.favorites)
             }
         default: break
-        }
-    }
-    //pass favorites to FavoritesVC
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let favoritesVC = segue.destination as? FavoritesViewController {
-            favoritesVC.favorites = self.favorites
         }
     }
 }

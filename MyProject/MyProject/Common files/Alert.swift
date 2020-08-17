@@ -9,6 +9,7 @@
 import UIKit
 
 class Alert {
+    
     static func sendAlertForSigninVC(_ sender: UIViewController) {
         let alert = UIAlertController(title: "Check entered information",
         message: "Name and e-mail must not be empty. Password must contain more than 6 symbols", preferredStyle: .alert)

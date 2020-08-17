@@ -1,5 +1,5 @@
 //
-//  SongsTableViewController.swift
+//  SongsViewController.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 4/22/20.
@@ -10,21 +10,18 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class SongsTableViewController: UIViewController {
-    let database = Firestore.firestore()
+class SongsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var songs = [Audio]()
-    var favorites = [Audio]()
     
-    override var shouldAutorotate: Bool {
-        return false
-    }
+    private let database = Firestore.firestore()
+    private var songs = [Audio]()
+    private var favorites = [Audio]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Songs"
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = UIColor.backgroundColor
         tableView.rowHeight = 60
         
         tableView.delegate = self
@@ -38,30 +35,10 @@ class SongsTableViewController: UIViewController {
         favorites = []
     }
     
-    @IBAction func favoritesButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "toFavoritesVC", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
-            audioPlayerVC.audioArray = songs
-        }
-        if let favoritesVC = segue.destination as? FavoritesViewController {
-            songs.forEach { (song) in
-                if song.isFavorite == true {
-                    favorites.append(song)
-                }
-            }
-            favoritesVC.favorites = self.favorites
-        }
-    }
-}
-
-//MARK: - getSongs
-extension SongsTableViewController {
-    func getSongs() {
+    private func getSongs() {
         DataHandler.getTracks() {[weak self] (tracks) in
             tracks.results.forEach { (track) in
+                
                 if track.kind == "song" {
                     guard let url = URL(string: track.trackUrl) else {return}
                     guard let urlImage = URL(string: track.imageUrl) else {return}
@@ -87,20 +64,30 @@ extension SongsTableViewController {
             self?.tableView.reloadData()
         }
     }
+    
+    @IBAction func favoritesButtonPressed(_ sender: UIButton) {
+        songs.forEach { (song) in
+            if song.isFavorite == true {
+                favorites.append(song)
+            }
+        }
+        let router = Router(presentor: self)
+        router.showFavoritesScreen(with: favorites)
+    }
 }
 
 //MARK: - Delegate
-extension SongsTableViewController: UITableViewDelegate {
+extension SongsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //saving info in singleton to use it in AudioPlayerVC
-        AudioManager.shared.currentAudio = indexPath.row
-        performSegue(withIdentifier: "fromSongsTableToPlayerVC", sender: nil)
+        let audioNumber = indexPath.row
+        let router = Router(presentor: self)
+        router.showPlayerScreen(with: songs, audioNumber: audioNumber)
     }
 }
 
 //MARK: - DataSource
-extension SongsTableViewController: UITableViewDataSource {
+extension SongsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songs.count
     }
@@ -111,11 +98,14 @@ extension SongsTableViewController: UITableViewDataSource {
         cell.imageView?.image = songs[indexPath.row].image
         cell.textLabel?.font = UIFont.systemFont(ofSize: 19)
         cell.likeButton.addTarget(self, action: #selector(likeButtonTapped(sender:isFavorite:)), for: .touchDown)
-        if  songs[indexPath.row].isFavorite == true {
+        
+        switch songs[indexPath.row].isFavorite {
+        case true:
             cell.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        } else  if songs[indexPath.row].isFavorite == false {
+        default:
             cell.likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
+        
         return cell
     }
     
@@ -124,13 +114,13 @@ extension SongsTableViewController: UITableViewDataSource {
         guard let indexPath = self.tableView.indexPath(for: cell) else {return}
         let song = songs[indexPath.row]
         
-        if song.isFavorite == false {
+        switch song.isFavorite {
+        case false:
             //add to Firestore
             addToFavorites(song)
             song.isFavorite = true
             tableView.reloadData()
-        }
-        else if song.isFavorite == true {
+        default:
             sender.setImage(UIImage(systemName: "heart"), for: .normal)
             //delete from Firestore
             deleteFromFavorites(song)
@@ -138,8 +128,7 @@ extension SongsTableViewController: UITableViewDataSource {
             tableView.reloadData()
         }
     }
-    
-    //MARK: - Firestore functions
+
     func addToFavorites(_ audio: Audio) {
         FirestoreHandler().addToFavorites(audio)
     }

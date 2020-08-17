@@ -11,20 +11,22 @@ import UIKit
 class FavoritesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var favorites = [Audio]()
     
-    override var shouldAutorotate: Bool {
-        return false
-    }
+    var favorites = [Audio]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Favorites"
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = UIColor.backgroundColor
         tableView.rowHeight = 60
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    @IBAction func homeButtonTapped(_ sender: UIBarButtonItem) {
+        let router = Router(presentor: self)
+        router.returnToMainScreen()
     }
 }
 
@@ -32,14 +34,9 @@ class FavoritesViewController: UIViewController {
 extension FavoritesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //saving info in singleton to use it in AudioPlayerVC
-        AudioManager.shared.currentAudio = indexPath.row
-        performSegue(withIdentifier: "fromFavoritesToPlayerVC", sender: nil)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let audioPlayerVC = segue.destination as? AudioPlayerViewController {
-            audioPlayerVC.audioArray = favorites
-        }
+        let audioNumber = indexPath.row
+        let router = Router(presentor: self)
+        router.showPlayerScreen(with: favorites, audioNumber: audioNumber)
     }
 }
 

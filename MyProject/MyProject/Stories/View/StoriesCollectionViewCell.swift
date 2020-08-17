@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoriesCollectViewCell: UICollectionViewCell {
+class StoriesCollectionViewCell: UICollectionViewCell {
     
     static let reuseID = "StoriesCollectViewCell"
     

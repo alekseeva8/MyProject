@@ -18,20 +18,16 @@ class StackViewController: UIViewController {
         super.init(coder: coder)
     }
     
-    override var shouldAutorotate: Bool {
-        return false
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(mainStackView)
-        view.backgroundColor = UIColor(named: "BackgroundColor")
-        setMainStackViewLayout()
-        subStackViewLayout()
+        view.backgroundColor = UIColor.backgroundColor
+        configureMainStack()
+        configureSubStack()
     }
     
-    //MARK: - MainStackView
-    func setMainStackViewLayout() {
+    //MARK: - configureMainStack()
+    func configureMainStack() {
         
         mainStackView.axis = .vertical
         mainStackView.alignment = .center
@@ -49,16 +45,16 @@ class StackViewController: UIViewController {
         mainStackView.layoutMargins = insets
     }
     
-    //MARK: - Label
-    func setLabel(label: UILabel, text: String) {
+    //MARK: - configureLabel()
+    func configureLabel(_ label: UILabel, with text: String) {
         label.text = text
         label.font = UIFont.systemFont(ofSize: 25)
         label.numberOfLines = 2
         label.textAlignment = .center
     }
     
-    //MARK: - Buttons
-    func setButton(button: UIButton, title: String) {
+    //MARK: - configureButton()
+    func configureButton(_ button: UIButton, with title: String) {
         button.widthAnchor.constraint(equalToConstant: 200).isActive = true
         button.layer.cornerRadius = 20
         button.backgroundColor = .yellow
@@ -66,27 +62,30 @@ class StackViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
     }
+
     
-    func setQuestionButton(button: UIButton, title: String) {
+    //MARK: - configureQuestionButton()    
+    func configureQuestionButton(_ button: UIButton, with title: String) {
         button.setTitle(title, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.setTitleColor(.systemBlue, for: .normal)
     }
     
-    //MARK: - SubStackView
+    //MARK: - configureSubStack()
 
-    func subStackViewLayout() {
+    func configureSubStack() {
         subStackView.widthAnchor.constraint(equalToConstant: 335).isActive = true
         subStackView.axis = .vertical
         subStackView.alignment = .fill
         subStackView.distribution = .fill
         subStackView.spacing = 10
     }
-    
-    func setTextFields(array: [UITextField], arrayOfPlaceholders: [String]) {
-        for (index, item) in array.enumerated() {
+
+    //MARK: - configureTextFields()    
+    func configureTextFields(_ textfields: [UITextField], with placeholders: [String]) {
+        for (index, item) in textfields.enumerated() {
             item.borderStyle = .roundedRect
-            item.placeholder = arrayOfPlaceholders[index]
+            item.placeholder = placeholders[index]
             if item.placeholder == Constants.passwPlaceholder ||
             item.placeholder == Constants.repeatPasswPlaceholder {
                 item.isSecureTextEntry = true
@@ -95,8 +94,10 @@ class StackViewController: UIViewController {
         }
     }
 
-    func setLabels(array: [UILabel], text: [String]) {
-        for (index, item) in array.enumerated() {
+    
+    //MARK: - configureErrorLabels()
+    func configureErrorLabels(_ errorLabels: [UILabel], with text: [String]) {
+        for (index, item) in errorLabels.enumerated() {
             item.text = text[index]
             item.font = UIFont.systemFont(ofSize: 16)
         }

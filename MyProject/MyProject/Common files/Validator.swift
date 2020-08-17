@@ -9,91 +9,54 @@
 import Foundation
 
 class Validator {
+    
     var text = ""
     var password = ""
     var repeatPassword = ""
-    var loginIsCorrect = false
-    var passwordIsCorrect = false
-    
-    init() {
-    }
     
     func isLoginCorrect(text: String) -> Bool {
-        if text.count > 0 {
-            loginIsCorrect = true
-        } else {
-            loginIsCorrect = false
-        }
-        return loginIsCorrect
+        text.count > 0 ? true : false
     }
     
     func isEmailCorrect(text: String) -> Bool {
-        let emailIsCorrect = validateEmail(text: text)
-        return emailIsCorrect
+        validateEmail(text: text)
     }
 
-    func validateEmail(text: String) -> Bool {
+    private func validateEmail(text: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailTest.evaluate(with: text)
     }
     
     func isPasswordCorrect(password: String) -> Bool {
-        if password.count >= 6 {
-            passwordIsCorrect = true
-        } else {
-            passwordIsCorrect = false
-        }
-        return passwordIsCorrect
+        password.count >= 6 ? true : false 
     }
     
     func isRepeatPasswordCorrect(password: String, repeatPassword: String) -> Bool {
         password == repeatPassword
     }
+    
+    func setNameErrorLabel (with text: String) -> String {
+        text.isEmpty ? "This field can't be empty" : ""
+    }
 
-    func setNameErrorLabel (tfText: String, errorLabelText: String) -> String {
-        var errorLabelText = errorLabelText
-        if tfText.isEmpty {
+    func setEmailErrorLabel (with text: String) -> String {
+        var errorLabelText = ""
+        switch text.isEmpty {
+        case true:
             errorLabelText = "This field can't be empty"
-        } else {
-            errorLabelText = ""
+        default: 
+            let emailIsCorrect =  validateEmail(text: text)
+            errorLabelText = emailIsCorrect ? "" : "E-mail is not valid"
         }
         return errorLabelText
     }
 
-    func setEmailErrorLabel (tfText: String, errorLabelText: String) -> String {
-        var errorLabelText = errorLabelText
-        if tfText.isEmpty {
-            errorLabelText = "This field can't be empty"
-        } else {
-            let emailIsCorrect =  validateEmail(text: tfText)
-            if emailIsCorrect == true {
-                errorLabelText = ""
-            }
-            else {
-                errorLabelText = "E-mail is not valid"
-            }
-        }
-        return errorLabelText
+    func setPasswordErrorLabel (with text: String) -> String {
+        text.count < 6 ? "Password must contain at least 6 symbols" : ""
     }
 
-    func setPasswordErrorLabel (tfText: String, errorLabelText: String) -> String {
-        var errorLabelText = errorLabelText
-        if tfText.count < 6 {
-            errorLabelText = "Password must contain at least 6 symbols"
-        } else {
-            errorLabelText = ""
-        }
-        return errorLabelText
-    }
-
-    func setRepeatPasswErrorLabel (passwtfText: String, repeatPasswtfText: String, errorLabelText: String) -> String {
-        var errorLabelText = errorLabelText
-        if passwtfText != repeatPasswtfText {
-            errorLabelText = "You entered wrong password"
-        } else {
-            errorLabelText = ""
-        }
-        return errorLabelText
+    func setRepeatPasswErrorLabel (password: String, repeatPassword: String) -> String {
+        password != repeatPassword ? "You've entered wrong password" : ""
     }
 }

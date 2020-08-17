@@ -11,11 +11,11 @@ import  FirebaseAuth
 
 class LoginViewController: StackViewController {
     
-    let label = UILabel()
-    let emailTextField = UITextField()
-    let passwordTextField = UITextField()
-    let questionButton = UIButton()
-    let button = UIButton()
+    private let label = UILabel()
+    private let emailTextField = UITextField()
+    private let passwordTextField = UITextField()
+    private let questionButton = UIButton()
+    private let button = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,23 +24,25 @@ class LoginViewController: StackViewController {
         mainStackView.addArrangedSubview(questionButton)
         mainStackView.addArrangedSubview(button)
         
-        setLabel(label: label, text: "Log in to your account")
+        configureLabel(label, with: "Log in to your account")
 
         subStackView.insertArrangedSubview(emailTextField, at: 0)
         subStackView.addArrangedSubview(passwordTextField)
-        let arrayOfTextFields = [emailTextField, passwordTextField]
-        setTextFields(array: arrayOfTextFields, arrayOfPlaceholders: ["E-mail", "Password"])
         
-        setQuestionButton(button: questionButton, title: "Haven't got an account? Press here.")
-        setButton(button: button, title: "LOG IN")
+        let textFields = [emailTextField, passwordTextField]
+        let placeholders = ["E-mail", "Password"]
+        configureTextFields(textFields, with: placeholders)
+        
+        configureQuestionButton(questionButton, with: "Haven't got an account? Press here.")
+        configureButton(button, with: "LOG IN")
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
 
-    //MARK: - Button
-    override func setButton(button: UIButton, title: String) {
-        super.setButton(button: button, title: title)
+    //MARK: - Buttons
+    override func configureButton(_ button: UIButton, with title: String) {
+        super.configureButton(button, with: title)
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     }
     
@@ -50,10 +52,10 @@ class LoginViewController: StackViewController {
         let password = passwordTextField.text ?? ""
         Auth.auth().signIn(withEmail: email, password: password) {[weak self] (result, error) in
             guard let self = self else { return }
+            
             if error == nil {
-                //saving the fact of user's logging in
-                UserDefaults.standard.set(true, forKey: "signed")
-                self.performSegue(withIdentifier: "fromLoginToMainVC", sender: nil)
+                let router = Router(presentor: self)
+                router.showMainScreen()
             }
             else {
                 Alert.sendAlertForLoginVC(self)
@@ -61,24 +63,30 @@ class LoginViewController: StackViewController {
         }
     }
     
-    override func setQuestionButton(button: UIButton, title: String) {
-        super.setQuestionButton(button: questionButton, title: title)
-        button.addTarget(self, action: #selector(questionButtonPressed), for: .touchUpInside)
+    override func configureQuestionButton(_: UIButton, with title: String) {
+        super.configureQuestionButton(questionButton, with: title)
+        questionButton.addTarget(self, action: #selector(questionButtonPressed), for: .touchUpInside)
     }
     @objc func questionButtonPressed(sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 }
 
+
+//MARK: - UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == emailTextField {
+        
+        switch textField {
+        case emailTextField:
             passwordTextField.becomeFirstResponder()
-        }
-        if textField == passwordTextField {
+        case passwordTextField:
             passwordTextField.resignFirstResponder()
+        default:
+            break
         }
+        
         return true
     }
 }
