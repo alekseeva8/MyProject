@@ -41,18 +41,11 @@ class StoriesViewController: UIViewController {
     }
     
     private func getStories() {
-        DataHandler.getTracks() {[weak self] (tracks) in
-            tracks.results.forEach { (track) in
-                if track.kind == "story" {
-                    guard let url = URL(string: track.trackUrl) else {return}
-                    guard let urlImage = URL(string: track.imageUrl) else {return}
-                    guard let data = try? Data(contentsOf: urlImage) else {return}
-                    guard let isFavorite = Bool("false") else {return}
-                    self?.stories.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind, isFavorite: isFavorite))
-                }
-            }
-            self?.collectionView.reloadData()
-            self?.activityIndicator.stopAnimating()
+        StoriesDataSource.getStories { [weak self] (stories) in
+            guard let self = self else {return}
+            self.stories = stories
+            self.collectionView.reloadData()
+            self.activityIndicator.stopAnimating()
         }
     }
     
