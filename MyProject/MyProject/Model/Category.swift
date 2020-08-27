@@ -9,7 +9,7 @@
 import UIKit
 
 struct Category {
-    var name: String = ""
-    var image: UIImage?
-    var color: UIColor?
+    let name: String?
+    let image: UIImage?
+    let color: UIColor?
 }

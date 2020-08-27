@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Alert {
+struct Alert {
     
     static func sendAlertForSigninVC(_ sender: UIViewController) {
         let alert = UIAlertController(title: "Check entered information",

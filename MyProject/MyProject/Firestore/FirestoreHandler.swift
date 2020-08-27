@@ -11,13 +11,15 @@ import Firebase
 import FirebaseAuth
 
 class FirestoreHandler {
-    let database = Firestore.firestore()
-    var dictionariesArray = [[String: Any]]()
-    let currentUser = Auth.auth().currentUser?.uid
+    
+    private let database = Firestore.firestore()
+    private var dictionariesArray = [[String: Any]]()
+    private let currentUser = Auth.auth().currentUser?.uid
+    private let favoriteSongs = "favoriteSongs"
     
     func getFavorites(completion: @escaping([[String : Any]]) -> Void) {
         guard let currentUser = currentUser else {return}
-        let reference = database.document("users/\(currentUser)").collection("favoriteSongs")
+        let reference = database.document("users/\(currentUser)").collection(favoriteSongs)
         reference.getDocuments {(querySnapshot, error) in
             if let error = error {
                 print("Error is \(error)")
@@ -34,7 +36,7 @@ class FirestoreHandler {
 
     func addToFavorites(_ audio: Audio) {
         guard let currentUser = currentUser else {return}
-        let reference = database.document("users/\(currentUser)").collection("favoriteSongs")
+        let reference = database.document("users/\(currentUser)").collection(favoriteSongs)
 
         guard let trackUrl = audio.url else {return}
         let trackUrlString = trackUrl.absoluteString
@@ -48,17 +50,17 @@ class FirestoreHandler {
             "trackUrl": "\(trackUrlString)",
             "imageUrl": "\(trackImageDataString)",
             "isFavorite": "true"], merge: true)
-        print("\(audio.name) is added")
+        //print("\(audio.name) is added")
     }
 
     func deleteFromFavorites(_ audio: Audio) {
         guard let currentUser = currentUser else {return}
-        let reference = database.document("users/\(currentUser)").collection("favoriteSongs")
+        let reference = database.document("users/\(currentUser)").collection(favoriteSongs)
         reference.document("\(audio.name)-id").delete() {(err) in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {
-                print("\(audio.name) is removed")
+                //print("\(audio.name) is removed")
             }
         }
     }

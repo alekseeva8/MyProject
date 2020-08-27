@@ -9,10 +9,10 @@
 import  UIKit
 
 class Audio {
-    var name: String
-    var image: UIImage
-    var url: URL?
-    var kind: String
+    let name: String
+    let image: UIImage
+    let url: URL?
+    let kind: String
     var isFavorite: Bool
 
     init(name: String, image: UIImage, url: URL?, kind: String, isFavorite: Bool) {

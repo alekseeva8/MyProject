@@ -10,7 +10,6 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    private let decoder = JSONDecoder()
     private var favorites: [Audio] = []
     private var collectionView: UICollectionView
     private let categories = [Category(name: "Songs", image: UIImage(named: "music-cake"), color: UIColor(named: "PinkCellColor")),
@@ -102,23 +101,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
         case 2:
             router.showVideoScreen()
         case 3:
-            //get favorite songs from Firestore, set favorites array to pass later to FavoritesVC
-            FirestoreHandler().getFavorites { [weak self] (dictionariesArray) in
-                guard let self = self else {return}
-                dictionariesArray.forEach { (dictionary) in
-                    do {
-                        guard let jsonData = try? JSONSerialization.data(withJSONObject: dictionary) else {return}
-                        let track = try self.decoder.decode(Track.self, from: jsonData)
-                        guard let data = Data(base64Encoded: track.imageUrl) else {return}
-                        let url = URL(string: track.trackUrl)
-                        self.favorites.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind, isFavorite: true))
-                    } catch let error {
-                        print(error.localizedDescription)
-                    }
-                }
-                router.showFavoritesScreen(with: self.favorites)
+            MainDataSource.getFavorites { (favorites) in
+                router.showFavoritesScreen(with: favorites)
             }
         default: break
         }
     }
 }
+
