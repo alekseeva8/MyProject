@@ -29,6 +29,7 @@ class SongsViewController: UIViewController {
         
         songs = LocalAssetsHandler.getAssets()
         getSongs()
+        getFavorites(of: songs)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -36,31 +37,15 @@ class SongsViewController: UIViewController {
     }
     
     private func getSongs() {
-        DataHandler.getTracks() {[weak self] (tracks) in
-            tracks.results.forEach { (track) in
-                
-                if track.kind == "song" {
-                    guard let url = URL(string: track.trackUrl) else {return}
-                    guard let urlImage = URL(string: track.imageUrl) else {return}
-                    guard let data = try? Data(contentsOf: urlImage) else {return}
-                    guard let isFavorite = Bool("false") else {return}
-                    self?.songs.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind, isFavorite: isFavorite))
-                }
-            }
-            //get favorite audio names, update songs array setting isFavority property's value to true
-            FirestoreHandler().getFavorites { [weak self] (dictionariesArray) in
-                dictionariesArray.forEach { (dictionary) in
-                    dictionary.forEach { (key, value) in
-                        let valueString = String.init(describing: value)
-                        self?.songs.forEach { (song) in
-                            if song.name == valueString {
-                                song.isFavorite = true
-                            }
-                        }
-                    }
-                }
-                self?.tableView.reloadData()
-            }
+        SongsDataSource.getTracks {[weak self] (songs) in
+            guard let self = self else {return}
+            self.songs.append(contentsOf: songs)
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func getFavorites(of: [Audio]) {
+        SongsDataSource.getFavorites(of: songs) { [weak self] in
             self?.tableView.reloadData()
         }
     }

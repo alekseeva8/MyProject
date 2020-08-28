@@ -50,6 +50,7 @@
 		F39874092469A9BE00545692 /* Big Hero 6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874082469A9BE00545692 /* Big Hero 6.mp3 */; };
 		F39B105D24F7AD0E0007CA3E /* MainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B105C24F7AD0E0007CA3E /* MainDataSource.swift */; };
 		F39B106024F7F1270007CA3E /* StoriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B105F24F7F1270007CA3E /* StoriesDataSource.swift */; };
+		F39B106624F8D9730007CA3E /* SongsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B106524F8D9730007CA3E /* SongsDataSource.swift */; };
 		F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39D10B4245769690093CCF9 /* Rio.mp3 */; };
 		F3A898CB24D2E0FE00EBE695 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3A898CA24D2E0FD00EBE695 /* GoogleService-Info.plist */; };
 		F3DBB270247D2E8C0020A519 /* FirestoreHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DBB26F247D2E8C0020A519 /* FirestoreHandler.swift */; };
@@ -103,6 +104,7 @@
 		F39874082469A9BE00545692 /* Big Hero 6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Big Hero 6.mp3"; sourceTree = "<group>"; };
 		F39B105C24F7AD0E0007CA3E /* MainDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataSource.swift; sourceTree = "<group>"; };
 		F39B105F24F7F1270007CA3E /* StoriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesDataSource.swift; sourceTree = "<group>"; };
+		F39B106524F8D9730007CA3E /* SongsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsDataSource.swift; sourceTree = "<group>"; };
 		F39D10B4245769690093CCF9 /* Rio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rio.mp3; sourceTree = "<group>"; };
 		F3A898CA24D2E0FD00EBE695 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3DBB26F247D2E8C0020A519 /* FirestoreHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreHandler.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 		F34A9A65246465F700DBC4D7 /* Songs */ = {
 			isa = PBXGroup;
 			children = (
+				F39B106724F8D9790007CA3E /* Model */,
 				F3A898CF24D2E96500EBE695 /* Controller */,
 				F3A898D024D2E97100EBE695 /* View */,
 			);
@@ -295,6 +298,14 @@
 			isa = PBXGroup;
 			children = (
 				F39B105F24F7F1270007CA3E /* StoriesDataSource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F39B106724F8D9790007CA3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F39B106524F8D9730007CA3E /* SongsDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -569,6 +580,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F39B106624F8D9730007CA3E /* SongsDataSource.swift in Sources */,
 				F32747F6246C47A30071843C /* Audio.swift in Sources */,
 				F37B7F4124E9A22D0001A7EA /* UIColor.swift in Sources */,
 				F39873F42466F51C00545692 /* APIHandler.swift in Sources */,
