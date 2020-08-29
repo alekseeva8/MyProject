@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>327816053228-68svmop6l6ekds9sm8dkjiggj366c7ke.apps.googleusercontent.com</string>
+	<string>174361542253-aqrif1t43fr07sudvtgders8olctvj5c.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.327816053228-68svmop6l6ekds9sm8dkjiggj366c7ke</string>
+	<string>com.googleusercontent.apps.174361542253-aqrif1t43fr07sudvtgders8olctvj5c</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAFljxmCafz7XuP33IZgukAUTef1dM7ySU</string>
+	<string>AIzaSyDfBxZ0MMozmzLDD_j8QoJ9nMp_bD0305o</string>
 	<key>GCM_SENDER_ID</key>
-	<string>327816053228</string>
+	<string>174361542253</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>education.MyProject2</string>
 	<key>PROJECT_ID</key>
-	<string>myapp3-61dd1</string>
+	<string>myapp4-727f1</string>
 	<key>STORAGE_BUCKET</key>
-	<string>myapp3-61dd1.appspot.com</string>
+	<string>myapp4-727f1.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:327816053228:ios:417027ab660592ca6880c9</string>
+	<string>1:174361542253:ios:74dbd266fb823146be4964</string>
 	<key>DATABASE_URL</key>
-	<string>https://myapp3-61dd1.firebaseio.com</string>
+	<string>https://myapp4-727f1.firebaseio.com</string>
 </dict>
 </plist>

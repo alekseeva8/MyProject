@@ -19,6 +19,7 @@
 		F3274801246DA9A70071843C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3274800246DA9A70071843C /* Alert.swift */; };
 		F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBA24409C2E00E411B4 /* LoginViewController.swift */; };
 		F3344FBF2440AF3200E411B4 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBE2440AF3200E411B4 /* SignupViewController.swift */; };
+		F33D7E8624FA3A05005C74D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F33D7E8524FA3A05005C74D7 /* GoogleService-Info.plist */; };
 		F34A9A58245B3D4600DBC4D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A57245B3D4600DBC4D7 /* MainViewController.swift */; };
 		F34A9A5A245B3D9300DBC4D7 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A59245B3D9300DBC4D7 /* MainCollectionViewCell.swift */; };
 		F34A9A5C2463CC5500DBC4D7 /* LocalAssetsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A5B2463CC5500DBC4D7 /* LocalAssetsHandler.swift */; };
@@ -52,7 +53,6 @@
 		F39B106024F7F1270007CA3E /* StoriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B105F24F7F1270007CA3E /* StoriesDataSource.swift */; };
 		F39B106624F8D9730007CA3E /* SongsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B106524F8D9730007CA3E /* SongsDataSource.swift */; };
 		F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39D10B4245769690093CCF9 /* Rio.mp3 */; };
-		F3A898CB24D2E0FE00EBE695 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3A898CA24D2E0FD00EBE695 /* GoogleService-Info.plist */; };
 		F3DBB270247D2E8C0020A519 /* FirestoreHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DBB26F247D2E8C0020A519 /* FirestoreHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +71,7 @@
 		F3274800246DA9A70071843C /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		F3344FBA24409C2E00E411B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F3344FBE2440AF3200E411B4 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		F33D7E8524FA3A05005C74D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F34A9A57245B3D4600DBC4D7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F34A9A59245B3D9300DBC4D7 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		F34A9A5B2463CC5500DBC4D7 /* LocalAssetsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAssetsHandler.swift; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		F39B105F24F7F1270007CA3E /* StoriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesDataSource.swift; sourceTree = "<group>"; };
 		F39B106524F8D9730007CA3E /* SongsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsDataSource.swift; sourceTree = "<group>"; };
 		F39D10B4245769690093CCF9 /* Rio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rio.mp3; sourceTree = "<group>"; };
-		F3A898CA24D2E0FD00EBE695 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3DBB26F247D2E8C0020A519 /* FirestoreHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -281,7 +281,7 @@
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
 				F3E2991D245876EF00EBB3E7 /* Assets */,
 				F3726D7C2431ECFF00C37F00 /* Info.plist */,
-				F3A898CA24D2E0FD00EBE695 /* GoogleService-Info.plist */,
+				F33D7E8524FA3A05005C74D7 /* GoogleService-Info.plist */,
 			);
 			path = MyProject;
 			sourceTree = "<group>";
@@ -498,7 +498,7 @@
 			files = (
 				F32747EE246C09C10071843C /* Smallfoot.mp3 in Resources */,
 				F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */,
-				F3A898CB24D2E0FE00EBE695 /* GoogleService-Info.plist in Resources */,
+				F33D7E8624FA3A05005C74D7 /* GoogleService-Info.plist in Resources */,
 				F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */,
 				F32747EC246C052E0071843C /* Ballerina.mp3 in Resources */,
 				F39874072469A89900545692 /* Moana.mp3 in Resources */,
