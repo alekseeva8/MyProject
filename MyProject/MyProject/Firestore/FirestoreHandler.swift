@@ -50,7 +50,6 @@ class FirestoreHandler {
             "trackUrl": "\(trackUrlString)",
             "imageUrl": "\(trackImageDataString)",
             "isFavorite": "true"], merge: true)
-        //print("\(audio.name) is added")
     }
 
     func deleteFromFavorites(_ audio: Audio) {
@@ -59,8 +58,6 @@ class FirestoreHandler {
         reference.document("\(audio.name)-id").delete() {(err) in
             if let err = err {
                 print("Error removing document: \(err)")
-            } else {
-                //print("\(audio.name) is removed")
             }
         }
     }

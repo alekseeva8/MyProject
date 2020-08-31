@@ -1,5 +1,5 @@
 //
-//  NetworkHandler.swift
+//  Downloader.swift
 //  MyProject
 //
 //  Created by Elena Alekseeva on 5/7/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NetworkHandler {
+class Downloader {
 
     //download audio from network
     static func downloadAssetFrom(url: URL, completion: @escaping(URL) -> Void) {

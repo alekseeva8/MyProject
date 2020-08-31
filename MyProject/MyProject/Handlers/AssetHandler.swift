@@ -9,7 +9,7 @@
 import Foundation
 
 class AssetHandler {
-
+    
     //get url for AudioPlayer
     static func getURL(_ url: URL, completion: @escaping(URL) -> Void) {
         let fileManager = FileManager.default
@@ -21,7 +21,7 @@ class AssetHandler {
         case true:
             completion(newDirectoryURL)  //return newDirectoryURL
         default:
-            NetworkHandler.downloadAssetFrom(url: url) { (tmpUrl) in
+            Downloader.downloadAssetFrom(url: url) { (tmpUrl) in
                 completion(tmpUrl) //download audio from network and return tmpUrl
                 do {
                     try fileManager.moveItem(at: tmpUrl, to: newDirectoryURL)  //save audio to newDirectoryURL

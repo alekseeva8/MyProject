@@ -29,7 +29,8 @@ class LocalAssetsHandler {
                     assetName = assetName.replacingOccurrences(of: "%20", with: " ")
                     guard let path = Bundle.main.path(forResource: assetName, ofType: "mp3") else {return}
                     let url = URL(fileURLWithPath: path)
-                    assets.append(Audio(name: assetName, image: UIImage(named: assetName) ?? UIImage(), url: url, kind: "song", isFavorite: false))
+                    let image = UIImage(named: assetName) ?? UIImage()
+                    assets.append(Audio(name: assetName, image: image, url: url, kind: "song", isFavorite: false))
                 }
             }
         } catch {

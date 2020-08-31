@@ -67,7 +67,7 @@ class AudioPlayerViewController: UIViewController {
     
     //MARK: - prepareAudioToPlay()
     // getting url for AudioPlayer
-    private func prepareAudioToPlay(trackUrl: URL, completionHandler: @escaping () -> Void) {
+    private func prepareAudioToPlay(trackUrl: URL, completionHandler:  @escaping () -> Void) {
         AssetHandler.getURL(trackUrl) {[weak self] (url) in
             guard let self = self else {return}
             do {
