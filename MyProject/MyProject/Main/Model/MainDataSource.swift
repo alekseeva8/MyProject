@@ -20,8 +20,9 @@ struct MainDataSource {
                     let decoder = JSONDecoder()
                     let track = try decoder.decode(Track.self, from: jsonData)
                     guard let data = Data(base64Encoded: track.imageUrl) else {return}
-                    let url = URL(string: track.trackUrl)
-                    favorites.append(Audio(name: track.trackName, image: UIImage(data: data) ?? UIImage(), url: url, kind: track.kind, isFavorite: true))
+                    let image = UIImage(data: data) ?? UIImage()
+                    guard let url = URL(string: track.trackUrl) else {return}
+                    favorites.append(Audio(name: track.trackName, image: image, url: url, kind: track.kind, isFavorite: true))
                 } catch let error {
                     print(error.localizedDescription)
                 }

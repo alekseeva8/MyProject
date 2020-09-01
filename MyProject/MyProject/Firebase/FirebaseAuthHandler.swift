@@ -11,6 +11,22 @@ import  FirebaseAuth
 
 class FirebaseAuthHandler {
     
+    static func signUp(_ viewController: UIViewController, email: String, password: String) {
+        
+        Auth.auth().createUser(withEmail: email, password: password) {[weak viewController] (result, error) in
+            guard let viewController = viewController else { return }
+            
+            if error == nil {
+                let router = Router(presentor: viewController)
+                router.showMainScreen()
+            }
+            else {
+                print(error) //"No internet connection"
+            }
+        }
+        
+    }
+    
     static func logIn(_ viewController: UIViewController, email: String, password: String) {
         
         Auth.auth().signIn(withEmail: email, password: password) {[weak viewController] (result, error) in

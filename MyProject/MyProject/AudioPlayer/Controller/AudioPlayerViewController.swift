@@ -43,7 +43,7 @@ class AudioPlayerViewController: UIViewController {
         volumeSlider.minimumValue = 0.0
         volumeSlider.maximumValue = 1.0
         
-        guard let trackUrl = currentAudio.url else {return}
+        let trackUrl = currentAudio.url
         prepareAudioToPlay(trackUrl: trackUrl) {
         }
     }
@@ -131,7 +131,7 @@ class AudioPlayerViewController: UIViewController {
         case 0:
             audioPlayer.stop()
             guard let firstAudio = audioArray.first else {return}
-            guard let trackUrl = firstAudio.url else {return}
+            let trackUrl = firstAudio.url
             prepareAudioToPlay(trackUrl: trackUrl){
                 self.audioNameLabel.text = firstAudio.name
                 self.imageView.image = firstAudio.image
@@ -139,7 +139,7 @@ class AudioPlayerViewController: UIViewController {
         default:
             audioPlayer.stop()
             let previousAudio = audioArray[audioNumber - 1]
-            guard let trackUrl = previousAudio.url else {return}
+            let trackUrl = previousAudio.url
             prepareAudioToPlay(trackUrl: trackUrl){
                 self.audioNameLabel.text = previousAudio.name
                 self.imageView.image = previousAudio.image
@@ -162,7 +162,7 @@ class AudioPlayerViewController: UIViewController {
         if audioNumber < audioArray.count-1 {
             audioPlayer.stop()
             let nextAudio = audioArray[audioNumber + 1]
-            guard let trackUrl = nextAudio.url else {return}
+            let trackUrl = nextAudio.url
             prepareAudioToPlay(trackUrl: trackUrl) {
                 self.audioNameLabel.text = nextAudio.name
                 self.imageView.image = nextAudio.image
@@ -173,7 +173,7 @@ class AudioPlayerViewController: UIViewController {
             audioPlayer.stop()
             audioNumber = 0
             guard let firstAudio = audioArray.first else {return}
-            guard let trackUrl = firstAudio.url else {return}
+            let trackUrl = firstAudio.url
             prepareAudioToPlay(trackUrl: trackUrl) {           
                 self.audioNameLabel.text = firstAudio.name
                 self.imageView.image = firstAudio.image

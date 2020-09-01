@@ -10,11 +10,11 @@ import UIKit
 
 class StackViewController: UIViewController {
     
-    var mainStackView: UIStackView
+    var mainStackView = UIStackView(arrangedSubviews: [])
     var subStackView = UIStackView(arrangedSubviews: [])
     
     required init?(coder: NSCoder) {
-        self.mainStackView = UIStackView(arrangedSubviews: [subStackView])
+        self.mainStackView.insertArrangedSubview(subStackView, at: 0)
         super.init(coder: coder)
     }
     
@@ -45,6 +45,16 @@ class StackViewController: UIViewController {
         mainStackView.layoutMargins = insets
     }
     
+    //MARK: - configureSubStack()
+
+    func configureSubStack() {
+        subStackView.widthAnchor.constraint(equalToConstant: 335).isActive = true
+        subStackView.axis = .vertical
+        subStackView.alignment = .fill
+        subStackView.distribution = .fill
+        subStackView.spacing = 10
+    }
+    
     //MARK: - configureLabel()
     func configureLabel(_ label: UILabel, with text: String) {
         label.text = text
@@ -70,16 +80,6 @@ class StackViewController: UIViewController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.setTitleColor(.systemBlue, for: .normal)
     }
-    
-    //MARK: - configureSubStack()
-
-    func configureSubStack() {
-        subStackView.widthAnchor.constraint(equalToConstant: 335).isActive = true
-        subStackView.axis = .vertical
-        subStackView.alignment = .fill
-        subStackView.distribution = .fill
-        subStackView.spacing = 10
-    }
 
     //MARK: - configureTextFields()    
     func configureTextFields(_ textfields: [UITextField], with placeholders: [String]) {
@@ -94,7 +94,6 @@ class StackViewController: UIViewController {
         }
     }
 
-    
     //MARK: - configureErrorLabels()
     func configureErrorLabels(_ errorLabels: [UILabel], with text: [String]) {
         for (index, item) in errorLabels.enumerated() {

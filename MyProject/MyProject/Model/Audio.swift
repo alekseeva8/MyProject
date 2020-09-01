@@ -11,11 +11,11 @@ import  UIKit
 class Audio {
     let name: String
     let image: UIImage
-    let url: URL?
+    let url: URL
     let kind: String
     var isFavorite: Bool
 
-    init(name: String, image: UIImage, url: URL?, kind: String, isFavorite: Bool) {
+    init(name: String, image: UIImage, url: URL, kind: String, isFavorite: Bool) {
         self.name = name
         self.image = image
         self.url = url
