@@ -38,7 +38,7 @@ class FirestoreHandler {
         guard let currentUser = currentUser else {return}
         let reference = database.document("users/\(currentUser)").collection(favoriteSongs)
 
-        guard let trackUrl = audio.url else {return}
+        let trackUrl = audio.url
         let trackUrlString = trackUrl.absoluteString
         let trackImage = audio.image
         guard let trackImageData = trackImage.jpegData(compressionQuality: 1) else {return}
