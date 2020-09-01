@@ -12,13 +12,13 @@ class MainCollectionViewCell: UICollectionViewCell {
 
     static let reuseID = "MainCollectionViewCell"
     
-    let categoryImageView: UIImageView = {
+    private let categoryImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    let categoryNameLabel: UILabel = {
+    private let categoryNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 26, weight: .bold)
         label.textColor = .black

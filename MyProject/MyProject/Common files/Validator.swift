@@ -8,55 +8,57 @@
 
 import Foundation
 
-class Validator {
+struct Validator {
     
-    var text = ""
-    var password = ""
-    var repeatPassword = ""
-    
-    func isLoginCorrect(text: String) -> Bool {
+    static func isNotEmpty(_ text: String) -> Bool {
         text.count > 0 ? true : false
     }
     
-    func isEmailCorrect(text: String) -> Bool {
-        validateEmail(text: text)
-    }
-
-    private func validateEmail(text: String) -> Bool {
+    static func isEmailValid(_ text: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailTest.evaluate(with: text)
     }
     
-    func isPasswordCorrect(password: String) -> Bool {
-        password.count >= 6 ? true : false 
+    static func isEnoughSymbols(_ text: String) -> Bool {
+        text.count >= 6 ? true : false 
     }
     
-    func isRepeatPasswordCorrect(password: String, repeatPassword: String) -> Bool {
-        password == repeatPassword
+    static func isEqual(_ text1: String, _ text2: String) -> Bool {
+        text1.elementsEqual(text2)
     }
     
-    func setNameErrorLabel (with text: String) -> String {
-        text.isEmpty ? "This field can't be empty" : ""
+    //MARK: - validateSignupInfo()
+    static func validateSignupInfo(_ name: String, _ email: String, _ password: String, _ repeatPassword: String) -> Bool {
+        isNotEmpty(name) &&
+        isNotEmpty(email) &&
+        isEmailValid(email) &&
+        isNotEmpty(password) &&
+        isEnoughSymbols(password) &&
+        isEqual(password, repeatPassword)
     }
 
-    func setEmailErrorLabel (with text: String) -> String {
+    //MARK: - Error labels 
+    static func setNameErrorLabel (for text: String) -> String {
+        text.isEmpty ? "This field can't be empty" : ""
+    }
+    
+    static func setEmailErrorLabel (for text: String) -> String {
         var errorLabelText = ""
         switch text.isEmpty {
         case true:
             errorLabelText = "This field can't be empty"
         default: 
-            let emailIsCorrect =  validateEmail(text: text)
-            errorLabelText = emailIsCorrect ? "" : "E-mail is not valid"
+            errorLabelText = isEmailValid(text) ? "" : "E-mail is not valid"
         }
         return errorLabelText
     }
-
-    func setPasswordErrorLabel (with text: String) -> String {
-        text.count < 6 ? "Password must contain at least 6 symbols" : ""
+    
+    static func setPasswordErrorLabel (for text: String) -> String {
+        isEnoughSymbols(text) ? "" : "Password must contain at least 6 symbols"
     }
-
-    func setRepeatPasswErrorLabel (password: String, repeatPassword: String) -> String {
-        password != repeatPassword ? "You've entered wrong password" : ""
+    
+    static func setRepeatPasswErrorLabel (_ password: String, _ repeatPassword: String) -> String {
+        isEqual(password, repeatPassword) ? "" : "You've entered wrong password"
     }
 }

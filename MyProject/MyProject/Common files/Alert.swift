@@ -10,16 +10,19 @@ import UIKit
 
 struct Alert {
     
-    static func sendAlertForSigninVC(_ sender: UIViewController) {
-        let alert = UIAlertController(title: "Check entered information",
-        message: "Name and e-mail must not be empty. Password must contain more than 6 symbols", preferredStyle: .alert)
+    static func sendAlertForSignupVC(_ sender: UIViewController) {
+        let title = "Check entered information"
+        let message = "Name and e-mail must not be empty. Password must contain more than 6 symbols"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
         sender.present(alert, animated: true, completion: nil)
     }
     
     static func sendAlertForLoginVC(_ sender: UIViewController) {
-        let alert = UIAlertController(title: "Incorrect login or password", message: "", preferredStyle: .alert)
+        let title = "Incorrect login or password"
+        let message = ""
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
         sender.present(alert, animated: true, completion: nil)

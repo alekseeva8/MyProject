@@ -23,7 +23,7 @@
 		F34A9A58245B3D4600DBC4D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A57245B3D4600DBC4D7 /* MainViewController.swift */; };
 		F34A9A5A245B3D9300DBC4D7 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A59245B3D9300DBC4D7 /* MainCollectionViewCell.swift */; };
 		F34A9A5C2463CC5500DBC4D7 /* LocalAssetsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A5B2463CC5500DBC4D7 /* LocalAssetsHandler.swift */; };
-		F34A9A632464579C00DBC4D7 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A622464579C00DBC4D7 /* NetworkHandler.swift */; };
+		F34A9A632464579C00DBC4D7 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A622464579C00DBC4D7 /* Downloader.swift */; };
 		F35124412475BE8E0024EB21 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35124402475BE8E0024EB21 /* FavoritesViewController.swift */; };
 		F357C5B2245B054A009E09AE /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F357C5B1245B054A009E09AE /* VideoViewController.swift */; };
 		F3709E3B2472652400C981E8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3709E3A2472652400C981E8 /* Category.swift */; };
@@ -50,9 +50,12 @@
 		F39874072469A89900545692 /* Moana.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874062469A89900545692 /* Moana.mp3 */; };
 		F39874092469A9BE00545692 /* Big Hero 6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39874082469A9BE00545692 /* Big Hero 6.mp3 */; };
 		F39B105D24F7AD0E0007CA3E /* MainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B105C24F7AD0E0007CA3E /* MainDataSource.swift */; };
-		F39B106024F7F1270007CA3E /* StoriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B105F24F7F1270007CA3E /* StoriesDataSource.swift */; };
 		F39B106624F8D9730007CA3E /* SongsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B106524F8D9730007CA3E /* SongsDataSource.swift */; };
 		F39D10B5245769690093CCF9 /* Rio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F39D10B4245769690093CCF9 /* Rio.mp3 */; };
+		F3D12D6E24FD24FF0034E7D7 /* AudioHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D12D6D24FD24FF0034E7D7 /* AudioHandler.swift */; };
+		F3D12D7024FD2CF30034E7D7 /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D12D6F24FD2CF30034E7D7 /* Kind.swift */; };
+		F3D12D7224FD2E110034E7D7 /* StoriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D12D7124FD2E110034E7D7 /* StoriesDataSource.swift */; };
+		F3D12D7524FE5FF60034E7D7 /* FirebaseAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D12D7424FE5FF50034E7D7 /* FirebaseAuthHandler.swift */; };
 		F3DBB270247D2E8C0020A519 /* FirestoreHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DBB26F247D2E8C0020A519 /* FirestoreHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +78,7 @@
 		F34A9A57245B3D4600DBC4D7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F34A9A59245B3D9300DBC4D7 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		F34A9A5B2463CC5500DBC4D7 /* LocalAssetsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAssetsHandler.swift; sourceTree = "<group>"; };
-		F34A9A622464579C00DBC4D7 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		F34A9A622464579C00DBC4D7 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		F35124402475BE8E0024EB21 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F357C5B1245B054A009E09AE /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		F3709E3A2472652400C981E8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -104,9 +107,12 @@
 		F39874062469A89900545692 /* Moana.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Moana.mp3; sourceTree = "<group>"; };
 		F39874082469A9BE00545692 /* Big Hero 6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Big Hero 6.mp3"; sourceTree = "<group>"; };
 		F39B105C24F7AD0E0007CA3E /* MainDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataSource.swift; sourceTree = "<group>"; };
-		F39B105F24F7F1270007CA3E /* StoriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesDataSource.swift; sourceTree = "<group>"; };
 		F39B106524F8D9730007CA3E /* SongsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsDataSource.swift; sourceTree = "<group>"; };
 		F39D10B4245769690093CCF9 /* Rio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rio.mp3; sourceTree = "<group>"; };
+		F3D12D6D24FD24FF0034E7D7 /* AudioHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AudioHandler.swift; path = MyProject/Handlers/AudioHandler.swift; sourceTree = SOURCE_ROOT; };
+		F3D12D6F24FD2CF30034E7D7 /* Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kind.swift; sourceTree = "<group>"; };
+		F3D12D7124FD2E110034E7D7 /* StoriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesDataSource.swift; sourceTree = "<group>"; };
+		F3D12D7424FE5FF50034E7D7 /* FirebaseAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthHandler.swift; sourceTree = "<group>"; };
 		F3DBB26F247D2E8C0020A519 /* FirestoreHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,16 +178,18 @@
 				F3274800246DA9A70071843C /* Alert.swift */,
 				F32747FE246D9F250071843C /* Validator.swift */,
 				F37B7F3E24E913450001A7EA /* Router.swift */,
+				F3D12D6F24FD2CF30034E7D7 /* Kind.swift */,
 			);
 			path = "Common files";
 			sourceTree = "<group>";
 		};
-		F308D58B247EE909002DBD67 /* Firestore */ = {
+		F308D58B247EE909002DBD67 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
 				F3DBB26F247D2E8C0020A519 /* FirestoreHandler.swift */,
+				F3D12D7424FE5FF50034E7D7 /* FirebaseAuthHandler.swift */,
 			);
-			path = Firestore;
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		F308D58C247EE9F6002DBD67 /* Handlers */ = {
@@ -189,6 +197,7 @@
 			children = (
 				F34A9A5B2463CC5500DBC4D7 /* LocalAssetsHandler.swift */,
 				F37AD2B4247505F4001244DF /* AssetHandler.swift */,
+				F3D12D6D24FD24FF0034E7D7 /* AudioHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -233,7 +242,7 @@
 		F34A9A662464666400DBC4D7 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
-				F39B106124F7F12E0007CA3E /* Model */,
+				F3D12D7324FD2E240034E7D7 /* Model */,
 				F3A898D124D2E98600EBE695 /* Controller */,
 				F3A898D224D2E99000EBE695 /* View */,
 			);
@@ -276,7 +285,7 @@
 				F308D588247EE513002DBD67 /* Favorites */,
 				F3D723452475A4CA002A03ED /* Network */,
 				F308D58C247EE9F6002DBD67 /* Handlers */,
-				F308D58B247EE909002DBD67 /* Firestore */,
+				F308D58B247EE909002DBD67 /* Firebase */,
 				F308D58A247EE71B002DBD67 /* Common files */,
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
 				F3E2991D245876EF00EBB3E7 /* Assets */,
@@ -290,14 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				F39B105C24F7AD0E0007CA3E /* MainDataSource.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		F39B106124F7F12E0007CA3E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F39B105F24F7F1270007CA3E /* StoriesDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -406,13 +407,21 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		F3D12D7324FD2E240034E7D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F3D12D7124FD2E110034E7D7 /* StoriesDataSource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F3D723452475A4CA002A03ED /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				F39873F92466FF3500545692 /* Tracks.swift */,
 				F39873F32466F51C00545692 /* APIHandler.swift */,
 				F39873F72466F86F00545692 /* DataHandler.swift */,
-				F34A9A622464579C00DBC4D7 /* NetworkHandler.swift */,
+				F34A9A622464579C00DBC4D7 /* Downloader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -582,7 +591,9 @@
 			files = (
 				F39B106624F8D9730007CA3E /* SongsDataSource.swift in Sources */,
 				F32747F6246C47A30071843C /* Audio.swift in Sources */,
+				F3D12D7224FD2E110034E7D7 /* StoriesDataSource.swift in Sources */,
 				F37B7F4124E9A22D0001A7EA /* UIColor.swift in Sources */,
+				F3D12D7524FE5FF60034E7D7 /* FirebaseAuthHandler.swift in Sources */,
 				F39873F42466F51C00545692 /* APIHandler.swift in Sources */,
 				F35124412475BE8E0024EB21 /* FavoritesViewController.swift in Sources */,
 				F34A9A5A245B3D9300DBC4D7 /* MainCollectionViewCell.swift in Sources */,
@@ -591,12 +602,13 @@
 				F39873F82466F86F00545692 /* DataHandler.swift in Sources */,
 				F3344FBF2440AF3200E411B4 /* SignupViewController.swift in Sources */,
 				F3DBB270247D2E8C0020A519 /* FirestoreHandler.swift in Sources */,
-				F34A9A632464579C00DBC4D7 /* NetworkHandler.swift in Sources */,
+				F3D12D7024FD2CF30034E7D7 /* Kind.swift in Sources */,
+				F34A9A632464579C00DBC4D7 /* Downloader.swift in Sources */,
 				F34A9A5C2463CC5500DBC4D7 /* LocalAssetsHandler.swift in Sources */,
 				F37AD2B5247505F4001244DF /* AssetHandler.swift in Sources */,
 				F388CDD124508E2F0046B2DD /* SongsViewController.swift in Sources */,
-				F39B106024F7F1270007CA3E /* StoriesDataSource.swift in Sources */,
 				F384C211247646E0003296BA /* SongsTableViewCell.swift in Sources */,
+				F3D12D6E24FD24FF0034E7D7 /* AudioHandler.swift in Sources */,
 				F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */,
 				F39B105D24F7AD0E0007CA3E /* MainDataSource.swift in Sources */,
 				F388CDD524508F610046B2DD /* AudioPlayerViewController.swift in Sources */,

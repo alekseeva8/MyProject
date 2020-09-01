@@ -14,7 +14,6 @@ class SongsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private let database = Firestore.firestore()
     private var songs = [Audio]()
     private var favorites = [Audio]()
     
@@ -37,7 +36,7 @@ class SongsViewController: UIViewController {
     }
     
     private func getSongs() {
-        SongsDataSource.getTracks {[weak self] (songs) in
+        SongsDataSource.getSongs {[weak self] (songs) in
             guard let self = self else {return}
             self.songs.append(contentsOf: songs)
             self.tableView.reloadData()
@@ -114,11 +113,11 @@ extension SongsViewController: UITableViewDataSource {
         }
     }
 
-    func addToFavorites(_ audio: Audio) {
+    private func addToFavorites(_ audio: Audio) {
         FirestoreHandler().addToFavorites(audio)
     }
 
-    func deleteFromFavorites(_ audio: Audio) {
+    private func deleteFromFavorites(_ audio: Audio) {
         FirestoreHandler().deleteFromFavorites(audio)
     }
 }

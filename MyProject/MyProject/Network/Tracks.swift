@@ -9,7 +9,6 @@
 import Foundation
 
 struct Tracks: Codable {
-    
     let results: [Track]
 }
 

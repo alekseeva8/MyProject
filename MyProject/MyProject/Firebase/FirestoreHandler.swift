@@ -38,7 +38,7 @@ class FirestoreHandler {
         guard let currentUser = currentUser else {return}
         let reference = database.document("users/\(currentUser)").collection(favoriteSongs)
 
-        guard let trackUrl = audio.url else {return}
+        let trackUrl = audio.url
         let trackUrlString = trackUrl.absoluteString
         let trackImage = audio.image
         guard let trackImageData = trackImage.jpegData(compressionQuality: 1) else {return}
@@ -50,7 +50,6 @@ class FirestoreHandler {
             "trackUrl": "\(trackUrlString)",
             "imageUrl": "\(trackImageDataString)",
             "isFavorite": "true"], merge: true)
-        //print("\(audio.name) is added")
     }
 
     func deleteFromFavorites(_ audio: Audio) {
@@ -59,8 +58,6 @@ class FirestoreHandler {
         reference.document("\(audio.name)-id").delete() {(err) in
             if let err = err {
                 print("Error removing document: \(err)")
-            } else {
-                //print("\(audio.name) is removed")
             }
         }
     }
