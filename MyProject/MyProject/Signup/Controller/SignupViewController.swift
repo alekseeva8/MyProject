@@ -40,19 +40,17 @@ class SignupViewController: StackViewController {
         subStackView.addArrangedSubview(passwordErrorLabel)
         subStackView.addArrangedSubview(repeatPasswordTextField)
         subStackView.addArrangedSubview(repeatPasswErrorLabel)
-
-        let textFields = [nameTextField, emailTextField, passwordTextField, repeatPasswordTextField]
-        let placeholders = ["Name", "E-mail", Constants.passwPlaceholder, Constants.repeatPasswPlaceholder]
-        configureTextFields(textFields, with: placeholders)
+        
+        let textFields: [UITextField : String] = [nameTextField : Constants.namePlaceholder, emailTextField : Constants.emailPlaceholder, passwordTextField : Constants.passwPlaceholder, repeatPasswordTextField : Constants.repeatPasswPlaceholder] 
+        configureTextFields(textFields)
         
         nameTextField.addTarget(self, action: #selector(nameTFChanged(sender:)), for: .editingChanged)
         emailTextField.addTarget(self, action: #selector(emailTFChanged), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(passwordTFChanged), for: .editingChanged)
         repeatPasswordTextField.addTarget(self, action: #selector(repeatPasswordTFChanged), for: .editingChanged)
 
-        let errorLabels = [nameErrorLabel, emailErrorLabel, passwordErrorLabel, repeatPasswErrorLabel]
-        let texts = ["", "", "", ""]
-        configureErrorLabels(errorLabels, with: texts)
+        let errorLabels: [UILabel : String] = [nameErrorLabel : " ", emailErrorLabel : " ", passwordErrorLabel : " ", repeatPasswErrorLabel : " "]
+        configureErrorLabels(errorLabels)
         
         configureQuestionButton(questionButton, with: "Have already have an account? Press here.")
         configureButton(signupButton, with: "SIGN UP")

@@ -28,9 +28,8 @@ class LoginViewController: StackViewController {
         subStackView.insertArrangedSubview(emailTextField, at: 0)
         subStackView.addArrangedSubview(passwordTextField)
         
-        let textFields = [emailTextField, passwordTextField]
-        let placeholders = ["E-mail", "Password"]
-        configureTextFields(textFields, with: placeholders)
+        let textfields: [UITextField : String] = [emailTextField : Constants.emailPlaceholder, passwordTextField : Constants.passwPlaceholder]
+        configureTextFields(textfields)
         
         configureQuestionButton(questionButton, with: "Haven't got an account? Press here.")
         configureButton(loginButton, with: "LOG IN")
