@@ -40,7 +40,7 @@ struct Validator {
 
     //MARK: - Error labels 
     static func setNameErrorLabel (for text: String) -> String {
-        text.isEmpty ? "This field can't be empty" : ""
+        text.isEmpty ? "This field can't be empty" : " "
     }
     
     static func setEmailErrorLabel (for text: String) -> String {
@@ -49,16 +49,16 @@ struct Validator {
         case true:
             errorLabelText = "This field can't be empty"
         default: 
-            errorLabelText = isEmailValid(text) ? "" : "E-mail is not valid"
+            errorLabelText = isEmailValid(text) ? " " : "E-mail is not valid"
         }
         return errorLabelText
     }
     
     static func setPasswordErrorLabel (for text: String) -> String {
-        isEnoughSymbols(text) ? "" : "Password must contain at least 6 symbols"
+        isEnoughSymbols(text) ? " " : "Password must contain at least 6 symbols"
     }
     
     static func setRepeatPasswErrorLabel (_ password: String, _ repeatPassword: String) -> String {
-        isEqual(password, repeatPassword) ? "" : "You've entered wrong password"
+        isEqual(password, repeatPassword) ? " " : "You've entered wrong password"
     }
 }
