@@ -19,7 +19,6 @@
 		F3274801246DA9A70071843C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3274800246DA9A70071843C /* Alert.swift */; };
 		F3344FBB24409C2E00E411B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBA24409C2E00E411B4 /* LoginViewController.swift */; };
 		F3344FBF2440AF3200E411B4 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3344FBE2440AF3200E411B4 /* SignupViewController.swift */; };
-		F33D7E8624FA3A05005C74D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F33D7E8524FA3A05005C74D7 /* GoogleService-Info.plist */; };
 		F34A9A58245B3D4600DBC4D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A57245B3D4600DBC4D7 /* MainViewController.swift */; };
 		F34A9A5A245B3D9300DBC4D7 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A59245B3D9300DBC4D7 /* MainCollectionViewCell.swift */; };
 		F34A9A5C2463CC5500DBC4D7 /* LocalAssetsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34A9A5B2463CC5500DBC4D7 /* LocalAssetsHandler.swift */; };
@@ -57,6 +56,7 @@
 		F3D12D7224FD2E110034E7D7 /* StoriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D12D7124FD2E110034E7D7 /* StoriesDataSource.swift */; };
 		F3D12D7524FE5FF60034E7D7 /* FirebaseAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D12D7424FE5FF50034E7D7 /* FirebaseAuthHandler.swift */; };
 		F3DBB270247D2E8C0020A519 /* FirestoreHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DBB26F247D2E8C0020A519 /* FirestoreHandler.swift */; };
+		F3E394002521B7FE007F983F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3E393FF2521B7FE007F983F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,7 +74,6 @@
 		F3274800246DA9A70071843C /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		F3344FBA24409C2E00E411B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F3344FBE2440AF3200E411B4 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		F33D7E8524FA3A05005C74D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F34A9A57245B3D4600DBC4D7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F34A9A59245B3D9300DBC4D7 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		F34A9A5B2463CC5500DBC4D7 /* LocalAssetsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAssetsHandler.swift; sourceTree = "<group>"; };
@@ -114,6 +113,7 @@
 		F3D12D7124FD2E110034E7D7 /* StoriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesDataSource.swift; sourceTree = "<group>"; };
 		F3D12D7424FE5FF50034E7D7 /* FirebaseAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthHandler.swift; sourceTree = "<group>"; };
 		F3DBB26F247D2E8C0020A519 /* FirestoreHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreHandler.swift; sourceTree = "<group>"; };
+		F3E393FF2521B7FE007F983F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,7 +290,7 @@
 				F3726D772431ECFF00C37F00 /* Assets.xcassets */,
 				F3E2991D245876EF00EBB3E7 /* Assets */,
 				F3726D7C2431ECFF00C37F00 /* Info.plist */,
-				F33D7E8524FA3A05005C74D7 /* GoogleService-Info.plist */,
+				F3E393FF2521B7FE007F983F /* GoogleService-Info.plist */,
 			);
 			path = MyProject;
 			sourceTree = "<group>";
@@ -507,7 +507,7 @@
 			files = (
 				F32747EE246C09C10071843C /* Smallfoot.mp3 in Resources */,
 				F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */,
-				F33D7E8624FA3A05005C74D7 /* GoogleService-Info.plist in Resources */,
+				F3E394002521B7FE007F983F /* GoogleService-Info.plist in Resources */,
 				F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */,
 				F32747EC246C052E0071843C /* Ballerina.mp3 in Resources */,
 				F39874072469A89900545692 /* Moana.mp3 in Resources */,

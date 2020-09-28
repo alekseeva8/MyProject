@@ -59,7 +59,7 @@ class StackViewController: UIViewController {
     func configureLabel(_ label: UILabel, with text: String) {
         label.text = text
         label.font = UIFont.systemFont(ofSize: 25)
-        label.numberOfLines = 2
+
         label.textAlignment = .center
     }
     

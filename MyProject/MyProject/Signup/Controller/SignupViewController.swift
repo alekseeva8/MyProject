@@ -30,7 +30,7 @@ class SignupViewController: StackViewController {
         mainStackView.addArrangedSubview(questionButton)
         mainStackView.addArrangedSubview(signupButton)
         
-        configureLabel(label, with: "Welcome to the world of joy!\nPlease sign up.")
+        configureLabel(label, with: "Welcome to the world of joy!")
 
         subStackView.insertArrangedSubview(nameTextField, at: 0)
         subStackView.addArrangedSubview(nameErrorLabel)
