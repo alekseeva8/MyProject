@@ -29,7 +29,6 @@
 		F3718DC52459978200EC7054 /* The Secret Life of Pets 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3718DC42459978200EC7054 /* The Secret Life of Pets 2.mp3 */; };
 		F3718DCF2459E09C00EC7054 /* StoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3718DCE2459E09C00EC7054 /* StoriesCollectionViewCell.swift */; };
 		F3726D6F2431ECFD00C37F00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3726D6E2431ECFD00C37F00 /* AppDelegate.swift */; };
-		F3726D712431ECFD00C37F00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3726D702431ECFD00C37F00 /* SceneDelegate.swift */; };
 		F3726D762431ECFD00C37F00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3726D742431ECFD00C37F00 /* Main.storyboard */; };
 		F3726D782431ECFF00C37F00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3726D772431ECFF00C37F00 /* Assets.xcassets */; };
 		F3726D7B2431ECFF00C37F00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3726D792431ECFF00C37F00 /* LaunchScreen.storyboard */; };
@@ -85,7 +84,6 @@
 		F3718DCE2459E09C00EC7054 /* StoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3726D6B2431ECFD00C37F00 /* MyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3726D6E2431ECFD00C37F00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3726D702431ECFD00C37F00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F3726D752431ECFD00C37F00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3726D772431ECFF00C37F00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3726D7A2431ECFF00C37F00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -271,7 +269,6 @@
 			isa = PBXGroup;
 			children = (
 				F3726D6E2431ECFD00C37F00 /* AppDelegate.swift */,
-				F3726D702431ECFD00C37F00 /* SceneDelegate.swift */,
 				F3726D792431ECFF00C37F00 /* LaunchScreen.storyboard */,
 				F3726D742431ECFD00C37F00 /* Main.storyboard */,
 				F308D58D247F00AC002DBD67 /* Model */,
@@ -620,7 +617,6 @@
 				F3709E3B2472652400C981E8 /* Category.swift in Sources */,
 				F32747FF246D9F250071843C /* Validator.swift in Sources */,
 				F37B7F3F24E913450001A7EA /* Router.swift in Sources */,
-				F3726D712431ECFD00C37F00 /* SceneDelegate.swift in Sources */,
 				F39873FA2466FF3500545692 /* Tracks.swift in Sources */,
 				F308D586247EE380002DBD67 /* Constants.swift in Sources */,
 			);
@@ -770,6 +766,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9W292R69FX;
 				INFOPLIST_FILE = MyProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -789,6 +786,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9W292R69FX;
 				INFOPLIST_FILE = MyProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
